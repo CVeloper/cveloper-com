@@ -145,76 +145,6 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
     $ git status
 
         On branch master
-        Your branch is ahead of 'origin/master' by 1 commit.
-            (use "git push" to publish your local commits)
-
-        nothing to commit, working tree clean
-
-
-
-######################################################################## VER CAMBIOS EN REPOSITORIO ####################
-
-Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
-
-    $ git status
-
-        On branch master
-        Your branch is ahead of 'origin/master' by 1 commit.
-            (use "git push" to publish your local commits)
-
-        Changes not staged for commit:
-            (use "git add <file>..." to update what will be committed)
-            (use "git checkout -- <file>..." to discard changes in working directory)
-
-                        modified:   index.php
-
-        no changes added to commit (use "git add" and/or "git commit -a")
-
-
-
-################################################################################ AÑADIR LOS CAMBIOS ####################
-
-Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
-
-    $ git add -A
-
-
-
-######################################################################## VER CAMBIOS EN REPOSITORIO ####################
-
-Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
-
-    $ git status
-
-        On branch master
-        Your branch is ahead of 'origin/master' by 1 commit.
-            (use "git push" to publish your local commits)
-
-        Changes to be committed:
-            (use "git reset HEAD <file>..." to unstage)
-
-                        modified:   index.php
-
-
-
-####################################################################### GRABAR LOS CAMBIOS AÑADIDOS ####################
-
-Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
-
-    $ git commit -m 'Cambiado el título de la web.'
-
-        [master 8bafe51] Cambiado el título de la web.
-         1 file changed, 1 insertion(+), 1 deletion(-)
-
-
-
-######################################################################## VER CAMBIOS EN REPOSITORIO ####################
-
-Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
-
-    $ git status
-
-        On branch master
         Your branch is ahead of 'origin/master' by 2 commits.
             (use "git push" to publish your local commits)
 
@@ -237,3 +167,57 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
         remote: Resolving deltas: 100% (2/2), completed with 1 local object.
         To https://github.com/CVeloper/cveloper-com.git
              984fc61..8bafe51  master -> master
+
+
+
+######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git status
+
+        On branch master
+        Your branch is up to date with 'origin/master'.
+
+        Untracked files:
+          (use "git add <file>..." to include in what will be committed)
+
+                git_commands.txt
+
+        nothing added to commit but untracked files present (use "git add" to track)
+
+
+
+################################################################################ AÑADIR LOS CAMBIOS ####################  
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git add -A
+
+
+
+######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git status
+
+        On branch master
+        Your branch is up to date with 'origin/master'.
+
+        Changes to be committed:
+          (use "git reset HEAD <file>..." to unstage)
+
+                new file:   git_commands.txt
+
+
+
+######################################### ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git commit -m 'Añadido archivo de comandos GIT.'
+
+        [master 11529ad] Añadido archivo de comandos GIT.
+         1 file changed, 239 insertions(+)
+         create mode 100644 git_commands.txt
