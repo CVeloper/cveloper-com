@@ -29,16 +29,16 @@
 			<a href="https://xd.adobe.com/view/52aabd6c-36f6-481a-7ad7-8ce0cfdb4d28-249b/?hints=off"><h1>{<?= $name; ?>}</h1></a>
 			<h2><?= $soon; ?></h2>
 		</div>
+		<nav>
+	        <ul>
+	            <li><a href="https://github.com/CVeloper" target="_blank"><i class="fab fa-github"></i></a></li>
+	            <li><a href="https://linkedin.com/in/CVeloper" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+	            <li><a href="https://twitter.com/CVeloperApp" target="_blank"><i class="fab fa-twitter"></i></a></li>
+	            <li><a href="https://facebook.com/CVeloper" target="_blank"><i class="fab fa-facebook"></i></a></li>
+	            <li><a href="https://instagram.com/CVeloperApp" target="_blank"><i class="fab fa-instagram"></i></a></li>
+	            <li><a href="https://pinterest.com/CVeloper" target="_blank"><i class="fab fa-pinterest"></i></a></li>
+	        </ul>
+	    </nav>
 	</section>
-    <nav>
-        <ul>
-            <li><a href="https://github.com/CVeloper" target="_blank"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/in/CVeloper" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://twitter.com/CVeloperApp" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://facebook.com/CVeloper" target="_blank"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="https://instagram.com/CVeloperApp" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://pinterest.com/CVeloper" target="_blank"><i class="fab fa-pinterest"></i></a></li>
-        </ul>
-    </nav>
 </body>
 </html>

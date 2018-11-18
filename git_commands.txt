@@ -212,7 +212,7 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################### ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO ####################
+####################################################################### GRABAR LOS CAMBIOS AÑADIDOS ####################
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -221,3 +221,21 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
         [master 11529ad] Añadido archivo de comandos GIT.
          1 file changed, 239 insertions(+)
          create mode 100644 git_commands.txt
+
+
+
+######################################### ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git push origin master
+
+        Enumerating objects: 7, done.
+        Counting objects: 100% (7/7), done.
+        Delta compression using up to 24 threads
+        Compressing objects: 100% (6/6), done.
+        Writing objects: 100% (6/6), 2.08 KiB | 1.04 MiB/s, done.
+        Total 6 (delta 2), reused 0 (delta 0)
+        remote: Resolving deltas: 100% (2/2), done.
+        To https://github.com/CVeloper/cveloper-com.git
+           8bafe51..daf0994  master -> master
