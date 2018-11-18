@@ -1,14 +1,16 @@
 <?php
+
 	$ahora = new DateTime();
-	// $hoy = $ahora->format("d/m/Y");
+
 	$entrega = new DateTime("2019-05-24");
-	// $final = $entrega->format("d/m/Y");
+
 	$diferencia = $ahora->diff($entrega);
 	$dias = $diferencia->format("%a");
 
 	$name = "CVeloper";
 	$time = "$dias days to go";
 	$soon = "Stay tuned!";
+
 ?>
 
 <!DOCTYPE html>
