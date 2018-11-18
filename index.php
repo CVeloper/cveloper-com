@@ -17,7 +17,7 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<title>Proyecto de DAW</title>
+	<title>CVeloper</title>
 	<link rel="icon" href="images/favicon.jpg">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<link rel="stylesheet" href="styles/styles.css">
