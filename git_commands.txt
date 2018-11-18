@@ -1,0 +1,239 @@
+
+######################################################################## CARPETA PADRE DEL PROYECTO ####################
+
+Sergio@T5500 MINGW64 ~
+
+    $ cd '/f/SERVIDOR/UT10. Proyecto'
+
+
+
+########################################################################### CREAR REPOSITORIO VACÍO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto
+
+    $ git init
+
+        Initialized empty Git repository in F:/SERVIDOR/UT10. Proyecto/.git/
+
+
+
+################################################################################ CLONAR REPOSITORIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto (master)
+
+    $ git clone https://github.com/CVeloper/cveloper-com.git
+
+        Cloning into 'cveloper-com'...
+        remote: Enumerating objects: 8, done.
+        remote: Counting objects: 100% (8/8), done.
+        remote: Compressing objects: 100% (7/7), done.
+        remote: Total 8 (delta 0), reused 0 (delta 0), pack-reused 0
+        Unpacking objects: 100% (8/8), done.
+
+
+
+######################################################################## LINK AL REPOSITORIO REMOTO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git remote set-url origin https://github.com/CVeloper/cveloper-com.git
+
+
+
+############################################################### VER LOS LINKS AL REPOSITORIO REMOTO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git remote -v
+
+        origin  https://github.com/CVeloper/cveloper-com.git (fetch)
+        origin  https://github.com/CVeloper/cveloper-com.git (push)
+
+
+
+####################################################################### CONFIGURAR EMAIL DE USUARIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git config --global user.email "sergiovelmay@gmail.com"
+
+
+
+############################################################################## VER EMAIL DE USUARIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git config --global user.email
+
+        sergiovelmay@gmail.com
+
+
+
+
+###################################################################### CONFIGURAR NOMBRE DE USUARIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+    
+    $ git config --global user.name "SergioVelmay"
+
+
+
+############################################################################# VER NOMBRE DE USUARIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+$ git config --global user.name
+SergioVelmay
+
+
+
+######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+    $ git status
+        On branch master
+        Your branch is up to date with 'origin/master'.
+
+        Changes not staged for commit:
+            (use "git add <file>..." to update what will be committed)
+            (use "git checkout -- <file>..." to discard changes in working directory)
+
+                        modified:   index.php
+
+        no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+################################################################################ AÑADIR LOS CAMBIOS ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git add -A
+
+
+
+######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git status
+
+        On branch master
+        Your branch is up to date with 'origin/master'.
+
+        Changes to be committed:
+            (use "git reset HEAD <file>..." to unstage)
+
+                        modified:   index.php
+
+
+
+####################################################################### GRABAR LOS CAMBIOS AÑADIDOS ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git commit -m 'Ordenado el archivo index.'
+        
+        [master a56b7b0] Ordenado el archivo index.
+         1 file changed, 5 insertions(+), 3 deletions(-)
+
+
+
+######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git status
+
+        On branch master
+        Your branch is ahead of 'origin/master' by 1 commit.
+            (use "git push" to publish your local commits)
+
+        nothing to commit, working tree clean
+
+
+
+######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git status
+
+        On branch master
+        Your branch is ahead of 'origin/master' by 1 commit.
+            (use "git push" to publish your local commits)
+
+        Changes not staged for commit:
+            (use "git add <file>..." to update what will be committed)
+            (use "git checkout -- <file>..." to discard changes in working directory)
+
+                        modified:   index.php
+
+        no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+################################################################################ AÑADIR LOS CAMBIOS ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git add -A
+
+
+
+######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git status
+
+        On branch master
+        Your branch is ahead of 'origin/master' by 1 commit.
+            (use "git push" to publish your local commits)
+
+        Changes to be committed:
+            (use "git reset HEAD <file>..." to unstage)
+
+                        modified:   index.php
+
+
+
+####################################################################### GRABAR LOS CAMBIOS AÑADIDOS ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git commit -m 'Cambiado el título de la web.'
+
+        [master 8bafe51] Cambiado el título de la web.
+         1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+
+######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git status
+
+        On branch master
+        Your branch is ahead of 'origin/master' by 2 commits.
+            (use "git push" to publish your local commits)
+
+        nothing to commit, working tree clean
+
+
+
+######################################### ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO ####################
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git push origin master
+
+        Enumerating objects: 8, done.
+        Counting objects: 100% (8/8), done.
+        Delta compression using up to 24 threads
+        Compressing objects: 100% (6/6), done.
+        Writing objects: 100% (6/6), 712 bytes | 356.00 KiB/s, done.
+        Total 6 (delta 2), reused 0 (delta 0)
+        remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+        To https://github.com/CVeloper/cveloper-com.git
+             984fc61..8bafe51  master -> master
