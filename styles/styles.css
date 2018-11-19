@@ -1,18 +1,18 @@
 body {
-	padding: 0;
-	margin: 0;
-	background-image: url("../images/background.jpg");
+    padding: 0;
+    margin: 0;
+    background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-	font-family: "Courier New",
-				  Courier,
-				 "Lucida Sans Typewriter",
-				 "Lucida Typewriter",
-				  monospace;
-	color: white;
-	overflow:hidden;
+    font-family: "Courier New",
+                  Courier,
+                 "Lucida Sans Typewriter",
+                 "Lucida Typewriter",
+                  monospace;
+    color: white;
+    overflow:hidden;
 }
 
 section {
@@ -24,53 +24,53 @@ section {
 }
 
 div {
-	position: fixed;
-	top: 45%;
-	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform:    translate(-50%, -50%);
-	-ms-transform:     translate(-50%, -50%);
-	-o-transform:      translate(-50%, -50%);
-	transform: 		   translate(-50%, -50%);
-	text-align: center;
-	min-width: 30em;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform:    translate(-50%, -50%);
+    -ms-transform:     translate(-50%, -50%);
+    -o-transform:      translate(-50%, -50%);
+    transform:         translate(-50%, -50%);
+    text-align: center;
+    min-width: 30em;
 }
 
 a, a:hover, a:link, a:visited {
-	text-decoration: none;
-	color: white;
+    text-decoration: none;
+    color: white;
 }
 
 h1 {
-	font-size: 6em;
-	font-weight: bold;
-	line-height: 0.75em;
+    font-size: 6em;
+    font-weight: bold;
+    line-height: 0.75em;
 }
 
 h2 {
-	font-size: 3em;
-	font-weight: bold;
+    font-size: 3em;
+    font-weight: bold;
 }
 
 h3 {
-	font-size: 2.4em;
-	font-weight: bold;
+    font-size: 2.4em;
+    font-weight: bold;
 }
 
 h4 {
-	font-size: 3em;
-	font-weight: bold;
+    font-size: 3em;
+    font-weight: bold;
 }
 
 nav {
     position: fixed;
     bottom: 0;
     left: 50%;
-	-webkit-transform: translateX(-50%);
-	-moz-transform:    translateX(-50%);
-	-ms-transform:     translateX(-50%);
-	-o-transform:      translateX(-50%);
-	transform: 		   translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform:    translateX(-50%);
+    -ms-transform:     translateX(-50%);
+    -o-transform:      translateX(-50%);
+    transform:         translateX(-50%);
 }
 
 ul {
@@ -92,24 +92,24 @@ li > a {
 
 @media (min-width: 450px) {
 
-	ul {
-		min-width: 20em;
-	}
+    ul {
+        min-width: 20em;
+    }
 
-	li > a {
-	    font-size: 200%;
-	}
+    li > a {
+        font-size: 200%;
+    }
 
 }
 
 @media (orientation: portrait) {
 
-	ul {
-		min-width: 27em;
-	}
+    ul {
+        min-width: 27em;
+    }
 
-	li > a {
-	    font-size: 300%;
-	}
+    li > a {
+        font-size: 300%;
+    }
 
 }
