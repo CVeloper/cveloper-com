@@ -365,19 +365,6 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-
-
-
-
- 
-
-
-
-
-
-
-
-
 ######################################################################## VER CAMBIOS EN REPOSITORIO ####################
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
@@ -466,23 +453,23 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-############################################### RECUPERAR / EMPAREJAR LOS FICHEROS DEL SERVIDOR FTP ####################
-
-Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
-
-	$ git ftp catchup
-
-		Last deployment changed from  to 646ed63f1b4fd2bf5b983dd0a4df300e8044a5ac.
-
-
-
 ############################################### ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL SERVIDOR FTP ####################
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 	$ git ftp push
 
-		No changed files for ftp.svmhost.com/. Everything up-to-date.
+		1 file to sync:
+		[1 of 1] Buffered for upload 'git_commands.txt'.
+		Uploading ...
+		Last deployment changed from 0b6dfd2a6b847779a6b6f4ed2b591481297100ac to c9e670b32c16da26d4cd37b40e382ead51f022f3.
 
 
 
+############################################### RECUPERAR / EMPAREJAR LOS FICHEROS DEL SERVIDOR FTP ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git ftp catchup
+
+		Last deployment changed from  to c9e670b32c16da26d4cd37b40e382ead51f022f3.
