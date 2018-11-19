@@ -239,3 +239,127 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
         remote: Resolving deltas: 100% (2/2), done.
         To https://github.com/CVeloper/cveloper-com.git
            8bafe51..daf0994  master -> master
+
+
+
+######################################################################## CARPETA PADRE DEL PROYECTO ####################
+
+Sergio@T5500 MINGW64 ~
+
+	$ cd '/d/SERVIDOR/UT10. Proyecto'
+
+
+
+######################################################################## CLONAR REPOSITORIO GIT-FTP ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto (master)
+
+	$ git clone https://github.com/git-ftp/git-ftp.git
+
+		Cloning into 'git-ftp'...
+		remote: Enumerating objects: 3343, done.
+		Resolving deltas:  66% (1285/1938)   0 (delta 0), pack-reused 3343
+		Resolving deltas:  86% (1672/1938)   2.57 MiB | 1.14 MiB/s, done.
+		Resolving deltas: 100% (1938/1938), done.
+
+
+
+######################################################################### INSTALAR COMANDOS GIT-FTP ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ curl https://raw.githubusercontent.com/git-ftp/git-ftp/master/git-ftp > /bin/git-ftp
+
+		  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+		                                 Dload  Upload   Total   Spent    Left  Speed
+		100 46953  100 46953    0     0   117k      0 --:--:-- --:--:-- --:--:--  117k
+
+
+
+########################################################################## PERMISOS CARPETA GIT-FTP ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ chmod 755 /bin/git-ftp
+
+
+
+########################################################################### CONFIGURAR SERVIDOR FTP ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git config git-ftp.url "ftp.loquesea.com"
+
+
+
+################################################################################## VER SERVIDOR FTP ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git config git-ftp.url
+
+		ftp.loquesea.com
+
+
+
+############################################################################ CONFIGURAR USUARIO FTP ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+	
+	$ git config git-ftp.user "elquesea@loquesea.com"
+
+
+
+################################################################################### VER USUARIO FTP ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git config git-ftp.user
+
+		elquesea@loquesea.com
+
+
+
+########################################################################### CONFIGURAR PASSWORD FTP ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git config git-ftp.password "notelovoyadecir"
+
+
+
+################################################################################## VER PASSWORD FTP ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git config git-ftp.password
+
+		notelovoyadecir
+
+
+
+############################################################################### ENVIAR TODO VIA FTP ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git ftp init
+
+		5 files to sync:
+		[1 of 5] Buffered for upload 'git_commands.txt'.
+		[2 of 5] Buffered for upload 'images/background.jpg'.
+		[3 of 5] Buffered for upload 'images/favicon.jpg'.
+		[4 of 5] Buffered for upload 'index.php'.
+		[5 of 5] Buffered for upload 'styles/styles.css'.
+		Uploading ...
+		Last deployment changed from  to cfac38d2b83bb1a039942bac2bf3982b8261aa65.
+
+
+
+################################### ERROR AL SUBIR VIA FTP CUANDO LOS CAMBIOS NO SE HAN ACTUALIZADO ####################
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git ftp catchup
+
+		fatal: Dirty repository: Having uncommitted changes. Exiting...
+
