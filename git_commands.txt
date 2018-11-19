@@ -363,3 +363,93 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 		fatal: Dirty repository: Having uncommitted changes. Exiting...
 
+
+
+
+
+
+
+
+
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   git_commands.txt
+        modified:   styles/styles.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+$ git add -A
+
+
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   git_commands.txt
+        modified:   styles/styles.css
+
+
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+$ git commit -m 'Incorporados comandos GIT para FTP.'
+[master 646ed63] Incorporados comandos GIT para FTP.
+ 2 files changed, 130 insertions(+), 6 deletions(-)
+
+
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+$ git push origin master
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 24 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 1.31 KiB | 78.00 KiB/s, done.
+Total 5 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/CVeloper/cveloper-com.git
+   cfac38d..646ed63  master -> master
+
+
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git ftp catchup
+
+		Last deployment changed from  to 646ed63f1b4fd2bf5b983dd0a4df300e8044a5ac.
+
+
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git ftp push
+
+		No changed files for ftp.svmhost.com/. Everything up-to-date.
+
+
+
