@@ -242,7 +242,7 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################################################## CARPETA PADRE DEL PROYECTO ####################
+######################################################################## CARPETA PADRE DEL PROYECTO ##########??????????
 
 Sergio@T5500 MINGW64 ~
 
@@ -250,7 +250,7 @@ Sergio@T5500 MINGW64 ~
 
 
 
-######################################################################## CLONAR REPOSITORIO GIT-FTP ####################
+######################################################################## CLONAR REPOSITORIO GIT-FTP ##########??????????
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto (master)
 
@@ -355,7 +355,7 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-################################### ERROR AL SUBIR VIA FTP CUANDO LOS CAMBIOS NO SE HAN ACTUALIZADO ####################
+################################### ERROR AL SUBIR VIA FTP CUANDO LOS CAMBIOS NO SE HAN ACTUALIZADO ##########??????????
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -466,7 +466,7 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-############################################### RECUPERAR / EMPAREJAR LOS FICHEROS DEL SERVIDOR FTP ####################
+############################################### RECUPERAR / EMPAREJAR LOS FICHEROS DEL SERVIDOR FTP ##########??????????
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
