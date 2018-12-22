@@ -1,0 +1,206 @@
+select email, name, level from user u, tech t, user_tech ut where u.id_user=ut.id_user and t.id_tech=ut.id_tech;
++--------------+--------+-------+
+| email        | name   | level |
++--------------+--------+-------+
+| uno@gmail    | PHP    |     1 |
+| uno@gmail    | JAVA   |     2 |
+| uno@gmail    | JS     |     3 |
+| uno@gmail    | PYTHON |     4 |
+| uno@gmail    | RUBY   |     5 |
+| uno@gmail    | CSS    |     6 |
+| uno@gmail    | HTML   |     7 |
+| uno@gmail    | C++    |     8 |
+| uno@gmail    | C#     |     9 |
+| dos@gmail    | PHP    |     5 |
+| dos@gmail    | JAVA   |     5 |
+| dos@gmail    | JS     |     5 |
+| dos@gmail    | PYTHON |     5 |
+| dos@gmail    | RUBY   |     5 |
+| dos@gmail    | CSS    |     5 |
+| dos@gmail    | HTML   |     5 |
+| dos@gmail    | C++    |     5 |
+| dos@gmail    | C#     |     5 |
+| tres@gmail   | PHP    |     1 |
+| tres@gmail   | JAVA   |     1 |
+| tres@gmail   | JS     |     1 |
+| tres@gmail   | PYTHON |     1 |
+| tres@gmail   | RUBY   |     1 |
+| tres@gmail   | CSS    |     1 |
+| tres@gmail   | HTML   |     1 |
+| tres@gmail   | C++    |     1 |
+| tres@gmail   | C#     |     1 |
+| cuatro@gmail | PHP    |     9 |
+| cuatro@gmail | JAVA   |     9 |
+| cuatro@gmail | JS     |     9 |
+| cuatro@gmail | PYTHON |     9 |
+| cuatro@gmail | RUBY   |     9 |
+| cuatro@gmail | CSS    |     9 |
+| cuatro@gmail | HTML   |     9 |
+| cuatro@gmail | C++    |     9 |
+| cuatro@gmail | C#     |     9 |
+| cinco@gmail  | PHP    |     5 |
+| cinco@gmail  | JS     |     3 |
+| cinco@gmail  | PYTHON |     6 |
+| cinco@gmail  | RUBY   |     2 |
+| cinco@gmail  | HTML   |     5 |
+| cinco@gmail  | C#     |     7 |
+| seis@gmail   | PHP    |     6 |
+| seis@gmail   | JS     |     3 |
+| seis@gmail   | RUBY   |     5 |
+| seis@gmail   | HTML   |     2 |
+| seis@gmail   | C++    |     7 |
+| siete@gmail  | RUBY   |     3 |
+| siete@gmail  | CSS    |     5 |
+| siete@gmail  | C++    |     6 |
+| ocho@gmail   | JAVA   |     6 |
+| ocho@gmail   | PYTHON |     2 |
+| ocho@gmail   | HTML   |     3 |
+| ocho@gmail   | C#     |     5 |
+| nueve@gmail  | JAVA   |     2 |
+| nueve@gmail  | JS     |     6 |
+| nueve@gmail  | PYTHON |     7 |
+| nueve@gmail  | RUBY   |     3 |
+| nueve@gmail  | CSS    |     5 |
+| nueve@gmail  | C++    |     7 |
+| nueve@gmail  | C#     |     6 |
++--------------+--------+-------+
+61 rows in set (0.00 sec)
+
+
+
+select email, name, level from user u, tech t, user_tech ut where u.id_user=ut.id_user and t.id_tech=ut.id_tech order by email asc, level desc;
++--------------+--------+-------+
+| email        | name   | level |
++--------------+--------+-------+
+| cinco@gmail  | C#     |     7 |
+| cinco@gmail  | PYTHON |     6 |
+| cinco@gmail  | HTML   |     5 |
+| cinco@gmail  | PHP    |     5 |
+| cinco@gmail  | JS     |     3 |
+| cinco@gmail  | RUBY   |     2 |
+| cuatro@gmail | RUBY   |     9 |
+| cuatro@gmail | CSS    |     9 |
+| cuatro@gmail | HTML   |     9 |
+| cuatro@gmail | PHP    |     9 |
+| cuatro@gmail | C++    |     9 |
+| cuatro@gmail | JAVA   |     9 |
+| cuatro@gmail | C#     |     9 |
+| cuatro@gmail | JS     |     9 |
+| cuatro@gmail | PYTHON |     9 |
+| dos@gmail    | PYTHON |     5 |
+| dos@gmail    | RUBY   |     5 |
+| dos@gmail    | CSS    |     5 |
+| dos@gmail    | HTML   |     5 |
+| dos@gmail    | PHP    |     5 |
+| dos@gmail    | C++    |     5 |
+| dos@gmail    | JAVA   |     5 |
+| dos@gmail    | C#     |     5 |
+| dos@gmail    | JS     |     5 |
+| nueve@gmail  | PYTHON |     7 |
+| nueve@gmail  | C++    |     7 |
+| nueve@gmail  | C#     |     6 |
+| nueve@gmail  | JS     |     6 |
+| nueve@gmail  | CSS    |     5 |
+| nueve@gmail  | RUBY   |     3 |
+| nueve@gmail  | JAVA   |     2 |
+| ocho@gmail   | JAVA   |     6 |
+| ocho@gmail   | C#     |     5 |
+| ocho@gmail   | HTML   |     3 |
+| ocho@gmail   | PYTHON |     2 |
+| seis@gmail   | C++    |     7 |
+| seis@gmail   | PHP    |     6 |
+| seis@gmail   | RUBY   |     5 |
+| seis@gmail   | JS     |     3 |
+| seis@gmail   | HTML   |     2 |
+| siete@gmail  | C++    |     6 |
+| siete@gmail  | CSS    |     5 |
+| siete@gmail  | RUBY   |     3 |
+| tres@gmail   | HTML   |     1 |
+| tres@gmail   | PHP    |     1 |
+| tres@gmail   | C++    |     1 |
+| tres@gmail   | JAVA   |     1 |
+| tres@gmail   | C#     |     1 |
+| tres@gmail   | JS     |     1 |
+| tres@gmail   | PYTHON |     1 |
+| tres@gmail   | RUBY   |     1 |
+| tres@gmail   | CSS    |     1 |
+| uno@gmail    | C#     |     9 |
+| uno@gmail    | C++    |     8 |
+| uno@gmail    | HTML   |     7 |
+| uno@gmail    | CSS    |     6 |
+| uno@gmail    | RUBY   |     5 |
+| uno@gmail    | PYTHON |     4 |
+| uno@gmail    | JS     |     3 |
+| uno@gmail    | JAVA   |     2 |
+| uno@gmail    | PHP    |     1 |
++--------------+--------+-------+
+61 rows in set (0.00 sec)
+
+
+select email, name, level from user u, tech t, user_tech ut where u.id_user=ut.id_user and t.id_tech=ut.id_tech order by email asc, level desc;
++--------------+--------+-------+
+| email        | name   | level |
++--------------+--------+-------+
+| cinco@gmail  | C#     |     7 |
+| cinco@gmail  | PYTHON |     6 |
+| cinco@gmail  | HTML   |     5 |
+| cinco@gmail  | PHP    |     5 |
+| cinco@gmail  | JS     |     3 |
+| cinco@gmail  | RUBY   |     2 |
+| cuatro@gmail | RUBY   |     9 |
+| cuatro@gmail | CSS    |     9 |
+| cuatro@gmail | HTML   |     9 |
+| cuatro@gmail | PHP    |     9 |
+| cuatro@gmail | C++    |     9 |
+| cuatro@gmail | JAVA   |     9 |
+| cuatro@gmail | C#     |     9 |
+| cuatro@gmail | JS     |     9 |
+| cuatro@gmail | PYTHON |     9 |
+| dos@gmail    | PYTHON |     5 |
+| dos@gmail    | RUBY   |     5 |
+| dos@gmail    | CSS    |     5 |
+| dos@gmail    | HTML   |     5 |
+| dos@gmail    | PHP    |     5 |
+| dos@gmail    | C++    |     5 |
+| dos@gmail    | JAVA   |     5 |
+| dos@gmail    | C#     |     5 |
+| dos@gmail    | JS     |     5 |
+| nueve@gmail  | PYTHON |     7 |
+| nueve@gmail  | C++    |     7 |
+| nueve@gmail  | C#     |     6 |
+| nueve@gmail  | JS     |     6 |
+| nueve@gmail  | CSS    |     5 |
+| nueve@gmail  | RUBY   |     3 |
+| nueve@gmail  | JAVA   |     2 |
+| ocho@gmail   | JAVA   |     6 |
+| ocho@gmail   | C#     |     5 |
+| ocho@gmail   | HTML   |     3 |
+| ocho@gmail   | PYTHON |     2 |
+| seis@gmail   | C++    |     7 |
+| seis@gmail   | PHP    |     6 |
+| seis@gmail   | RUBY   |     5 |
+| seis@gmail   | JS     |     3 |
+| seis@gmail   | HTML   |     2 |
+| siete@gmail  | C++    |     6 |
+| siete@gmail  | CSS    |     5 |
+| siete@gmail  | RUBY   |     3 |
+| tres@gmail   | HTML   |     1 |
+| tres@gmail   | PHP    |     1 |
+| tres@gmail   | C++    |     1 |
+| tres@gmail   | JAVA   |     1 |
+| tres@gmail   | C#     |     1 |
+| tres@gmail   | JS     |     1 |
+| tres@gmail   | PYTHON |     1 |
+| tres@gmail   | RUBY   |     1 |
+| tres@gmail   | CSS    |     1 |
+| uno@gmail    | C#     |     9 |
+| uno@gmail    | C++    |     8 |
+| uno@gmail    | HTML   |     7 |
+| uno@gmail    | CSS    |     6 |
+| uno@gmail    | RUBY   |     5 |
+| uno@gmail    | PYTHON |     4 |
+| uno@gmail    | JS     |     3 |
+| uno@gmail    | JAVA   |     2 |
+| uno@gmail    | PHP    |     1 |
++--------------+--------+-------+
+61 rows in set (0.00 sec)
