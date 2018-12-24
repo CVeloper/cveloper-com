@@ -1,5 +1,13 @@
+################################################################################
+################################################################################
+GIT COMMANDS
+################################################################################
+################################################################################
 
-######################################################################## CARPETA PADRE DEL PROYECTO ####################
+
+
+################################################################################
+CARPETA PADRE DEL PROYECTO
 
 Sergio@T5500 MINGW64 ~
 
@@ -7,7 +15,8 @@ Sergio@T5500 MINGW64 ~
 
 
 
-########################################################################### CREAR REPOSITORIO VACÍO ####################
+################################################################################
+CREAR REPOSITORIO VACÍO
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto
 
@@ -17,7 +26,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto
 
 
 
-################################################################################ CLONAR REPOSITORIO ####################
+################################################################################
+CLONAR REPOSITORIO
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto (master)
 
@@ -32,7 +42,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto (master)
 
 
 
-######################################################################## LINK AL REPOSITORIO REMOTO ####################
+################################################################################
+LINK AL REPOSITORIO REMOTO
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -40,7 +51,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-############################################################### VER LOS LINKS AL REPOSITORIO REMOTO ####################
+################################################################################
+VER LOS LINKS AL REPOSITORIO REMOTO
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -51,7 +63,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-####################################################################### CONFIGURAR EMAIL DE USUARIO ####################
+################################################################################
+CONFIGURAR EMAIL DE USUARIO
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -59,7 +72,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-############################################################################## VER EMAIL DE USUARIO ####################
+################################################################################
+VER EMAIL DE USUARIO
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -70,15 +84,17 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-###################################################################### CONFIGURAR NOMBRE DE USUARIO ####################
+################################################################################
+CONFIGURAR NOMBRE DE USUARIO
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
-    
+
     $ git config --global user.name "SergioVelmay"
 
 
 
-############################################################################# VER NOMBRE DE USUARIO ####################
+################################################################################
+VER NOMBRE DE USUARIO
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 $ git config --global user.name
@@ -86,7 +102,8 @@ SergioVelmay
 
 
 
-######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
     $ git status
@@ -103,7 +120,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-################################################################################ AÑADIR LOS CAMBIOS ####################
+################################################################################
+AÑADIR LOS CAMBIOS
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -111,7 +129,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -127,18 +146,20 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-####################################################################### GRABAR LOS CAMBIOS AÑADIDOS ####################
+################################################################################
+GRABAR LOS CAMBIOS AÑADIDOS
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
     $ git commit -m 'Ordenado el archivo index.'
-        
+
         [master a56b7b0] Ordenado el archivo index.
          1 file changed, 5 insertions(+), 3 deletions(-)
 
 
 
-######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -152,7 +173,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################### ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO ####################
+################################################################################
+ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -170,7 +192,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -188,7 +211,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-################################################################################ AÑADIR LOS CAMBIOS ####################  
+################################################################################
+AÑADIR LOS CAMBIOS
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -196,7 +220,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -212,7 +237,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-####################################################################### GRABAR LOS CAMBIOS AÑADIDOS ####################
+################################################################################
+GRABAR LOS CAMBIOS AÑADIDOS
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -224,7 +250,8 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################### ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO ####################
+################################################################################
+ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO
 
 Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -242,7 +269,27 @@ Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################################################## CARPETA PADRE DEL PROYECTO ##########??????????
+################################################################################
+ACTUALIZAR EL REPOSITORIO LOCAL AL ESTADO ACTUAL DEL REPOSITORIO REMOTO
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (master)
+
+    $ git pull
+
+        Already up to date.
+
+
+
+################################################################################
+################################################################################
+GIT FTP
+################################################################################
+################################################################################
+
+
+
+################################################################################
+CARPETA PADRE DEL PROYECTO ?????
 
 Sergio@T5500 MINGW64 ~
 
@@ -250,7 +297,8 @@ Sergio@T5500 MINGW64 ~
 
 
 
-######################################################################## CLONAR REPOSITORIO GIT-FTP ##########??????????
+################################################################################
+CLONAR REPOSITORIO GIT-FTP ?????
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto (master)
 
@@ -264,7 +312,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto (master)
 
 
 
-######################################################################### INSTALAR COMANDOS GIT-FTP ####################
+################################################################################
+INSTALAR COMANDOS GIT-FTP
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -276,7 +325,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-########################################################################## PERMISOS CARPETA GIT-FTP ####################
+################################################################################
+PERMISOS CARPETA GIT-FTP
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -284,7 +334,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-########################################################################### CONFIGURAR SERVIDOR FTP ####################
+################################################################################
+CONFIGURAR SERVIDOR FTP
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -292,7 +343,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-################################################################################## VER SERVIDOR FTP ####################
+################################################################################
+VER SERVIDOR FTP
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -302,15 +354,17 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-############################################################################ CONFIGURAR USUARIO FTP ####################
+################################################################################
+CONFIGURAR USUARIO FTP
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
-	
+
 	$ git config git-ftp.user "elquesea@loquesea.com"
 
 
 
-################################################################################### VER USUARIO FTP ####################
+################################################################################
+VER USUARIO FTP
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -320,7 +374,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-########################################################################### CONFIGURAR PASSWORD FTP ####################
+################################################################################
+CONFIGURAR PASSWORD FTP
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -328,7 +383,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-################################################################################## VER PASSWORD FTP ####################
+################################################################################
+ VER PASSWORD FTP
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -338,7 +394,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-############################################################################### ENVIAR TODO VIA FTP ####################
+################################################################################
+ENVIAR TODOS LOS ARCHIVOS VIA FTP
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -355,7 +412,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-################################### ERROR AL SUBIR VIA FTP CUANDO LOS CAMBIOS NO SE HAN ACTUALIZADO ##########??????????
+################################################################################
+ERROR AL SUBIR VIA FTP CUANDO LOS CAMBIOS NO SE HAN ACTUALIZADO ?????
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -365,7 +423,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -385,7 +444,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-################################################################################ AÑADIR LOS CAMBIOS ####################
+################################################################################
+AÑADIR LOS CAMBIOS
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -393,7 +453,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -421,7 +482,7 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################################################## VER CAMBIOS EN REPOSITORIO ####################
+######################################################################## VER CAMBIOS EN REPOSITORIO LOCAL ####################
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
