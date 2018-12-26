@@ -18,9 +18,17 @@ function filasSearchTech($tecnologias, $numeroPreferencias, $fichero) {
     $manejador = fopen($fichero, 'a') or die('Error al abrir el fichero.');
     $datos = "\n/* ####################################################### search_tech */\n\n";
     $maximoIdTecnologia = count($tecnologias);
-    for ($i = 1; $i <= $numeroPreferencias; $i++) {
+
+    $arrayTecnologias = [];
+    while (count($arrayTecnologias) < $numeroPreferencias) {
         $idTecnologia = mt_rand(1, $maximoIdTecnologia);
-        $datos .= "INSERT INTO search_tech (id_search, preference, id_technology) VALUES (1, $i, $idTecnologia);\n";
+        if( !in_array($idTecnologia, $arrayTecnologias) ) {
+          array_push($arrayTecnologias, $idTecnologia);
+        }
+    }
+    foreach ($arrayTecnologias as $indice => $id) {
+        $preferencia = $indice + 1;
+        $datos .= "INSERT INTO search_tech (id_search, preference, id_technology) VALUES (1, $preferencia, $id);\n";
     }
     fwrite($manejador, $datos);
     fclose($manejador);
@@ -58,10 +66,16 @@ function filasDeveloperTech($numeroDesarrolladores, $tecnologias, $maximoTecnolo
     $maximoIdTecnologia = count($tecnologias);
     for ($i = 1; $i <= $numeroDesarrolladores; $i++) {
         $numeroTecnologias = mt_rand(1, $maximoTecnologias);
-        for ($j = 0; $j < $numeroTecnologias; $j++) {
+        $arrayTecnologias = [];
+        while (count($arrayTecnologias) < $numeroTecnologias) {
             $idTecnologia = mt_rand(1, $maximoIdTecnologia);
+            if( !in_array($idTecnologia, $arrayTecnologias) ) {
+              array_push($arrayTecnologias, $idTecnologia);
+            }
+        }
+        foreach ($arrayTecnologias as $id) {
             $nivel = mt_rand(1, $maximoNivel);
-            $datos .= "INSERT INTO developer_tech (id_developer, id_technology, level) VALUES ($i, $idTecnologia, $nivel);\n";
+            $datos .= "INSERT INTO developer_tech (id_developer, id_technology, level) VALUES ($i, $id, $nivel);\n";
         }
     }
     fwrite($manejador, $datos);
