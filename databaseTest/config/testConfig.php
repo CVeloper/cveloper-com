@@ -9,11 +9,15 @@ define('MAX_TECHNOLOGIES', 1);
 // Valores de Prueba: 1, 2, 5, 10, 15, 20 y 30
 
 // Número de Niveles de Destreza que puede elegir un Desarrollador para cada Tecnología
-define('NUM_LEVELS', 10)
+define('NUM_LEVELS', 10);
 // Valores de Prueba: 3, 5 y 10 (de muy básico a gurú ninja)
 
 // Número Máximo de Tecnologías que se van a ordenar por preferencia en las búsquedas
 define('MAX_PREFERENCES', 1);
 // Valores de Prueba: 1, 2, 3, 4, 5, 10 y 20
+
+// Archivo donde se van a almacenar los registros generados aleatoriamente
+define('TEST_INSERTS', "../resources/testInserts.sql");
+// OJO! Tener en cuenta que este fichero se llamará desde la carpeta 'src'
 
 ?>
