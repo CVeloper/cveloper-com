@@ -56,7 +56,7 @@ company
 	alias
 	address
 	postal_code
-	city
+	cityFOREIGN KEY (id_developer) REFERENCES developer (id_developer),
 	country
 	contact_phone
 	link_github
@@ -81,7 +81,7 @@ technology
 	tech_name
 
 templates
-	id_template
+	id_template (FK)
 	template_name
 	thumbnail
 	designer (link a la pagina/github)
@@ -118,7 +118,7 @@ search_tech
 			constraint->id_search + id_technology (pk)
 	preference
 
-tech_developer
+developer_tech
 	id_developer (fk)
 	id_technology (fk)
 			constraint->id_developer + id_technology (pk)
@@ -141,3 +141,8 @@ tech_training_offer
 			constraint->id_training_offer + id_technology (pk)
 
 
+
+developer_job_offer 
+	id_developer (FK)
+	id_job_offer (FK)
+	order INT AUTO-INCREMENT
