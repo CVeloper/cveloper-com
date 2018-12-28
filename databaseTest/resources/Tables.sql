@@ -1,23 +1,27 @@
 
+
+
 /* ####################################################### BORRAR TABLAS */
+
+
+DROP TABLE IF EXISTS tech_job_offer;
+
+DROP TABLE IF EXISTS tech_training_offer;
+
+DROP TABLE IF EXISTS developer_job_offer;
 
 DROP TABLE IF EXISTS developer_tech;
 
-DROP TABLE IF EXISTS developer;
 
 DROP TABLE IF EXISTS search_tech;
 
-DROP TABLE IF EXISTS technology;
 
 DROP TABLE IF EXISTS search;
 
-DROP TABLE IF EXISTS template;
 
-DROP TABLE IF EXISTS recruiter;
+DROP TABLE IF EXISTS training_offer;
 
-DROP TABLE IF EXISTS company;
-
-DROP TABLE IF EXISTS academy;
+DROP TABLE IF EXISTS tech_company;
 
 DROP TABLE IF EXISTS additional;
 
@@ -27,19 +31,19 @@ DROP TABLE IF EXISTS training;
 
 DROP TABLE IF EXISTS job_offer;
 
-DROP TABLE IF EXISTS training_offer;
+DROP TABLE IF EXISTS developer;
 
-DROP TABLE IF EXISTS tech_company;
+DROP TABLE IF EXISTS company;
 
-DROP TABLE IF EXISTS tech_job_offer;
+DROP TABLE IF EXISTS academy;
 
-DROP TABLE IF EXISTS tech_training_offer;
+DROP TABLE IF EXISTS technology;
 
-DROP TABLE IF EXISTS developer_job_offer;
+DROP TABLE IF EXISTS template;
+
+DROP TABLE IF EXISTS recruiter;
 
 DROP TABLE IF EXISTS user;
-
-
 
 
 
@@ -55,7 +59,7 @@ CREATE TABLE IF NOT EXISTS user (
     PRIMARY KEY (id_user)
 );
 
-INSERT INTO user (id_user, email) VALUES (1, "test@test.test");
+/*INSERT INTO user (id_user, email) VALUES (1, "test@test.test");*/
 
 /* ####################################################### TABLA SEARCH */
 
@@ -68,7 +72,7 @@ CREATE TABLE IF NOT EXISTS search (
     FOREIGN KEY (id_user) REFERENCES user(id_user) ON DELETE CASCADE
 );
 
-INSERT INTO search (id_search, search_name, id_user) VALUES (1, "Test", 1);
+/*INSERT INTO search (id_search, search_name, id_user) VALUES (1, "Test", 1);*/
 
 /* ####################################################### TABLA TECHNOLOGY */
 
@@ -78,7 +82,7 @@ CREATE TABLE IF NOT EXISTS technology (
     PRIMARY KEY (id_technology)
 );
 
-INSERT INTO technology (id_technology, tech_name) VALUES (1, "TEST");
+/*INSERT INTO technology (id_technology, tech_name) VALUES (1, "TEST");*/
 
 /* ####################################################### TABLA SEARCH_TECH */
 
@@ -91,7 +95,7 @@ CREATE TABLE IF NOT EXISTS search_tech (
     FOREIGN KEY (id_technology) REFERENCES technology(id_technology) ON DELETE CASCADE
 );
 
-INSERT INTO search_tech (id_search, preference, id_technology) VALUES (1, 0, 1);
+/*INSERT INTO search_tech (id_search, preference, id_technology) VALUES (1, 0, 1);*/
 
 /* ####################################################### TABLA TEMPLATE */
 
@@ -123,7 +127,7 @@ CREATE TABLE IF NOT EXISTS developer (
     FOREIGN KEY (id_template) REFERENCES template (id_template)
 );
 
-INSERT INTO developer (id_developer, alias) VALUES (1, "test");
+/*INSERT INTO developer (id_developer, alias) VALUES (1, "test");*/
 
 /* ####################################################### TABLA TECH_LEVEL */
 
@@ -136,7 +140,7 @@ CREATE TABLE IF NOT EXISTS developer_tech (
     FOREIGN KEY (id_technology) REFERENCES technology(id_technology) ON DELETE CASCADE
 );
 
-INSERT INTO developer_tech (id_developer, id_technology, level) VALUES (1, 1, 1);
+/*INSERT INTO developer_tech (id_developer, id_technology, level) VALUES (1, 1, 1);*/
 
 
 /* ####################################################### TABLA TRAINING */
@@ -148,7 +152,7 @@ CREATE TABLE IF NOT EXISTS training (
     city VARCHAR(50),
     finish_date DATE,
     id_developer INT,
-    PRIMARY KEY id_training,
+    PRIMARY KEY (id_training),
     FOREIGN KEY (id_developer) REFERENCES developer (id_developer)
  );  
 
@@ -162,7 +166,7 @@ CREATE TABLE IF NOT EXISTS experience (
     finish_date DATE,
     duration VARCHAR(50),
     id_developer INT,
-    PRIMARY KEY id_experience,
+    PRIMARY KEY (id_experience),
     FOREIGN KEY (id_developer) REFERENCES developer (id_developer)
 );
 
@@ -172,6 +176,7 @@ CREATE TABLE IF NOT EXISTS additional (
     id_additional INT AUTO_INCREMENT,
     description VARCHAR(500),
     id_developer INT,
+    PRIMARY KEY (id_additional),
     FOREIGN KEY (id_developer) REFERENCES developer (id_developer)
 );
 
@@ -244,8 +249,9 @@ CREATE TABLE IF NOT EXISTS training_offer (
     schedule VARCHAR(50),
     training_name VARCHAR(50),
     description VARCHAR(500),
+    id_academy INT,
     PRIMARY KEY (id_training_offer),
-    FOREIGN KEY (id_company) REFERENCES company (id_company)
+    FOREIGN KEY (id_academy) REFERENCES academy (id_academy)
 );
 
 
@@ -287,7 +293,7 @@ CREATE TABLE IF NOT EXISTS tech_training_offer (
 CREATE TABLE IF NOT EXISTS developer_job_offer (
     id_developer INT,
     id_job_offer INT,
-    application INT AUTO_INCREMENT,
+    application INT,
     PRIMARY KEY (id_developer, id_job_offer),
     FOREIGN KEY (id_developer) REFERENCES developer (id_developer),
     FOREIGN KEY (id_job_offer) REFERENCES job_offer (id_job_offer)
