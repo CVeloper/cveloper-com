@@ -181,16 +181,16 @@ GROUP BY id_dev;
 
 /* MISMO RESULTADO OBTENIDO DE LAS DOS FORMAS: CASES y PIVOT */
 /*
-id	T1	T2	T3	T4	T5	T6	T11 T14 T15 T19 T23 T26 T27 T28 T29 T_30
-1	10	0	0	0	0	0	0	80	0	0	0	0	0	0	0	0
-2	0	0	0	0	0	50	0	0	0	0	0	0	0	0	0	0
-3	0	30	0	0	0	0	0	0	0	0	0	0	0	10	0	0
-4	0	0	0	0	0	0	0	0	90	0	0	0	0	0	0	0
-5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	70
-6	0	80	0	40	0	60	0	0	0	0	0	0	0	30	0	0
-7	0	0	0	0	0	0	0	0	0	0	0	0	90	0	0	0
-8	0	0	0	0	0	60	0	60	40	0	80	10	0	0	0	0
-9	20	50	0	0	30	0	0	0	0	0	0	0	0	0	0	0
+id  T1  T2  T3  T4  T5  T6  T11 T14 T15 T19 T23 T26 T27 T28 T29 T_30
+1   10  0   0   0   0   0   0   80  0   0   0   0   0   0   0   0
+2   0   0   0   0   0   50  0   0   0   0   0   0   0   0   0   0
+3   0   30  0   0   0   0   0   0   0   0   0   0   0   10  0   0
+4   0   0   0   0   0   0   0   0   90  0   0   0   0   0   0   0
+5   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   70
+6   0   80  0   40  0  60   0   0   0   0   0   0   0   30  0   0
+7   0   0   0   0   0   0   0   0   0   0   0   0   90  0   0   0
+8   0   0   0   0   0   60  0   60  40  0   80  10  0   0   0   0
+9   20  50  0   0   30  0   0   0   0   0   0   0   0   0   0   0
 ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ...
 */
 
@@ -208,15 +208,11 @@ id	T1	T2	T3	T4	T5	T6	T11 T14 T15 T19 T23 T26 T27 T28 T29 T_30
 
 DROP VIEW IF EXISTS test_view_search_1;
 
-/* crea una vista con las puntuaciones de cada tecnología buscada de 9 a 1 */
-CREATE VIEW test_view_search_1 AS (
-  SELECT
-    10 - preference AS pref,
-    CONCAT("T_", id_technology) AS id_tech
-  FROM search_tech
-  WHERE id_search = 1
-  ORDER BY pref DESC
-);
+/* obtiene las puntuaciones de cada preferencia desde 9 hasta 1 */
+SELECT 10 - preference AS pref, id_technology AS id_t
+FROM search_tech
+WHERE id_search = 1
+ORDER BY pref DESC;
 
 SELECT * FROM test_view_search_1;
 
@@ -228,4 +224,44 @@ ORDER BY points DESC;
 /* SEARCH OVERALL */
 SELECT id_dev, ((T_19*9)+(T_15*8)+(T_11*7)+(T_23*6)+(T_14*5)+(T_1*0)) AS points
 FROM test_view_group_zero
+ORDER BY points DESC;
+
+/*  */
+
+SELECT dt.id_developer AS id_dev,
+    /* LEVEL */
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 1)))) AS T_1,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 11)))) AS T_11,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 14)))) AS T_14,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 15)))) AS T_15,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 19)))) AS T_19,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 23)))) AS T_23,
+    /* PREFERENCE */
+    SUM(preference * (1 - ABS(SIGN(st.id_technology - 1)))) AS P_1,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology - 11)))) AS P_11,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology - 14)))) AS P_14,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology - 15)))) AS P_15,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology - 19)))) AS P_19,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology - 23)))) AS P_23,
+    /* SCORE = LEVEL * (10 - PREFERENCE) */
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 1)))) AS S_1,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 11)))) AS S_11,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 14)))) AS S_14,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 15)))) AS S_15,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 19)))) AS S_19,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 23)))) AS S_23,
+    /* TOTAL POINTS */
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 1)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 11)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 14)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 15)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 19)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 23)))) AS points
+FROM developer d, technology t, developer_tech dt, search_tech st, search s
+WHERE d.id_developer = dt.id_developer
+AND t.id_technology = dt.id_technology
+AND t.id_technology = st.id_technology
+AND s.id_search = st.id_search
+AND s.id_search = 1
+GROUP BY id_dev
 ORDER BY points DESC;
