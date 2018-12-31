@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS search_tech (
     FOREIGN KEY (id_technology) REFERENCES technology(id_technology) ON DELETE CASCADE
 );
 
-INSERT INTO search_tech (id_search, preference, id_technology) VALUES (1, 0, 1);
+INSERT INTO search_tech (id_search, preference, id_technology) VALUES (1, 10, 1);
 
 /* ####################################################### TABLA DEVELOPER */
 
