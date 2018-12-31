@@ -1,14 +1,17 @@
 /* TODO hay que automatizar este proceso en MySQL con FUNCTION y/o PROCEDURE */
 
+/* UNA FORMA DE HACERLO PASANDO VALORES DE FILAS A COLUMNAS CON CASE */
+/* https://stackoverflow.com/questions/1241178/mysql-rows-to-columns */
+
 /* solo las tecnologías que han sido elegidas por los desarrolladores */
 SELECT id_technology FROM developer_tech; /* para recorrerlas después */
 
 DROP VIEW IF EXISTS test_view_extend;
 
+/* solo los desarrolladores que han elegido alguna tecnología */
+/* hacer un "for" para escribir un case con cada tecnología activa */
 CREATE VIEW test_view_extend AS (
-    /* solo los desarrolladores que han elegido alguna tecnología */
     SELECT dt.id_developer AS id_dev,
-    /* hacer un "for" para escribir un case con cada tecnología activa */
     CASE WHEN dt.id_technology = 1 THEN level END AS T_1,
     CASE WHEN dt.id_technology = 2 THEN level END AS T_2,
     CASE WHEN dt.id_technology = 3 THEN level END AS T_3,
@@ -26,18 +29,19 @@ CREATE VIEW test_view_extend AS (
     CASE WHEN dt.id_technology = 29 THEN level END AS T_29,
     CASE WHEN dt.id_technology = 30 THEN level END AS T_30
     FROM developer d, technology t, developer_tech dt
-    WHERE d.id_developer=dt.id_developer
-    AND t.id_technology=dt.id_technology
+    WHERE d.id_developer = dt.id_developer
+    AND t.id_technology = dt.id_technology
 );
 
 SELECT * FROM test_view_extend; /* cada tecnología aparece en una columna */
-
+/*
 DROP VIEW IF EXISTS test_view_group;
 
+/* se unen todas las tecnologías en un solo registro por desarrollador */
+/*
 CREATE VIEW test_view_group AS (
   SELECT
     id_dev,
-    /* se unen todas las tecnologías en un solo registro por desarrollador */
     SUM(T_1) AS T_1,
     SUM(T_2) AS T_2,
     SUM(T_3) AS T_3,
@@ -59,13 +63,14 @@ CREATE VIEW test_view_group AS (
 );
 
 SELECT * FROM test_view_group; /* las que no se tienen aparecen como NULL */
-
+/*
 DROP VIEW IF EXISTS test_view_zero;
 
+/* se sustituyen los valores NULL por 0 en todos los registros */
+/*
 CREATE VIEW test_view_zero AS (
   SELECT
     id_dev,
-    /* se sustituyen los valores NULL por 0 en todos los registros */
     COALESCE(T_1, 0) AS T_1,
     COALESCE(T_2, 0) AS T_2,
     COALESCE(T_3, 0) AS T_3,
@@ -117,6 +122,7 @@ CREATE VIEW test_view_group_zero AS (
 SELECT * FROM test_view_group_zero;
 
 /* UNIÓN DE LAS TRES EJECUCIONES PARA LAS TRES VISTAS EN UNA SOLA */
+/* ERROR: no se puede puede pasar de fila a columna y agrupar a la vez */
 /*
 DROP VIEW IF EXISTS test_view_all;
 
@@ -139,13 +145,66 @@ CREATE VIEW test_view_all AS (
     CASE WHEN dt.id_technology = 29 THEN COALESCE(SUM(level), 0) END AS T_29,
     CASE WHEN dt.id_technology = 30 THEN COALESCE(SUM(level), 0) END AS T_30
     FROM developer d, technology t, developer_tech dt
-    WHERE d.id_developer=dt.id_developer
-    AND t.id_technology=dt.id_technology
+    WHERE d.id_developer = dt.id_developer
+    AND t.id_technology = dt.id_technology
     GROUP BY id_dev, T_1, T_2, T_3, T_4, T_5, T_6, T_11, T_14, T_15, T_19, T_23, T_26, T_27, T_28, T_29, T_30
 );
 
 SELECT * FROM test_view_all;
 */
+
+/* OTRA FORMA DE HACERLO CON UNA "PIVOT TABLE" */
+/* https://en.wikibooks.org/wiki/MySQL/Pivot_table */
+/* sign(-1) = -1,  abs(sign(-1)) = 1,  1-abs(sign(-1)) = 0 */
+
+SELECT dt.id_developer AS id_dev,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 1)))) AS T_1,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 2)))) AS T_2,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 3)))) AS T_3,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 4)))) AS T_4,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 5)))) AS T_5,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 6)))) AS T_6,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 11)))) AS T_11,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 14)))) AS T_14,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 15)))) AS T_15,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 19)))) AS T_19,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 23)))) AS T_23,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 26)))) AS T_26,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 27)))) AS T_27,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 28)))) AS T_28,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 29)))) AS T_29,
+    SUM(level * (1 - ABS(SIGN(dt.id_technology - 30)))) AS T_30
+FROM developer d, technology t, developer_tech dt
+WHERE d.id_developer = dt.id_developer
+AND t.id_technology = dt.id_technology
+GROUP BY id_dev;
+
+/* MISMO RESULTADO OBTENIDO DE LAS DOS FORMAS: CASES y PIVOT */
+/*
+id	T1	T2	T3	T4	T5	T6	T11 T14 T15 T19 T23 T26 T27 T28 T29 T_30
+1	10	0	0	0	0	0	0	80	0	0	0	0	0	0	0	0
+2	0	0	0	0	0	50	0	0	0	0	0	0	0	0	0	0
+3	0	30	0	0	0	0	0	0	0	0	0	0	0	10	0	0
+4	0	0	0	0	0	0	0	0	90	0	0	0	0	0	0	0
+5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	70
+6	0	80	0	40	0	60	0	0	0	0	0	0	0	30	0	0
+7	0	0	0	0	0	0	0	0	0	0	0	0	90	0	0	0
+8	0	0	0	0	0	60	0	60	40	0	80	10	0	0	0	0
+9	20	50	0	0	30	0	0	0	0	0	0	0	0	0	0	0
+... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ...
+*/
+
+/* CASES ############################################################## CASES */
+/* 100 ==> DROP VIEW + CREATE VIEW + DROP VIEW + CREATE VIEW + SELECT */
+/* 100 ==> 0.000310  + 0.012000    + 0.000190 +  0.003000    + 0.004600 */
+/* 100 ==> TOTAL ==> 0.061500 seg/sel ==> 0.006150 seg/row */
+
+/* PIVOT ############################################################## PIVOT */
+/* 100 ==> SELECT */
+/* 100 ==> 0.005700 */
+/* 100 ==> TOTAL ==> 0.005700 seg/sel ==> 0.000057 seg/row */
+
+/* 100 => PIVOT (0.0057) es 10.7895 veces más rápido que CASES (0.0615) */
 
 DROP VIEW IF EXISTS test_view_search_1;
 
