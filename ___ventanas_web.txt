@@ -53,7 +53,7 @@ Página de administración de empresa
 
 Página de administración de centro
 
-    Formulario de datos de la empresa
+    Formulario de datos del centro
 
     Formulario de edición/creación de oferta de formación
 
