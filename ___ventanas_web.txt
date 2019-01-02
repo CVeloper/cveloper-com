@@ -47,9 +47,9 @@ Página de administración de empresa
 
     Formulario de edición/creación de oferta de empleo
 
-    Listado de ofertas de empleo propias
+    Listado de ofertas de empleo propias (TABLA)
 
-        Listado de desarrolladores apuntados a una oferta
+        Listado de desarrolladores apuntados a una oferta (TABLA)
 
 Página de administración de centro
 
@@ -57,13 +57,13 @@ Página de administración de centro
 
     Formulario de edición/creación de oferta de formación
 
-    Listado de ofertas de formación propias
+    Listado de ofertas de formación propias  (TABLA)
 
 Página de administración de reclutador
 
     Perfil de datos personales (muy pocos)
 
-    Listado de búsquedas aneriores
+    Listado de búsquedas aneriores (TABLA)
 
     Formulario de nueva búsqueda
 
@@ -71,32 +71,32 @@ Página de administración de reclutador
 
 Página de administración de administrador
 
-    Listado de todos los usuarios
+    Listado de todos los usuarios (TABLA)
 
-        Agregar o eliminar usuarios
+        Agregar o eliminar usuarios (ICONOS)
 
-        Cambiar el tipo de los usuarios
+        Cambiar el tipo de los usuarios ??????
 
-        Sublistado de desarrolladores
+        Sublistado de desarrolladores(SELECT)
 
-        Sublistado de empresas
+        Sublistado de empresas(SELECT)
 
-        Sublistado de centros
+        Sublistado de centros(SELECT)
 
-        Sublistado de reclutadores
+        Sublistado de reclutadores(SELECT)
 
-        Sublistado de administradores
+        Sublistado de administradores(SELECT)
 
-    Listado de todas las ofertas
+    Listado de todas las ofertas (TABLA)
 
-        Agregar o eliminar ofertas
+        Agregar o eliminar ofertas (ICONOS)
 
-        Sublistado de ofertas de emplero
+        Sublistado de ofertas de emplero(SELECT)
 
-        Sublistado de ofertas de información
+        Sublistado de ofertas de formación(SELECT)
 
-    Listado de todas las tecnologías
+    Listado de todas las tecnologías (TABLA)
 
-        Agregar o eliminar tecnologías
+        Agregar o eliminar tecnologías (ICONOS)
 
 Página de administración de editor ??????
