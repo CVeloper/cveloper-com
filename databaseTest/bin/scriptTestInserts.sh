@@ -6,5 +6,3 @@ BD_NAME="test_cveloper"
 BD_SCRIPT="../resources/testInserts.sql"
 
 mysql -u $BD_USER -p$BD_PASS $BD_NAME < $BD_SCRIPT
-
-# mysql -u test_user -ptest_1234 test_cveloper < ../resources/testInserts.sql

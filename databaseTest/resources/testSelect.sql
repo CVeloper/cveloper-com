@@ -212,7 +212,74 @@ WHERE d.id_developer = dt.id_developer
 AND t.id_technology = dt.id_technology
 GROUP BY id_dev;
 
-/* MISMO RESULTADO OBTENIDO DE LAS TRES FORMAS: VIEWS, PIVOT Y CASES */
+SELECT d.id_developer AS id_dev,
+    COALESCE(t1.level, 0) AS T_1,
+    COALESCE(t2.level, 0) AS T_2,
+    COALESCE(t3.level, 0) AS T_3,
+    COALESCE(t4.level, 0) AS T_4,
+    COALESCE(t5.level, 0) AS T_5,
+    COALESCE(t6.level, 0) AS T_6,
+    COALESCE(t11.level, 0) AS T_11,
+    COALESCE(t14.level, 0) AS T_14,
+    COALESCE(t15.level, 0) AS T_15,
+    COALESCE(t19.level, 0) AS T_19,
+    COALESCE(t23.level, 0) AS T_23,
+    COALESCE(t26.level, 0) AS T_26,
+    COALESCE(t27.level, 0) AS T_27,
+    COALESCE(t28.level, 0) AS T_28,
+    COALESCE(t29.level, 0) AS T_29,
+    COALESCE(t30.level, 0) AS T_30
+FROM developer d
+LEFT JOIN developer_tech t1
+    ON t1.id_developer = d.id_developer
+    AND t1.id_technology = 1
+LEFT JOIN developer_tech t2
+    ON t2.id_developer = d.id_developer
+    AND t2.id_technology = 2
+LEFT JOIN developer_tech t3
+    ON t3.id_developer = d.id_developer
+    AND t3.id_technology = 3
+LEFT JOIN developer_tech t4
+    ON t4.id_developer = d.id_developer
+    AND t4.id_technology = 4
+LEFT JOIN developer_tech t5
+    ON t5.id_developer = d.id_developer
+    AND t5.id_technology = 5
+LEFT JOIN developer_tech t6
+    ON t6.id_developer = d.id_developer
+    AND t6.id_technology = 6
+LEFT JOIN developer_tech t11
+    ON t11.id_developer = d.id_developer
+    AND t11.id_technology = 11
+LEFT JOIN developer_tech t14
+    ON t14.id_developer = d.id_developer
+    AND t14.id_technology = 14
+LEFT JOIN developer_tech t15
+    ON t15.id_developer = d.id_developer
+    AND t15.id_technology = 15
+LEFT JOIN developer_tech t19
+    ON t19.id_developer = d.id_developer
+    AND t19.id_technology = 19
+LEFT JOIN developer_tech t23
+    ON t23.id_developer = d.id_developer
+    AND t23.id_technology = 23
+LEFT JOIN developer_tech t26
+    ON t26.id_developer = d.id_developer
+    AND t26.id_technology = 26
+LEFT JOIN developer_tech t27
+    ON t27.id_developer = d.id_developer
+    AND t27.id_technology = 27
+LEFT JOIN developer_tech t28
+    ON t28.id_developer = d.id_developer
+    AND t28.id_technology = 28
+LEFT JOIN developer_tech t29
+    ON t29.id_developer = d.id_developer
+    AND t29.id_technology = 29
+LEFT JOIN developer_tech t30
+    ON t30.id_developer = d.id_developer
+    AND t30.id_technology = 30;
+
+/* MISMO RESULTADO OBTENIDO DE LAS 4 FORMAS: VIEWS, PIVOT, CASES Y JOINS */
 /*
 id  T1  T2  T3  T4  T5  T6  T11 T14 T15 T19 T23 T26 T27 T28 T29 T_30
 1   10  0   0   0   0   0   0   80  0   0   0   0   0   0   0   0
@@ -242,9 +309,18 @@ id  T1  T2  T3  T4  T5  T6  T11 T14 T15 T19 T23 T26 T27 T28 T29 T_30
 /* 100 ==> MINIM ==> 0.003700 seg/sel */
 /* 100 ==> MEDIA ==> 0.004350 seg/sel */
 
+/* JOINS ############################################################## JOINS */
+/* 100 ==> MAXIM ==> 0.005800 seg/sel */
+/* 100 ==> MINIM ==> 0.004500 seg/sel */
+/* 100 ==> MEDIA ==> 0.005150 seg/sel */
+
 /* 100 ==> PIVOT (0.005850) es 10.513 veces más rápido que VIEWS (0.061500) */
 /* 100 ==> CASES (0.004350) es 14.138 veces más rápido que VIEWS (0.061500) */
+/* 100 ==> JOINS (0.005150) es 11.942 veces más rápido que VIEWS (0.061500) */
+
 /* 100 ==> CASES (0.004350) es 1.3448 veces más rápido que PIVOT (0.005850) */
+/* 100 ==> JOINS (0.005150) es 1.1359 veces más rápido que PIVOT (0.005850) */
+/* 100 ==> CASES (0.004350) es 1.1839 veces más rápido que JOINS (0.005150) */
 
 /* obtiene las puntuaciones de cada preferencia desde 9 hasta 1 */
 /*
@@ -267,39 +343,81 @@ SELECT id_dev, ((T_19*9)+(T_15*8)+(T_11*7)+(T_23*6)+(T_14*5)+(T_1*0)) AS points
 FROM test_view_group_zero
 ORDER BY points DESC;
 
+/* #############################################################################
+RESULTADOS:
+    - Se descarta el método VIEWS por lentitud y complejidad de ejecución.
+    - Se simplifican y optimizan los pasos de VIEWS en el método CASES.
+    - Estas consultas sólo tienen sentido para crear vistas precalculadas.
+    - Las vistas implican ejecutar una tarea cada poco tiempo en el servidor.
+    - Hay dos problemas: el límite de columnas y el límite de bytes por fila.
+    - https://dev.mysql.com/doc/refman/5.7/en/column-count-limit.html
+    - "MySQL has hard limit of 4096 columns per table."
+    - "The internal representation of a MySQL table has a maximum row size limit of 65,535 bytes."
+    - POR ESTOS MOTIVOS SE DESCARTAN LOS MÉTODOS PIVOT, CASES Y JOINS CON VIEW.
+    - Sería un buen método si crecieran las filas pero no el número de columnas.
+############################################################################# */
+
 /* CONSULTAS DIRECTAS CON LAS PREFERENCIAS CONCRETAS DE UNA BÚSQUEDA CONOCIDA */
 
-/* 1-ABS(SIGN(x)) */
+/* 1-ABS(SIGN) ############################################################## */
 
 SELECT dt.id_developer AS id_dev,
     /* LEVEL */
-    SUM(level * (1 - ABS(SIGN(st.id_technology - 1)))) AS T_1,
-    SUM(level * (1 - ABS(SIGN(st.id_technology - 11)))) AS T_11,
-    SUM(level * (1 - ABS(SIGN(st.id_technology - 14)))) AS T_14,
-    SUM(level * (1 - ABS(SIGN(st.id_technology - 15)))) AS T_15,
-    SUM(level * (1 - ABS(SIGN(st.id_technology - 19)))) AS T_19,
-    SUM(level * (1 - ABS(SIGN(st.id_technology - 23)))) AS T_23,
+    SUM(level * (1 - ABS(SIGN(st.id_technology -  4)))) AS L_4 ,
+    SUM(level * (1 - ABS(SIGN(st.id_technology - 27)))) AS L_27,
+    SUM(level * (1 - ABS(SIGN(st.id_technology -  9)))) AS L_9 ,
+    SUM(level * (1 - ABS(SIGN(st.id_technology -  3)))) AS L_3 ,
+    SUM(level * (1 - ABS(SIGN(st.id_technology - 25)))) AS L_25,
+    SUM(level * (1 - ABS(SIGN(st.id_technology - 21)))) AS L_21,
+    SUM(level * (1 - ABS(SIGN(st.id_technology -  2)))) AS L_2 ,
+    SUM(level * (1 - ABS(SIGN(st.id_technology - 15)))) AS L_15,
+    SUM(level * (1 - ABS(SIGN(st.id_technology - 12)))) AS L_12,
+    SUM(level * (1 - ABS(SIGN(st.id_technology -  1)))) AS L_1 ,
     /* PREFERENCE */
-    SUM(preference * (1 - ABS(SIGN(st.id_technology - 1)))) AS P_1,
-    SUM(preference * (1 - ABS(SIGN(st.id_technology - 11)))) AS P_11,
-    SUM(preference * (1 - ABS(SIGN(st.id_technology - 14)))) AS P_14,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology -  4)))) AS P_4 ,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology - 27)))) AS P_27,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology -  9)))) AS P_9 ,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology -  3)))) AS P_3 ,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology - 25)))) AS P_25,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology - 21)))) AS P_21,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology -  2)))) AS P_2 ,
     SUM(preference * (1 - ABS(SIGN(st.id_technology - 15)))) AS P_15,
-    SUM(preference * (1 - ABS(SIGN(st.id_technology - 19)))) AS P_19,
-    SUM(preference * (1 - ABS(SIGN(st.id_technology - 23)))) AS P_23,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology - 12)))) AS P_12,
+    SUM(preference * (1 - ABS(SIGN(st.id_technology -  1)))) AS P_1 ,
     /* SCORE = LEVEL * (10 - PREFERENCE) */
-    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 1)))) AS S_1,
-    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 11)))) AS S_11,
-    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 14)))) AS S_14,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology -  4)))) AS S_4 ,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 27)))) AS S_27,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology -  9)))) AS S_9 ,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology -  3)))) AS S_3 ,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 25)))) AS S_25,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 21)))) AS S_21,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology -  2)))) AS S_2 ,
     SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 15)))) AS S_15,
-    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 19)))) AS S_19,
-    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 23)))) AS S_23,
-    /* TOTAL POINTS */
-    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 1)))) +
-    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 11)))) +
-    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 14)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 12)))) AS S_12,
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology -  1)))) AS S_1 ,
+    /* TOTAL POINTS OVERALL */
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology -  4)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 27)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology -  9)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology -  3)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 25)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 21)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology -  2)))) +
     SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 15)))) +
-    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 19)))) +
-    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 23)))) AS points
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology - 12)))) +
+    SUM((10 - preference) * level * (1 - ABS(SIGN(st.id_technology -  1)))) AS points,
+    /* TOTAL EXCLUDE STRING */
+    CONCAT(
+    COALESCE(SUM(level * (1 - ABS(SIGN(st.id_technology -  4)))), 0),
+    COALESCE(SUM(level * (1 - ABS(SIGN(st.id_technology - 27)))), 0),
+    COALESCE(SUM(level * (1 - ABS(SIGN(st.id_technology -  9)))), 0),
+    COALESCE(SUM(level * (1 - ABS(SIGN(st.id_technology -  3)))), 0),
+    COALESCE(SUM(level * (1 - ABS(SIGN(st.id_technology - 25)))), 0),
+    COALESCE(SUM(level * (1 - ABS(SIGN(st.id_technology - 21)))), 0),
+    COALESCE(SUM(level * (1 - ABS(SIGN(st.id_technology -  2)))), 0),
+    COALESCE(SUM(level * (1 - ABS(SIGN(st.id_technology - 15)))), 0),
+    COALESCE(SUM(level * (1 - ABS(SIGN(st.id_technology - 12)))), 0),
+    COALESCE(SUM(level * (1 - ABS(SIGN(st.id_technology -  1)))), 0)) AS string
 FROM developer d, technology t, developer_tech dt, search_tech st, search s
 WHERE d.id_developer = dt.id_developer
 AND t.id_technology = dt.id_technology
@@ -309,37 +427,65 @@ AND s.id_search = 1
 GROUP BY id_dev
 ORDER BY points DESC;
 
-/* CASE WHEN x */
+/* CASE_WHEN ################################################################ */
 
 SELECT dt.id_developer AS id_dev,
     /* LEVEL */
-    COALESCE(SUM(CASE WHEN st.id_technology = 1 THEN level END), 0) AS T_1,
-    COALESCE(SUM(CASE WHEN st.id_technology = 11 THEN level END), 0) AS T_11,
-    COALESCE(SUM(CASE WHEN st.id_technology = 14 THEN level END), 0) AS T_14,
-    COALESCE(SUM(CASE WHEN st.id_technology = 15 THEN level END), 0) AS T_15,
-    COALESCE(SUM(CASE WHEN st.id_technology = 19 THEN level END), 0) AS T_19,
-    COALESCE(SUM(CASE WHEN st.id_technology = 23 THEN level END), 0) AS T_23,
+    COALESCE(SUM(CASE WHEN st.id_technology =  4 THEN level END), 0) AS L_4 ,
+    COALESCE(SUM(CASE WHEN st.id_technology = 27 THEN level END), 0) AS L_27,
+    COALESCE(SUM(CASE WHEN st.id_technology =  9 THEN level END), 0) AS L_9 ,
+    COALESCE(SUM(CASE WHEN st.id_technology =  3 THEN level END), 0) AS L_3 ,
+    COALESCE(SUM(CASE WHEN st.id_technology = 25 THEN level END), 0) AS L_25,
+    COALESCE(SUM(CASE WHEN st.id_technology = 21 THEN level END), 0) AS L_21,
+    COALESCE(SUM(CASE WHEN st.id_technology =  2 THEN level END), 0) AS L_2 ,
+    COALESCE(SUM(CASE WHEN st.id_technology = 15 THEN level END), 0) AS L_15,
+    COALESCE(SUM(CASE WHEN st.id_technology = 12 THEN level END), 0) AS L_12,
+    COALESCE(SUM(CASE WHEN st.id_technology =  1 THEN level END), 0) AS L_1 ,
     /* PREFERENCE */
-    COALESCE(SUM(CASE WHEN st.id_technology = 1 THEN preference END), 0) AS P_1,
-    COALESCE(SUM(CASE WHEN st.id_technology = 11 THEN preference END), 0) AS P_11,
-    COALESCE(SUM(CASE WHEN st.id_technology = 14 THEN preference END), 0) AS P_14,
+    COALESCE(SUM(CASE WHEN st.id_technology =  4 THEN preference END), 0) AS P_4 ,
+    COALESCE(SUM(CASE WHEN st.id_technology = 27 THEN preference END), 0) AS P_27,
+    COALESCE(SUM(CASE WHEN st.id_technology =  9 THEN preference END), 0) AS P_9 ,
+    COALESCE(SUM(CASE WHEN st.id_technology =  3 THEN preference END), 0) AS P_3 ,
+    COALESCE(SUM(CASE WHEN st.id_technology = 25 THEN preference END), 0) AS P_25,
+    COALESCE(SUM(CASE WHEN st.id_technology = 21 THEN preference END), 0) AS P_21,
+    COALESCE(SUM(CASE WHEN st.id_technology =  2 THEN preference END), 0) AS P_2 ,
     COALESCE(SUM(CASE WHEN st.id_technology = 15 THEN preference END), 0) AS P_15,
-    COALESCE(SUM(CASE WHEN st.id_technology = 19 THEN preference END), 0) AS P_19,
-    COALESCE(SUM(CASE WHEN st.id_technology = 23 THEN preference END), 0) AS P_23,
+    COALESCE(SUM(CASE WHEN st.id_technology = 12 THEN preference END), 0) AS P_12,
+    COALESCE(SUM(CASE WHEN st.id_technology =  1 THEN preference END), 0) AS P_1 ,
     /* SCORE = LEVEL * (10 - PREFERENCE) */
-    COALESCE(SUM(CASE WHEN st.id_technology = 1 THEN (10 - preference) * level END), 0) AS S_1,
-    COALESCE(SUM(CASE WHEN st.id_technology = 11 THEN (10 - preference) * level END), 0) AS S_11,
-    COALESCE(SUM(CASE WHEN st.id_technology = 14 THEN (10 - preference) * level END), 0) AS S_14,
+    COALESCE(SUM(CASE WHEN st.id_technology =  4 THEN (10 - preference) * level END), 0) AS S_4 ,
+    COALESCE(SUM(CASE WHEN st.id_technology = 27 THEN (10 - preference) * level END), 0) AS S_27,
+    COALESCE(SUM(CASE WHEN st.id_technology =  9 THEN (10 - preference) * level END), 0) AS S_9 ,
+    COALESCE(SUM(CASE WHEN st.id_technology =  3 THEN (10 - preference) * level END), 0) AS S_3 ,
+    COALESCE(SUM(CASE WHEN st.id_technology = 25 THEN (10 - preference) * level END), 0) AS S_25,
+    COALESCE(SUM(CASE WHEN st.id_technology = 21 THEN (10 - preference) * level END), 0) AS S_21,
+    COALESCE(SUM(CASE WHEN st.id_technology =  2 THEN (10 - preference) * level END), 0) AS S_2 ,
     COALESCE(SUM(CASE WHEN st.id_technology = 15 THEN (10 - preference) * level END), 0) AS S_15,
-    COALESCE(SUM(CASE WHEN st.id_technology = 19 THEN (10 - preference) * level END), 0) AS S_19,
-    COALESCE(SUM(CASE WHEN st.id_technology = 23 THEN (10 - preference) * level END), 0) AS S_23,
-    /* TOTAL POINTS */
-    COALESCE(SUM(CASE WHEN st.id_technology = 1 THEN (10 - preference) * level END), 0) +
-    COALESCE(SUM(CASE WHEN st.id_technology = 11 THEN (10 - preference) * level END), 0) +
-    COALESCE(SUM(CASE WHEN st.id_technology = 14 THEN (10 - preference) * level END), 0) +
+    COALESCE(SUM(CASE WHEN st.id_technology = 12 THEN (10 - preference) * level END), 0) AS S_12,
+    COALESCE(SUM(CASE WHEN st.id_technology =  1 THEN (10 - preference) * level END), 0) AS S_1 ,
+    /* TOTAL POINTS OVERALL */
+    COALESCE(SUM(CASE WHEN st.id_technology =  4 THEN (10 - preference) * level END), 0) +
+    COALESCE(SUM(CASE WHEN st.id_technology = 27 THEN (10 - preference) * level END), 0) +
+    COALESCE(SUM(CASE WHEN st.id_technology =  9 THEN (10 - preference) * level END), 0) +
+    COALESCE(SUM(CASE WHEN st.id_technology =  3 THEN (10 - preference) * level END), 0) +
+    COALESCE(SUM(CASE WHEN st.id_technology = 25 THEN (10 - preference) * level END), 0) +
+    COALESCE(SUM(CASE WHEN st.id_technology = 21 THEN (10 - preference) * level END), 0) +
+    COALESCE(SUM(CASE WHEN st.id_technology =  2 THEN (10 - preference) * level END), 0) +
     COALESCE(SUM(CASE WHEN st.id_technology = 15 THEN (10 - preference) * level END), 0) +
-    COALESCE(SUM(CASE WHEN st.id_technology = 19 THEN (10 - preference) * level END), 0) +
-    COALESCE(SUM(CASE WHEN st.id_technology = 23 THEN (10 - preference) * level END), 0) AS points
+    COALESCE(SUM(CASE WHEN st.id_technology = 12 THEN (10 - preference) * level END), 0) +
+    COALESCE(SUM(CASE WHEN st.id_technology =  1 THEN (10 - preference) * level END), 0) AS points,
+    /* TOTAL EXCLUDE STRING */
+    CONCAT(
+    COALESCE(SUM(CASE WHEN st.id_technology =  4 THEN level END), 0),
+    COALESCE(SUM(CASE WHEN st.id_technology = 27 THEN level END), 0),
+    COALESCE(SUM(CASE WHEN st.id_technology =  9 THEN level END), 0),
+    COALESCE(SUM(CASE WHEN st.id_technology =  3 THEN level END), 0),
+    COALESCE(SUM(CASE WHEN st.id_technology = 25 THEN level END), 0),
+    COALESCE(SUM(CASE WHEN st.id_technology = 21 THEN level END), 0),
+    COALESCE(SUM(CASE WHEN st.id_technology =  2 THEN level END), 0),
+    COALESCE(SUM(CASE WHEN st.id_technology = 15 THEN level END), 0),
+    COALESCE(SUM(CASE WHEN st.id_technology = 12 THEN level END), 0),
+    COALESCE(SUM(CASE WHEN st.id_technology =  1 THEN level END), 0)) AS string
 FROM developer d, technology t, developer_tech dt, search_tech st, search s
 WHERE d.id_developer = dt.id_developer
 AND t.id_technology = dt.id_technology
@@ -349,29 +495,157 @@ AND s.id_search = 1
 GROUP BY id_dev
 ORDER BY points DESC;
 
-/* MISMO RESULTADO OBTENIDO DE LAS DOS FORMAS: 1-ABS(SIGN(x)) Y CASE WHEN x */
+/* LEFT_JOIN ############################################################### */
+
+SELECT base.id_dev,
+    /* LEVEL */
+    COALESCE(MAX(t4 .level), 0) AS L_4 ,
+    COALESCE(MAX(t27.level), 0) AS L_27,
+    COALESCE(MAX(t9 .level), 0) AS L_9 ,
+    COALESCE(MAX(t3 .level), 0) AS L_3 ,
+    COALESCE(MAX(t25.level), 0) AS L_25,
+    COALESCE(MAX(t21.level), 0) AS L_21,
+    COALESCE(MAX(t2 .level), 0) AS L_2 ,
+    COALESCE(MAX(t15.level), 0) AS L_15,
+    COALESCE(MAX(t12.level), 0) AS L_12,
+    COALESCE(MAX(t1 .level), 0) AS L_1 ,
+    /* PREFERENCE */
+    COALESCE(MAX(p4 .preference), 0) AS P_4 ,
+    COALESCE(MAX(p27.preference), 0) AS P_27,
+    COALESCE(MAX(p9 .preference), 0) AS P_9 ,
+    COALESCE(MAX(p3 .preference), 0) AS P_3 ,
+    COALESCE(MAX(p25.preference), 0) AS P_25,
+    COALESCE(MAX(p21.preference), 0) AS P_21,
+    COALESCE(MAX(p2 .preference), 0) AS P_2 ,
+    COALESCE(MAX(p15.preference), 0) AS P_15,
+    COALESCE(MAX(p12.preference), 0) AS P_12,
+    COALESCE(MAX(p1 .preference), 0) AS P_1 ,
+    /* SCORE = LEVEL * (10 - PREFERENCE) */
+    COALESCE(MAX((10 - p4 .preference) * t4 .level), 0) AS S_4 ,
+    COALESCE(MAX((10 - p27.preference) * t27.level), 0) AS S_27,
+    COALESCE(MAX((10 - p9 .preference) * t9 .level), 0) AS S_9 ,
+    COALESCE(MAX((10 - p3 .preference) * t3 .level), 0) AS S_3 ,
+    COALESCE(MAX((10 - p25.preference) * t25.level), 0) AS S_25,
+    COALESCE(MAX((10 - p21.preference) * t21.level), 0) AS S_21,
+    COALESCE(MAX((10 - p2 .preference) * t2 .level), 0) AS S_2 ,
+    COALESCE(MAX((10 - p15.preference) * t15.level), 0) AS S_15,
+    COALESCE(MAX((10 - p12.preference) * t12.level), 0) AS S_12,
+    COALESCE(MAX((10 - p1 .preference) * t1 .level), 0) AS S_1 ,
+    /* TOTAL POINTS OVERALL */
+    COALESCE(MAX((10 - p4 .preference) * t4 .level), 0) +
+    COALESCE(MAX((10 - p27.preference) * t27.level), 0) +
+    COALESCE(MAX((10 - p9 .preference) * t9 .level), 0) +
+    COALESCE(MAX((10 - p3 .preference) * t3 .level), 0) +
+    COALESCE(MAX((10 - p25.preference) * t25.level), 0) +
+    COALESCE(MAX((10 - p21.preference) * t21.level), 0) +
+    COALESCE(MAX((10 - p2 .preference) * t2 .level), 0) +
+    COALESCE(MAX((10 - p15.preference) * t15.level), 0) +
+    COALESCE(MAX((10 - p12.preference) * t12.level), 0) +
+    COALESCE(MAX((10 - p1 .preference) * t1 .level), 0) AS points,
+    /* TOTAL EXCLUDE STRING */
+    CONCAT(
+    COALESCE(MAX(t4 .level), 0),
+    COALESCE(MAX(t27.level), 0),
+    COALESCE(MAX(t9 .level), 0),
+    COALESCE(MAX(t3 .level), 0),
+    COALESCE(MAX(t25.level), 0),
+    COALESCE(MAX(t21.level), 0),
+    COALESCE(MAX(t2 .level), 0),
+    COALESCE(MAX(t15.level), 0),
+    COALESCE(MAX(t12.level), 0),
+    COALESCE(MAX(t1 .level), 0)) AS string
+FROM (
+        SELECT dt.id_developer AS id_dev, st.preference AS pref, st.id_technology AS tech
+        FROM developer d, technology t, developer_tech dt, search_tech st, search s
+        WHERE d.id_developer = dt.id_developer
+        AND t.id_technology = dt.id_technology
+        AND t.id_technology = st.id_technology
+        AND s.id_search = st.id_search
+        AND s.id_search = 1
+    ) AS base
+LEFT JOIN developer_tech t4
+    ON t4.id_developer = base.id_dev
+    AND t4.id_technology = 4
+LEFT JOIN developer_tech t27
+    ON t27.id_developer = base.id_dev
+    AND t27.id_technology = 27
+LEFT JOIN developer_tech t9
+    ON t9.id_developer = base.id_dev
+    AND t9.id_technology = 9
+LEFT JOIN developer_tech t3
+    ON t3.id_developer = base.id_dev
+    AND t3.id_technology = 3
+LEFT JOIN developer_tech t25
+    ON t25.id_developer = base.id_dev
+    AND t25.id_technology = 25
+LEFT JOIN developer_tech t21
+    ON t21.id_developer = base.id_dev
+    AND t21.id_technology = 21
+LEFT JOIN developer_tech t2
+    ON t2.id_developer = base.id_dev
+    AND t2.id_technology = 2
+LEFT JOIN developer_tech t15
+    ON t15.id_developer = base.id_dev
+    AND t15.id_technology = 15
+LEFT JOIN developer_tech t12
+    ON t12.id_developer = base.id_dev
+    AND t12.id_technology = 12
+LEFT JOIN developer_tech t1
+    ON t1.id_developer = base.id_dev
+    AND t1.id_technology = 1
+LEFT JOIN search_tech p4
+    ON p4.preference = base.pref
+    AND p4.id_technology = 4
+LEFT JOIN search_tech p27
+    ON p27.preference = base.pref
+    AND p27.id_technology = 27
+LEFT JOIN search_tech p9
+    ON p9.preference = base.pref
+    AND p9.id_technology = 9
+LEFT JOIN search_tech p3
+    ON p3.preference = base.pref
+    AND p3.id_technology = 3
+LEFT JOIN search_tech p25
+    ON p25.preference = base.pref
+    AND p25.id_technology = 25
+LEFT JOIN search_tech p21
+    ON p21.preference = base.pref
+    AND p21.id_technology = 21
+LEFT JOIN search_tech p2
+    ON p2.preference = base.pref
+    AND p2.id_technology = 2
+LEFT JOIN search_tech p15
+    ON p15.preference = base.pref
+    AND p15.id_technology = 15
+LEFT JOIN search_tech p12
+    ON p12.preference = base.pref
+    AND p12.id_technology = 12
+LEFT JOIN search_tech p1
+    ON p1.preference = base.pref
+    AND p1.id_technology = 1
+GROUP BY id_dev
+ORDER BY points DESC;
+
+/* MISMO RESULTADO OBTENIDO DE LAS TRES FORMAS: 1-ABS(SIGN), CASE_WHEN Y LEFT_JOIN */
 /*
-id  T1  T11 T14 T15 T19 T23 P1  P11 P14 P15 P19 P23 S1  S11 S14 S15 S19 S23 ptos
-10  4   8   7   3   0   7   0   3   5   2   0   4   40  56  35  24  0   42  197
-76  0   1   0   0   6   1   0   3   0   0   1   4   0   70  0   0   54  60  184
-52  4   0   0   1   7   0   0   0   0   2   1   0   40  0   0   80  63  0   183
-60  9   0   3   0   5   4   0   0   5   0   1   4   90  0   15  0   45  24  174
-43  7   0   0   5   0   1   0   0   0   2   0   4   70  0   0   40  0   60  170
-33  0   2   0   0   1   1   0   3   0   0   1   4   0   14  0   0   90  60  164
-11  2   5   0   9   0   4   0   3   0   2   0   4   20  35  0   72  0   24  151
-42  0   0   0   8   9   0   0   0   0   2   1   0   0   0   0   64  81  0   145
-23  0   0   0   6   8   3   0   0   0   2   1   4   0   0   0   48  72  18  138
-... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ...
+id  . L19 L15 L11 L23 L14 . P19 P15 P11 P23 P14 S19 . S15 S11 S23 S14 . pts  str
+10  . 0   3   8   7   7   . 0   2   3   4   5   0   . 24  56  42  35  . 197 03877
+76  . 6   0   1   1   0   . 1   0   3   4   0   54  . 0   70  60  0   . 184 60110
+52  . 7   1   0   0   0   . 1   2   0   0   0   63  . 80  0   0   0   . 183 71000
+60  . 5   0   0   4   3   . 1   0   0   4   5   45  . 0   0   24  15  . 174 50043
+43  . 0   5   0   1   0   . 0   2   0   4   0   0   . 40  0   60  0   . 170 05010
+33  . 1   0   2   1   0   . 1   0   3   4   0   90  . 0   14  60  0   . 164 10210
+11  . 0   9   5   4   0   . 0   2   3   4   0   0   . 72  35  24  0   . 151 09540
+42  . 9   8   0   0   0   . 1   2   0   0   0   81  . 64  0   0   0   . 145 98000
+23  . 8   6   0   3   0   . 1   2   0   4   0   72  . 48  0   18  0   . 138 86030
+... . ... ... ... ... ... . ... ... ... ... ... ... . ... ... ... ... . ... .....
 */
 
-/* 1-ABS(SIGN(x)) ############################################################## 1-ABS(SIGN(x)) */
-/* 100 ==> MAXIM ==> 0.003600 seg/sel */
-/* 100 ==> MINIM ==> 0.002400 seg/sel */
-/* 100 ==> MEDIA ==> 0.003050 seg/sel */
+/* 1-ABS(SIGN) ################################################## 1-ABS(SIGN) */
+/* 100 ==>  0.0093 seg/sel */
 
-/* CASE WHEN x ################################################################# CASE WHEN x */
-/* 100 ==> MAXIM ==> 0.003200 seg/sel */
-/* 100 ==> MINIM ==> 0.002000 seg/sel */
-/* 100 ==> MEDIA ==> 0.002450 seg/sel */
+/* CASE_WHEN ###################################################### CASE_WHEN */
+/* 100 ==> 0.0058 seg/sel */
 
-/* 100 ==> CASE WHEN x (0.002450) es 1.2449 veces más rápido que 1-ABS(SIGN(x)) (0.003050) */
+/* LEFT_JOIN ###################################################### LEFT_JOIN */
+/* 100 ==> 0.0220 seg/sel */

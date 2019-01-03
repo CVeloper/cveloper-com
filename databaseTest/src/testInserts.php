@@ -64,7 +64,7 @@ function filasDeveloperTech($numeroDesarrolladores, $tecnologias, $maximoTecnolo
     $manejador = fopen($fichero, 'a') or die('Error al abrir el fichero.');
     $datos = "\n/* ####################################################### developer_tech */\n\n";
     $maximoIdTecnologia = count($tecnologias);
-    for ($i = 1; $i <= $numeroDesarrolladores; $i++) {
+    for ($i = 2; $i <= $numeroDesarrolladores + 1; $i++) {
         $numeroTecnologias = mt_rand(1, $maximoTecnologias);
         $arrayTecnologias = [];
         while (count($arrayTecnologias) < $numeroTecnologias) {

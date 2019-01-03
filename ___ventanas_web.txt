@@ -1,41 +1,45 @@
 
-Home, página de binvenida
+TODO HEADER COMÚN
 
-Página de información
+TODO MENÚS
 
-Login de usuario
+Home, página de binvenida (ESPECIAL)
+
+Página de información (ESPECIAL)
+
+Login de usuario ---OK---
 
 Registro de nuevo usuario
 
-    Seleccion tipo de usuario (con tipo automático)
+    Seleccion tipo de usuario (con tipo automático) (CARD)
 
-        Insertar, email, contraseña (y tipo automático)
+        Insertar, email, contraseña (y tipo automático) ---OK---
 
-        Indicar alias distinto (con sugerencia su email)
+        Indicar alias distinto (con sugerencia su email) ---OK---
 
 Página de administración de desarrollador
 
-    Formulario de información personal
+    Formulario de información personal ---OK---
 
-    Formulario de experiencia laboral
+    Formulario de experiencia laboral ---OK---
 
-    Formulario de formacion académica
+    Formulario de formacion académica ---OK---
 
-    Formulario de nivel de dominio de tecnologías
+    Formulario de nivel de dominio de tecnologías ---OK---
 
-    Formulario de otros datos
+    Formulario de otros datos ---OK---
 
-    Página con el CV maquetado con un template
+    Página con el CV maquetado con un template (ESPECIAL)
 
-        Listado de selección de template para CV
+        Listado de selección de template para CV (CARD)
 
-    Listado de ofertas de empleo
+    Listado de ofertas de empleo (CARD)
 
-        Single de oferta de emplero
+        Single de oferta de emplero (SERGIO)
 
-    Listado de ofertas de formación
+    Listado de ofertas de formación (CARD)
 
-        Single de oferta de formacion
+        Single de oferta de formacion (SERGIO)
 
     Búsqueda de ofertas y entidades ??????
 
@@ -43,9 +47,9 @@ Página de administración de desarrollador
 
 Página de administración de empresa
 
-    Formulario de datos de la empresa
+    Formulario de datos de la empresa ---OK---
 
-    Formulario de edición/creación de oferta de empleo
+    Formulario de edición/creación de oferta de empleo ---OK---
 
     Listado de ofertas de empleo propias (TABLA)
 
@@ -53,21 +57,21 @@ Página de administración de empresa
 
 Página de administración de centro
 
-    Formulario de datos del centro
+    Formulario de datos del centro ---OK---
 
-    Formulario de edición/creación de oferta de formación
+    Formulario de edición/creación de oferta de formación ---OK---
 
     Listado de ofertas de formación propias  (TABLA)
 
 Página de administración de reclutador
 
-    Perfil de datos personales (muy pocos)
+    Perfil de datos personales (muy pocos) ---OK---
 
     Listado de búsquedas aneriores (TABLA)
 
-    Formulario de nueva búsqueda
+    Formulario de nueva búsqueda ---OK---
 
-        Single de resultado de búsqueda
+        Single de resultado de búsqueda (SERGIO)
 
 Página de administración de administrador
 
