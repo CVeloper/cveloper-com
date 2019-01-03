@@ -1,7 +1,16 @@
-div.icons {
+.icons {
 	text-align: center;
 	font-size: 2rem;
 }
 .centrado {
 	text-align: center;
+}
+
+caption {
+	caption-side: top;
+	font-size: 1.5rem;
+}
+
+.oculto {
+	display: none;
 }

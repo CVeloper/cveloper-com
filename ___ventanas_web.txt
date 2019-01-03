@@ -71,7 +71,7 @@ Página de administración de reclutador
 
 Página de administración de administrador
 
-    Listado de todos los usuarios (TABLA)
+    Listado de todos los usuarios (TABLA) (OK)
 
         Agregar o eliminar usuarios (ICONOS)
 
@@ -87,7 +87,7 @@ Página de administración de administrador
 
         Sublistado de administradores(SELECT)
 
-    Listado de todas las ofertas (TABLA)
+    Listado de todas las ofertas (TABLA) (OK)
 
         Agregar o eliminar ofertas (ICONOS)
 
@@ -95,7 +95,7 @@ Página de administración de administrador
 
         Sublistado de ofertas de formación(SELECT)
 
-    Listado de todas las tecnologías (TABLA)
+    Listado de todas las tecnologías (TABLA) (OK)
 
         Agregar o eliminar tecnologías (ICONOS)
 
