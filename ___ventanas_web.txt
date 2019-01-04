@@ -51,9 +51,9 @@ Página de administración de empresa
 
     Formulario de edición/creación de oferta de empleo ---OK---
 
-    Listado de ofertas de empleo propias (TABLA)
+    Listado de ofertas de empleo propias (TABLA) (OK)
 
-        Listado de desarrolladores apuntados a una oferta (TABLA)
+        Listado de desarrolladores apuntados a una oferta (TABLA) (OK)
 
 Página de administración de centro
 
