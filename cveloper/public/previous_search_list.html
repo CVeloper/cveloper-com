@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Listado de Búsquedas Anteriores</title>
+    <!-- Link Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Link Industrious -->
+    <link rel="stylesheet" href="css/industrious.css">
+    <!-- Link Fontawesome -->
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <!-- Link CVeloper -->
+    <link rel="stylesheet" href="css/styles.css"> 
+
+ 
+</head>
+<body>
+
+    <div class="container">
+
+            <button>Listado de Búsquedas Anteriores</button>
+            
+
+
+        
+        <div class="oculto">
+            <div class="row">            
+                <h3 class="col-sm-12">Preferencias</h3>
+                <div class="col-sm-12">
+                    <input type="text" name="PHP" value="PHP">
+                </div>
+
+                <div class="col-sm-12">
+                    <input type="text" name="JAVA" value="JAVA">
+                </div>
+
+                <div class="col-sm-12">
+                    <input type="text" name="Javascript" value="Javascript">
+                </div>
+
+                <div class="col-sm-12">
+                    <input type="text" name="CSS" value="CSS">
+                </div>
+
+            <div class="col-sm-12">
+            <select name="technology" id="technology">
+                <option value="---" selected="selected">---</option>
+                <option value="PHP">PHP</option>
+                <option value="C#">C#</option>
+                <option value="Angular">Angular</option>
+                <option value="NodeJS">NodeJS</option>
+                <option value="ReactJS">ReactJS</option>
+            </select>
+            </div>
+        </div>
+
+    		<table>
+                 <caption>Resultado de la búsqueda</caption> 
+        		<thead>
+        			<tr>
+	        			<th class="centrado">Alias</th>
+                        <th class="centrado">Nombre</th>
+                        <th class="centrado">Apellidos</th>
+                        <th class="centrado">Puntuación</th>
+                        <th class="centrado">Github</th>
+	        		</tr>
+        		</thead>    
+				<tbody>
+					<tr>
+						<td class="centrado">BubblySnowflake</td>
+						<td class="centrado">Cristina</td>
+						<td class="centrado">Lopez Aguilar</td>
+                        <td class="centrado">40</td>
+                        <td class="centrado"><a href="https://github.com/CVeloper"><i class="fab fa-github icons"></i></a></td>
+                    </tr>
+
+                   <tr>
+                        <td class="centrado">rsanchez</td>
+                        <td class="centrado">Rubén</td>
+                        <td class="centrado">Sánchez Martinez</td>
+                        <td class="centrado">20</td>
+                        <td class="centrado"><a href="https://github.com/CVeloper"><i class="fab fa-github icons"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button>Ocultar</button>
+</div>
+</div>
+    <!-- ARCHIVO A PARTE? -->
+    <script>
+    /* Funciones para Mostrar las Tablas */
+
+        /*Mostrar Listado Mis Ofertasa*/
+         document.querySelector("button:nth-of-type(1)").addEventListener("click", showPreviousSearch);
+
+        function showPreviousSearch() {
+            document.querySelector("div.oculto:nth-of-type(1)").style.display = "block";
+            document.querySelector("div.container > div.oculto:nth-of-type(1) > button").addEventListener("click", hidePreviousSearch);
+        }
+
+
+    /*Funciones para ocultar las tablas*/
+        function hidePreviousSearch() {
+            document.querySelector("div.oculto:nth-of-type(1)").style.display = "none";
+        }
+      
+
+
+       
+    </script>
+</body>
+</html>
