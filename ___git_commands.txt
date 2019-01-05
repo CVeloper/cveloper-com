@@ -565,6 +565,52 @@ Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (master)
 ################################################################################
 CREAR Y CAMBIAR A NUEVA RAMA EN EL PROYECTO (ABREVIADO)
 
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (test_database)
+
     $ git checkout -b test_database
 
         Switched to branch 'test_database'
+
+
+
+################################################################################
+AÑADIR LOS CAMBIOS DE LA RAMA MASTER A LA RAMA NUEVA
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (test_database)
+
+    $ git merge master
+
+        Already up to date.
+
+
+
+################################################################################
+CAMBIAR A LA RAMA MASTER DEL PROYECTO
+
+    Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (test_database)
+
+        $ git checkout master
+
+            Switched to branch 'master'
+
+
+
+################################################################################
+INTEGRAR LOS CAMBIOS DE LA RAMA NUEVA EN LA RAMA MASTER
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (master)
+
+    $ git merge test_database
+
+        Merge made by the 'recursive' strategy.
+        test.sql |    1 +
+        1 file changed, 1 insertion(+)
+
+
+
+################################################################################
+BORRAR LA NUEVA RAMA DEL PROYECTO
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (master)
+
+    $ git branch -d test_database
