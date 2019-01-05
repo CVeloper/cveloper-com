@@ -55,8 +55,8 @@ function filasDeveloperTech($numeroDesarrolladores, $tecnologias, $maximoTecnolo
 function generarFilasAleatorias($tecnologias, $textoAleatorio) {
     $manejador = fopen(TEST_DEVELOPERS, 'w') or die('Error al abrir el fichero.');
     $datos = "\n/* ####################################################### DELETE DEVELOPERS */\n\n"
-           . "DELETE FROM developer WHERE id_developer != 1;\n";
-           . "DELETE FROM developer_tech WHERE id_developer != 1;\n";
+           . "DELETE FROM developer WHERE id_developer != 1;\n"
+           . "ALTER TABLE developer AUTO_INCREMENT = 2;\n"
            . "\n/* ####################################################### RANDOM DEVELOPERS */\n";
     fwrite($manejador, $datos);
     fclose($manejador);

@@ -79,4 +79,4 @@ CREATE TABLE IF NOT EXISTS developer_tech (
     FOREIGN KEY (id_technology) REFERENCES technology(id_technology) ON DELETE CASCADE
 );
 
-INSERT INTO developer_tech (id_developer, id_technology, level) VALUES (1, 1, 1);
+INSERT INTO developer_tech (id_developer, id_technology, level) VALUES (1, 1, 0);
