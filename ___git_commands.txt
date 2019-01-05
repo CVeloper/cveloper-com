@@ -413,7 +413,7 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 ################################################################################
-ERROR AL SUBIR VIA FTP CUANDO LOS CAMBIOS NO SE HAN ACTUALIZADO ?????
+ERROR AL SUBIR VIA FTP CUANDO LOS CAMBIOS NO SE HAN ACTUALIZADO ????????????????
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -471,7 +471,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-####################################################################### GRABAR LOS CAMBIOS AÑADIDOS ####################
+################################################################################
+GRABAR LOS CAMBIOS AÑADIDOS
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -482,7 +483,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################################################## VER CAMBIOS EN REPOSITORIO LOCAL ####################
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -496,7 +498,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-######################################### ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO ####################
+################################################################################
+ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -514,7 +517,8 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-############################################### ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL SERVIDOR FTP ####################
+################################################################################
+ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL SERVIDOR FTP
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
@@ -527,10 +531,40 @@ Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 
 
-############################################### RECUPERAR / EMPAREJAR LOS FICHEROS DEL SERVIDOR FTP ##########??????????
+################################################################################
+RECUPERAR / EMPAREJAR LOS FICHEROS DEL SERVIDOR FTP ????????????????????????????
 
 Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
 
 	$ git ftp catchup
 
 		Last deployment changed from  to c9e670b32c16da26d4cd37b40e382ead51f022f3.
+
+
+
+################################################################################
+CREAR UNA NUEVA RAMA EN EL PROYECTO
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (master)
+
+    $ git branch test_database
+
+
+
+################################################################################
+CAMBIAR A OTRA RAMA EN EL PROYECTO
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (master)
+
+    $ git checkout test_database
+
+        Switched to branch 'test_database'
+
+
+
+################################################################################
+CREAR Y CAMBIAR A NUEVA RAMA EN EL PROYECTO (ABREVIADO)
+
+    $ git checkout -b test_database
+
+        Switched to branch 'test_database'
