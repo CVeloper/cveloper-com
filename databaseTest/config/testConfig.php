@@ -1,7 +1,7 @@
 <?php
 
 // Número Total de Desarrolladores para probar las consultas complejas a la Base de Datos
-define('NUM_DEVELOPERS', 10);
+define('NUM_DEVELOPERS', 100);
 // Valores de Prueba: 1, 10, 100, 1.000, 10.000, 100.000 y 1.000.000
 
 // Número Máximo de Tecnologías que va a tener un desarrollador en su curriculum
