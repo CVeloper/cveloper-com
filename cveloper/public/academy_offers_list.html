@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Listado de Ofertas Propias de Formación</title>
+    <!-- Link Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Link Industrious -->
+    <link rel="stylesheet" href="css/industrious.css">
+    <!-- Link Fontawesome -->
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <!-- Link CVeloper -->
+    <link rel="stylesheet" href="css/styles.css"> 
+
+ 
+</head>
+<body>
+
+    <div class="container">
+
+            <button>Mis Ofertas de Formación</button>
+            
+
+        <div class="oculto">
+    		<table>
+                <caption>Mis ofertas de Formación</caption>
+        		<thead>
+        			<tr>
+	        			<th class="centrado">Nombre Curso</th>
+                        <th class="centrado">Horario/Turno</th>
+                        <th class="centrado">Administración</th>
+	        		</tr>
+        		</thead>    
+				<tbody>
+					<tr>
+						<td class="centrado"> Introducción profesional a PHP </td>
+						<td class="centrado">Vespertino</td>
+						<td class="centrado"><i class="fas fa-times-circle icons"></i></td>
+                    </tr>
+
+                    <tr>
+                        <td class="centrado"> Fundamentos de Javascript</td>
+                        <td class="centrado">Vespertino</td>
+                        <td class="centrado"><i class="fas fa-times-circle icons"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button>Ocultar</button>
+</div>
+</div>
+    <!-- ARCHIVO A PARTE? -->
+    <script>
+    /* Funciones para Mostrar las Tablas */
+
+        /*Mostrar Listado Mis Ofertasa*/
+         document.querySelector("button:nth-of-type(1)").addEventListener("click", showMyOffers);
+
+        function showMyOffers() {
+            document.querySelector("div.oculto:nth-of-type(1)").style.display = "block";
+            document.querySelector("div.container > div.oculto:nth-of-type(1) > button").addEventListener("click", hideMyOffers);
+        }
+
+
+    /*Funciones para ocultar las tablas*/
+        function hideMyOffers() {
+            document.querySelector("div.oculto:nth-of-type(1)").style.display = "none";
+        }
+      
+
+
+       
+    </script>
+</body>
+</html>
