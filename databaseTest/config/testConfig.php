@@ -1,7 +1,7 @@
 <?php
 
 // Número Total de Desarrolladores para probar las consultas complejas a la Base de Datos
-define('NUM_DEVELOPERS', 100);
+define('NUM_DEVELOPERS', 10);
 // Valores de Prueba: 1, 10, 100, 1.000, 10.000, 100.000 y 1.000.000
 
 // Número Máximo de Tecnologías que va a tener un desarrollador en su curriculum
@@ -21,6 +21,10 @@ define('MAX_PREFERENCES', 9);
 
 // Archivo donde se van a almacenar los registros generados aleatoriamente
 define('TEST_INSERTS', "../resources/testInserts.sql");
+// OJO! Tener en cuenta que este fichero se llamará desde la carpeta 'src'
+
+// Archivo donde se van a almacenar los desarrolladores generados aleatoriamente
+define('TEST_DEVELOPERS', "../resources/testDevelopers.sql");
 // OJO! Tener en cuenta que este fichero se llamará desde la carpeta 'src'
 
 ?>
