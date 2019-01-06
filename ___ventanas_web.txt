@@ -71,7 +71,7 @@ Página de administración de reclutador
 
     Formulario de nueva búsqueda ---OK---
 
-        Single de resultado de búsqueda (SERGIO)
+        Single de resultado de búsqueda (SERGIO) ---OK---
 
 Página de administración de administrador
 
