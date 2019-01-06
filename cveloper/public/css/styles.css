@@ -20,6 +20,7 @@ article {
 	margin-bottom: 24px;
 	border-radius: 3px;
 	box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+	cursor: pointer;
 }
 
 article p {
@@ -32,7 +33,20 @@ article span {
 }
 
 article > p,
-article span:first-of-type {
+article span:first-of-type,
+article > div > p:not(:first-of-type) {
 	margin-top: 15px;
 }
 
+article img {
+	width: 100%;
+}
+
+article > div {
+	text-align: center;
+	padding-top: 18px;
+}
+
+article > div > p {
+	font-size: 0.9em;
+}

@@ -11,7 +11,7 @@ Login de usuario ---OK---
 
 Registro de nuevo usuario
 
-    Seleccion tipo de usuario (con tipo automático) (CARD)
+    Seleccion tipo de usuario (con tipo automático) (CARD) ---OK---
 
         Insertar, email, contraseña (y tipo automático) ---OK---
 
@@ -31,15 +31,15 @@ Página de administración de desarrollador
 
     Página con el CV maquetado con un template (ESPECIAL)
 
-        Listado de selección de template para CV (CARD)
+        Listado de selección de template para CV (CARD) ---OK---
 
-    Listado de ofertas de empleo (CARD)
+    Listado de ofertas de empleo (CARD) ---OK---
 
-        Single de oferta de emplero (SERGIO)
+        Single de oferta de emplero (SERGIO) ---OK---
 
-    Listado de ofertas de formación (CARD)
+    Listado de ofertas de formación (CARD) ---OK---
 
-        Single de oferta de formacion (SERGIO)
+        Single de oferta de formacion (SERGIO) ---OK---
 
     Búsqueda de ofertas y entidades ??????
 
