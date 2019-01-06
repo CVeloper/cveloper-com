@@ -14,3 +14,25 @@ caption {
 .oculto {
 	display: none;
 }
+
+article {
+	padding: 12px 18px;
+	margin-bottom: 24px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+}
+
+article p {
+	margin: 0;
+}
+
+article span {
+	font-size: 0.9em;
+	display: inline-block;
+}
+
+article > p,
+article span:first-of-type {
+	margin-top: 15px;
+}
+
