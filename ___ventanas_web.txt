@@ -25,7 +25,7 @@ Página de administración de desarrollador
 
     Formulario de otros datos ---OK---
 
-    Página con el CV maquetado con un template (ESPECIAL)
+    Página con el CV maquetado con un template (ESPECIAL) ---OK---
 
         Listado de selección de template para CV (CARD) ---OK---
 
