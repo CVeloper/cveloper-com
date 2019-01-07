@@ -138,3 +138,14 @@ body {
 header {
 	height: 140px;
 }
+
+
+img.cv {
+ 	width: 100%;
+}
+
+div.cv {
+	background-color: orange;
+    padding-top: 12px;
+    padding-right: 24px;
+}
