@@ -1,11 +1,7 @@
 
-TODO HEADER COMÚN
+TODO HEADER COMÚN CON MENÚS
 
-TODO MENÚS
-
-Home, página de binvenida (ESPECIAL)
-
-Página de información (ESPECIAL)
+Home, página de binvenida y Página de información (ESPECIAL)
 
 Login de usuario ---OK---
 
@@ -51,9 +47,9 @@ Página de administración de empresa
 
     Formulario de edición/creación de oferta de empleo ---OK---
 
-    Listado de ofertas de empleo propias (TABLA) (OK)
+    Listado de ofertas de empleo propias (TABLA) (OK) ---OK---
 
-        Listado de desarrolladores apuntados a una oferta (TABLA) (OK)
+        Listado de desarrolladores apuntados a una oferta (TABLA) (OK) ---OK---
 
 Página de administración de centro
 
@@ -61,13 +57,13 @@ Página de administración de centro
 
     Formulario de edición/creación de oferta de formación ---OK---
 
-    Listado de ofertas de formación propias  (TABLA)
+    Listado de ofertas de formación propias  (TABLA) ---OK---
 
 Página de administración de reclutador
 
     Perfil de datos personales (muy pocos) ---OK---
 
-    Listado de búsquedas aneriores (TABLA)
+    Listado de búsquedas anteriores (TABLA) ---OK---
 
     Formulario de nueva búsqueda ---OK---
 
@@ -75,32 +71,32 @@ Página de administración de reclutador
 
 Página de administración de administrador
 
-    Listado de todos los usuarios (TABLA) (OK)
+    Listado de todos los usuarios (TABLA) (OK) ---OK---
 
-        Agregar o eliminar usuarios (ICONOS)
+        Agregar o eliminar usuarios (ICONOS) ---OK---
 
         Cambiar el tipo de los usuarios ??????
 
-        Sublistado de desarrolladores(SELECT)
+        Sublistado de desarrolladores(SELECT) ---OK---
 
-        Sublistado de empresas(SELECT)
+        Sublistado de empresas(SELECT) ---OK---
 
-        Sublistado de centros(SELECT)
+        Sublistado de centros(SELECT) ---OK---
 
-        Sublistado de reclutadores(SELECT)
+        Sublistado de reclutadores(SELECT) ---OK---
 
-        Sublistado de administradores(SELECT)
+        Sublistado de administradores(SELECT) ---OK---
 
-    Listado de todas las ofertas (TABLA) (OK)
+    Listado de todas las ofertas (TABLA) (OK) ---OK---
 
-        Agregar o eliminar ofertas (ICONOS)
+        Agregar o eliminar ofertas (ICONOS) ---OK---
 
-        Sublistado de ofertas de emplero(SELECT)
+        Sublistado de ofertas de emplero(SELECT) ---OK---
 
-        Sublistado de ofertas de formación(SELECT)
+        Sublistado de ofertas de formación(SELECT) ---OK---
 
-    Listado de todas las tecnologías (TABLA) (OK)
+    Listado de todas las tecnologías (TABLA) (OK) ---OK---
 
-        Agregar o eliminar tecnologías (ICONOS)
+        Agregar o eliminar tecnologías (ICONOS) ---OK---
 
 Página de administración de editor ??????
