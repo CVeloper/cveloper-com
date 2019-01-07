@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Listado de Usuarios</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
     <!-- Link Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Link Industrious -->
@@ -11,11 +15,44 @@
     <link rel="stylesheet" href="css/fontawesome.css">
     <!-- Link CVeloper -->
     <link rel="stylesheet" href="css/styles.css"> 
-
- 
+    
 </head>
 <body>
+    <!-- TODO quitar padding al body para que header quede pegado arriba -->
 
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <img class="logo" src="images/CVeloper_logo.png" alt="Logo CVeloper" />
+                    <p class="header-text">CVeloper</p>
+
+                </div>
+                
+
+                <div class="offset-lg-4 col-lg-1">
+                    <button class="header-button">Perfil</button>
+                </div>
+
+                <div class="col-lg-1">
+                    <button  class="header-button">Cerrar Sesión</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <nav>
+                    <button class="nav-button">Listado Usuarios</button>
+                    
+                    <button class="nav-button">Listado de Tecnologías</button>
+
+                    <button class="nav-button">Listado de Ofertas</button>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+    
+    <main>
     <div class="container">
 
             <button>Listado General de Usuarios</button>
@@ -275,13 +312,13 @@
              <button>Ocultar</button>
 	       </div>
 </div>
-
+</main>
     <!-- ARCHIVO A PARTE? -->
     <script>
     /* Funciones para Mostrar las Tablas */
 
         /*Mostrar Listado General*/
-        document.querySelector("button:nth-of-type(1)").addEventListener("click", showGeneralList);
+        document.querySelector("main > div.container > button:nth-of-type(1)").addEventListener("click", showGeneralList);
 
         function showGeneralList() {
             document.querySelector("div.oculto:nth-of-type(1)").style.display = "block";
@@ -289,7 +326,7 @@
         }
 
         /*Mostrar Listado Desarrolladores*/
-        document.querySelector("button:nth-of-type(2)").addEventListener("click", showDeveloperList);
+        document.querySelector("main > div.container > button:nth-of-type(2)").addEventListener("click", showDeveloperList);
 
         function showDeveloperList() {
             document.querySelector("div.oculto:nth-of-type(2)").style.display = "block";
@@ -297,7 +334,7 @@
         }
 
         /*Mostrar Listado Reclutadores*/
-         document.querySelector("button:nth-of-type(3)").addEventListener("click", showRecruiterList);
+         document.querySelector("main > div.container > button:nth-of-type(3)").addEventListener("click", showRecruiterList);
 
          function showRecruiterList() {
             document.querySelector("div.oculto:nth-of-type(3)").style.display = "block";
@@ -305,7 +342,7 @@
         }
 
         /*Mostrar Listado Empresas*/
-        document.querySelector("button:nth-of-type(4)").addEventListener("click", showCompanyList);
+        document.querySelector(" main > div.container > button:nth-of-type(4)").addEventListener("click", showCompanyList);
 
          function showCompanyList() {
             document.querySelector("div.oculto:nth-of-type(4)").style.display = "block";
@@ -313,7 +350,7 @@
         }
 
         /*Mostrar Listado Centros*/
-        document.querySelector("button:nth-of-type(5)").addEventListener("click", showAcademyList);
+        document.querySelector(" main > div.container > button:nth-of-type(5)").addEventListener("click", showAcademyList);
 
          function showAcademyList() {
             document.querySelector("div.oculto:nth-of-type(5)").style.display = "block";

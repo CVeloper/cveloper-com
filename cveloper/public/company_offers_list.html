@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <title>Listado de ofertas propias de formación</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta charset="utf-8">
-    <title>Listado de Ofertas Propias de Empleo</title>
     <!-- Link Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Link Industrious -->
@@ -12,10 +16,40 @@
     <!-- Link CVeloper -->
     <link rel="stylesheet" href="css/styles.css"> 
 
- 
 </head>
 <body>
 
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <img class="logo" src="images/CVeloper_logo.png" alt="Logo CVeloper" />
+                    <p class="header-text">CVeloper</p>
+
+                </div>
+                
+
+                <div class="offset-lg-4 col-lg-1">
+                    <button class="header-button">Perfil</button>
+                </div>
+
+                <div class="col-lg-1">
+                    <button  class="header-button">Cerrar Sesión</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <nav>
+                    <button class="nav-button">Mis ofertas</button>
+                    
+                    <button class="nav-button">Mis Datos</button>
+
+                </nav>
+
+            </div>
+        </div>
+    </header>
+<main>
     <div class="container">
 
             <button>Mis Ofertas de Empleo</button>
@@ -96,12 +130,13 @@
             <button>Ocultar</button>
 </div>
 </div>
+</main>
     <!-- ARCHIVO A PARTE? -->
     <script>
     /* Funciones para Mostrar las Tablas */
 
         /*Mostrar Listado Mis Ofertasa*/
-         document.querySelector("button:nth-of-type(1)").addEventListener("click", showMyOffers);
+         document.querySelector("main > div.container > button:nth-of-type(1)").addEventListener("click", showMyOffers);
 
         function showMyOffers() {
             document.querySelector("div.oculto:nth-of-type(1)").style.display = "block";

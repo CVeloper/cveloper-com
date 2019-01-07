@@ -95,3 +95,46 @@ div.ranking:nth-child(7) p.puntos {
 	display: inline-block;
 	width: 47.5%;
 }
+
+
+img.logo {
+	width: 70px;
+	float: left;
+}
+	
+
+p.header-text {
+	font-size: 2rem;
+	color: #ff9500;
+	width: 200px;
+	float: left;
+	margin-top: 30px;
+	padding: 0px;
+	margin-bottom: 0px; 
+}
+	
+header {
+	background-color: #222222;
+}
+
+button.header-button {
+	margin-top: 20px;
+}
+
+button.nav-button, button.header-button {
+	color: orange !important;
+}
+
+nav {
+	margin: 0 auto;
+	width: auto;
+	margin-bottom: 10px;
+}
+
+body {
+	padding-top: 0px;
+}
+
+header {
+	height: 140px;
+}
