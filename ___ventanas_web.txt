@@ -1,7 +1,7 @@
 
-TODO HEADER COMÚN CON MENÚS
+TODO HEADER COMÚN CON MENÚS ---OK---
 
-Home, página de binvenida y Página de información (ESPECIAL)
+Home, página de binvenida y Página de información (ESPECIAL) ---OK---
 
 Login de usuario ---OK---
 
