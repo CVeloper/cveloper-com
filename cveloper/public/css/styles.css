@@ -98,7 +98,8 @@ div.ranking:nth-child(7) p.puntos {
 
 
 img.logo {
-	width: 70px;
+	margin-top: 7px;
+	width: 200px;
 	float: left;
 }
 	

@@ -1,6 +1,8 @@
 
 TODO Organizar todos los ficheros HTML en carpetas: developer, company, admin...
 
+TODO Media Query para versión móvil (logo) 
+
 TODO Revisar todos los botones: formularios, links, etc.
 
 TODO Borrar botón perfil de la cabecera y (añadir nombre de usuario-> PHP) 
