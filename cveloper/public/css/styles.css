@@ -98,6 +98,15 @@ div.ranking:nth-child(7) p.puntos {
 
 /* ################################################# INICIO SERGIO */
 
+div.centrar p,
+div.centrar h1 {
+	text-align: center;
+}
+
+div.centrar h1 > a:not(:last-child) {
+	margin-right: 3%;
+}
+
 img.map {
 	width: 85%;
 }
