@@ -112,7 +112,8 @@ img.map {
 /* ################################################################## HEADER */
 
 body > header img.logo {
-	width: 70px;
+	margin-top: 7px;
+	width: 200px;
 	float: left;
 }
 	
