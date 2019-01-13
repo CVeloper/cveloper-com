@@ -3,15 +3,15 @@ TODO Organizar todos los ficheros HTML en carpetas: developer, company, admin...
 
 TODO Media Query para versión móvil (logo) 
 
-TODO Revisar todos los botones: formularios, links, etc.
+TODO Revisar todos los botones: formularios, links, etc. ---OK---
 
 TODO Borrar botón perfil de la cabecera y (añadir nombre de usuario-> PHP) 
 
-TODO Revisar los links de archivos de estilos y las imágenes: "../"
+TODO Revisar los links de archivos de estilos y las imágenes: "../" ---OK---
 
-TODO Añadir iconos de RRSS de index.html
+TODO Añadir iconos de RRSS de index.html ---OK---
 
-TODO Enlazar todas las páginas, añadir todos los links
+TODO Enlazar todas las páginas, añadir todos los links ---OK---
 
 TODO HEADER COMÚN CON MENÚS ---OK---
 
