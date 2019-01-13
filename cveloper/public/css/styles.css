@@ -116,6 +116,7 @@ img.map {
 body > header {
 	background-color: #222222;
 	margin-bottom: 30px;
+	padding-right: 20px;
 }
 
 body > header img.logo {
@@ -126,7 +127,8 @@ body > header img.logo {
 
 body > header button.header-button {
 	margin-top: 10px;
-	margin-right: 20px;
+	margin-left: 15px;
+	margin-bottom: 15px;
 }
 
 body > header nav {
@@ -137,11 +139,11 @@ body > header nav {
 
 body > header > div.container > div.row:first-child {
 	padding-top: 15px;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 }
 
 body > header > div.container > div.row:last-child {
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 
 body > header > div.container > div.row > div:first-child {

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Inicio de sesión</title>
+	<title>Alias Compañia</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -27,32 +27,32 @@
                     <img class="logo" src="images/CVeloper_logo_texto.png" alt="Logo CVeloper" />
                 </div>
                 <div class="col-6">
-					<a href="user_type.html"><button class="header-button">Registrarse</button></a>
-					<a href="sign_in.html"><button  class="header-button">Iniciar sesión</button></a>
-				</div>
-			</div>
+                    <a href="index.html"><button class="header-button">Cerrar Sesión</button></a>
+                </div>
+            </div>
 
 		</div>
 	</header>
 	
 	<div class="container">
-		<!-- TODO Añadir página en action para procesar la información -->
-		<form action="recruiter_info.html" method="">
+		<form action="company_info.html" method="">
 			<div class="row">
-			
-
-				<!-- Pull rellena espacios a la derecha-->
-				<div class="col-sm-12 col-md-9 col-md-pull-3">
-					<input id="alias/email" type="text" name="alias/email" placeholder="Introduce tu email">
+				<div class="centrado col-sm-12">
+					<h3>Bienvenido!</h3>
+					<p>Por favor introduce un alias: </p>
 				</div>
-
-				<div class="col-sm-9">
-					<input id="password" type="text" name="password" placeholder="Introduce tu contraseña">
+				<div class="col-sm-12 col-md-10">
+					<input id="alias" type="text" name="alias" placeholder="Introduce tu alias"><br>
 				</div>
-
-				<div class="col-sm-12 col-md-3">
-					<a href=""><button>Entrar</button></a>
+				<div class="col-sm-12 col-md-2">
+					<a href="dev_cv_info.html"><button>Aceptar</button></a>
 				</div>
+				
+				<div class="centrado col-sm-12">
+					<p>Recuerda que el alias que elijas debe ser único y se mostrará en la url pública de tu currículum: </p>
+					<p>https://cveloper.com/tualias</p>
+				</div>
+			</div>
 			</form>
 	</div>
 </body>
