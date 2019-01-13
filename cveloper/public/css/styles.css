@@ -109,6 +109,8 @@ img.map {
 	width: 85%;
 }
 
+
+
 /* ################################################################## HEADER */
 
 body > header {
@@ -124,6 +126,7 @@ body > header img.logo {
 
 body > header button.header-button {
 	margin-top: 10px;
+	margin-right: 20px;
 }
 
 body > header nav {
@@ -166,6 +169,12 @@ body > header a button.header-button,
 body > header nav > a button.nav-button {
 	color: orange !important;
 	border-color: orange !important;
+	background-color: rgba(255,255,255,0.1);
+}
+
+body > header a button.header-button:hover,
+body > header nav > a button.nav-button:hover {
+	background-color: rgba(255,255,255,0.95);
 }
 
 body > header nav {
@@ -174,6 +183,14 @@ body > header nav {
 
 body > header nav > button.nav-button {
 	display: inline-block;
+}
+
+body > header nav > a:not(:last-child) {
+	margin-right: 15px;
+}
+
+body > header nav button {
+	margin-bottom: 15px;
 }
 
 /* ################################################################## HEADER */
@@ -194,4 +211,8 @@ div.cv {
 
 input {
 	margin-bottom: 25px;
+}
+
+a {
+	text-decoration: none;
 }
