@@ -62,8 +62,10 @@ div.ranking p {
 }
 
 div.ranking p.puntos {
-	background-color: grey;
+	background-color: orange;
+	border-radius: 1.1em 0 0 1.1em;
 	padding-right: 12px;
+	font-weight: 700;
 }
 
 div.ranking:nth-child(2) p.puntos {
@@ -109,12 +111,10 @@ img.map {
 	width: 85%;
 }
 
-
-
 /* ################################################################## HEADER */
 
 body > header {
-	background-color: #222222;
+	background-color: #222;
 	margin-bottom: 30px;
 	padding-right: 20px;
 }
@@ -217,4 +217,13 @@ input, textarea {
 
 a {
 	text-decoration: none;
+}
+
+button.cv {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+button.cv:hover {
+	background-color: #222;
 }

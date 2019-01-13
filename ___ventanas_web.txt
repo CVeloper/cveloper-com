@@ -3,13 +3,13 @@ TODO Organizar todos los ficheros HTML en carpetas: developer, company, admin...
 
 TODO al volver al index, si tienes sesión te deja acceder al contenido (ofertas), si no, te lleva a la página de registro
 
-TODO cv.html separar el boton de abajo
+TODO cv.html separar el boton de abajo ---OK---
 
-TODO añadir enlaces del desarrollador a la página "Mis Datos" Rellena, borrar "Privacidad" y "Ubicación" de la cabecera
+TODO añadir enlaces del desarrollador a la página "Mis Datos" Rellena, borrar "Privacidad" y "Ubicación" de la cabecera ---OK---
 
 TODO acabar selects (paco)
 
-TODO cambiar color de texto a naranja recruiter_search_results.html
+TODO cambiar color de texto a naranja recruiter_search_results.html ---OK---
 
 ########################### TODO  subir pagina a servidor ###########################
 
