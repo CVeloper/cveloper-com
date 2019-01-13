@@ -96,8 +96,6 @@ div.ranking:nth-child(7) p.puntos {
 	width: 47.5%;
 }
 
-/* ################################################# INICIO SERGIO */
-
 div.centrar p,
 div.centrar h1 {
 	text-align: center;
@@ -111,15 +109,14 @@ img.map {
 	width: 85%;
 }
 
-/* ################################################# FIN SERGIO*/
+/* ################################################################## HEADER */
 
-img.logo {
+body > header img.logo {
 	width: 70px;
 	float: left;
 }
 	
-
-p.header-text {
+body > header p.header-text {
 	font-size: 2rem;
 	color: #ff9500;
 	width: 200px;
@@ -129,32 +126,30 @@ p.header-text {
 	margin-bottom: 0px; 
 }
 	
-header {
+body > header {
+	height: 140px;
 	background-color: #222222;
 }
 
-button.header-button {
+body > header button.header-button {
 	margin-top: 20px;
 }
 
-button.nav-button, button.header-button {
+body > header button.nav-button, button.header-button {
 	color: orange !important;
 }
 
-nav {
+body > header nav {
 	margin: 0 auto;
 	width: auto;
 	margin-bottom: 10px;
 }
 
+/* ################################################################## HEADER */
+
 body {
 	padding-top: 0px;
 }
-
-header {
-	height: 140px;
-}
-
 
 img.cv {
  	width: 100%;
