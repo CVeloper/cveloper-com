@@ -1,6 +1,18 @@
 
 TODO Organizar todos los ficheros HTML en carpetas: developer, company, admin...
 
+TODO al volver al index, si tienes sesión te deja acceder al contenido (ofertas), si no, te lleva a la página de registro
+
+TODO cv.html separar el boton de abajo
+
+TODO añadir enlaces del desarrollador a la página "Mis Datos" Rellena, borrar "Privacidad" y "Ubicación" de la cabecera
+
+TODO acabar selects (paco)
+
+TODO cambiar color de texto a naranja recruiter_search_results.html
+
+########################### TODO  subir pagina a servidor ###########################
+
 TODO Media Query para versión móvil (logo) 
 
 TODO Revisar todos los botones: formularios, links, etc.
