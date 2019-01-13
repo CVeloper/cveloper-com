@@ -211,7 +211,7 @@ div.cv {
     padding-right: 24px;
 }
 
-input {
+input, textarea {
 	margin-bottom: 25px;
 }
 
