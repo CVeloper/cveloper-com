@@ -109,11 +109,14 @@ img.map {
 	width: 85%;
 }
 
+
+
 /* ################################################################## HEADER */
 
 body > header {
 	background-color: #222222;
 	margin-bottom: 30px;
+	padding-right: 20px;
 }
 
 body > header img.logo {
@@ -124,6 +127,8 @@ body > header img.logo {
 
 body > header button.header-button {
 	margin-top: 10px;
+	margin-left: 15px;
+	margin-bottom: 15px;
 }
 
 body > header nav {
@@ -134,11 +139,11 @@ body > header nav {
 
 body > header > div.container > div.row:first-child {
 	padding-top: 15px;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 }
 
 body > header > div.container > div.row:last-child {
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 
 body > header > div.container > div.row > div:first-child {
@@ -166,6 +171,12 @@ body > header a button.header-button,
 body > header nav > a button.nav-button {
 	color: orange !important;
 	border-color: orange !important;
+	background-color: rgba(255,255,255,0.1);
+}
+
+body > header a button.header-button:hover,
+body > header nav > a button.nav-button:hover {
+	background-color: rgba(255,255,255,0.95);
 }
 
 body > header nav {
@@ -174,6 +185,14 @@ body > header nav {
 
 body > header nav > button.nav-button {
 	display: inline-block;
+}
+
+body > header nav > a:not(:last-child) {
+	margin-right: 15px;
+}
+
+body > header nav button {
+	margin-bottom: 15px;
 }
 
 /* ################################################################## HEADER */
@@ -192,6 +211,10 @@ div.cv {
     padding-right: 24px;
 }
 
-input {
+input, textarea {
 	margin-bottom: 25px;
+}
+
+a {
+	text-decoration: none;
 }
