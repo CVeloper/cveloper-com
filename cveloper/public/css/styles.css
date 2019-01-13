@@ -111,39 +111,69 @@ img.map {
 
 /* ################################################################## HEADER */
 
+body > header {
+	background-color: #222222;
+	margin-bottom: 30px;
+}
+
 body > header img.logo {
 	margin-top: 7px;
 	width: 200px;
 	float: left;
 }
-	
-body > header p.header-text {
-	font-size: 2rem;
-	color: #ff9500;
-	width: 200px;
-	float: left;
-	margin-top: 30px;
-	padding: 0px;
-	margin-bottom: 0px; 
-}
-	
-body > header {
-	height: 140px;
-	background-color: #222222;
-}
 
 body > header button.header-button {
-	margin-top: 20px;
-}
-
-body > header button.nav-button, button.header-button {
-	color: orange !important;
+	margin-top: 10px;
 }
 
 body > header nav {
 	margin: 0 auto;
 	width: auto;
 	margin-bottom: 10px;
+}
+
+body > header > div.container > div.row:first-child {
+	padding-top: 15px;
+	margin-bottom: 20px;
+}
+
+body > header > div.container > div.row:last-child {
+	padding-bottom: 20px;
+}
+
+body > header > div.container > div.row > div:first-child {
+	text-align: left;
+}
+
+body > header > div.container > div.row > div:last-child {
+	text-align: right;
+}
+
+/*
+body > header > div.container > div.row > div:nth-child(2) {
+	text-align: center;
+}
+
+body > header > div.container > div.row > div:nth-child(2) > p {
+	color: white;
+	font-size: 18px;
+	font-weight: 700;
+	padding-top: 25px;
+}
+*/
+
+body > header a button.header-button,
+body > header nav > a button.nav-button {
+	color: orange !important;
+	border-color: orange !important;
+}
+
+body > header nav {
+	text-align: center;
+}
+
+body > header nav > button.nav-button {
+	display: inline-block;
 }
 
 /* ################################################################## HEADER */
@@ -160,4 +190,8 @@ div.cv {
 	background-color: orange;
     padding-top: 12px;
     padding-right: 24px;
+}
+
+input {
+	margin-bottom: 25px;
 }
