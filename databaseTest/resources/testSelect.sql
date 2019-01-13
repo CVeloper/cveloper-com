@@ -639,3 +639,69 @@ id  . L19 L15 L11 L23 L14 . P19 P15 P11 P23 P14 S19 . S15 S11 S23 S14 . pts  str
 
 /* LEFT_JOIN ###################################################### LEFT_JOIN */
 /* 100 ==> 0.0110 seg/sel */
+
+/* TUTORIA */
+
+SELECT d.id_developer AS id_dev,
+
+    COALESCE(t1.level, 0) AS T_1,
+    COALESCE(t2.level, 0) AS T_2,
+    COALESCE(t3.level, 0) AS T_3,
+    COALESCE(t4.level, 0) AS T_4,
+    COALESCE(t5.level, 0) AS T_5,
+    COALESCE(t6.level, 0) AS T_6,
+    COALESCE(t11.level, 0) AS T_11,
+    COALESCE(t14.level, 0) AS T_14,
+    COALESCE(t15.level, 0) AS T_15,
+
+    COALESCE(t1.level, 0) * 9 AS TL_1,
+    COALESCE(t2.level, 0) * 8 AS TL_2,
+    COALESCE(t3.level, 0) * 7 AS TL_3,
+    COALESCE(t4.level, 0) * 6 AS TL_4,
+    COALESCE(t5.level, 0) * 5 AS TL_5,
+    COALESCE(t6.level, 0) * 4 AS TL_6,
+    COALESCE(t11.level, 0) * 3 AS TL_11,
+    COALESCE(t14.level, 0) * 2 AS TL_14,
+    COALESCE(t15.level, 0) * 1 AS TL_15,
+
+    COALESCE(t1.level, 0) * 9 + 
+    COALESCE(t2.level, 0) * 8 + 
+    COALESCE(t3.level, 0) * 7 + 
+    COALESCE(t4.level, 0) * 6 + 
+    COALESCE(t5.level, 0) * 5 + 
+    COALESCE(t6.level, 0) * 4 + 
+    COALESCE(t11.level, 0) * 3 + 
+    COALESCE(t14.level, 0) * 2 +
+    COALESCE(t15.level, 0) * 1 AS TOTAL
+
+FROM developer d
+
+LEFT JOIN developer_tech t1
+    ON t1.id_developer = d.id_developer
+    AND t1.id_technology = 1
+LEFT JOIN developer_tech t2
+    ON t2.id_developer = d.id_developer
+    AND t2.id_technology = 2
+LEFT JOIN developer_tech t3
+    ON t3.id_developer = d.id_developer
+    AND t3.id_technology = 3
+LEFT JOIN developer_tech t4
+    ON t4.id_developer = d.id_developer
+    AND t4.id_technology = 4
+LEFT JOIN developer_tech t5
+    ON t5.id_developer = d.id_developer
+    AND t5.id_technology = 5
+LEFT JOIN developer_tech t6
+    ON t6.id_developer = d.id_developer
+    AND t6.id_technology = 6
+LEFT JOIN developer_tech t11
+    ON t11.id_developer = d.id_developer
+    AND t11.id_technology = 11
+LEFT JOIN developer_tech t14
+    ON t14.id_developer = d.id_developer
+    AND t14.id_technology = 14
+LEFT JOIN developer_tech t15
+    ON t15.id_developer = d.id_developer
+    AND t15.id_technology = 15
+
+ORDER BY TOTAL DESC;

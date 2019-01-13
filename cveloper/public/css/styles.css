@@ -96,6 +96,22 @@ div.ranking:nth-child(7) p.puntos {
 	width: 47.5%;
 }
 
+/* ################################################# INICIO SERGIO */
+
+div.centrar p,
+div.centrar h1 {
+	text-align: center;
+}
+
+div.centrar h1 > a:not(:last-child) {
+	margin-right: 3%;
+}
+
+img.map {
+	width: 85%;
+}
+
+/* ################################################# FIN SERGIO*/
 
 img.logo {
 	margin-top: 7px;

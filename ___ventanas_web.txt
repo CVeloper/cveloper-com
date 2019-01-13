@@ -15,11 +15,11 @@ TODO Enlazar todas las páginas, añadir todos los links
 
 TODO HEADER COMÚN CON MENÚS ---OK---
 
-Home, página de binvenida y Página de información (ESPECIAL) ---OK---
+Home, página de bienvenida y de información (ESPECIAL) ---OK---
 
 Login de usuario ---OK---
 
-Registro de nuevo usuario
+Registro de nuevo usuario ######################################################### OK
 
     Seleccion tipo de usuario (con tipo automático) (CARD) ---OK---
 
@@ -27,7 +27,7 @@ Registro de nuevo usuario
 
         Indicar alias distinto (con sugerencia su email) ---OK---
 
-Página de administración de desarrollador
+Página de administración de desarrollador ######################################################### OK
 
     Formulario de información personal ---OK---
 
@@ -47,15 +47,19 @@ Página de administración de desarrollador
 
         Single de oferta de emplero (SERGIO) ---OK---
 
+            Single de empresa (SERGIO) ---OK---
+
     Listado de ofertas de formación (CARD) ---OK---
 
         Single de oferta de formacion (SERGIO) ---OK---
+
+            Single de centro formativo (SERGIO) ---OK---
 
     Búsqueda de ofertas y entidades ??????
 
     Búsqueda con mapa ??????
 
-Página de administración de empresa
+Página de administración de empresa ######################################################### OK
 
     Formulario de datos de la empresa ---OK---
 
@@ -65,7 +69,7 @@ Página de administración de empresa
 
         Listado de desarrolladores apuntados a una oferta (TABLA) (OK) ---OK---
 
-Página de administración de centro
+Página de administración de centro ######################################################### OK
 
     Formulario de datos del centro ---OK---
 
@@ -73,7 +77,7 @@ Página de administración de centro
 
     Listado de ofertas de formación propias  (TABLA) ---OK---
 
-Página de administración de reclutador
+Página de administración de reclutador ######################################################### OK
 
     Perfil de datos personales (muy pocos) ---OK---
 
@@ -83,7 +87,7 @@ Página de administración de reclutador
 
         Single de resultado de búsqueda (SERGIO) ---OK---
 
-Página de administración de administrador
+Página de administración de administrador ######################################################### OK
 
     Listado de todos los usuarios (TABLA) (OK) ---OK---
 
@@ -105,9 +109,9 @@ Página de administración de administrador
 
         Agregar o eliminar ofertas (ICONOS) ---OK---
 
-        Sublistado de ofertas de emplero(SELECT) ---OK---
+        Sublistado de ofertas de emplero (SELECT) ---OK---
 
-        Sublistado de ofertas de formación(SELECT) ---OK---
+        Sublistado de ofertas de formación (SELECT) ---OK---
 
     Listado de todas las tecnologías (TABLA) (OK) ---OK---
 
