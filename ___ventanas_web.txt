@@ -1,23 +1,33 @@
 
+
+
 TODO Organizar todos los ficheros HTML en carpetas: developer, company, admin...
 
 TODO al volver al index, si tienes sesión te deja acceder al contenido (ofertas), si no, te lleva a la página de registro
+
+TODO acabar selects (paco)
+
+TODO Media Query para versión móvil (logo) 
+
+TODO Borrar botón perfil de la cabecera y (añadir nombre de usuario-> PHP) 
+
+TODO Incorporar el alias de usuario en el header de sus páginas de administración
+
+TODO Añadir página en action para procesar la información en los formularios
+
+TODO Añadir iconos de Google, GitHub y LinkedIn en la página de registro
+
+TODO Página de estado de las solicitudes de empleo del desarrollador
 
 TODO cv.html separar el boton de abajo ---OK---
 
 TODO añadir enlaces del desarrollador a la página "Mis Datos" Rellena, borrar "Privacidad" y "Ubicación" de la cabecera ---OK---
 
-TODO acabar selects (paco)
-
 TODO cambiar color de texto a naranja recruiter_search_results.html ---OK---
 
-########################### TODO  subir pagina a servidor ###########################
-
-TODO Media Query para versión móvil (logo) 
+TODO  subir pagina a servidor ---OK---
 
 TODO Revisar todos los botones: formularios, links, etc. ---OK---
-
-TODO Borrar botón perfil de la cabecera y (añadir nombre de usuario-> PHP) 
 
 TODO Revisar los links de archivos de estilos y las imágenes: "../" ---OK---
 
@@ -27,11 +37,13 @@ TODO Enlazar todas las páginas, añadir todos los links ---OK---
 
 TODO HEADER COMÚN CON MENÚS ---OK---
 
-TODO Incorporar el alias de usuario en el header de sus páginas de administración
-
 Home, página de bienvenida y de información (ESPECIAL) ---OK---
 
 Login de usuario ---OK---
+
+
+
+################################################## PÁGINAS WEB ##################################################
 
 Registro de nuevo usuario ######################################################### OK
 

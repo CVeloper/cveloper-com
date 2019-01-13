@@ -99,7 +99,8 @@ div.ranking:nth-child(7) p.puntos {
 }
 
 div.centrar p,
-div.centrar h1 {
+div.centrar h1,
+div.centrar h2 {
 	text-align: center;
 }
 
@@ -117,6 +118,7 @@ body > header {
 	background-color: #222;
 	margin-bottom: 30px;
 	padding-right: 20px;
+	min-height: 105px;
 }
 
 body > header img.logo {
@@ -140,10 +142,6 @@ body > header nav {
 body > header > div.container > div.row:first-child {
 	padding-top: 15px;
 	margin-bottom: 15px;
-}
-
-body > header > div.container > div.row:last-child {
-	padding-bottom: 10px;
 }
 
 body > header > div.container > div.row > div:first-child {
@@ -191,8 +189,10 @@ body > header nav > a:not(:last-child) {
 	margin-right: 15px;
 }
 
-body > header nav button {
+body > header nav > a > button {
+	margin-top: 0;
 	margin-bottom: 15px;
+
 }
 
 /* ################################################################## HEADER */
@@ -211,7 +211,7 @@ div.cv {
     padding-right: 24px;
 }
 
-input, textarea {
+input, textarea, select {
 	margin-bottom: 25px;
 }
 
@@ -219,11 +219,23 @@ a {
 	text-decoration: none;
 }
 
+button,
 button.cv {
 	margin-top: 30px;
 	margin-bottom: 30px;
 }
 
+button:hover,
 button.cv:hover {
 	background-color: #222;
+}
+
+button.alias,
+button.signup {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+div.izquierda {
+	text-align: right;
 }
