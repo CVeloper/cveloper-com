@@ -1,6 +1,4 @@
 
-
-
 SELECTS
 
 Registro de usuarios:
@@ -29,13 +27,14 @@ SELECT de todo con el ID_USUARIO
 
 (funciones get_nombre, get_foto, get_tecnologias, etc. para que todas las plantillas funcionen)
 
-C
+
 
 PÁGINAS
 
 Login de usuario
 
-Registro de nuevo usuario --paco insert
+Registro de nuevo usuario 
+    INSERT INTO user VALUES (alias, email, type);
 
     Seleccion tipo de usuario (con tipo automático) 
 
@@ -47,15 +46,21 @@ Registro de nuevo usuario --paco insert
 
 Página de administración de desarrollador
 
-    Formulario de información personal --paco
+    Formulario de información personal 
+    INSERT INTO developer VALUES (first_name, last_name, address, postal_code, city, country, phone, link_github, link_linkedin, avatar);
+   
 
-    Formulario de experiencia laboral --paco
+    Formulario de experiencia laboral 
+     INSERT INTO experience VALUES (position, company, finish_date, duration, id_developer);
+     
+    Formulario de formacion académica 
+    INSERT INTO training VALUES (degree, institution, city, finish_date, id_developer);
 
-    Formulario de formacion académica --paco
+    Formulario de nivel de dominio de tecnologías 
+    INSERT INTO experience VALUES (id_developer, id_technology, level); 
 
-    Formulario de nivel de dominio de tecnologías --paco
-
-    Formulario de otros datos --paco
+    Formulario de otros datos 
+    INSERT INTO experience VALUES (id_additional, description, id_developer);
 
     Página con el CV maquetado con un template
 
@@ -75,26 +80,40 @@ Página de administración de desarrollador
             Single de empresa
             SELECT company_name, address, tech_name FROM company c, tech t, tech_company tc WHERE c.id_company = tc.id_company 
             AND t.id_technology = tc.id_technology AND  c.id = myID;
-            /* También consulta de sus ofertas */
+            /* Consulta de sus ofertas */
             SELECT position, working_day, contract_type, salary,
             FROM job_offer WHERE id_company = myID;
 
     Listado de ofertas de formación
              SELECT id_job_offer, schedule, training_name, id_academy FROM training_offer;
 
-        Single de oferta de formacion --paco
+        Single de oferta de formacion 
+            SELECT training_name, academy_name, address, schedule, tech_name, description
+            FROM academy a, technology t, training_offer to, tech_training_offer tto
+            WHERE a.id_academy = id.training_offer AND to.id_training_offer = tto.id_training_offer
+            AND t.id_technology = tto.id_technology AND a.id_training_offer = myID;
 
-            Single de centro formativo --paco
-
+            Single de centro formativo 
+            SELECT academy_name, city, address, tech_name FROM academy a, technology t, tech_training_offer tto
+            WHERE  a.id_academy = tto.id_academy AND t.id_technology = tto.id_technology 
+            AND  a.id_academy = myID;
+            /*Select de ofertas */
+            SELECT training_name, description FROM training_offer WHERE id_academy = myID;
     Búsqueda de ofertas y entidades ???
 
     Búsqueda con mapa ???
 
 Página de administración de empresa
 
-    Formulario de datos de la empresa --paco MIS DATOS
+    Formulario de datos de la empresa  
+    INSERT INTO company VALUES (company_name, address, postal_code, city, country, contact_phone, link_github, link_linkedin, avatar);
+
 
     Formulario de edición/creación de oferta de empleo --insert, update
+    INSERT INTO job_offer VALUES (position, working_day, contract_type, salary, description, id_company);
+
+    UPDATE job_offer SET position = "position", working_day = "working_day", contract_type = "contract_type",  
+    salary = "salary", description = "description" WHERE id_company = X;
 
     Listado de ofertas de empleo propias
      SELECT position, working_day, contract_type, salary,
@@ -105,22 +124,33 @@ Página de administración de empresa
 
 Página de administración de centro
 
-    Formulario de datos del centro --paco MIS DATOS
+    Formulario de datos del centro  
+    INSERT INTO academy VALUES (academy_name, address, postal_code, city, country, contact_phone, link_github, link_linkedin, avatar);
 
     Formulario de edición/creación de oferta de formación --INSERT, UPDATE
+    INSERT INTO training_offer VALUES (schedule, training_name, description, id_academy);
+
+    UPDATE training_offer SET schedule = "schedule", training_name = "training_name", description = "description" 
+    WHERE id_academy = myID;
 
     Listado de ofertas de formación propias
         SELECT training_name, schedule FROM training_offer WHERE id_training_offer = myID;
 
 Página de administración de reclutador
 
-    Perfil de datos personales --paco MIS DATOS
+    Perfil de datos personales  
+    INSERT INTO recruiter VALUES (name, link_github, link_linkedin);
 
-    Listado de búsquedas anteriores --paco
+    Listado de búsquedas anteriores 
+
+    SELECT search_name, search_date, tech_name FROM technology t, search s, search_tech st, user u
+    WHERE t.id_technology = st.id_technology AND u.id_user = s.id_user AND s.id_user = myID;  
 
     Formulario de nueva búsqueda
+    INSERT INTO search VALUES (search_name, search_date); --PENDIENTE
 
-        Single de resultado de búsqueda --paco
+
+        Single de resultado de búsqueda --PENDIENTE
 
 Página de administración de administrador
 
@@ -128,7 +158,7 @@ Página de administración de administrador
      SELECT id_user, Alias, email, type, from Users;
 
         Agregar o eliminar usuarios
-        Insert INTO Users VALUES (id_user, alias, email, type); 
+        Insert INTO Users VALUES (alias, email, type); 
 
         Cambiar el tipo de los usuarios
         UPDATE Users SET type = "type" WHERE id_user = X;
@@ -152,7 +182,7 @@ Página de administración de administrador
     Listado de todas las ofertas
 
         Agregar o eliminar ofertas
-            INSERT INTO job_offer VALUES (id_job_offer, position, working_day, 
+            INSERT INTO job_offer VALUES (position, working_day, 
             contract_type, salary, description, id_company); 
 
             INSERT INTO training_offer VALUES (id_training_offer, schedule, 
@@ -166,10 +196,18 @@ Página de administración de administrador
     Listado de todas las tecnologías
         SELECT * FROM technology;
         Agregar o eliminar tecnologías
-            INSERT INTO technology VALUES (id_technology, tech_name)
+            INSERT INTO technology VALUES (tech_name)
 Página de administración de editor
 
 
 Página de Inicio
-    Select de ultimas 2 ofertas formacion; ORDER BY date, LIMIT 2 
-    Select de ultimas 2 ofertas empleo; ORDER BY date, LIMIT 2 
+    --Select de ultimas 2 ofertas formacion; ORDER BY date, LIMIT 2 
+        SELECT position, company_name, city, salary FROM company c, job_offer j WHERE 
+        c.id_company = j.id_company ORDER BY date LIMIT 2; --NO HAY DATE, AÑADIR EN TABLAS ??
+
+        
+
+
+    --Select de ultimas 2 ofertas empleo; ORDER BY date, LIMIT 2 
+        SELECT training_name, academy_name, city, schedule FROM academy a, training_offer t WHERE
+        a.id_academy = t.id_academy ORDER BY date LIMIT 2;  --NO HAY DATE, AÑADIR EN TABLAS ??
