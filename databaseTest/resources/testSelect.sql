@@ -644,35 +644,47 @@ id  . L19 L15 L11 L23 L14 . P19 P15 P11 P23 P14 S19 . S15 S11 S23 S14 . pts  str
 
 SELECT d.id_developer AS id_dev,
 
-    COALESCE(t1.level, 0) AS T_1,
-    COALESCE(t2.level, 0) AS T_2,
-    COALESCE(t3.level, 0) AS T_3,
-    COALESCE(t4.level, 0) AS T_4,
-    COALESCE(t5.level, 0) AS T_5,
-    COALESCE(t6.level, 0) AS T_6,
+    COALESCE(t1 .level, 0) AS T_1 ,
+    COALESCE(t2 .level, 0) AS T_2 ,
+    COALESCE(t3 .level, 0) AS T_3 ,
+    COALESCE(t4 .level, 0) AS T_4 ,
+    COALESCE(t5 .level, 0) AS T_5 ,
+    COALESCE(t6 .level, 0) AS T_6 ,
     COALESCE(t11.level, 0) AS T_11,
     COALESCE(t14.level, 0) AS T_14,
     COALESCE(t15.level, 0) AS T_15,
 
-    COALESCE(t1.level, 0) * 9 AS TL_1,
-    COALESCE(t2.level, 0) * 8 AS TL_2,
-    COALESCE(t3.level, 0) * 7 AS TL_3,
-    COALESCE(t4.level, 0) * 6 AS TL_4,
-    COALESCE(t5.level, 0) * 5 AS TL_5,
-    COALESCE(t6.level, 0) * 4 AS TL_6,
-    COALESCE(t11.level, 0) * 3 AS TL_11,
-    COALESCE(t14.level, 0) * 2 AS TL_14,
-    COALESCE(t15.level, 0) * 1 AS TL_15,
+    COALESCE(t1 .level, 0) * 9 AS S_1 ,
+    COALESCE(t2 .level, 0) * 8 AS S_2 ,
+    COALESCE(t3 .level, 0) * 7 AS S_3 ,
+    COALESCE(t4 .level, 0) * 6 AS S_4 ,
+    COALESCE(t5 .level, 0) * 5 AS S_5 ,
+    COALESCE(t6 .level, 0) * 4 AS S_6 ,
+    COALESCE(t11.level, 0) * 3 AS S_11,
+    COALESCE(t14.level, 0) * 2 AS S_14,
+    COALESCE(t15.level, 0) * 1 AS S_15,
 
-    COALESCE(t1.level, 0) * 9 + 
-    COALESCE(t2.level, 0) * 8 + 
-    COALESCE(t3.level, 0) * 7 + 
-    COALESCE(t4.level, 0) * 6 + 
-    COALESCE(t5.level, 0) * 5 + 
-    COALESCE(t6.level, 0) * 4 + 
+    COALESCE(t1 .level, 0) * 9 + 
+    COALESCE(t2 .level, 0) * 8 + 
+    COALESCE(t3 .level, 0) * 7 + 
+    COALESCE(t4 .level, 0) * 6 + 
+    COALESCE(t5 .level, 0) * 5 + 
+    COALESCE(t6 .level, 0) * 4 + 
     COALESCE(t11.level, 0) * 3 + 
-    COALESCE(t14.level, 0) * 2 +
-    COALESCE(t15.level, 0) * 1 AS TOTAL
+    COALESCE(t14.level, 0) * 2 + 
+    COALESCE(t15.level, 0) * 1 AS TOTAL,
+
+    CONCAT(
+    COALESCE(t1 .level, 0), 
+    COALESCE(t2 .level, 0), 
+    COALESCE(t3 .level, 0), 
+    COALESCE(t4 .level, 0), 
+    COALESCE(t5 .level, 0), 
+    COALESCE(t6 .level, 0), 
+    COALESCE(t11.level, 0), 
+    COALESCE(t14.level, 0), 
+    COALESCE(t15.level, 0)
+    ) AS STRING
 
 FROM developer d
 
@@ -704,4 +716,4 @@ LEFT JOIN developer_tech t15
     ON t15.id_developer = d.id_developer
     AND t15.id_technology = 15
 
-ORDER BY TOTAL DESC;
+ORDER BY TOTAL DESC, STRING DESC;
