@@ -5,6 +5,7 @@ TODO Organizar todos los ficheros HTML en carpetas: developer, company, admin...
 
 TODO al volver al index, si tienes sesión te deja acceder al contenido (ofertas), si no, te lleva a la página de registro
 
+TODO acabar selects (paco)
 
 TODO Media Query para versión móvil (logo) 
 
@@ -14,7 +15,7 @@ TODO Incorporar el alias de usuario en el header de sus páginas de administraci
 
 TODO Añadir página en action para procesar la información en los formularios
 
-TODO Añadir iconos de Google, GitHub y LinkedIn en la página de registro (OAuth)
+TODO Añadir iconos de Google, GitHub y LinkedIn en la página de registro
 
 TODO Página de estado de las solicitudes de empleo del desarrollador
 
