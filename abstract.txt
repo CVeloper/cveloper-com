@@ -1,0 +1,28 @@
+Introduccion
+      Nos dimos cuenta de que el curriculum de los  desarrolladores tienen muy buen contenido  pero muy mal diseño, nuestro objetivo es
+      crear curriculums con diseños profesionales y nuestros conocimientos y nuestra experiencia.
+      Cveloper es una aplicacion web para desarrolladores de software que permite dar estilo a tu curriculum y ponerte en contacto  con empresas
+     donde trabajar y centros de formacion para formarte.
+Metolodogia
+         Al principio, diseñamos la parte teorica del proyecto. Decidimos los tipos de usuarios, la estructura de la base de datos y los servicios
+         que queriamos ofrecer.
+         Luego escogimos las tecnologias que queriamos usar. Todo el codigo de la aplicscion esta escrito en PHP (HyperText Preprocessor), 
+         elegimos MySQL(Structured Query Language) para la base de datos, y Git(control de versiones) para trabajar en equipo.
+         Tuvimos que aprender el funcionamiento de Git, configurar la sincronizacion remota de archivos y usar los comandos.
+         Tambien  tuvimos que investivar algunas funciones avanzadas de MySQL para hacer una busqueda complicada.
+  Resultados
+          
+
+
+      We realize that the curriculum of many devs has a very good content but a very bad design, our purpose is to create curriculums with
+      professional designs and our knowledge and experience.
+      Cveloper is  a webapp?? for developers that allows you to style your curriculum and contact companies to work for and academies to learn.
+      
+         At first, we design the theoretical part of the project. We decided the user types, the database structure and the services that we want 
+        to offer.
+        Then, we choose the technologies (that) we want to use. All the application code is written in PHP (HyperText Preprocessor), MySQL (Structured Query Language)
+        for the database and Git(a version control software) for teamwork.
+        We had  to learn the  Git workflow in order to set up the document syncing and to use the commands.
+       Also, we had to research some advanced  MySQL features for the most difficult query.
+     
+      

@@ -1,0 +1,61 @@
+PDO PHP Data Object
+    Connection
+    Query (hacer una funcion que maneje un numero variable de parametros y haga prepare, bind y execute de cualquier cosa que le llegue: $sql y $assocArrayVars
+
+index cuanto no haya Controller o cveloper.com
+
+Login (campo hidden con el tipo de usuario)
+
+User
+    Validate
+    manageUser($action = Add, Delete, Update - funciones distintas o sql distintas en un switch y $tipo de usuario)
+
+Developer extends info
+    CV (funcion con parsmetros o objeto con metodos)
+        Curriculum
+        Info
+        Experience
+        Training
+        Technology
+        Additional
+    TrainingOfferList (funcion u objeto)
+        TrainingOfferSingle ($id)
+    JobOffer
+    TemplatesList (ojo API templates)
+    AccountManagement
+    
+(Interface Offer de la que heredan TrainingOffer y JobOffer que tienen los metodos list y single)
+Interace Offer
+    List($limit, $page)
+    Add($tech, $name, etc.) => Add($vars..)
+    Single($id)
+TrainingOffer implements Offer
+JobOffer implements Offer
+
+(abstract class Info extends User de la que heredan DeveloperInfo, etc. y añaden sus propiedades)
+Info
+    name (get y set)
+    phone
+    address
+    linkGithub
+    linkLinkedin
+    avatar
+
+Company extends info uses Search
+    Info ($array)
+    getInfo y setInfo
+    JobOffer
+    Search($id o $params..)
+    
+Search es un Trait que usan Company y Recruiter
+    Add
+    List (listar las busquedas)
+    Execute (listar el resultado, los desarrolladores)
+    
+Academy extends info
+    Info
+    get y set
+    TrainingOffer
+    
+Recruiter extends User uses Search
+    Search($id o $params..)
