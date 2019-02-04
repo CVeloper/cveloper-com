@@ -1,5 +1,3 @@
-# CVeloper-com
-Repositorio central de CVeloper.
 
 ## ¿Qué es CVeloper?
 Nos dimos cuenta de que el curriculum de los desarrolladores tienen muy buen contenido pero muy mal diseño, nuestro objetivo es crear curriculums con diseños profesionales y nuestros conocimientos y nuestra experiencia.
