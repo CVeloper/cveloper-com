@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS noticias;
+
+CREATE TABLE noticias (
+	id INT AUTO_INCREMENT,
+	titulo VARCHAR(256) NOT NULL,
+	texto VARCHAR(2048) NOT NULL,
+    fecha DATE NOT NULL,
+	PRIMARY KEY (id)
+);
