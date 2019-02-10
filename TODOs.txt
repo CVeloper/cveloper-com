@@ -5,19 +5,21 @@ TODO Organizar todos los ficheros HTML en carpetas: developer, company, admin...
 
 TODO al volver al index, si tienes sesión te deja acceder al contenido (ofertas), si no, te lleva a la página de registro
 
-TODO acabar selects (paco)
+TODO acabar selects (paco) -- OK --
 
-TODO Media Query para versión móvil (logo) 
+TODO Media Query para versión móvil (logo) --Para más adelante-- 
 
-TODO Borrar botón perfil de la cabecera y (añadir nombre de usuario-> PHP) 
+TODO Borrar botón perfil de la cabecera y (añadir nombre de usuario-> PHP) --Para más adelante--
 
-TODO Incorporar el alias de usuario en el header de sus páginas de administración
+TODO Incorporar el alias de usuario en el header de sus páginas de administración --Para más adelante--
 
 TODO Añadir página en action para procesar la información en los formularios
 
-TODO Añadir iconos de Google, GitHub y LinkedIn en la página de registro
+TODO Añadir iconos de GitHub en la página de registro.
 
-TODO Página de estado de las solicitudes de empleo del desarrollador
+TODO Inicio de sesión con Github usando OAuth.
+
+TODO Página de estado de las solicitudes de empleo del desarrollador 
 
 TODO cv.html separar el boton de abajo ---OK---
 
