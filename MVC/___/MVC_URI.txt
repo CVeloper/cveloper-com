@@ -27,11 +27,10 @@ cveloper.com/ --> index general
 				/update/id/
 				/delete/id/
 				
-		
 		(((((((((list/ offer or company / id or ?search))))))))) JORGE
 
 		/offer/ --> general list
-			(/id/) == /company/offer/id
+			(/id/) == /company/offer/id (button for application --> )
 		/company/ --> general list
 			(/id) == /company/single/id
 
@@ -45,12 +44,30 @@ cveloper.com/ --> index general
 				/update/ --> modify
 				/delete/
 		/offer/  --> resume my offer list default
-			/id/ --> public single offer (SESSION) OR view form
+			/id/ --> SESSION ? NO: public single offer, YES: view form
 				/update/
 				/delete/
-			/new/
+			/new/ --> empty form
 				/insert/
 		(/developer/id/) == /developer/cv/id
+		/search/ --> search list + new search button
+			/id/ --> show results
+				/update/
+				/delete/
+			/new/ --> empty form
+				/insert/
+
+
+
+	BASECONTROLLER ???
+		/application/ --> redirect
+				/developer/id/ --> list of developer
+				/job_offer/id/ --> list of job offers
+
+
+
 	/type/ --> TODO USER TYPE
+
 	/signup/ --> TODO SIGN UP
+
 	/login/ --> TODO LOGIN
