@@ -1,0 +1,56 @@
+
+cveloper.com/ --> index general
+
+
+
+	/developer/ --> comprobar session --> SI: /cv/, NO: login
+		/cv/ --> SESSION: general view all data (info + applications)
+			/id/ --> public single cv
+			/personal/ --> SESSION: print list + form
+				/insert/
+				/update/
+				/delete/
+			/experience/ --> SESSION: 
+				/insert/
+				/update/id/
+				/delete/id/
+			/training/ --> 
+				/insert/
+				/update/id/
+				/delete/id/
+			/additional/ -->
+				/insert/
+				/update/id/
+				/delete/id/
+			/technology/ -->
+				/insert/
+				/update/id/
+				/delete/id/
+				
+		
+		(((((((((list/ offer or company / id or ?search))))))))) JORGE
+
+		/offer/ --> general list
+			(/id/) == /company/offer/id
+		/company/ --> general list
+			(/id) == /company/single/id
+
+
+
+	/company/ --> comprobar session --> SI: index de su ID, NO: login
+		/single/ --> SESSION: general view all data
+			/id/ --> public single cv
+			/info/ --> SESSION: print list + form
+				/insert/ --> first time
+				/update/ --> modify
+				/delete/
+		/offer/  --> resume my offer list default
+			/id/ --> public single offer (SESSION) OR view form
+				/update/
+				/delete/
+			/new/
+				/insert/
+		(/developer/id/) == /developer/cv/id
+	/type/ --> TODO USER TYPE
+	/signup/ --> TODO SIGN UP
+	/login/ --> TODO LOGIN
