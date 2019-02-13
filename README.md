@@ -18,7 +18,7 @@ También tuvimos que investigar algunas funciones avanzadas de MySQL para hacer 
 ### Introduction
 We realize that the curriculum of many devs has a very good content but a very bad design, our purpose is to create curriculums with professional designs and our knowledge and experience.
 
-CVeloper is  a webapp?? for developers that allows you to style your curriculum and contact companies to work for and academies to learn.
+CVeloper is  a webapp for developers that allows you to style your curriculum and contact companies to work for and academies to learn.
 
 ### Methodology    
 At first, we design the theoretical part of the project. We decided the user types, the database structure and the services that we want to offer.
