@@ -1,0 +1,16 @@
+Pasos para dar de alta nuestra APP en OAuth (Github)
+1- Pinchar en el avatar personasl->Settings
+2- Dentro de settings ir a "Developer Settings"
+3- "Register New Application", rellenar los datos.
+· En Developer Settings-> Personal Access Tokens se pueden pedir los tokens para hacer pruebas
+· Para que Github reconozca tu aplicacion:  
+						https://github.com/login/oauth/authorize?client_id=XXXXXXXXXXXXXXXXXXXX
+
+· Respuesta tras loguearte en Github:  
+ 						https://cveloper.com/developer/cv?code=0a6acb212b8a9a2e2306
+
+
+
+
+ EJEMPLO DE USO DE OAUTH GITHUB: 
+ 						https://gist.github.com/harshvkarn/ce6aa436cecf5388c5c6d275a3d5c108
