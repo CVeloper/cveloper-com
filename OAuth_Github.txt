@@ -4,16 +4,16 @@ Pasos para dar de alta nuestra APP en OAuth (Github)
 3- "Register New Application", rellenar los datos.
 · En Developer Settings-> Personal Access Tokens se pueden pedir los tokens para hacer pruebas
 · Para que Github reconozca tu aplicacion:  
-						https://github.com/login/oauth/authorize?client_id=XXXXXXXXXXXXXXXXXXXX
+						https://github.com/login/oauth/authorize?client_id=XxXxXxXxXxXxXxXxXxXxXxXxX
 
 · Respuesta tras loguearte en Github:  
- 						https://cveloper.com/developer/cv?code=0a6acb212b8a9a2e2306
+ 						https://cveloper.com/developer/cv?code=XxXxXxXxXxXxXxXxXxXxXxXxX
 
 
 
 
  EJEMPLO DE USO DE OAUTH GITHUB: 
- 						https://gist.github.com/harshvkarn/ce6aa436cecf5388c5c6d275a3d5c108
+ 						https://gist.github.com/harshvkarn/XxXxXxXxXxXxXxXxXxXxXxXxX
 
 
 
@@ -23,7 +23,7 @@ Pasos para dar de alta nuestra APP en OAuth (Github)
 
 Respuesta tras acceder con OAuth: 
 
- 	access_token=673368111b7ebb4e4dd19a618c9bd3c912b65ce2&scope=&token_type=bearerstdClass Object
+ 	access_token=XxXxXxXxXxXxXxXxXxXxXxXxX&scope=&token_type=bearerstdClass Object
 (
     [login] => fruize
     [id] => 24493114
@@ -58,3 +58,13 @@ Respuesta tras acceder con OAuth:
     [updated_at] => 2019-02-15T17:29:28Z
 )
 fruize<img border = "10px" src="https://avatars2.githubusercontent.com/u/24493114?v=4"><br>Hello<br>
+
+
+
+ACCESO A ISSUES DESDE LA URL
+
+Como es público, cualquiera puede acceder
+https://api.github.com/repos/CVeloper/cveloper-com/issues
+
+https://api.github.com/repos/CVeloper/cveloper-com/issues
+?client_id=XxXxXxXxXxXxXxXxXxXxXxXxX&client_secret=XxXxXxXxXxXxXxXxXxXxXxXxX
