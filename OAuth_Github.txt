@@ -14,3 +14,47 @@ Pasos para dar de alta nuestra APP en OAuth (Github)
 
  EJEMPLO DE USO DE OAUTH GITHUB: 
  						https://gist.github.com/harshvkarn/ce6aa436cecf5388c5c6d275a3d5c108
+
+
+
+*****************************Preguntar a Jorge como se da de alta al usuario que se registra a traves
+ ***************************de github porque no sabemos su email ni su contraseña?????????????????????
+
+
+Respuesta tras acceder con OAuth: 
+
+ 	access_token=673368111b7ebb4e4dd19a618c9bd3c912b65ce2&scope=&token_type=bearerstdClass Object
+(
+    [login] => fruize
+    [id] => 24493114
+    [node_id] => MDQ6VXNlcjI0NDkzMTE0
+    [avatar_url] => https://avatars2.githubusercontent.com/u/24493114?v=4
+    [gravatar_id] => 
+    [url] => https://api.github.com/users/fruize
+    [html_url] => https://github.com/fruize
+    [followers_url] => https://api.github.com/users/fruize/followers
+    [following_url] => https://api.github.com/users/fruize/following{/other_user}
+    [gists_url] => https://api.github.com/users/fruize/gists{/gist_id}
+    [starred_url] => https://api.github.com/users/fruize/starred{/owner}{/repo}
+    [subscriptions_url] => https://api.github.com/users/fruize/subscriptions
+    [organizations_url] => https://api.github.com/users/fruize/orgs
+    [repos_url] => https://api.github.com/users/fruize/repos
+    [events_url] => https://api.github.com/users/fruize/events{/privacy}
+    [received_events_url] => https://api.github.com/users/fruize/received_events
+    [type] => User
+    [site_admin] => 
+    [name] => 
+    [company] => 
+    [blog] => 
+    [location] => 
+    [email] => 
+    [hireable] => 
+    [bio] => 
+    [public_repos] => 1
+    [public_gists] => 0
+    [followers] => 2
+    [following] => 2
+    [created_at] => 2016-12-10T12:59:10Z
+    [updated_at] => 2019-02-15T17:29:28Z
+)
+fruize<img border = "10px" src="https://avatars2.githubusercontent.com/u/24493114?v=4"><br>Hello<br>
