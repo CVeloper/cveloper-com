@@ -68,3 +68,9 @@ https://api.github.com/repos/CVeloper/cveloper-com/issues
 
 https://api.github.com/repos/CVeloper/cveloper-com/issues
 ?client_id=XxXxXxXxXxXxXxXxXxXxXxXxX&client_secret=XxXxXxXxXxXxXxXxXxXxXxXxX
+
+
+
+GUIA DE REFERENCIA DE LA API PHP DE GITHUB: 
+		https://github.com/tan-tan-kanarek/github-php-client	
+
