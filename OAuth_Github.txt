@@ -58,3 +58,10 @@ Respuesta tras acceder con OAuth:
     [updated_at] => 2019-02-15T17:29:28Z
 )
 fruize<img border = "10px" src="https://avatars2.githubusercontent.com/u/24493114?v=4"><br>Hello<br>
+
+
+
+
+
+GUIA DE REFERENCIA DE LA API PHP DE GITHUB: 
+		https://github.com/tan-tan-kanarek/github-php-client	
