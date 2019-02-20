@@ -4,17 +4,17 @@ cveloper.com/ --> index general
 
 
 	/developer/ --> comprobar session --> SI: /cv/, NO: login
-		/cv/ --> SESSION: general view all data (info + applications)
-			/id/ --> public single cv
+			/cv/ --> SESSION: general view all data (info + applications)
+				/id/ --> public single cv
 			/personal/ --> SESSION: print list + form
 				/insert/
 				/update/
 				/delete/
-			/experience/ --> SESSION: 
+			/experience/ --> SESSION:
 				/insert/
 				/update/id/
 				/delete/id/
-			/training/ --> 
+			/training/ -->
 				/insert/
 				/update/id/
 				/delete/id/
@@ -26,7 +26,7 @@ cveloper.com/ --> index general
 				/insert/
 				/update/id/
 				/delete/id/
-				
+
 		(((((((((list/ offer or company / id or ?search))))))))) JORGE
 
 		/offer/ --> general list
