@@ -300,11 +300,20 @@
           <parameter key="class">App\Entity\User</parameter>
           <parameter key="form" type="collection">
             <parameter key="fields" type="collection">
-              <parameter>type</parameter>
+              <parameter type="collection">
+                <parameter key="property">type</parameter>
+                <parameter key="label">Tipo de Usuario</parameter>
+              </parameter>
               <parameter>user</parameter>
               <parameter>pass</parameter>
               <parameter>auth</parameter>
             </parameter>
+          </parameter>
+          <parameter key="new" type="collection">
+            <parameter key="title">Añadir Usuario</parameter>
+          </parameter>
+          <parameter key="edit" type="collection">
+            <parameter key="title">Editar Usuario</parameter>
           </parameter>
           <parameter key="name">User</parameter>
         </parameter>
@@ -324,6 +333,12 @@
               <parameter>email</parameter>
             </parameter>
           </parameter>
+          <parameter key="new" type="collection">
+            <parameter key="title">Añadir Desarrollador</parameter>
+          </parameter>
+          <parameter key="edit" type="collection">
+            <parameter key="title">Editar Desarrollador</parameter>
+          </parameter>
           <parameter key="name">Developer</parameter>
         </parameter>
         <parameter key="Technology" type="collection">
@@ -333,6 +348,12 @@
               <parameter>name</parameter>
               <parameter>logo</parameter>
             </parameter>
+          </parameter>
+          <parameter key="new" type="collection">
+            <parameter key="title">Añadir Tecnología</parameter>
+          </parameter>
+          <parameter key="edit" type="collection">
+            <parameter key="title">Editar Tecnología</parameter>
           </parameter>
           <parameter key="name">Technology</parameter>
         </parameter>
@@ -348,6 +369,12 @@
               <parameter>date_to</parameter>
             </parameter>
           </parameter>
+          <parameter key="new" type="collection">
+            <parameter key="title">Añadir Experiencia</parameter>
+          </parameter>
+          <parameter key="edit" type="collection">
+            <parameter key="title">Editar Experiencia</parameter>
+          </parameter>
           <parameter key="name">Experience</parameter>
         </parameter>
         <parameter key="Training" type="collection">
@@ -356,6 +383,12 @@
             <parameter>id_developer_id</parameter>
             <parameter>id_tech_id</parameter>
             <parameter>level</parameter>
+          </parameter>
+          <parameter key="new" type="collection">
+            <parameter key="title">Añadir Formación</parameter>
+          </parameter>
+          <parameter key="edit" type="collection">
+            <parameter key="title">Editar Formación</parameter>
           </parameter>
           <parameter key="name">Training</parameter>
         </parameter>
@@ -367,6 +400,12 @@
               <parameter>description</parameter>
             </parameter>
           </parameter>
+          <parameter key="new" type="collection">
+            <parameter key="title">Añadir Información Adicional</parameter>
+          </parameter>
+          <parameter key="edit" type="collection">
+            <parameter key="title">Editar Información Adicional</parameter>
+          </parameter>
           <parameter key="name">Additional</parameter>
         </parameter>
         <parameter key="DevTech" type="collection">
@@ -377,6 +416,12 @@
               <parameter>id_tech_id</parameter>
               <parameter>level</parameter>
             </parameter>
+          </parameter>
+          <parameter key="new" type="collection">
+            <parameter key="title">Añadir Nivel Tecnología</parameter>
+          </parameter>
+          <parameter key="edit" type="collection">
+            <parameter key="title">Editar Nivel Tecnología</parameter>
           </parameter>
           <parameter key="name">DevTech</parameter>
         </parameter>

@@ -16,15 +16,32 @@ easy_admin:
           class:  App\Entity\User
           form: 
             fields: 
-              - type
-              - user
-              - pass
-              - auth
+              - { property: 'type', label: 'Tipo de Usuario' }
+              - { property: 'user', label: 'Usuario' }
+              - { property: 'pass', label: 'Contraseña' }
+              - { property: 'auth', label: 'Autentificación' }
+          new:
+            title: 'Añadir Usuario'
+
+          edit:
+            title: 'Editar Usuario'  
               
         Developer:
           class:  App\Entity\Developer
           form: 
             fields: 
+              - { property: 'first_Name', label: 'Nombre' }
+              - { property: 'last_Name', label: 'Apellido' }
+              - { property: 'address', label: 'Dirección' }
+              - { property: 'postal_code', label: 'Código Postal' }
+              - { property: 'city', label: 'Ciudad' }
+              #TODO terminar nombres de las otras clases
+              - { property: 'type', label: 'Tipo de Usuario' }
+              - { property: 'type', label: 'Tipo de Usuario' }
+              - { property: 'type', label: 'Tipo de Usuario' }
+              - { property: 'type', label: 'Tipo de Usuario' }
+              - { property: 'type', label: 'Tipo de Usuario' }
+
               - first_name
               - last_name
               - address
@@ -36,13 +53,24 @@ easy_admin:
               - web
               - email
 
+          new:
+            title: 'Añadir Desarrollador'
+
+          edit:
+            title: 'Editar Desarrollador'  
 
         Technology:
           class:  App\Entity\Technology
           form: 
             fields: 
               - name
-              - logo   
+              - logo  
+
+          new:
+            title: 'Añadir Tecnología'
+
+          edit:
+            title: 'Editar Tecnología'       
 
         Experience:
           class:  App\Entity\Experience
@@ -55,6 +83,14 @@ easy_admin:
               - date_from
               - date_to      
 
+
+          new:
+            title: 'Añadir Experiencia'
+
+          edit:
+            title: 'Editar Experiencia'  
+
+
         Training:
           class:  App\Entity\Training
           form: 
@@ -62,6 +98,13 @@ easy_admin:
               - id_tech_id
               - level
                
+          new:
+            title: 'Añadir Formación'
+
+          edit:
+            title: 'Editar Formación'    
+
+
         Additional:
           class:  App\Entity\Additional
           form: 
@@ -69,12 +112,25 @@ easy_admin:
               - id_developer_id
               - description
 
+          new:
+            title: 'Añadir Información Adicional'
+
+          edit:
+            title: 'Editar Información Adicional'      
+
         DevTech:
           class:  App\Entity\DevTech
           form: 
             fields: 
               - id_developer_id
               - id_tech_id
-              - level      
+              - level    
+
+          new:
+            title: 'Añadir Nivel Tecnología'
+
+          edit:
+            title: 'Editar Nivel Tecnología'      
+
 
               
