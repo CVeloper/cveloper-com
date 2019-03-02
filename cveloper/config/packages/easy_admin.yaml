@@ -10,12 +10,71 @@
 easy_admin:
     entities:
         # change the following to the namespaces of your own entities
+
+        # TODO personalizar los tipos en el formulario
         User:
           class:  App\Entity\User
           form: 
             fields: 
-              - id
               - type
               - user
               - pass
               - auth
+              
+        Developer:
+          class:  App\Entity\Developer
+          form: 
+            fields: 
+              - first_name
+              - last_name
+              - address
+              - postal_code
+              - city
+              - phone
+              - github
+              - linkedin
+              - web
+              - email
+
+
+        Technology:
+          class:  App\Entity\Technology
+          form: 
+            fields: 
+              - name
+              - logo   
+
+        Experience:
+          class:  App\Entity\Experience
+          form: 
+            fields:  
+              - id_developer_id
+              - position
+              - company
+              - city
+              - date_from
+              - date_to      
+
+        Training:
+          class:  App\Entity\Training
+          form: 
+              - id_developer_id
+              - id_tech_id
+              - level
+               
+        Additional:
+          class:  App\Entity\Additional
+          form: 
+            fields: 
+              - id_developer_id
+              - description
+
+        DevTech:
+          class:  App\Entity\DevTech
+          form: 
+            fields: 
+              - id_developer_id
+              - id_tech_id
+              - level      
+
+              

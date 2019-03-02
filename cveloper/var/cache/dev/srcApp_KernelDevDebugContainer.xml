@@ -300,7 +300,6 @@
           <parameter key="class">App\Entity\User</parameter>
           <parameter key="form" type="collection">
             <parameter key="fields" type="collection">
-              <parameter>id</parameter>
               <parameter>type</parameter>
               <parameter>user</parameter>
               <parameter>pass</parameter>
@@ -308,6 +307,78 @@
             </parameter>
           </parameter>
           <parameter key="name">User</parameter>
+        </parameter>
+        <parameter key="Developer" type="collection">
+          <parameter key="class">App\Entity\Developer</parameter>
+          <parameter key="form" type="collection">
+            <parameter key="fields" type="collection">
+              <parameter>first_name</parameter>
+              <parameter>last_name</parameter>
+              <parameter>address</parameter>
+              <parameter>postal_code</parameter>
+              <parameter>city</parameter>
+              <parameter>phone</parameter>
+              <parameter>github</parameter>
+              <parameter>linkedin</parameter>
+              <parameter>web</parameter>
+              <parameter>email</parameter>
+            </parameter>
+          </parameter>
+          <parameter key="name">Developer</parameter>
+        </parameter>
+        <parameter key="Technology" type="collection">
+          <parameter key="class">App\Entity\Technology</parameter>
+          <parameter key="form" type="collection">
+            <parameter key="fields" type="collection">
+              <parameter>name</parameter>
+              <parameter>logo</parameter>
+            </parameter>
+          </parameter>
+          <parameter key="name">Technology</parameter>
+        </parameter>
+        <parameter key="Experience" type="collection">
+          <parameter key="class">App\Entity\Experience</parameter>
+          <parameter key="form" type="collection">
+            <parameter key="fields" type="collection">
+              <parameter>id_developer_id</parameter>
+              <parameter>position</parameter>
+              <parameter>company</parameter>
+              <parameter>city</parameter>
+              <parameter>date_from</parameter>
+              <parameter>date_to</parameter>
+            </parameter>
+          </parameter>
+          <parameter key="name">Experience</parameter>
+        </parameter>
+        <parameter key="Training" type="collection">
+          <parameter key="class">App\Entity\Training</parameter>
+          <parameter key="form" type="collection">
+            <parameter>id_developer_id</parameter>
+            <parameter>id_tech_id</parameter>
+            <parameter>level</parameter>
+          </parameter>
+          <parameter key="name">Training</parameter>
+        </parameter>
+        <parameter key="Additional" type="collection">
+          <parameter key="class">App\Entity\Additional</parameter>
+          <parameter key="form" type="collection">
+            <parameter key="fields" type="collection">
+              <parameter>id_developer_id</parameter>
+              <parameter>description</parameter>
+            </parameter>
+          </parameter>
+          <parameter key="name">Additional</parameter>
+        </parameter>
+        <parameter key="DevTech" type="collection">
+          <parameter key="class">App\Entity\DevTech</parameter>
+          <parameter key="form" type="collection">
+            <parameter key="fields" type="collection">
+              <parameter>id_developer_id</parameter>
+              <parameter>id_tech_id</parameter>
+              <parameter>level</parameter>
+            </parameter>
+          </parameter>
+          <parameter key="name">DevTech</parameter>
         </parameter>
       </parameter>
       <parameter key="site_name">EasyAdmin</parameter>
@@ -471,6 +542,10 @@
       <call method="setContainer">
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\LuckyController"/>
       </call>
+    </service>
+    <service id="App\Repository\AdditionalRepository" class="App\Repository\AdditionalRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\DevTechRepository" class="App\Repository\DevTechRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -2133,14 +2208,6 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
-        <argument>console.command</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -2908,7 +2975,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.Ipblnso"/>
+      <argument type="service" id=".service_locator.Rc8vpyJ"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4650,6 +4717,8 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LuckyController" class="App\Controller\LuckyController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LuckyController" class="App\Controller\LuckyController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\LuckyController" class="App\Controller\LuckyController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AdditionalRepository" class="App\Repository\AdditionalRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\AdditionalRepository" class="App\Repository\AdditionalRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DevTechRepository" class="App\Repository\DevTechRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\DevTechRepository" class="App\Repository\DevTechRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DeveloperRepository" class="App\Repository\DeveloperRepository" autowire="true" abstract="true"/>
@@ -4905,9 +4974,10 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.Ipblnso" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Rc8vpyJ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\AdditionalRepository" type="service" id="App\Repository\AdditionalRepository"/>
         <argument key="App\Repository\DevTechRepository" type="service" id="App\Repository\DevTechRepository"/>
         <argument key="App\Repository\DeveloperRepository" type="service" id="App\Repository\DeveloperRepository"/>
         <argument key="App\Repository\ExperienceRepository" type="service" id="App\Repository\ExperienceRepository"/>

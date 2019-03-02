@@ -89,11 +89,17 @@ class Developer
      */
     private $devTeches;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Additional", mappedBy="id_developer", orphanRemoval=true)
+     */
+    private $additionals;
+
     public function __construct()
     {
         $this->experiences = new ArrayCollection();
         $this->trainings = new ArrayCollection();
         $this->devTeches = new ArrayCollection();
+        $this->additionals = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -318,6 +324,37 @@ class Developer
         if ($this->devTeches->contains($devTech)) {
             $this->devTeches->removeElement($devTech);
             $devTech->removeIdDeveloper($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Additional[]
+     */
+    public function getAdditionals(): Collection
+    {
+        return $this->additionals;
+    }
+
+    public function addAdditional(Additional $additional): self
+    {
+        if (!$this->additionals->contains($additional)) {
+            $this->additionals[] = $additional;
+            $additional->setIdDeveloper($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdditional(Additional $additional): self
+    {
+        if ($this->additionals->contains($additional)) {
+            $this->additionals->removeElement($additional);
+            // set the owning side to null (unless already changed)
+            if ($additional->getIdDeveloper() === $this) {
+                $additional->setIdDeveloper(null);
+            }
         }
 
         return $this;
