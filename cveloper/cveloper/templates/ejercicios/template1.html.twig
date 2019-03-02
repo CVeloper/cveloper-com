@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tu nombre es:  {{ nombre }}{% endblock %}
+
+{% block prueba_bloque %} Prueba {% endblock %}
+
+{% block body %}
+  <div style="width: 100px; height:100px; background-color:{{color}}"></div>
+
+  {% for value in data %}
+   <p>{{ value }} </p>
+   {% endfor %}
+{% endblock %}
