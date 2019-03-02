@@ -295,6 +295,7 @@
     </parameter>
     <parameter key="env(VAR_DUMPER_SERVER)">127.0.0.1:9912</parameter>
     <parameter key="easyadmin.config" type="collection">
+      <parameter key="site_name">CVeloper</parameter>
       <parameter key="entities" type="collection">
         <parameter key="User" type="collection">
           <parameter key="class">App\Entity\User</parameter>
@@ -304,9 +305,19 @@
                 <parameter key="property">type</parameter>
                 <parameter key="label">Tipo de Usuario</parameter>
               </parameter>
-              <parameter>user</parameter>
-              <parameter>pass</parameter>
-              <parameter>auth</parameter>
+              <parameter type="collection">
+                <parameter key="property">user</parameter>
+                <parameter key="label">Usuario</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">pass</parameter>
+                <parameter key="label">Contraseña</parameter>
+                <parameter key="type">password</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">auth</parameter>
+                <parameter key="label">Autentificación</parameter>
+              </parameter>
             </parameter>
           </parameter>
           <parameter key="new" type="collection">
@@ -321,16 +332,57 @@
           <parameter key="class">App\Entity\Developer</parameter>
           <parameter key="form" type="collection">
             <parameter key="fields" type="collection">
-              <parameter>first_name</parameter>
-              <parameter>last_name</parameter>
-              <parameter>address</parameter>
-              <parameter>postal_code</parameter>
-              <parameter>city</parameter>
-              <parameter>phone</parameter>
-              <parameter>github</parameter>
-              <parameter>linkedin</parameter>
-              <parameter>web</parameter>
-              <parameter>email</parameter>
+              <parameter type="collection">
+                <parameter key="type">section</parameter>
+                <parameter key="label">Datos Personales</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">first_Name</parameter>
+                <parameter key="label">Nombre</parameter>
+                <parameter key="type">text</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">last_Name</parameter>
+                <parameter key="label">Apellido</parameter>
+                <parameter key="type">text</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">email</parameter>
+                <parameter key="label">Email</parameter>
+                <parameter key="type">email</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">address</parameter>
+                <parameter key="label">Dirección</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">postal_code</parameter>
+                <parameter key="label">Código Postal</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">city</parameter>
+                <parameter key="label">Ciudad</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="type">section</parameter>
+                <parameter key="label">Otros Datos</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">phone</parameter>
+                <parameter key="label">Telefono</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">github</parameter>
+                <parameter key="label">Github</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">linkedin</parameter>
+                <parameter key="label">Linkedin</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">web</parameter>
+                <parameter key="label">Web Personal</parameter>
+              </parameter>
             </parameter>
           </parameter>
           <parameter key="new" type="collection">
@@ -345,8 +397,15 @@
           <parameter key="class">App\Entity\Technology</parameter>
           <parameter key="form" type="collection">
             <parameter key="fields" type="collection">
-              <parameter>name</parameter>
-              <parameter>logo</parameter>
+              <parameter type="collection">
+                <parameter key="property">name</parameter>
+                <parameter key="label">Nombre Tecnología</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">logo</parameter>
+                <parameter key="label">Logo</parameter>
+                <parameter key="type">file</parameter>
+              </parameter>
             </parameter>
           </parameter>
           <parameter key="new" type="collection">
@@ -361,12 +420,28 @@
           <parameter key="class">App\Entity\Experience</parameter>
           <parameter key="form" type="collection">
             <parameter key="fields" type="collection">
-              <parameter>id_developer_id</parameter>
-              <parameter>position</parameter>
-              <parameter>company</parameter>
-              <parameter>city</parameter>
-              <parameter>date_from</parameter>
-              <parameter>date_to</parameter>
+              <parameter type="collection">
+                <parameter key="property">id_developer</parameter>
+                <parameter key="label">Id Desarrollador</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">position</parameter>
+                <parameter key="label">Puesto</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">company</parameter>
+                <parameter key="label">Compañía</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">date_from</parameter>
+                <parameter key="label">Desde</parameter>
+                <parameter key="type">date</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">Date_to</parameter>
+                <parameter key="label">Hasta</parameter>
+                <parameter key="type">date</parameter>
+              </parameter>
             </parameter>
           </parameter>
           <parameter key="new" type="collection">
@@ -377,27 +452,19 @@
           </parameter>
           <parameter key="name">Experience</parameter>
         </parameter>
-        <parameter key="Training" type="collection">
-          <parameter key="class">App\Entity\Training</parameter>
-          <parameter key="form" type="collection">
-            <parameter>id_developer_id</parameter>
-            <parameter>id_tech_id</parameter>
-            <parameter>level</parameter>
-          </parameter>
-          <parameter key="new" type="collection">
-            <parameter key="title">Añadir Formación</parameter>
-          </parameter>
-          <parameter key="edit" type="collection">
-            <parameter key="title">Editar Formación</parameter>
-          </parameter>
-          <parameter key="name">Training</parameter>
-        </parameter>
         <parameter key="Additional" type="collection">
           <parameter key="class">App\Entity\Additional</parameter>
           <parameter key="form" type="collection">
             <parameter key="fields" type="collection">
-              <parameter>id_developer_id</parameter>
-              <parameter>description</parameter>
+              <parameter type="collection">
+                <parameter key="property">id_developer</parameter>
+                <parameter key="label">Id Desarrollador</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">description</parameter>
+                <parameter key="label">Descripción</parameter>
+                <parameter key="type">textarea</parameter>
+              </parameter>
             </parameter>
           </parameter>
           <parameter key="new" type="collection">
@@ -412,9 +479,18 @@
           <parameter key="class">App\Entity\DevTech</parameter>
           <parameter key="form" type="collection">
             <parameter key="fields" type="collection">
-              <parameter>id_developer_id</parameter>
-              <parameter>id_tech_id</parameter>
-              <parameter>level</parameter>
+              <parameter type="collection">
+                <parameter key="property">id_developer</parameter>
+                <parameter key="label">Id Desarrollador</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">id_tech</parameter>
+                <parameter key="label">Id Tecnología</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">level</parameter>
+                <parameter key="label">Nivel</parameter>
+              </parameter>
             </parameter>
           </parameter>
           <parameter key="new" type="collection">
@@ -425,8 +501,45 @@
           </parameter>
           <parameter key="name">DevTech</parameter>
         </parameter>
+        <parameter key="Training" type="collection">
+          <parameter key="class">App\Entity\Training</parameter>
+          <parameter key="form" type="collection">
+            <parameter type="collection">
+              <parameter key="property">id_developer</parameter>
+              <parameter key="label">Id Desarrollador</parameter>
+            </parameter>
+            <parameter type="collection">
+              <parameter key="property">degree</parameter>
+              <parameter key="label">Título</parameter>
+            </parameter>
+            <parameter type="collection">
+              <parameter key="property">institution</parameter>
+              <parameter key="label">Centro Educativo</parameter>
+            </parameter>
+            <parameter type="collection">
+              <parameter key="property">city</parameter>
+              <parameter key="label">Ciudad</parameter>
+            </parameter>
+            <parameter type="collection">
+              <parameter key="property">date_from</parameter>
+              <parameter key="label">Centro Educativo</parameter>
+              <parameter key="type">date</parameter>
+            </parameter>
+            <parameter type="collection">
+              <parameter key="property">date_to</parameter>
+              <parameter key="label">Hasta</parameter>
+              <parameter key="type">date</parameter>
+            </parameter>
+          </parameter>
+          <parameter key="new" type="collection">
+            <parameter key="title">Añadir Formación</parameter>
+          </parameter>
+          <parameter key="edit" type="collection">
+            <parameter key="title">Editar Formación</parameter>
+          </parameter>
+          <parameter key="name">Training</parameter>
+        </parameter>
       </parameter>
-      <parameter key="site_name">EasyAdmin</parameter>
       <parameter key="formats" type="collection">
         <parameter key="date">Y-m-d</parameter>
         <parameter key="time">H:i:s</parameter>

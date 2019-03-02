@@ -8,6 +8,7 @@
 
 # config/packages/easy_admin.yaml
 easy_admin:
+    site_name: 'CVeloper'
     entities:
         # change the following to the namespaces of your own entities
 
@@ -18,7 +19,7 @@ easy_admin:
             fields: 
               - { property: 'type', label: 'Tipo de Usuario' }
               - { property: 'user', label: 'Usuario' }
-              - { property: 'pass', label: 'Contraseña' }
+              - { property: 'pass', label: 'Contraseña', type: 'password' }
               - { property: 'auth', label: 'Autentificación' }
           new:
             title: 'Añadir Usuario'
@@ -30,29 +31,18 @@ easy_admin:
           class:  App\Entity\Developer
           form: 
             fields: 
-              - { property: 'first_Name', label: 'Nombre' }
-              - { property: 'last_Name', label: 'Apellido' }
+              - { type: 'section', label: 'Datos Personales' }
+              - { property: 'first_Name', label: 'Nombre', type: 'text' }
+              - { property: 'last_Name', label: 'Apellido', type: 'text' }
+              - { property: 'email', label: 'Email', type: 'email' }
               - { property: 'address', label: 'Dirección' }
               - { property: 'postal_code', label: 'Código Postal' }
               - { property: 'city', label: 'Ciudad' }
-              #TODO terminar nombres de las otras clases
-              - { property: 'type', label: 'Tipo de Usuario' }
-              - { property: 'type', label: 'Tipo de Usuario' }
-              - { property: 'type', label: 'Tipo de Usuario' }
-              - { property: 'type', label: 'Tipo de Usuario' }
-              - { property: 'type', label: 'Tipo de Usuario' }
-
-              - first_name
-              - last_name
-              - address
-              - postal_code
-              - city
-              - phone
-              - github
-              - linkedin
-              - web
-              - email
-
+              - { type: 'section', label: 'Otros Datos' }
+              - { property: 'phone', label: 'Telefono' }
+              - { property: 'github', label: 'Github' }
+              - { property: 'linkedin', label: 'Linkedin' }
+              - { property: 'web', label: 'Web Personal' }
           new:
             title: 'Añadir Desarrollador'
 
@@ -63,8 +53,8 @@ easy_admin:
           class:  App\Entity\Technology
           form: 
             fields: 
-              - name
-              - logo  
+                - { property: 'name', label: 'Nombre Tecnología' }
+                - { property: 'logo', label: 'Logo', type: 'file' }
 
           new:
             title: 'Añadir Tecnología'
@@ -76,41 +66,25 @@ easy_admin:
           class:  App\Entity\Experience
           form: 
             fields:  
-              - id_developer_id
-              - position
-              - company
-              - city
-              - date_from
-              - date_to      
-
+             - { property: 'id_developer', label: 'Id Desarrollador' }
+             - { property: 'position', label: 'Puesto' }
+             - { property: 'company', label: 'Compañía' }
+             - { property: 'date_from', label: 'Desde', type: 'date' }
+             - { property: 'Date_to', label: 'Hasta', type: 'date' }  
 
           new:
             title: 'Añadir Experiencia'
 
           edit:
-            title: 'Editar Experiencia'  
-
-
-        Training:
-          class:  App\Entity\Training
-          form: 
-              - id_developer_id
-              - id_tech_id
-              - level
-               
-          new:
-            title: 'Añadir Formación'
-
-          edit:
-            title: 'Editar Formación'    
+            title: 'Editar Experiencia'     
 
 
         Additional:
           class:  App\Entity\Additional
           form: 
             fields: 
-              - id_developer_id
-              - description
+               - { property: 'id_developer', label: 'Id Desarrollador' }
+               - { property: 'description', label: 'Descripción', type: 'textarea' }
 
           new:
             title: 'Añadir Información Adicional'
@@ -122,10 +96,9 @@ easy_admin:
           class:  App\Entity\DevTech
           form: 
             fields: 
-              - id_developer_id
-              - id_tech_id
-              - level    
-
+                - { property: 'id_developer', label: 'Id Desarrollador' }
+                - { property: 'id_tech', label: 'Id Tecnología' }
+                - { property: 'level', label: 'Nivel' }
           new:
             title: 'Añadir Nivel Tecnología'
 
@@ -133,4 +106,18 @@ easy_admin:
             title: 'Editar Nivel Tecnología'      
 
 
-              
+        Training:
+          class:  App\Entity\Training
+          form: 
+            - { property: 'id_developer', label: 'Id Desarrollador' }
+            - { property: 'degree', label: 'Título' }
+            - { property: 'institution', label: 'Centro Educativo' }
+            - { property: 'city', label: 'Ciudad' }
+            - { property: 'date_from', label: 'Centro Educativo', type: 'date' }
+            - { property: 'date_to', label: 'Hasta', type: 'date' }
+               
+          new:
+            title: 'Añadir Formación'
+
+          edit:
+            title: 'Editar Formación' 
