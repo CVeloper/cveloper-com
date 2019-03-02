@@ -1,123 +1,110 @@
-#easy_admin:
-#    entities:
-#        # List the entity class name you want to manage
-#        - App\Entity\Product
-#        - App\Entity\Category
-#        - App\Entity\User
-
-
 # config/packages/easy_admin.yaml
 easy_admin:
     site_name: 'CVeloper'
     entities:
-        # change the following to the namespaces of your own entities
 
-        # TODO personalizar los tipos en el formulario
+# TODO personalizar los tipos en el formulario
+
+# USER ########################################################################
         User:
-          class:  App\Entity\User
-          form: 
-            fields: 
-              - { property: 'type', label: 'Tipo de Usuario' }
-              - { property: 'user', label: 'Usuario' }
-              - { property: 'pass', label: 'Contraseña', type: 'password' }
-              - { property: 'auth', label: 'Autentificación' }
-          new:
-            title: 'Añadir Usuario'
+            class: App\Entity\User
+            form:
+                fields:
+                    - { property: 'type', label: 'Tipo de Usuario' }
+                    - { property: 'user', label: 'Usuario' }
+                    - { property: 'pass', label: 'Contraseña', type: 'password' }
+                    - { property: 'auth', label: 'Autentificación' }
+            new:
+                title: 'Añadir Usuario'
+            edit:
+                title: 'Editar Usuario'
 
-          edit:
-            title: 'Editar Usuario'  
-              
+# DEVELOPER ###################################################################
         Developer:
-          class:  App\Entity\Developer
-          form: 
-            fields: 
-              - { type: 'section', label: 'Datos Personales' }
-              - { property: 'first_Name', label: 'Nombre', type: 'text' }
-              - { property: 'last_Name', label: 'Apellido', type: 'text' }
-              - { property: 'email', label: 'Email', type: 'email' }
-              - { property: 'address', label: 'Dirección' }
-              - { property: 'postal_code', label: 'Código Postal' }
-              - { property: 'city', label: 'Ciudad' }
-              - { type: 'section', label: 'Otros Datos' }
-              - { property: 'phone', label: 'Telefono' }
-              - { property: 'github', label: 'Github' }
-              - { property: 'linkedin', label: 'Linkedin' }
-              - { property: 'web', label: 'Web Personal' }
-          new:
-            title: 'Añadir Desarrollador'
+            class: App\Entity\Developer
+            form:
+                fields:
+                    - { type: 'section', label: 'Datos Personales' }
+                    - { property: 'first_Name', label: 'Nombre', type: 'text' }
+                    - { property: 'last_Name', label: 'Apellido', type: 'text' }
+                    - { property: 'email', label: 'Email', type: 'email' }
+                    - { property: 'address', label: 'Dirección' }
+                    - { property: 'postal_code', label: 'Código Postal' }
+                    - { property: 'city', label: 'Ciudad' }
+                    - { type: 'section', label: 'Otros Datos' }
+                    - { property: 'phone', label: 'Telefono' }
+                    - { property: 'github', label: 'Github' }
+                    - { property: 'linkedin', label: 'Linkedin' }
+                    - { property: 'web', label: 'Web Personal' }
+            new:
+                title: 'Añadir Desarrollador'
+            edit:
+                title: 'Editar Desarrollador'
 
-          edit:
-            title: 'Editar Desarrollador'  
-
+# TECHNOLOGY ##################################################################
         Technology:
-          class:  App\Entity\Technology
-          form: 
-            fields: 
-                - { property: 'name', label: 'Nombre Tecnología' }
-                - { property: 'logo', label: 'Logo', type: 'file' }
+            class:  App\Entity\Technology
+            form:
+                fields:
+                    - { property: 'name', label: 'Nombre Tecnología' }
+                    - { property: 'logo', label: 'Logo', type: 'file' }
+            new:
+                title: 'Añadir Tecnología'
+            edit:
+                title: 'Editar Tecnología'
 
-          new:
-            title: 'Añadir Tecnología'
-
-          edit:
-            title: 'Editar Tecnología'       
-
+# EXPERIENCE ##################################################################
         Experience:
-          class:  App\Entity\Experience
-          form: 
-            fields:  
-             - { property: 'id_developer', label: 'Id Desarrollador' }
-             - { property: 'position', label: 'Puesto' }
-             - { property: 'company', label: 'Compañía' }
-             - { property: 'date_from', label: 'Desde', type: 'date' }
-             - { property: 'Date_to', label: 'Hasta', type: 'date' }  
+            class: App\Entity\Experience
+            form:
+                fields:
+                    - { property: 'id_developer', label: 'Id Desarrollador' }
+                    - { property: 'position', label: 'Puesto' }
+                    - { property: 'company', label: 'Compañía' }
+                    - { property: 'date_from', label: 'Desde', type: 'date' }
+                    - { property: 'Date_to', label: 'Hasta', type: 'date' }
+            new:
+                title: 'Añadir Experiencia'
+            edit:
+                title: 'Editar Experiencia'
 
-          new:
-            title: 'Añadir Experiencia'
-
-          edit:
-            title: 'Editar Experiencia'     
-
-
-        Additional:
-          class:  App\Entity\Additional
-          form: 
-            fields: 
-               - { property: 'id_developer', label: 'Id Desarrollador' }
-               - { property: 'description', label: 'Descripción', type: 'textarea' }
-
-          new:
-            title: 'Añadir Información Adicional'
-
-          edit:
-            title: 'Editar Información Adicional'      
-
-        DevTech:
-          class:  App\Entity\DevTech
-          form: 
-            fields: 
-                - { property: 'id_developer', label: 'Id Desarrollador' }
-                - { property: 'id_tech', label: 'Id Tecnología' }
-                - { property: 'level', label: 'Nivel' }
-          new:
-            title: 'Añadir Nivel Tecnología'
-
-          edit:
-            title: 'Editar Nivel Tecnología'      
-
-
+# TRAINING ####################################################################
         Training:
-          class:  App\Entity\Training
-          form: 
-            - { property: 'id_developer', label: 'Id Desarrollador' }
-            - { property: 'degree', label: 'Título' }
-            - { property: 'institution', label: 'Centro Educativo' }
-            - { property: 'city', label: 'Ciudad' }
-            - { property: 'date_from', label: 'Centro Educativo', type: 'date' }
-            - { property: 'date_to', label: 'Hasta', type: 'date' }
-               
-          new:
-            title: 'Añadir Formación'
+            class: App\Entity\Training
+            form:
+                fields:
+                    - { property: 'id_developer', label: 'Id Desarrollador' }
+                    - { property: 'degree', label: 'Título' }
+                    - { property: 'institution', label: 'Centro Educativo' }
+                    - { property: 'city', label: 'Ciudad' }
+                    - { property: 'date_from', label: 'Centro Educativo', type: 'date' }
+                    - { property: 'date_to', label: 'Hasta', type: 'date' }
+            new:
+                title: 'Añadir Formación'
+            edit:
+                title: 'Editar Formación'
 
-          edit:
-            title: 'Editar Formación' 
+# ADDDITIONAL #################################################################
+        Additional:
+            class:  App\Entity\Additional
+            form:
+                fields:
+                    - { property: 'id_developer', label: 'Id Desarrollador' }
+                    - { property: 'description', label: 'Descripción', type: 'textarea' }
+            new:
+                title: 'Añadir Información Adicional'
+            edit:
+                title: 'Editar Información Adicional'
+
+# DEV_TECH ####################################################################
+        DevTech:
+            class: App\Entity\DevTech
+            form:
+                fields:
+                    - { property: 'id_developer', label: 'Id Desarrollador' }
+                    - { property: 'id_tech', label: 'Id Tecnología' }
+                    - { property: 'level', label: 'Nivel' }
+            new:
+                title: 'Añadir Nivel Tecnología'
+            edit:
+                title: 'Editar Nivel Tecnología'
