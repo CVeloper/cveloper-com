@@ -1,0 +1,144 @@
+
+##########################################################################
+BASE DE DATOS - ENTIDADES ################################################
+##########################################################################
+
+user #####################################################################
+	id 			-> integer autoincrement not null primary key (automático en symfony)
+	type 		-> string not null (de momento todos developer salvo los admin)
+	user 		-> string not null (alias para login normal y alias para OAuth con Github)
+	pass 		-> string (solo para login normal, puede estar vacío, null para los OAuth)
+	auth 		-> string (solo para OAuth con Github, puede estar vacío, null para los login)
+
+developer ################################################################
+	id 			-> integer autoincrement not null primary key (automático en symfony)
+	first_name	-> string not null 
+	last_name	-> string not null 
+	address		-> string not null 
+	postal_code	-> integer not null 
+	city		-> string not null 
+	email 		-> string not null 
+	phone		-> integer not null 
+	github 		-> string null YES (autorrellenable para registros OAuth ???)
+	linkedin	-> string null YES 
+	web			-> string null YES 
+
+	avatar 		-> string / file / image ??? null YES (autorrellenable para registros OAuth ???)
+
+	id_user		-> integer not null foreign key (relation -> symfony lo llama 'id_user_id')
+
+experience ###############################################################
+	id 			-> integer autoincrement not null primary key (automático en symfony)
+	position	-> string not null
+	company		-> string not null
+	city		-> string not null
+	date_from	-> string not null
+	date_to		-> string null YES
+
+	id_dev 		-> integer not null foreign key (relation)
+
+training #################################################################
+	id 			-> integer autoincrement not null primary key (automático en symfony)
+	degree		-> string not null
+	institution	-> string not null
+	city		-> string not null
+	date_from	-> string not null
+	date_to		-> string null YES
+
+	id_dev 		-> integer not null foreign key (relation)
+
+additional ###############################################################
+	id 			-> integer autoincrement not null primary key (automático en symfony)
+	description	-> string not null
+
+	id_dev 		-> integer not null foreign key (relation)
+
+technology ###############################################################
+	id 			-> integer autoincrement not null primary key (automático en symfony)
+	name		-> string not null
+
+	logo 		-> string / file / image ??? null YES
+
+dev_tech #################################################################
+	id 			-> integer autoincrement not null primary key (automático en symfony)
+	id_dev 		-> integer not null foreign key (relation)
+	id_tech		-> integer not null foreign key (relation)
+	level 		-> integer not null
+
+token ####################################################################
+	// TODO: PARA LA ENTREGA FINAL (tipos: confirmar, recordar y cambiar)
+
+///////////////////////////////////////////////////////////////////////////////
+
+cveloper.com/ --> index general
+
+
+
+	/developer/ --> comprobar session --> SI: /cv/, NO: login
+			/cv/ --> SESSION: general view all data (info + applications)
+				/id/ --> public single cv
+			/personal/ --> SESSION: print list + form
+				/insert/
+				/update/
+				/delete/
+			/experience/ --> SESSION:
+				/insert/
+				/update/id/
+				/delete/id/
+			/training/ -->
+				/insert/
+				/update/id/
+				/delete/id/
+			/additional/ -->
+				/insert/
+				/update/id/
+				/delete/id/
+			/technology/ -->
+				/insert/
+				/update/id/
+				/delete/id/
+
+		(((((((((list/ offer or company / id or ?search))))))))) JORGE
+
+		/offer/ --> general list
+			(/id/) == /company/offer/id (button for application --> )
+		/company/ --> general list
+			(/id) == /company/single/id
+
+
+
+	/company/ --> comprobar session --> SI: index de su ID, NO: login
+		/single/ --> SESSION: general view all data
+			/id/ --> public single cv
+			/info/ --> SESSION: print list + form
+				/insert/ --> first time
+				/update/ --> modify
+				/delete/
+		/offer/  --> resume my offer list default
+			/id/ --> SESSION ? NO: public single offer, YES: view form
+				/update/
+				/delete/
+			/new/ --> empty form
+				/insert/
+		(/developer/id/) == /developer/cv/id
+		/search/ --> search list + new search button
+			/id/ --> show results
+				/update/
+				/delete/
+			/new/ --> empty form
+				/insert/
+
+
+
+	BASECONTROLLER ???
+		/application/ --> redirect
+				/developer/id/ --> list of developer
+				/job_offer/id/ --> list of job offers
+
+
+
+	/type/ --> TODO USER TYPE
+
+	/signup/ --> TODO SIGN UP
+
+	/login/ --> TODO LOGIN
