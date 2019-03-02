@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -65,6 +67,34 @@ class Developer
      * @ORM\Column(type="string", length=255)
      */
     private $email;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="developer", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $id_user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Experience", mappedBy="id_developer", orphanRemoval=true)
+     */
+    private $experiences;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Training", mappedBy="id_developer", orphanRemoval=true)
+     */
+    private $trainings;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\DevTech", mappedBy="id_developer")
+     */
+    private $devTeches;
+
+    public function __construct()
+    {
+        $this->experiences = new ArrayCollection();
+        $this->trainings = new ArrayCollection();
+        $this->devTeches = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -187,6 +217,108 @@ class Developer
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->id_user;
+    }
+
+    public function setIdUser(User $id_user): self
+    {
+        $this->id_user = $id_user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Experience[]
+     */
+    public function getExperiences(): Collection
+    {
+        return $this->experiences;
+    }
+
+    public function addExperience(Experience $experience): self
+    {
+        if (!$this->experiences->contains($experience)) {
+            $this->experiences[] = $experience;
+            $experience->setIdDeveloper($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExperience(Experience $experience): self
+    {
+        if ($this->experiences->contains($experience)) {
+            $this->experiences->removeElement($experience);
+            // set the owning side to null (unless already changed)
+            if ($experience->getIdDeveloper() === $this) {
+                $experience->setIdDeveloper(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Training[]
+     */
+    public function getTrainings(): Collection
+    {
+        return $this->trainings;
+    }
+
+    public function addTraining(Training $training): self
+    {
+        if (!$this->trainings->contains($training)) {
+            $this->trainings[] = $training;
+            $training->setIdDeveloper($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTraining(Training $training): self
+    {
+        if ($this->trainings->contains($training)) {
+            $this->trainings->removeElement($training);
+            // set the owning side to null (unless already changed)
+            if ($training->getIdDeveloper() === $this) {
+                $training->setIdDeveloper(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|DevTech[]
+     */
+    public function getDevTeches(): Collection
+    {
+        return $this->devTeches;
+    }
+
+    public function addDevTech(DevTech $devTech): self
+    {
+        if (!$this->devTeches->contains($devTech)) {
+            $this->devTeches[] = $devTech;
+            $devTech->addIdDeveloper($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDevTech(DevTech $devTech): self
+    {
+        if ($this->devTeches->contains($devTech)) {
+            $this->devTeches->removeElement($devTech);
+            $devTech->removeIdDeveloper($this);
+        }
 
         return $this;
     }

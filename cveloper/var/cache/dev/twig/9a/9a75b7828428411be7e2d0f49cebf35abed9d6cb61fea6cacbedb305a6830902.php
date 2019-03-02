@@ -58,6 +58,6 @@ class __TwigTemplate_7dd8d6eaceb4175e8165d31d42c0303d67481035e9b350bb881fd116a74
     {
         return new Twig_Source("{# templates/lucky/number.html.twig #}
 
-<h1>Your lucky number is {{ number }}</h1>", "lucky/number.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/templates/lucky/number.html.twig");
+<h1>Your lucky number is {{ number }}</h1>", "lucky/number.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/templates/lucky/number.html.twig");
     }
 }

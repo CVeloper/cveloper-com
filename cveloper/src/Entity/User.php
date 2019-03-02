@@ -36,6 +36,11 @@ class User
      */
     private $auth;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Developer", mappedBy="id_user", cascade={"persist", "remove"})
+     */
+    private $developer;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,23 @@ class User
     public function setAuth(?string $auth): self
     {
         $this->auth = $auth;
+
+        return $this;
+    }
+
+    public function getDeveloper(): ?Developer
+    {
+        return $this->developer;
+    }
+
+    public function setDeveloper(Developer $developer): self
+    {
+        $this->developer = $developer;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $developer->getIdUser()) {
+            $developer->setIdUser($this);
+        }
 
         return $this;
     }
