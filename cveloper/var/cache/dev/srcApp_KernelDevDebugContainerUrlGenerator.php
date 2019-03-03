@@ -53,6 +53,8 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         'experience_show' => [['id'], ['_controller' => 'App\\Controller\\ExperienceController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/dev/experience']], [], []],
         'experience_edit' => [['id'], ['_controller' => 'App\\Controller\\ExperienceController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/dev/experience']], [], []],
         'experience_delete' => [['id'], ['_controller' => 'App\\Controller\\ExperienceController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/dev/experience']], [], []],
+        'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
+        'home_type' => [[], ['_controller' => 'App\\Controller\\HomeController::type'], [], [['text', '/type']], [], []],
         'app_lucky_number' => [[], ['_controller' => 'App\\Controller\\LuckyController::number'], [], [['text', '/lucky/number']], [], []],
         'technology_index' => [[], ['_controller' => 'App\\Controller\\TechnologyController::index'], [], [['text', '/technology/']], [], []],
         'technology_new' => [[], ['_controller' => 'App\\Controller\\TechnologyController::new'], [], [['text', '/technology/new']], [], []],
