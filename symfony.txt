@@ -1,0 +1,251 @@
+PÁGINAS QUE HAY QUE IMPRIMIRSE EN .PDF PARA EL EXAMEN PORQUE ES SIN INTERNET:
+
+https://symfony.com/
+https://symfony.com/doc/current/index.html#gsc.tab=0
+https://symfony.com/doc/current/setup.html
+
+https://symfony.com/doc/current/page_creation.html
+https://symfony.com/doc/current/controller.html
+https://symfony.com/doc/current/routing.html
+https://symfony.com/doc/current/templating.html
+
+https://symfony.com/doc/current/doctrine.html // ORM Databases
+https://symfony.com/doc/master/bundles/EasyAdminBundle/book/installation.html
+https://symfony.com/doc/master/bundles/EasyAdminBundle/book/your-first-backend.html
+https://symfony.com/doc/master/bundles/EasyAdminBundle/book/edit-new-configuration.html
+
+https://symfony.com/blog/new-and-improved-generators-for-makerbundle // CRUD, TEMPLATE Y FORM
+
+https://symfony.com/doc/current/deployment.html
+
+//////////////////////////////////////////////////////////////////////////
+
+sergio@sergio-VirtualBox:~$ sudo su -
+
+root@sergio-VirtualBox:~# nano /etc/hosts (PARA EDITAR EL ARCHIVO)
+
+    127.0.0.1       localhost
+    127.0.1.1       sergio-VirtualBox
+
+    # The following lines are desirable for IPv6 capable hosts
+    ::1             ip6-localhost ip6-loopback
+    fe00::0         ip6-localnet
+    ff00::0         ip6-mcastprefix
+    ff02::1         ip6-allnodes
+    ff02::2         ip6-allrouters
+
+    127.0.0.1       mvc-todo.io 					<----- esta línea era para el framework MVC de Jorge
+    127.0.0.1       historiadelaprogramacion.com 	<----- esta línea es para el nuevo proyecto de Symfony
+
+    127.0.0.1		pruebasymfony.es (EN VM DE CASA)
+
+root@sergio-VirtualBox:~# ^D (PARA SALIR DE ROOT)
+
+sergio@sergio-VirtualBox:~$ pwd
+	/home/sergio
+
+sergio@sergio-VirtualBox:~$ mkdir proyectossymfony
+
+sergio@sergio-VirtualBox:~$ cd proyectossymfony/
+
+sergio@sergio-VirtualBox:~/proyectossymfony$ composer -V
+    Composer version 1.8.0 2018-12-03 10:31:16
+
+INSTALACIÓN DEL ESQUELETO DEL PROYECTO:
+
+sergio@sergio-VirtualBox:~/proyectossymfony$ composer create-project symfony/website-skeleton miproyecto
+
+SI HAY ERRORES ES PORQUE FALTAN MÓDULOS O EXTENSIONES:
+
+root@sergio-VirtualBox:~/proyectossymfony# sudo su -
+
+root@sergio-VirtualBox:~# apt-get install php7.2-mbstring
+    php7.2-mbstring ya está en su versión más reciente (7.2.15-0ubuntu0.18.04.1).
+
+root@sergio-VirtualBox:~# apt-get install php7.2-zip
+    Se instalarán los siguientes paquetes NUEVOS:
+      php7.2-zip
+
+root@sergio-VirtualBox:~# logout
+
+INSTALACIÓN DEL ESQUELETO DEL PROYECTO:
+
+sergio@sergio-VirtualBox:~/proyectossymfony$ composer create-project symfony/website-skeleton miproyecto
+
+SI FALLASE LA INSTALACIÓN HAY QUE BORRAR TODO:
+
+root@sergio-VirtualBox:~/proyectossymfony# cd ../
+root@sergio-VirtualBox:~# rm -R proyectossymfony/
+
+Y VOLVER A CREAR EL ESQUELETO DEL PROYECTO:
+
+sergio@sergio-VirtualBox:~/proyectossymfony$ composer create-project symfony/website-skeleton miproyecto
+
+SYMFONY ##################################################################
+
+Some files may have been created or updated to configure your new packages.
+Please review, edit and commit them: these files are yours.
+	What's next?
+	  * Run your application:
+		    1. Change to the project directory
+		    2. Create your code repository with the git init command
+		    3. Run composer require server --dev to install the development web server
+	  * Read the documentation at https://symfony.com/doc
+	Database Configuration
+	  * Modify your DATABASE_URL config in .env
+	  * Configure the driver (mysql) and server_version (5.7) in config/packages/doctrine.yaml
+	How to test?
+	  * Write test cases in the tests/ folder
+	  * Run php bin/phpunit
+
+ENTRAMOS (SIEMPRE DENTRO) EN LA CARPETA DEL PROYECTO:
+
+sergio@sergio-VirtualBox:~/proyectossymfony$ cd miproyecto/
+
+INICIAMOS EL SERVIDOR DESDE LA CARPETA DE ESTE PROYECTO:
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ php bin/console server:run
+    [OK] Server listening on http://127.0.0.1:8000
+    // Quit the server with CONTROL-C.
+
+PARA CREAR UN NUEVO CONTROLADOR (CLASE PHP):
+	proyecto/src/Controller/ -> new file -> NombreController.php
+		OJO!!! en mayuscula porque es un clase
+		OJO!!! entre etiquetas <?php y ?>
+
+PARA ASOCIAR LA RUTA URL AL CONTROLADOR:
+	proyecto/config/routes.yaml -> editar
+		app_nombre_accion:
+    		path: /nombre/accion (lo que escribiré en el navegador)
+    		controller: App\Controller\NombreController::metodo
+	
+
+ACTIVAR ANNOTATIONS PARA LAS RUTAS RECOMENDADAS POR SYMFONY:
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ composer require annotations
+    Using version ^5.2 for sensio/framework-extra-bundle
+    Executing script assets: install public [OK]
+
+EN EL CONTROLADOR YA SE PUEDE USAR ANNOTATIONS PARA LA RUTA:
+	proyecto/src/Controller/NombreController.php
+		use Symfony\Component\Routing\Annotation\Route;
+			(fuera de la definición de la clase)
+		/** @Route("/lucky/number") */
+		 	(dentro de la definicion de la clase)
+	proyecto/config/routes.yaml
+		(ya se puede borrar o comentar la ruta anterior)
+
+PARA PODER ENVIAR DATOS A LOS TEMPLATES DESDE EL CONTROLADOR:
+	proyecto/src/Controller/NombreController.php
+		use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+			(fuera de la definición de la clase)
+		class NombreController extends AbstractController
+			(la clase ahora extiende de la que importamos)
+
+AHORA PODEMOS USAR EL METODO RENDER EN EL CONTROLADOR:
+	proyecto/src/Controller/NombreController.php
+		return $this->render('nombre/accion.html.twig', [ 'clave' => $valor, ]);
+			(cambiamos la forma de imprimir el resultado)
+		use Symfony\Component\HttpFoundation\Response;
+			(ya no es necesaria esta linea porque no la usamos)
+
+CREAR LA VISTA O EL TEMPLATE AL QUE LLAMA EL CONTROLADOR:
+	proyecto/templates/ -> new folder -> nombre
+	proyecto/templates/nombre/ -> new file -> accion.html.twig
+		{# templates/lucky/number.html.twig #}
+		<h1>Your lucky number is {{ number }}</h1>
+			(hay que acostumbrarse a usar twig con Twig.pdf)
+
+HERRAMINETA PARA DEBUGGING CON TODOS LOS COMANDOS DE LA CONSOLA:
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ php bin/console
+
+PARA VER TODAS LAS RUTAS DISPONIBLES DEL PROYECTO ACTUAL:
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ php bin/console debug:router
+    [OK] Server listening on http://127.0.0.1:8000
+    // Quit the server with CONTROL-C.
+
+EJERCICIO ////////////////////////////////////////////////////////////////
+
+Template con:
+h1 nombre
+div width 100px height 100px color
+p texto data []
+
+Controlador con:
+accion que va a dar nombre, color, array cadenas
+
+Ruta:
+http://localhost:8000/prueba/symfony/primera
+
+//////////////////////////////////////////////////////////////////////////
+
+ORM (OBJECT-RELATIONAL MAPPING) ##########################################
+
+IMPORTAR LAS EXTENSIONES PARA USAR ORM EN SYMFONY
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ composer require symfony/orm-pack
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ composer require symfony/maker-bundle --dev
+
+CONFIGURACION DE LA BASE DE DATOS, USUARIO, PASSWORD Y NOMBRE DE LA BD:
+	proyecto/.env
+	    # DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
+	    DATABASE_URL=mysql://usuario:password@127.0.0.1:3306/databasename
+			(linea 27: copiar, comentar y cambiar -user, pass y name-)
+			(nombre nuevo para crearla o existente para usarla)
+
+LE DOY PRIVILEGIOS AL USUARIO EN ESA BD (O PARA TODAS) EN MYSQL:
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ sudo mysql
+    Welcome to the MySQL monitor.
+
+mysql> GRANT ALL PRIVILEGES ON databasename.* TO 'usuario'@'localhost' WITH GRANT OPTION;
+mysql> exit
+
+CREAMOS LA DATABASE DESDE EL ORM DE SYMFONY (SI NO EXISTE YA EN MYSQL):
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ php bin/console doctrine:database:create
+    Created database `databasename` for connection named default
+
+CREAMOS LAS ENTIDADES DE LA BASE DE DATOS (SI NO EXISTEN LAS TABLAS):
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ php bin/console make:entity
+	Class name of the entity to create or update (e.g. FiercePizza):
+	 > Tabla
+	New property name (press <return> to stop adding fields):
+	 > nombre
+	Field type (enter ? to see all types) [string]:
+	 > string
+	Field length [255]:
+	 > 255
+	Can this field be null in the database (nullable) (yes/no) [no]:
+	 > no
+	updated: src/Entity/Tabla.php
+
+GUARDAMOS LOS CAMBIOS EN LA ESTRUCTURA DE LA BD EN LA CARPETA MIGRATION:
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ php bin/console make:migration
+    Success!
+
+HACEMOS LA MIGRACION DE NUESTRAS ENTIDADES (TABLAS) A LA BASE DE DATOS:
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ php bin/console doctrine:migrations:migrate
+    Application Migrations
+
+CREAMOS UN CONTROLADOR PARA LA ENTIDAD (TABLA) DE ESTE PROYECTO:
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ php bin/console make:controller Tabla
+    created: src/Controller/TablaController.php
+    created: templates/tabla/index.html.twig
+        Success!
+	SE PUEDE VER EN: http://localhost:8000/tabla
+
+CONFIGURAR EL BACKEND (ADMIN AREA)
+
+sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ composer require admin
+
+EN config/routes/easy_admin.yaml
+
+VISITANDO http://localhost:8000/admin/

@@ -32,8 +32,8 @@ experience ###############################################################
 	position	-> string not null
 	company		-> string not null
 	city		-> string not null
-	date_from	-> string not null
-	date_to		-> string null YES
+	date_from	-> date not null
+	date_to		-> date null YES
 
 	id_dev 		-> integer not null foreign key (relation)
 
@@ -42,8 +42,8 @@ training #################################################################
 	degree		-> string not null
 	institution	-> string not null
 	city		-> string not null
-	date_from	-> string not null
-	date_to		-> string null YES
+	date_from	-> date not null
+	date_to		-> date null YES
 
 	id_dev 		-> integer not null foreign key (relation)
 
@@ -85,15 +85,15 @@ cveloper.com/ --> index general
 				/insert/
 				/update/id/
 				/delete/id/
-			/training/ -->
+			/training/ --> SESSION:
 				/insert/
 				/update/id/
 				/delete/id/
-			/additional/ -->
+			/additional/ --> SESSION:
 				/insert/
 				/update/id/
 				/delete/id/
-			/technology/ -->
+			/technology/ --> SESSION:
 				/insert/
 				/update/id/
 				/delete/id/
