@@ -1,7 +1,7 @@
 # config/packages/easy_admin.yaml
 easy_admin:
-    site_name: 'CVeloper'
-    entities:
+      site_name: 'CVeloper'
+      entities:
 
 # TODO personalizar los tipos en el formulario
 
@@ -51,7 +51,7 @@ easy_admin:
             new:
                 title: 'Añadir Tecnología'
             edit:
-                title: 'Editar Tecnología'
+                title: 'Editar Tecnología'  
 
 # EXPERIENCE ##################################################################
         Experience:
@@ -61,8 +61,8 @@ easy_admin:
                     - { property: 'id_developer', label: 'Id Desarrollador' }
                     - { property: 'position', label: 'Puesto' }
                     - { property: 'company', label: 'Compañía' }
-                    - { property: 'date_from', label: 'Desde', type: 'date' }
-                    - { property: 'Date_to', label: 'Hasta', type: 'date' }
+                    - { property: 'date_from', label: 'Desde', type: 'birthday' }
+                    - { property: 'Date_to', label: 'Hasta', type: 'birthday' }
             new:
                 title: 'Añadir Experiencia'
             edit:
@@ -77,8 +77,8 @@ easy_admin:
                     - { property: 'degree', label: 'Título' }
                     - { property: 'institution', label: 'Centro Educativo' }
                     - { property: 'city', label: 'Ciudad' }
-                    - { property: 'date_from', label: 'Centro Educativo', type: 'date' }
-                    - { property: 'date_to', label: 'Hasta', type: 'date' }
+                    - { property: 'date_from', label: 'Desde', type: 'birthday' }
+                    - { property: 'date_to', label: 'Hasta', type: 'birthday' }
             new:
                 title: 'Añadir Formación'
             edit:
