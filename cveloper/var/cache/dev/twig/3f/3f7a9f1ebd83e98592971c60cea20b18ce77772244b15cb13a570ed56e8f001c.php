@@ -56,6 +56,6 @@ class __TwigTemplate_b5aaaa8b5b0d91f959f1a42be9ca7620e3943d93f546bac3bd140938995
     public function getSourceContext()
     {
         return new Twig_Source("<span class=\"badge badge-secondary\">{{ 'label.null'|trans(domain = 'EasyAdminBundle') }}</span>
-", "@EasyAdmin/default/label_null.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/label_null.html.twig");
+", "@EasyAdmin/default/label_null.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/label_null.html.twig");
     }
 }

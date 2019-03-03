@@ -97,6 +97,6 @@ class __TwigTemplate_7e3d13bc60c772986ded85d13f3ea871f3d92ae49b40a19183d7c4573f6
         Sfjs.loadToolbar('{{ token }}');
     })();
 /*]]>*/</script>
-", "@WebProfiler/Profiler/toolbar_js.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/toolbar_js.html.twig");
+", "@WebProfiler/Profiler/toolbar_js.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/toolbar_js.html.twig");
     }
 }

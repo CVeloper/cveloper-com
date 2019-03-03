@@ -19,12 +19,7 @@ class DevTech
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\developer", inversedBy="devTeches")
-     */
-    private $id_developer;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\technology", inversedBy="devTeches")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Technology", inversedBy="devTeches")
      * @ORM\JoinColumn(nullable=false)
      */
     private $id_tech;
@@ -34,48 +29,23 @@ class DevTech
      */
     private $level;
 
-    public function __construct()
-    {
-        $this->id_developer = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Developer", inversedBy="devTeches")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $id_developer;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return Collection|developer[]
-     */
-    public function getIdDeveloper(): Collection
-    {
-        return $this->id_developer;
-    }
-
-    public function addIdDeveloper(developer $idDeveloper): self
-    {
-        if (!$this->id_developer->contains($idDeveloper)) {
-            $this->id_developer[] = $idDeveloper;
-        }
-
-        return $this;
-    }
-
-    public function removeIdDeveloper(developer $idDeveloper): self
-    {
-        if ($this->id_developer->contains($idDeveloper)) {
-            $this->id_developer->removeElement($idDeveloper);
-        }
-
-        return $this;
-    }
-
-    public function getIdTech(): ?technology
+    public function getIdTech(): ?Technology
     {
         return $this->id_tech;
     }
 
-    public function setIdTech(?technology $id_tech): self
+    public function setIdTech(?Technology $id_tech): self
     {
         $this->id_tech = $id_tech;
 
@@ -92,5 +62,22 @@ class DevTech
         $this->level = $level;
 
         return $this;
+    }
+
+    public function getIdDeveloper(): ?Developer
+    {
+        return $this->id_developer;
+    }
+
+    public function setIdDeveloper(?Developer $id_developer): self
+    {
+        $this->id_developer = $id_developer;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->id. ". D#" . $this->id_developer . " T#" . $this->id_tech . " L#" . $this->level;
     }
 }

@@ -32,17 +32,17 @@ class Training
     private $city;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime")
      */
     private $date_from;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $date_to;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\developer", inversedBy="trainings")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Developer", inversedBy="trainings")
      * @ORM\JoinColumn(nullable=false)
      */
     private $id_developer;
@@ -88,36 +88,36 @@ class Training
         return $this;
     }
 
-    public function getDateFrom(): ?string
+    public function getDateFrom(): ?\DateTimeInterface
     {
         return $this->date_from;
     }
 
-    public function setDateFrom(string $date_from): self
+    public function setDateFrom(\DateTimeInterface $date_from): self
     {
         $this->date_from = $date_from;
 
         return $this;
     }
 
-    public function getDateTo(): ?string
+    public function getDateTo(): ?\DateTimeInterface
     {
         return $this->date_to;
     }
 
-    public function setDateTo(?string $date_to): self
+    public function setDateTo(?\DateTimeInterface $date_to): self
     {
         $this->date_to = $date_to;
 
         return $this;
     }
 
-    public function getIdDeveloper(): ?developer
+    public function getIdDeveloper(): ?Developer
     {
         return $this->id_developer;
     }
 
-    public function setIdDeveloper(?developer $id_developer): self
+    public function setIdDeveloper(?Developer $id_developer): self
     {
         $this->id_developer = $id_developer;
 

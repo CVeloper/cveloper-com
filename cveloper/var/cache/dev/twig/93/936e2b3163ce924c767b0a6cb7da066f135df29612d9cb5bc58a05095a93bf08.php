@@ -60,6 +60,6 @@ class __TwigTemplate_07c3f40f2353605d6b07ff2387d32570657092c5a6cddc0b77f848fd937
     public function getSourceContext()
     {
         return new Twig_Source("<time datetime=\"{{ value|date('c') }}\" title=\"{{ value|date('r') }}\">{{ value|date(field_options.format) }}</time>
-", "@EasyAdmin/default/field_datetime.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/field_datetime.html.twig");
+", "@EasyAdmin/default/field_datetime.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/field_datetime.html.twig");
     }
 }

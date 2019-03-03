@@ -69,6 +69,6 @@ class __TwigTemplate_4b6e17218ba9da232d1300f1494d9d0c7b7cec0166a0abcf07bddac64d2
 {% else %}
     {{ value|number_format }}
 {% endif %}
-", "@EasyAdmin/default/field_integer.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/field_integer.html.twig");
+", "@EasyAdmin/default/field_integer.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/field_integer.html.twig");
     }
 }

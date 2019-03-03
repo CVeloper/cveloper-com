@@ -210,6 +210,6 @@ class __TwigTemplate_139eeb28a39827cd3c73465e58b52ce294a433e99cdede58ed754f7d802
         {{ include('@Twig/base_js.html.twig') }}
     </body>
 </html>
-", "@Twig/layout.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/symfony/twig-bundle/Resources/views/layout.html.twig");
+", "@Twig/layout.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/symfony/twig-bundle/Resources/views/layout.html.twig");
     }
 }

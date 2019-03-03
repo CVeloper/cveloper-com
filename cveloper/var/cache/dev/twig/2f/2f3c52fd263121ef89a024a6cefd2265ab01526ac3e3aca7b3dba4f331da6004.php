@@ -198,6 +198,6 @@ class __TwigTemplate_83c28b65921e6488a043991ee1f47ab8f49e1e447f34c4b0702e18a8b1a
     {% endfor %}
     </tbody>
 </table>
-", "@Twig/Exception/logs.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/symfony/twig-bundle/Resources/views/Exception/logs.html.twig");
+", "@Twig/Exception/logs.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/symfony/twig-bundle/Resources/views/Exception/logs.html.twig");
     }
 }

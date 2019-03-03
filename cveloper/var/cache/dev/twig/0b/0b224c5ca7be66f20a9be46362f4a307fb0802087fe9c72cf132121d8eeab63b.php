@@ -396,6 +396,6 @@ class __TwigTemplate_21ad6698d5e91619b347375ed90c7270edc2d67315478e52aecda7a1432
 {% block body %}
     {% include '@Twig/Exception/exception.html.twig' %}
 {% endblock %}
-", "@Twig/Exception/exception_full.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/symfony/twig-bundle/Resources/views/Exception/exception_full.html.twig");
+", "@Twig/Exception/exception_full.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/symfony/twig-bundle/Resources/views/Exception/exception_full.html.twig");
     }
 }

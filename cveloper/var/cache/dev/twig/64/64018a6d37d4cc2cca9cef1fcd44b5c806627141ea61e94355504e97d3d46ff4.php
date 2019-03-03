@@ -61,6 +61,6 @@ class __TwigTemplate_69012ea233a3bd1c5aa38b7d7858f13955014e566c1d0110efea4f85475
     C9.3,4,9,4.3,9,4.6V11.4z M9,16.4C9,16.7,9.3,17,9.6,17h1.8c0.3,0,0.6-0.3,0.6-0.6v-1.8c0-0.3-0.3-0.6-0.6-0.6H9.6
     C9.3,14,9,14.3,9,14.6V16.4z\"/>
 </svg>
-", "@WebProfiler/Icon/logger.svg", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/symfony/web-profiler-bundle/Resources/views/Icon/logger.svg");
+", "@WebProfiler/Icon/logger.svg", "/home/sergio/proyectos_symfony/cveloper/vendor/symfony/web-profiler-bundle/Resources/views/Icon/logger.svg");
     }
 }

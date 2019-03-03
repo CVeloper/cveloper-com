@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DevTech index{% endblock %}
+
+{% block body %}
+    <h1>DevTech index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Level</th>
+                <th>ID Technology</th>
+                <th>ID Developer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dev_tech in dev_teches %}
+            <tr>
+                <td>{{ dev_tech.id }}</td>
+                <td>{{ dev_tech.level }}</td>
+                <td>{{ dev_tech.idTech }}</td>
+                <td>{{ dev_tech.idDeveloper }}</td>
+                <td>
+                    <a href="{{ path('dev_tech_show', {'id': dev_tech.id}) }}">show</a>
+                    <a href="{{ path('dev_tech_edit', {'id': dev_tech.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('dev_tech_new') }}">Create new</a>
+{% endblock %}

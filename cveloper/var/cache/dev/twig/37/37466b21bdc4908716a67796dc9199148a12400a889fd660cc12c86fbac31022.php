@@ -190,6 +190,6 @@ class __TwigTemplate_bfb1fb5a61e1a00aa50385758173292101a7df4bdc8af5631732e68a734
         })|raw }}
     </div>
 {% endif %}
-", "@Twig/Exception/trace.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/symfony/twig-bundle/Resources/views/Exception/trace.html.twig");
+", "@Twig/Exception/trace.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/symfony/twig-bundle/Resources/views/Exception/trace.html.twig");
     }
 }

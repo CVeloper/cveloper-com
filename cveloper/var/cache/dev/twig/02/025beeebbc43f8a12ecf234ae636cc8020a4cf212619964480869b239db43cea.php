@@ -454,6 +454,6 @@ class __TwigTemplate_ad77f93e9a7b34c5042949165a127c64e8934640d01c62d54ed8c314f1e
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/twig.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/symfony/web-profiler-bundle/Resources/views/Collector/twig.html.twig");
+", "@WebProfiler/Collector/twig.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/symfony/web-profiler-bundle/Resources/views/Collector/twig.html.twig");
     }
 }

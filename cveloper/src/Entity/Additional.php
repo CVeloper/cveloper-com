@@ -22,7 +22,7 @@ class Additional
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\developer", inversedBy="additionals")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Developer", inversedBy="additionals")
      * @ORM\JoinColumn(nullable=false)
      */
     private $id_developer;
@@ -44,12 +44,12 @@ class Additional
         return $this;
     }
 
-    public function getIdDeveloper(): ?developer
+    public function getIdDeveloper(): ?Developer
     {
         return $this->id_developer;
     }
 
-    public function setIdDeveloper(?developer $id_developer): self
+    public function setIdDeveloper(?Developer $id_developer): self
     {
         $this->id_developer = $id_developer;
 

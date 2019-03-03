@@ -461,6 +461,6 @@ class __TwigTemplate_a78cb345da3668143017359dcc979be664f09eabf9f5f626a20097f7101
 </ul>
 
 {% block main_menu_after %}{% endblock %}
-", "@EasyAdmin/default/menu.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/menu.html.twig");
+", "@EasyAdmin/default/menu.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/menu.html.twig");
     }
 }

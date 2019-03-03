@@ -148,6 +148,6 @@ class __TwigTemplate_1cac648b7becead8ce424cd2c4feb687d91956b3339148a3d99a6bf112c
         {% block body '' %}
     </body>
 </html>
-", "@WebProfiler/Profiler/base.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base.html.twig");
+", "@WebProfiler/Profiler/base.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base.html.twig");
     }
 }

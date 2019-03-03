@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Experience index{% endblock %}
+
+{% block body %}
+    <h1>Experience index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Position</th>
+                <th>Company</th>
+                <th>City</th>
+                <th>Date_from</th>
+                <th>Date_to</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for experience in experiences %}
+            <tr>
+                <td>{{ experience.id }}</td>
+                <td>{{ experience.position }}</td>
+                <td>{{ experience.company }}</td>
+                <td>{{ experience.city }}</td>
+                <td>{{ experience.dateFrom ? experience.dateFrom|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ experience.dateTo ? experience.dateTo|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('experience_show', {'id': experience.id}) }}">show</a>
+                    <a href="{{ path('experience_edit', {'id': experience.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('experience_new') }}">Create new</a>
+{% endblock %}

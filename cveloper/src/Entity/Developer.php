@@ -85,21 +85,21 @@ class Developer
     private $trainings;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\DevTech", mappedBy="id_developer")
-     */
-    private $devTeches;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Additional", mappedBy="id_developer", orphanRemoval=true)
      */
     private $additionals;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\DevTech", mappedBy="id_developer", orphanRemoval=true)
+     */
+    private $devTeches;
 
     public function __construct()
     {
         $this->experiences = new ArrayCollection();
         $this->trainings = new ArrayCollection();
-        $this->devTeches = new ArrayCollection();
         $this->additionals = new ArrayCollection();
+        $this->devTeches = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -302,34 +302,6 @@ class Developer
     }
 
     /**
-     * @return Collection|DevTech[]
-     */
-    public function getDevTeches(): Collection
-    {
-        return $this->devTeches;
-    }
-
-    public function addDevTech(DevTech $devTech): self
-    {
-        if (!$this->devTeches->contains($devTech)) {
-            $this->devTeches[] = $devTech;
-            $devTech->addIdDeveloper($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDevTech(DevTech $devTech): self
-    {
-        if ($this->devTeches->contains($devTech)) {
-            $this->devTeches->removeElement($devTech);
-            $devTech->removeIdDeveloper($this);
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Additional[]
      */
     public function getAdditionals(): Collection
@@ -354,6 +326,42 @@ class Developer
             // set the owning side to null (unless already changed)
             if ($additional->getIdDeveloper() === $this) {
                 $additional->setIdDeveloper(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->id. ". " . $this->first_name . " " . $this->last_name;
+    }
+
+    /**
+     * @return Collection|DevTech[]
+     */
+    public function getDevTeches(): Collection
+    {
+        return $this->devTeches;
+    }
+
+    public function addDevTech(DevTech $devTech): self
+    {
+        if (!$this->devTeches->contains($devTech)) {
+            $this->devTeches[] = $devTech;
+            $devTech->setIdDeveloper($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDevTech(DevTech $devTech): self
+    {
+        if ($this->devTeches->contains($devTech)) {
+            $this->devTeches->removeElement($devTech);
+            // set the owning side to null (unless already changed)
+            if ($devTech->getIdDeveloper() === $this) {
+                $devTech->setIdDeveloper(null);
             }
         }
 

@@ -396,6 +396,6 @@ class __TwigTemplate_49393373a50f98a222ae171f19031c50ab58e0e3fdc118aa2dc878eae4f
         </div>
     {% endfor %}
 {% endblock %}
-", "@Debug/Profiler/dump.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/symfony/debug-bundle/Resources/views/Profiler/dump.html.twig");
+", "@Debug/Profiler/dump.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/symfony/debug-bundle/Resources/views/Profiler/dump.html.twig");
     }
 }

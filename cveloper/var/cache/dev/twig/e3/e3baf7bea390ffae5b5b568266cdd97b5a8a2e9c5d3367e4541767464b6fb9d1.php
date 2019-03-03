@@ -56,6 +56,6 @@ class __TwigTemplate_bfee02bbf73efc0c1dc362e567772014d45e97aac3cbe1d603b0523647d
     {
         return new Twig_Source("{# this field template is used to avoid formatting the special ID attribute as a number #}
 {{ value }}
-", "@EasyAdmin/default/field_id.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/field_id.html.twig");
+", "@EasyAdmin/default/field_id.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/field_id.html.twig");
     }
 }

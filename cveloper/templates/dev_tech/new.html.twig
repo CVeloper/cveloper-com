@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New DevTech{% endblock %}
+
+{% block body %}
+    <h1>Create new DevTech</h1>
+
+    {{ include('dev_tech/_form.html.twig') }}
+
+    <a href="{{ path('dev_tech_index') }}">back to list</a>
+{% endblock %}

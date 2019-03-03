@@ -155,6 +155,6 @@ class __TwigTemplate_35a0293cb09b89529d96550e037d8e848674b6964a573d86130becfec30
         {% block javascripts %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/templates/base.html.twig");
+", "base.html.twig", "/home/sergio/proyectos_symfony/cveloper/templates/base.html.twig");
     }
 }

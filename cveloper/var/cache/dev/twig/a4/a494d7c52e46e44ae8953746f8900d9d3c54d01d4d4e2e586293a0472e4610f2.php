@@ -139,6 +139,6 @@ class __TwigTemplate_d124d718ab053af2d6f8a9449e18a0789a0a3e5ced10bd815eec6a7ad80
         </div>
     </div>
 </div>
-", "@EasyAdmin/default/includes/_delete_form.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/includes/_delete_form.html.twig");
+", "@EasyAdmin/default/includes/_delete_form.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/includes/_delete_form.html.twig");
     }
 }

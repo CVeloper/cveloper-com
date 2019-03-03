@@ -122,6 +122,6 @@ class __TwigTemplate_88d0be3e0c62711b2a78c5f4a41943212c2136d3ac450b0daeb99df038f
         </a>
     </div>
 </div>
-", "@EasyAdmin/default/paginator.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/paginator.html.twig");
+", "@EasyAdmin/default/paginator.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/paginator.html.twig");
     }
 }

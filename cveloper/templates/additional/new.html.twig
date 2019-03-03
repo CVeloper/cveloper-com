@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Additional{% endblock %}
+
+{% block body %}
+    <h1>Create new Additional</h1>
+
+    {{ include('additional/_form.html.twig') }}
+
+    <a href="{{ path('additional_index') }}">back to list</a>
+{% endblock %}

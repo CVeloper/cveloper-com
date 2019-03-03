@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Technology{% endblock %}
+
+{% block body %}
+    <h1>Edit Technology</h1>
+
+    {{ include('technology/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('technology_index') }}">back to list</a>
+
+    {{ include('technology/_delete_form.html.twig') }}
+{% endblock %}

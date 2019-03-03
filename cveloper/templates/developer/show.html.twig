@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Developer{% endblock %}
+
+{% block body %}
+    <h1>Developer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ developer.id }}</td>
+            </tr>
+            <tr>
+                <th>First_name</th>
+                <td>{{ developer.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Last_name</th>
+                <td>{{ developer.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ developer.address }}</td>
+            </tr>
+            <tr>
+                <th>Postal_code</th>
+                <td>{{ developer.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ developer.city }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ developer.phone }}</td>
+            </tr>
+            <tr>
+                <th>Github</th>
+                <td>{{ developer.github }}</td>
+            </tr>
+            <tr>
+                <th>Linkedin</th>
+                <td>{{ developer.linkedin }}</td>
+            </tr>
+            <tr>
+                <th>Web</th>
+                <td>{{ developer.web }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ developer.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('developer_index') }}">back to list</a>
+
+    <a href="{{ path('developer_edit', {'id': developer.id}) }}">edit</a>
+
+    {{ include('developer/_delete_form.html.twig') }}
+{% endblock %}

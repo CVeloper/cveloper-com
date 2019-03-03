@@ -621,6 +621,6 @@ class __TwigTemplate_2e4011b5edd33c478224326abfaaa2d3b5aa10a19844f602139cbe78e81
     });
 
 /*]]>*/</script>
-", "@Twig/base_js.html.twig", "/home/paco/Proyecto Cveloper/cveloper-com/cveloper/cveloper/vendor/symfony/twig-bundle/Resources/views/base_js.html.twig");
+", "@Twig/base_js.html.twig", "/home/sergio/proyectos_symfony/cveloper/vendor/symfony/twig-bundle/Resources/views/base_js.html.twig");
     }
 }
