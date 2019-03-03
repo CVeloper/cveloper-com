@@ -29,6 +29,10 @@ class ComposerStaticInita55256c2aaabb9b4af7f0df026056ba6
         array (
             'Webmozart\\Assert\\' => 17,
         ),
+        'V' => 
+        array (
+            'Vich\\UploaderBundle\\' => 20,
+        ),
         'T' => 
         array (
             'Twig\\Extensions\\' => 16,
@@ -46,6 +50,7 @@ class ComposerStaticInita55256c2aaabb9b4af7f0df026056ba6
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Validator\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
+            'Symfony\\Component\\Templating\\' => 29,
             'Symfony\\Component\\Stopwatch\\' => 28,
             'Symfony\\Component\\Serializer\\' => 29,
             'Symfony\\Component\\Security\\Http\\' => 32,
@@ -105,6 +110,7 @@ class ComposerStaticInita55256c2aaabb9b4af7f0df026056ba6
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Metadata\\' => 9,
         ),
         'F' => 
         array (
@@ -157,6 +163,10 @@ class ComposerStaticInita55256c2aaabb9b4af7f0df026056ba6
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
+        'Vich\\UploaderBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vich/uploader-bundle',
+        ),
         'Twig\\Extensions\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/extensions/src',
@@ -204,6 +214,10 @@ class ComposerStaticInita55256c2aaabb9b4af7f0df026056ba6
         'Symfony\\Component\\Translation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Symfony\\Component\\Templating\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/templating',
         ),
         'Symfony\\Component\\Stopwatch\\' => 
         array (
@@ -417,6 +431,10 @@ class ComposerStaticInita55256c2aaabb9b4af7f0df026056ba6
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Metadata\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jms/metadata/src',
+        ),
         'Fig\\Link\\' => 
         array (
             0 => __DIR__ . '/..' . '/fig/link-util/src',
@@ -526,6 +544,13 @@ class ComposerStaticInita55256c2aaabb9b4af7f0df026056ba6
             'Doctrine\\Common\\Collections\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
+            ),
+        ),
+        'B' => 
+        array (
+            'Behat\\Transliterator' => 
+            array (
+                0 => __DIR__ . '/..' . '/behat/transliterator/src',
             ),
         ),
     );

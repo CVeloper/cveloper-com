@@ -615,3 +615,9 @@ fec10a,127.0.0.1,GET,http://localhost:8000/admin/,1551617862,,302
 62f069,127.0.0.1,GET,http://localhost:8000/admin/?action=list&entity=User,1551617862,,200
 e37898,127.0.0.1,GET,http://localhost:8000/favicon.ico,1551617862,c0a2db,200
 c0a2db,127.0.0.1,GET,http://localhost:8000/favicon.ico,1551617862,,404
+55c822,127.0.0.1,GET,http://localhost:8000/dev,1551620565,3100f4,200
+3100f4,127.0.0.1,GET,http://localhost:8000/dev,1551620565,,404
+0b0fcc,127.0.0.1,GET,http://localhost:8000/developer,1551620568,,301
+0a58e4,127.0.0.1,GET,http://localhost:8000/developer/,1551620568,,200
+6a4b32,127.0.0.1,GET,http://localhost:8000/dev/experience,1551620578,,301
+c3e9b2,127.0.0.1,GET,http://localhost:8000/dev/experience/,1551620578,,200

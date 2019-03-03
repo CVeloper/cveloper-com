@@ -12,4 +12,5 @@ return array(
     'Pagerfanta\\' => array($vendorDir . '/pagerfanta/pagerfanta/src'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
+    'Behat\\Transliterator' => array($vendorDir . '/behat/transliterator/src'),
 );
