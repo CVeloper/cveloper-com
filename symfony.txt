@@ -1,7 +1,7 @@
 PÁGINAS QUE HAY QUE IMPRIMIRSE EN .PDF PARA EL EXAMEN PORQUE ES SIN INTERNET:
 
 https://symfony.com/
-https://symfony.com/doc/current/index.html#gsc.tab=0
+https://symfony.com/doc/current/index.html
 https://symfony.com/doc/current/setup.html
 
 https://symfony.com/doc/current/page_creation.html
@@ -9,12 +9,15 @@ https://symfony.com/doc/current/controller.html
 https://symfony.com/doc/current/routing.html
 https://symfony.com/doc/current/templating.html
 
-https://symfony.com/doc/current/doctrine.html // ORM Databases
+https://symfony.com/doc/current/doctrine.html   // ORM Databases
 https://symfony.com/doc/master/bundles/EasyAdminBundle/book/installation.html
 https://symfony.com/doc/master/bundles/EasyAdminBundle/book/your-first-backend.html
 https://symfony.com/doc/master/bundles/EasyAdminBundle/book/edit-new-configuration.html
+https://symfony.com/doc/master/bundles/EasyAdminBundle/integration/vichuploaderbundle.html   // Images/Files
 
-https://symfony.com/blog/new-and-improved-generators-for-makerbundle // CRUD, TEMPLATE Y FORM
+https://symfony.com/blog/new-and-improved-generators-for-makerbundle   // CRUD: Controllers/Forms/Templates
+
+https://symfony.com/doc/current/security.html   // User Authentication
 
 https://symfony.com/doc/current/deployment.html
 

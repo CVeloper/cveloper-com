@@ -1,0 +1,20 @@
+
+sergio@sergio-VirtualBox:~$     sudo su -
+
+root@sergio-VirtualBox:/#     mysql
+
+mysql>     CREATE DATABASE cveloper;
+
+mysql>     CREATE USER 'cveloper'@'localhost' IDENTIFIED BY 'cveloper';
+
+mysql>     GRANT ALL PRIVILEGES ON cveloper.* TO 'cveloper'@'localhost' WITH GRANT OPTION;
+
+mysql>     exit
+
+root@sergio-VirtualBox:~#     mysql -u cveloper -pcveloper cveloper < /home/sergio/proyectos_symfony/cveloper.sql
+
+root@sergio-VirtualBox:~#     mysqldump -u cveloper -pcveloper cveloper > /home/sergio/proyectos_symfony/cveloper.sql
+
+root@sergio-VirtualBox:~#     ^D
+
+sergio@sergio-VirtualBox:~$
