@@ -9,6 +9,8 @@ https://symfony.com/doc/current/controller.html
 https://symfony.com/doc/current/routing.html
 https://symfony.com/doc/current/templating.html
 
+https://symfony.com/doc/current/cmf/tutorial/make-homepage.html
+
 https://symfony.com/doc/current/doctrine.html   // ORM Databases
 https://symfony.com/doc/master/bundles/EasyAdminBundle/book/installation.html
 https://symfony.com/doc/master/bundles/EasyAdminBundle/book/your-first-backend.html
