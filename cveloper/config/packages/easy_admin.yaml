@@ -10,10 +10,12 @@ easy_admin:
             class: App\Entity\User
             form:
                 fields:
-                    - { property: 'type', label: 'Tipo de Usuario' }
-                    - { property: 'user', label: 'Usuario' }
-                    - { property: 'pass', label: 'Contraseña', type: 'password' }
-                    - { property: 'auth', label: 'Autentificación' }
+                    - { property: 'username', label: 'Nombre de Usuario' }
+                    - { property: 'roles', label: 'Roles de Usuario' }
+                    - { property: 'password', label: 'Contraseña', type: 'password' }
+                    - { property: 'id_github', label: 'GitHub' }
+                    - { property: 'Developer', label: 'Developer' }
+
             new:
                 title: 'Añadir Usuario'
             edit:

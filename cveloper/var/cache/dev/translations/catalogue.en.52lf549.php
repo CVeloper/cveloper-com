@@ -170,6 +170,11 @@ $catalogue = new MessageCatalogue('en', array (
     'label.form.empty_value' => 'None',
     '__name__label__' => '__name__label__',
   ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Download',
+    'form.label.delete' => 'Delete?',
+  ),
 ));
 
 

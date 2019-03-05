@@ -22,6 +22,7 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
             '/developer/additional' => [[['_route' => 'additional_index', '_controller' => 'App\\Controller\\AdditionalController::index'], null, ['GET' => 0], null, true, false, null]],
             '/developer/additional/new' => [[['_route' => 'additional_new', '_controller' => 'App\\Controller\\AdditionalController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+            '/prueba/symfony/primera' => [[['_route' => 'app_comoquieras_generarpagina', '_controller' => 'App\\Controller\\ComoQuieras::generarPagina'], null, null, null, false, false, null]],
             '/developer/technology' => [
                 [['_route' => 'dev_tech_index', '_controller' => 'App\\Controller\\DevTechController::index'], null, ['GET' => 0], null, true, false, null],
                 [['_route' => 'technology_index', '_controller' => 'App\\Controller\\TechnologyController::index'], null, ['GET' => 0], null, true, false, null],
@@ -33,6 +34,7 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             '/developer/experience/new' => [[['_route' => 'experience_new', '_controller' => 'App\\Controller\\ExperienceController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
             '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
             '/type' => [[['_route' => 'home_type', '_controller' => 'App\\Controller\\HomeController::type'], null, null, null, false, false, null]],
+            '/lucky/number' => [[['_route' => 'app_lucky_number', '_controller' => 'App\\Controller\\LuckyController::number'], null, null, null, false, false, null]],
             '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
             '/developer/training' => [[['_route' => 'training_index', '_controller' => 'App\\Controller\\TrainingController::index'], null, ['GET' => 0], null, true, false, null]],
             '/developer/training/new' => [[['_route' => 'training_new', '_controller' => 'App\\Controller\\TrainingController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
