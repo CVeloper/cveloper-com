@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/dev/technology")
+ * @Route("/developer/technology")
  */
 class DevTechController extends AbstractController
 {

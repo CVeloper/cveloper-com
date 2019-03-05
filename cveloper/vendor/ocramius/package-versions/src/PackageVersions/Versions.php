@@ -80,7 +80,7 @@ final class Versions
   'symfony/property-access' => 'v4.2.3@4768734a803c4471b7a733bd13698d91dd0cf193',
   'symfony/property-info' => 'v4.2.3@a1cf176eb83a48c791fbc9f94140c5c971ec21e0',
   'symfony/routing' => 'v4.2.3@7f8e44fc498972466f0841c3e48dc555f23bdf53',
-  'symfony/security-bundle' => 'v4.2.3@0e1c9003830c5da614e58bd74b2fd0bb7c4569d6',
+  'symfony/security-bundle' => 'v4.2.4@d382808b206f01235053d6d1981beef325a7345b',
   'symfony/security-core' => 'v4.2.3@615be3016bb362f4b39feec3210da4efddd6c24a',
   'symfony/security-csrf' => 'v4.2.3@385dcfcd6cf02e0b8d10524bd072169be2d5494b',
   'symfony/security-guard' => 'v4.2.3@219a34c70dd243771a67cb05041c928d909d2104',

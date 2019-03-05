@@ -9,10 +9,10 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Type</th>
-                <th>User</th>
-                <th>Pass</th>
-                <th>Auth</th>
+                <th>Username</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>Id_github</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,10 +20,10 @@
         {% for user in users %}
             <tr>
                 <td>{{ user.id }}</td>
-                <td>{{ user.type }}</td>
-                <td>{{ user.user }}</td>
-                <td>{{ user.pass }}</td>
-                <td>{{ user.auth }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.idGithub }}</td>
                 <td>
                     <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>

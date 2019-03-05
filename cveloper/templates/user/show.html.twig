@@ -12,20 +12,20 @@
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
-                <th>Type</th>
-                <td>{{ user.type }}</td>
+                <th>Username</th>
+                <td>{{ user.username }}</td>
             </tr>
             <tr>
-                <th>User</th>
-                <td>{{ user.user }}</td>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
             </tr>
             <tr>
-                <th>Pass</th>
-                <td>{{ user.pass }}</td>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
             </tr>
             <tr>
-                <th>Auth</th>
-                <td>{{ user.auth }}</td>
+                <th>Id_github</th>
+                <td>{{ user.idGithub }}</td>
             </tr>
         </tbody>
     </table>

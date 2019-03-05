@@ -721,13 +721,6 @@
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\AdditionalController"/>
       </call>
     </service>
-    <service id="App\Controller\ComoQuieras" class="App\Controller\ComoQuieras" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\ComoQuieras"/>
-      </call>
-    </service>
     <service id="App\Controller\DevTechController" class="App\Controller\DevTechController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -756,11 +749,11 @@
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\HomeController"/>
       </call>
     </service>
-    <service id="App\Controller\LuckyController" class="App\Controller\LuckyController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\LuckyController"/>
+        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\SecurityController"/>
       </call>
     </service>
     <service id="App\Controller\TechnologyController" class="App\Controller\TechnologyController" public="true" autowire="true" autoconfigure="true">
@@ -832,6 +825,12 @@
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Security\LoginFormAuthenticator" class="App\Security\LoginFormAuthenticator" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="security.csrf.token_manager"/>
+      <argument type="service" id="security.user_password_encoder.generic"/>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -3531,6 +3530,7 @@
     </service>
     <service id="security.authentication.manager" class="Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager" public="false">
       <argument type="iterator">
+        <argument type="service" id="security.authentication.provider.guard.main"/>
         <argument type="service" id="security.authentication.provider.anonymous.main"/>
       </argument>
       <argument>true</argument>
@@ -3549,7 +3549,16 @@
       <argument>none</argument>
     </service>
     <service id="security.encoder_factory.generic" class="Symfony\Component\Security\Core\Encoder\EncoderFactory" public="false">
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="App\Entity\User" type="collection">
+          <argument key="class">Symfony\Component\Security\Core\Encoder\Argon2iPasswordEncoder</argument>
+          <argument key="arguments" type="collection">
+            <argument>null</argument>
+            <argument>null</argument>
+            <argument>null</argument>
+          </argument>
+        </argument>
+      </argument>
     </service>
     <service id="security.user_password_encoder.generic" class="Symfony\Component\Security\Core\Encoder\UserPasswordEncoder" public="false">
       <argument type="service" id="security.encoder_factory.generic"/>
@@ -3669,7 +3678,7 @@
       <tag name="monolog.logger" channel="security"/>
       <argument type="service" id="security.token_storage"/>
       <argument type="iterator">
-        <argument type="service" id="security.user.provider.concrete.in_memory"/>
+        <argument type="service" id="security.user.provider.concrete.app_user_provider"/>
       </argument>
       <argument></argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
@@ -3971,8 +3980,11 @@
       <argument type="service" id="debug.event_dispatcher"/>
       <argument type="service" id="security.logout_url_generator"/>
     </service>
-    <service id="security.user.provider.concrete.in_memory" class="Symfony\Component\Security\Core\User\InMemoryUserProvider" public="false">
-      <argument type="collection"/>
+    <service id="security.user.provider.concrete.app_user_provider" class="Symfony\Bridge\Doctrine\Security\User\EntityUserProvider" public="false">
+      <argument type="service" id="doctrine"/>
+      <argument>App\Entity\User</argument>
+      <argument>username</argument>
+      <argument>null</argument>
     </service>
     <service id="security.firewall.map.config.dev" class="Symfony\Bundle\SecurityBundle\Security\FirewallConfig" public="false">
       <argument>dev</argument>
@@ -4003,12 +4015,13 @@
       <argument>null</argument>
       <argument>true</argument>
       <argument>false</argument>
-      <argument>security.user.provider.concrete.in_memory</argument>
+      <argument>security.user.provider.concrete.app_user_provider</argument>
       <argument>main</argument>
-      <argument>null</argument>
+      <argument>App\Security\LoginFormAuthenticator</argument>
       <argument>null</argument>
       <argument>null</argument>
       <argument type="collection">
+        <argument>guard</argument>
         <argument>anonymous</argument>
       </argument>
       <argument>null</argument>
@@ -4016,12 +4029,30 @@
     <service id="security.context_listener.0" class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
       <argument type="service" id="security.token_storage"/>
       <argument type="iterator">
-        <argument type="service" id="security.user.provider.concrete.in_memory"/>
+        <argument type="service" id="security.user.provider.concrete.app_user_provider"/>
       </argument>
       <argument>main</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
       <argument type="service" id="security.authentication.trust_resolver"/>
+    </service>
+    <service id="security.authentication.provider.guard.main" class="Symfony\Component\Security\Guard\Provider\GuardAuthenticationProvider" public="false">
+      <argument type="iterator">
+        <argument type="service" id="App\Security\LoginFormAuthenticator"/>
+      </argument>
+      <argument type="service" id="security.user.provider.concrete.app_user_provider"/>
+      <argument>main</argument>
+      <argument type="service" id="security.user_checker"/>
+    </service>
+    <service id="security.authentication.listener.guard.main" class="Symfony\Component\Security\Guard\Firewall\GuardAuthenticationListener" public="false">
+      <tag name="security.remember_me_aware" id="main" provider="security.user.provider.concrete.app_user_provider"/>
+      <argument type="service" id="security.authentication.guard_handler"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument>main</argument>
+      <argument type="iterator">
+        <argument type="service" id="App\Security\LoginFormAuthenticator"/>
+      </argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -4037,7 +4068,7 @@
       <argument type="service" id="security.authentication.trust_resolver"/>
       <argument type="service" id="security.http_utils"/>
       <argument>main</argument>
-      <argument>null</argument>
+      <argument type="service" id="App\Security\LoginFormAuthenticator"/>
       <argument>null</argument>
       <argument>null</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
@@ -4047,6 +4078,7 @@
       <argument type="iterator">
         <argument type="service" id="security.channel_listener"/>
         <argument type="service" id="security.context_listener.0"/>
+        <argument type="service" id="security.authentication.listener.guard.main"/>
         <argument type="service" id="security.authentication.listener.anonymous.main"/>
         <argument type="service" id="security.access_listener"/>
       </argument>
@@ -4064,7 +4096,9 @@
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand" public="false">
       <tag name="console.command" command="security:encode-password"/>
       <argument type="service" id="security.encoder_factory.generic"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument>App\Entity\User</argument>
+      </argument>
       <call method="setName">
         <argument>security:encode-password</argument>
       </call>
@@ -5252,9 +5286,6 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdditionalController" class="App\Controller\AdditionalController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdditionalController" class="App\Controller\AdditionalController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdditionalController" class="App\Controller\AdditionalController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ComoQuieras" class="App\Controller\ComoQuieras" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ComoQuieras" class="App\Controller\ComoQuieras" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ComoQuieras" class="App\Controller\ComoQuieras" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DevTechController" class="App\Controller\DevTechController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DevTechController" class="App\Controller\DevTechController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DevTechController" class="App\Controller\DevTechController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5267,9 +5298,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LuckyController" class="App\Controller\LuckyController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LuckyController" class="App\Controller\LuckyController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\LuckyController" class="App\Controller\LuckyController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TechnologyController" class="App\Controller\TechnologyController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TechnologyController" class="App\Controller\TechnologyController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\TechnologyController" class="App\Controller\TechnologyController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5517,6 +5548,12 @@
         <argument key="experience" type="service" id=".errored..service_locator.zBOqTb5.App\Entity\Experience"/>
       </argument>
     </service>
+    <service id=".service_locator.EbLunuf" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="authenticationUtils" type="service" id="security.authentication_utils"/>
+      </argument>
+    </service>
     <service id=".service_locator.KgZjfRe" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5553,7 +5590,7 @@
         <argument key="user" type="service" id=".errored..service_locator.wypGnUQ.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.iphstXJ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.x7xlwqR" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdditionalController::delete" type="service" id=".service_locator.X2Z8eIS"/>
@@ -5572,6 +5609,7 @@
         <argument key="App\Controller\ExperienceController::edit" type="service" id=".service_locator.zBOqTb5"/>
         <argument key="App\Controller\ExperienceController::index" type="service" id=".service_locator.4eW7lcb"/>
         <argument key="App\Controller\ExperienceController::show" type="service" id=".service_locator.zBOqTb5"/>
+        <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.EbLunuf"/>
         <argument key="App\Controller\TechnologyController::delete" type="service" id=".service_locator.5rm8RZ7"/>
         <argument key="App\Controller\TechnologyController::edit" type="service" id=".service_locator.5rm8RZ7"/>
         <argument key="App\Controller\TechnologyController::index" type="service" id=".service_locator.KgZjfRe"/>
@@ -5600,6 +5638,7 @@
         <argument key="App\Controller\ExperienceController:edit" type="service" id=".service_locator.zBOqTb5"/>
         <argument key="App\Controller\ExperienceController:index" type="service" id=".service_locator.4eW7lcb"/>
         <argument key="App\Controller\ExperienceController:show" type="service" id=".service_locator.zBOqTb5"/>
+        <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.EbLunuf"/>
         <argument key="App\Controller\TechnologyController:delete" type="service" id=".service_locator.5rm8RZ7"/>
         <argument key="App\Controller\TechnologyController:edit" type="service" id=".service_locator.5rm8RZ7"/>
         <argument key="App\Controller\TechnologyController:index" type="service" id=".service_locator.KgZjfRe"/>
@@ -5890,12 +5929,6 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.KTVqfp6" method="withContext"/>
     </service>
-    <service id=".service_locator.KTVqfp6.App\Controller\ComoQuieras" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\ComoQuieras"/>
-      <argument>App\Controller\ComoQuieras</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.KTVqfp6" method="withContext"/>
-    </service>
     <service id=".service_locator.KTVqfp6.App\Controller\DevTechController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\DevTechController"/>
       <argument>App\Controller\DevTechController</argument>
@@ -5920,9 +5953,9 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.KTVqfp6" method="withContext"/>
     </service>
-    <service id=".service_locator.KTVqfp6.App\Controller\LuckyController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\LuckyController"/>
-      <argument>App\Controller\LuckyController</argument>
+    <service id=".service_locator.KTVqfp6.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
+      <argument>App\Controller\SecurityController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.KTVqfp6" method="withContext"/>
     </service>
@@ -6065,7 +6098,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.iphstXJ"/>
+      <argument type="service" id=".service_locator.x7xlwqR"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -6401,7 +6434,7 @@
     <service id="Symfony\Component\Security\Http\HttpUtils" alias="security.http_utils" public="false"/>
     <service id="Symfony\Component\Security\Guard\GuardAuthenticatorHandler" alias="security.authentication.guard_handler" public="false"/>
     <service id="security.firewall" alias="debug.security.firewall" public="false"/>
-    <service id="Symfony\Component\Security\Core\User\UserProviderInterface" alias="security.user.provider.concrete.in_memory"/>
+    <service id="Symfony\Component\Security\Core\User\UserProviderInterface" alias="security.user.provider.concrete.app_user_provider"/>
     <service id="security.authentication.session_strategy.main" alias="security.authentication.session_strategy"/>
     <service id="security.user_checker.main" alias="security.user_checker" public="false"/>
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
@@ -6446,7 +6479,7 @@
     <service id="Vich\UploaderBundle\Form\Type\VichImageType" alias="vich_uploader.form.type.image" public="false"/>
     <service id="Vich\UploaderBundle\Templating\Helper\UploaderHelper" alias="vich_uploader.templating.helper.uploader_helper" public="false"/>
     <service id="Vich\UploaderBundle\Twig\Extension\UploaderExtension" alias="vich_uploader.twig.extension.uploader" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.iphstXJ"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.x7xlwqR"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="validator" alias="debug.validator" public="true"/>

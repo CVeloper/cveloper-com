@@ -69,12 +69,6 @@ class Developer
     private $email;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="developer", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $id_user;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Experience", mappedBy="id_developer", orphanRemoval=true)
      */
     private $experiences;
@@ -93,6 +87,12 @@ class Developer
      * @ORM\OneToMany(targetEntity="App\Entity\DevTech", mappedBy="id_developer", orphanRemoval=true)
      */
     private $devTeches;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="developer", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $id_user;
 
     public function __construct()
     {
@@ -227,18 +227,6 @@ class Developer
         return $this;
     }
 
-    public function getIdUser(): ?User
-    {
-        return $this->id_user;
-    }
-
-    public function setIdUser(User $id_user): self
-    {
-        $this->id_user = $id_user;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Experience[]
      */
@@ -364,6 +352,18 @@ class Developer
                 $devTech->setIdDeveloper(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->id_user;
+    }
+
+    public function setIdUser(User $id_user): self
+    {
+        $this->id_user = $id_user;
 
         return $this;
     }
