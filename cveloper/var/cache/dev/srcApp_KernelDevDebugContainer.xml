@@ -92,6 +92,7 @@
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="env(DATABASE_URL)"></parameter>
     <parameter key="locale">en</parameter>
+    <parameter key="app.path.developer_avatar">/uploads/images/developer/avatar</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">%env(APP_SECRET)%</parameter>
@@ -382,6 +383,11 @@
                 <parameter key="label">Telefono</parameter>
               </parameter>
               <parameter type="collection">
+                <parameter key="property">imageFile</parameter>
+                <parameter key="label">Avatar</parameter>
+                <parameter key="type">vich_image</parameter>
+              </parameter>
+              <parameter type="collection">
                 <parameter key="property">github</parameter>
                 <parameter key="label">Github</parameter>
               </parameter>
@@ -408,6 +414,61 @@
           </parameter>
           <parameter key="edit" type="collection">
             <parameter key="title">Editar Desarrollador</parameter>
+          </parameter>
+          <parameter key="list" type="collection">
+            <parameter key="title">Listado Desarrolladores</parameter>
+            <parameter key="fields" type="collection">
+              <parameter type="collection">
+                <parameter key="property">first_Name</parameter>
+                <parameter key="label">Nombre</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">last_Name</parameter>
+                <parameter key="label">Apellido</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">avatar</parameter>
+                <parameter key="label">Avatar</parameter>
+                <parameter key="type">image</parameter>
+                <parameter key="base_path">/uploads/images/developer/avatar</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">email</parameter>
+                <parameter key="label">Email</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">address</parameter>
+                <parameter key="label">Dirección</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">postal_code</parameter>
+                <parameter key="label">Código Postal</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">city</parameter>
+                <parameter key="label">Ciudad</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">phone</parameter>
+                <parameter key="label">Telefono</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">github</parameter>
+                <parameter key="label">Github</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">linkedin</parameter>
+                <parameter key="label">Linkedin</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">web</parameter>
+                <parameter key="label">Web Personal</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">id_user</parameter>
+                <parameter key="label">ID Desarrollador</parameter>
+              </parameter>
+            </parameter>
           </parameter>
           <parameter key="name">Developer</parameter>
         </parameter>
@@ -612,7 +673,24 @@
       </parameter>
     </parameter>
     <parameter key="vich_uploader.default_filename_attribute_suffix">_name</parameter>
-    <parameter key="vich_uploader.mappings" type="collection"/>
+    <parameter key="vich_uploader.mappings" type="collection">
+      <parameter key="developer_avatar" type="collection">
+        <parameter key="uri_prefix">/uploads/images/developer/avatar</parameter>
+        <parameter key="upload_destination">/home/pacoyruben/cveloper2/cveloper-com/cveloper/public/uploads/images/developer/avatar</parameter>
+        <parameter key="namer" type="collection">
+          <parameter key="service">null</parameter>
+          <parameter key="options">null</parameter>
+        </parameter>
+        <parameter key="directory_namer" type="collection">
+          <parameter key="service">null</parameter>
+          <parameter key="options">null</parameter>
+        </parameter>
+        <parameter key="delete_on_remove">true</parameter>
+        <parameter key="delete_on_update">true</parameter>
+        <parameter key="inject_on_load">false</parameter>
+        <parameter key="db_driver">orm</parameter>
+      </parameter>
+    </parameter>
     <parameter key="vich_uploader.file_injector.class">Vich\UploaderBundle\Injector\FileInjector</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
@@ -725,13 +803,6 @@
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\AdditionalController"/>
       </call>
     </service>
-    <service id="App\Controller\ComoQuieras" class="App\Controller\ComoQuieras" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\ComoQuieras"/>
-      </call>
-    </service>
     <service id="App\Controller\DevTechController" class="App\Controller\DevTechController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -758,13 +829,6 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\HomeController"/>
-      </call>
-    </service>
-    <service id="App\Controller\LuckyController" class="App\Controller\LuckyController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\LuckyController"/>
       </call>
     </service>
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
@@ -3238,6 +3302,15 @@
     </service>
     <service id="doctrine.dbal.default_connection.event_manager" class="Symfony\Bridge\Doctrine\ContainerAwareEventManager" public="false">
       <argument type="service" id=".service_locator.Otd28_S"/>
+      <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.clean.developer_avatar"/>
+      </call>
+      <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.remove.developer_avatar"/>
+      </call>
+      <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.upload.developer_avatar"/>
+      </call>
       <call method="addEventListener">
         <argument type="collection">
           <argument>loadClassMetadata</argument>
@@ -5226,7 +5299,7 @@
     <service id="vich_uploader.property_mapping_factory" class="Vich\UploaderBundle\Mapping\PropertyMappingFactory" public="false">
       <argument type="service" id="service_container"/>
       <argument type="service" id="vich_uploader.metadata_reader"/>
-      <argument type="collection"/>
+      <argument>%vich_uploader.mappings%</argument>
       <argument>_name</argument>
     </service>
     <service id="Vich\UploaderBundle\Naming\UniqidNamer" class="Vich\UploaderBundle\Naming\UniqidNamer" public="true"/>
@@ -5262,7 +5335,7 @@
     </service>
     <service id="vich_uploader.command.mapping_debug" class="Vich\UploaderBundle\Command\MappingDebugCommand" public="false">
       <tag name="console.command" command="vich:mapping:debug"/>
-      <argument type="collection"/>
+      <argument>%vich_uploader.mappings%</argument>
       <call method="setName">
         <argument>vich:mapping:debug</argument>
       </call>
@@ -5301,12 +5374,30 @@
       <tag name="twig.extension"/>
       <argument type="service" id="vich_uploader.templating.helper.uploader_helper"/>
     </service>
+    <service id="vich_uploader.listener.clean.developer_avatar" class="Vich\UploaderBundle\EventListener\Doctrine\CleanListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="50"/>
+      <argument>developer_avatar</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.remove.developer_avatar" class="Vich\UploaderBundle\EventListener\Doctrine\RemoveListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="0"/>
+      <argument>developer_avatar</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.upload.developer_avatar" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="0"/>
+      <argument>developer_avatar</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdditionalController" class="App\Controller\AdditionalController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdditionalController" class="App\Controller\AdditionalController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdditionalController" class="App\Controller\AdditionalController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ComoQuieras" class="App\Controller\ComoQuieras" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ComoQuieras" class="App\Controller\ComoQuieras" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ComoQuieras" class="App\Controller\ComoQuieras" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DevTechController" class="App\Controller\DevTechController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DevTechController" class="App\Controller\DevTechController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DevTechController" class="App\Controller\DevTechController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5319,9 +5410,6 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LuckyController" class="App\Controller\LuckyController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LuckyController" class="App\Controller\LuckyController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\LuckyController" class="App\Controller\LuckyController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5953,12 +6041,6 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.KTVqfp6" method="withContext"/>
     </service>
-    <service id=".service_locator.KTVqfp6.App\Controller\ComoQuieras" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\ComoQuieras"/>
-      <argument>App\Controller\ComoQuieras</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.KTVqfp6" method="withContext"/>
-    </service>
     <service id=".service_locator.KTVqfp6.App\Controller\DevTechController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\DevTechController"/>
       <argument>App\Controller\DevTechController</argument>
@@ -5980,12 +6062,6 @@
     <service id=".service_locator.KTVqfp6.App\Controller\HomeController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\HomeController"/>
       <argument>App\Controller\HomeController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.KTVqfp6" method="withContext"/>
-    </service>
-    <service id=".service_locator.KTVqfp6.App\Controller\LuckyController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\LuckyController"/>
-      <argument>App\Controller\LuckyController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.KTVqfp6" method="withContext"/>
     </service>

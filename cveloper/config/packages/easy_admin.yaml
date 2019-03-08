@@ -35,6 +35,7 @@ easy_admin:
                     - { property: 'city', label: 'Ciudad' }
                     - { type: 'section', label: 'Otros Datos' }
                     - { property: 'phone', label: 'Telefono' }
+                    - { property: 'imageFile', label: 'Avatar', type: 'vich_image' }
                     - { property: 'github', label: 'Github' }
                     - { property: 'linkedin', label: 'Linkedin' }
                     - { property: 'web', label: 'Web Personal' }
@@ -44,7 +45,21 @@ easy_admin:
                 title: 'Añadir Desarrollador'
             edit:
                 title: 'Editar Desarrollador'
-
+            list:
+                title: "Listado Desarrolladores"
+                fields:
+                  - { property: 'first_Name', label: 'Nombre' }                
+                  - { property: 'last_Name', label: 'Apellido' }
+                  - { property: 'avatar', label: 'Avatar', type: 'image', base_path: '%app.path.developer_avatar%' }
+                  - { property: 'email', label: 'Email' }
+                  - { property: 'address', label: 'Dirección' }
+                  - { property: 'postal_code', label: 'Código Postal' }
+                  - { property: 'city', label: 'Ciudad' }
+                  - { property: 'phone', label: 'Telefono' }
+                  - { property: 'github', label: 'Github' }
+                  - { property: 'linkedin', label: 'Linkedin' }
+                  - { property: 'web', label: 'Web Personal' }
+                  - { property: 'id_user', label: 'ID Desarrollador' }
 # TECHNOLOGY ##################################################################
         Technology:
             class:  App\Entity\Technology
