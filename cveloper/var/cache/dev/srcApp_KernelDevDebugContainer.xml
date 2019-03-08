@@ -338,6 +338,27 @@
           <parameter key="edit" type="collection">
             <parameter key="title">Editar Usuario</parameter>
           </parameter>
+          <parameter key="list" type="collection">
+            <parameter key="title">Listado de Usuarios</parameter>
+            <parameter key="fields" type="collection">
+              <parameter type="collection">
+                <parameter key="property">username</parameter>
+                <parameter key="label">Nombre de Usuario</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">roles</parameter>
+                <parameter key="label">Rol de Usuario</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">id_github</parameter>
+                <parameter key="label">GitHub</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">Developer</parameter>
+                <parameter key="label">Developer</parameter>
+              </parameter>
+            </parameter>
+          </parameter>
           <parameter key="name">User</parameter>
         </parameter>
         <parameter key="Developer" type="collection">
@@ -549,6 +570,35 @@
           <parameter key="edit" type="collection">
             <parameter key="title">Editar Experiencia</parameter>
           </parameter>
+          <parameter key="list" type="collection">
+            <parameter key="title">Experiencia de Desarrollador</parameter>
+            <parameter key="fields" type="collection">
+              <parameter type="collection">
+                <parameter key="property">id_developer</parameter>
+                <parameter key="label">Id Desarrollador</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">position</parameter>
+                <parameter key="label">Puesto</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">company</parameter>
+                <parameter key="label">Compañía</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">city</parameter>
+                <parameter key="label">Ciudad</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">date_from</parameter>
+                <parameter key="label">Desde</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">date_to</parameter>
+                <parameter key="label">Hasta</parameter>
+              </parameter>
+            </parameter>
+          </parameter>
           <parameter key="name">Experience</parameter>
         </parameter>
         <parameter key="Training" type="collection">
@@ -589,6 +639,35 @@
           <parameter key="edit" type="collection">
             <parameter key="title">Editar Formación</parameter>
           </parameter>
+          <parameter key="list" type="collection">
+            <parameter key="title">Listado Formación</parameter>
+            <parameter key="fields" type="collection">
+              <parameter type="collection">
+                <parameter key="property">id_developer</parameter>
+                <parameter key="label">Id Desarrollador</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">degree</parameter>
+                <parameter key="label">Título</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">institution</parameter>
+                <parameter key="label">Centro Educativo</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">city</parameter>
+                <parameter key="label">Ciudad</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">date_from</parameter>
+                <parameter key="label">Desde</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">date_to</parameter>
+                <parameter key="label">Hasta</parameter>
+              </parameter>
+            </parameter>
+          </parameter>
           <parameter key="name">Training</parameter>
         </parameter>
         <parameter key="Additional" type="collection">
@@ -611,6 +690,19 @@
           </parameter>
           <parameter key="edit" type="collection">
             <parameter key="title">Editar Información Adicional</parameter>
+          </parameter>
+          <parameter key="list" type="collection">
+            <parameter key="title">Listado de Información Adicional</parameter>
+            <parameter key="fields" type="collection">
+              <parameter type="collection">
+                <parameter key="property">id_developer</parameter>
+                <parameter key="label">Id Desarrollador</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">description</parameter>
+                <parameter key="label">Descripción</parameter>
+              </parameter>
+            </parameter>
           </parameter>
           <parameter key="name">Additional</parameter>
         </parameter>
@@ -637,6 +729,23 @@
           </parameter>
           <parameter key="edit" type="collection">
             <parameter key="title">Editar Nivel Tecnología</parameter>
+          </parameter>
+          <parameter key="list" type="collection">
+            <parameter key="title">Listado de Nivel Tecnología</parameter>
+            <parameter key="fields" type="collection">
+              <parameter type="collection">
+                <parameter key="property">id_developer</parameter>
+                <parameter key="label">Id Desarrollador</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">id_tech</parameter>
+                <parameter key="label">Id Tecnología</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">level</parameter>
+                <parameter key="label">Nivel</parameter>
+              </parameter>
+            </parameter>
           </parameter>
           <parameter key="name">DevTech</parameter>
         </parameter>

@@ -20,6 +20,13 @@ easy_admin:
                 title: 'Añadir Usuario'
             edit:
                 title: 'Editar Usuario'
+            list:
+                title: 'Listado de Usuarios'
+                fields:
+                    - { property: 'username', label: 'Nombre de Usuario' }
+                    - { property: 'roles', label: 'Rol de Usuario' }
+                    - { property: 'id_github', label: 'GitHub' }
+                    - { property: 'Developer', label: 'Developer' }
 
 # DEVELOPER ###################################################################
         Developer:
@@ -48,18 +55,18 @@ easy_admin:
             list:
                 title: "Listado Desarrolladores"
                 fields:
-                  - { property: 'first_Name', label: 'Nombre' }
-                  - { property: 'last_Name', label: 'Apellido' }
-                  - { property: 'avatar', label: 'Avatar', type: 'image', base_path: '%app.path.developer_avatar%' }
-                  - { property: 'email', label: 'Email' }
-                  - { property: 'address', label: 'Dirección' }
-                  - { property: 'postal_code', label: 'Código Postal' }
-                  - { property: 'city', label: 'Ciudad' }
-                  - { property: 'phone', label: 'Telefono' }
-                  - { property: 'github', label: 'Github' }
-                  - { property: 'linkedin', label: 'Linkedin' }
-                  - { property: 'web', label: 'Web Personal' }
-                  - { property: 'id_user', label: 'ID Desarrollador' }
+                    - { property: 'first_Name', label: 'Nombre' }
+                    - { property: 'last_Name', label: 'Apellido' }
+                    - { property: 'avatar', label: 'Avatar', type: 'image', base_path: '%app.path.developer_avatar%' }
+                    - { property: 'email', label: 'Email' }
+                    - { property: 'address', label: 'Dirección' }
+                    - { property: 'postal_code', label: 'Código Postal' }
+                    - { property: 'city', label: 'Ciudad' }
+                    - { property: 'phone', label: 'Telefono' }
+                    - { property: 'github', label: 'Github' }
+                    - { property: 'linkedin', label: 'Linkedin' }
+                    - { property: 'web', label: 'Web Personal' }
+                    - { property: 'id_user', label: 'ID Desarrollador' }
 # TECHNOLOGY ##################################################################
         Technology:
             class:  App\Entity\Technology
@@ -95,6 +102,16 @@ easy_admin:
                 title: 'Añadir Experiencia'
             edit:
                 title: 'Editar Experiencia'
+            list:
+                title: 'Experiencia de Desarrollador'
+                fields:
+                    - { property: 'id_developer', label: 'Id Desarrollador' }
+                    - { property: 'position', label: 'Puesto' }
+                    - { property: 'company', label: 'Compañía' }
+                    - { property: 'city', label: 'Ciudad' }
+                    - { property: 'date_from', label: 'Desde' }
+                    - { property: 'date_to', label: 'Hasta' }
+
 
 # TRAINING ####################################################################
         Training:
@@ -111,6 +128,16 @@ easy_admin:
                 title: 'Añadir Formación'
             edit:
                 title: 'Editar Formación'
+            list:
+                title: 'Listado Formación'
+                fields:
+                    - { property: 'id_developer', label: 'Id Desarrollador' }
+                    - { property: 'degree', label: 'Título' }
+                    - { property: 'institution', label: 'Centro Educativo' }
+                    - { property: 'city', label: 'Ciudad' }
+                    - { property: 'date_from', label: 'Desde' }
+                    - { property: 'date_to', label: 'Hasta' }
+
 
 # ADDDITIONAL #################################################################
         Additional:
@@ -123,6 +150,11 @@ easy_admin:
                 title: 'Añadir Información Adicional'
             edit:
                 title: 'Editar Información Adicional'
+            list:
+                title: 'Listado de Información Adicional'
+                fields:
+                  - { property: 'id_developer', label: 'Id Desarrollador' }
+                  - { property: 'description', label: 'Descripción' }
 
 # DEV_TECH ####################################################################
         DevTech:
@@ -136,3 +168,9 @@ easy_admin:
                 title: 'Añadir Nivel Tecnología'
             edit:
                 title: 'Editar Nivel Tecnología'
+            list:
+                 title: 'Listado de Nivel Tecnología'
+                 fields:
+                   - { property: 'id_developer', label: 'Id Desarrollador' }
+                   - { property: 'id_tech', label: 'Id Tecnología' }
+                   - { property: 'level', label: 'Nivel' }
