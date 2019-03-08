@@ -2,12 +2,18 @@
 
 namespace App\Entity;
 
+// Use para poder utilizar VichUploader
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TechnologyRepository")
+ * @Vich\Uploadable
  */
 class Technology
 {
@@ -32,6 +38,20 @@ class Technology
      * @ORM\OneToMany(targetEntity="App\Entity\DevTech", mappedBy="id_tech", orphanRemoval=true)
      */
     private $devTeches;
+
+    /**
+         * @Vich\UploadableField(mapping="technology_logo", fileNameProperty="logo")
+         * @var File
+         */
+        private $imageFile;
+
+
+        /**
+         * @ORM\Column(type="datetime")
+         * @var \DateTime
+         */
+        private $updated;
+
 
     public function __construct()
     {
@@ -102,4 +122,34 @@ class Technology
     {
         return $this->id. ". " . $this->name;
     }
+
+    public function setImageFile(File $image = null)
+   {
+       $this->imageFile = $image;
+
+       // VERY IMPORTANT:
+       // It is required that at least one field changes if you are using Doctrine,
+       // otherwise the event listeners won't be called and the file is lost
+       if ($image) {
+           // if 'updatedAt' is not defined in your entity, use another property
+           $this->updated = new \DateTime('now');
+       }
+   }
+
+   public function getImageFile()
+   {
+       return $this->imageFile;
+   }
+
+   public function getUpdated(): ?\DateTimeInterface
+   {
+       return $this->updated;
+   }
+
+   public function setUpdated(?\DateTimeInterface $updated): self
+   {
+       $this->updated = $updated;
+
+       return $this;
+   }
 }

@@ -6,6 +6,7 @@
 parameters:
     locale: 'en'
     app.path.developer_avatar: /uploads/images/developer/avatar
+    app.path.technology_logo: /uploads/images/technology/logo
 
 services:
     # default configuration for services in *this* file

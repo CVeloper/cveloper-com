@@ -4,3 +4,7 @@ vich_uploader:
         developer_avatar:
             uri_prefix:         '%app.path.developer_avatar%'
             upload_destination: '%kernel.project_dir%/public%app.path.developer_avatar%'
+
+        technology_logo:
+            uri_prefix:         '%app.path.technology_logo%'
+            upload_destination: '%kernel.project_dir%/public%app.path.technology_logo%'

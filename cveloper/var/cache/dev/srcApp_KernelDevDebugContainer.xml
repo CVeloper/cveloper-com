@@ -93,6 +93,7 @@
     <parameter key="env(DATABASE_URL)"></parameter>
     <parameter key="locale">en</parameter>
     <parameter key="app.path.developer_avatar">/uploads/images/developer/avatar</parameter>
+    <parameter key="app.path.technology_logo">/uploads/images/technology/logo</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">%env(APP_SECRET)%</parameter>
@@ -481,9 +482,9 @@
                 <parameter key="label">Nombre Tecnología</parameter>
               </parameter>
               <parameter type="collection">
-                <parameter key="property">logo</parameter>
+                <parameter key="property">imageFile</parameter>
                 <parameter key="label">Logo</parameter>
-                <parameter key="type">file</parameter>
+                <parameter key="type">vich_image</parameter>
               </parameter>
             </parameter>
           </parameter>
@@ -492,6 +493,21 @@
           </parameter>
           <parameter key="edit" type="collection">
             <parameter key="title">Editar Tecnología</parameter>
+          </parameter>
+          <parameter key="list" type="collection">
+            <parameter key="title">Listado de Tecnologias</parameter>
+            <parameter key="fields" type="collection">
+              <parameter type="collection">
+                <parameter key="property">name</parameter>
+                <parameter key="label">Nombre Tecnología</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">logo</parameter>
+                <parameter key="label">Logo</parameter>
+                <parameter key="type">image</parameter>
+                <parameter key="base_path">/uploads/images/technology/logo</parameter>
+              </parameter>
+            </parameter>
           </parameter>
           <parameter key="name">Technology</parameter>
         </parameter>
@@ -677,6 +693,22 @@
       <parameter key="developer_avatar" type="collection">
         <parameter key="uri_prefix">/uploads/images/developer/avatar</parameter>
         <parameter key="upload_destination">/home/pacoyruben/cveloper2/cveloper-com/cveloper/public/uploads/images/developer/avatar</parameter>
+        <parameter key="namer" type="collection">
+          <parameter key="service">null</parameter>
+          <parameter key="options">null</parameter>
+        </parameter>
+        <parameter key="directory_namer" type="collection">
+          <parameter key="service">null</parameter>
+          <parameter key="options">null</parameter>
+        </parameter>
+        <parameter key="delete_on_remove">true</parameter>
+        <parameter key="delete_on_update">true</parameter>
+        <parameter key="inject_on_load">false</parameter>
+        <parameter key="db_driver">orm</parameter>
+      </parameter>
+      <parameter key="technology_logo" type="collection">
+        <parameter key="uri_prefix">/uploads/images/technology/logo</parameter>
+        <parameter key="upload_destination">/home/pacoyruben/cveloper2/cveloper-com/cveloper/public/uploads/images/technology/logo</parameter>
         <parameter key="namer" type="collection">
           <parameter key="service">null</parameter>
           <parameter key="options">null</parameter>
@@ -3306,10 +3338,19 @@
         <argument type="service" id="vich_uploader.listener.clean.developer_avatar"/>
       </call>
       <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.clean.technology_logo"/>
+      </call>
+      <call method="addEventSubscriber">
         <argument type="service" id="vich_uploader.listener.remove.developer_avatar"/>
       </call>
       <call method="addEventSubscriber">
         <argument type="service" id="vich_uploader.listener.upload.developer_avatar"/>
+      </call>
+      <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.remove.technology_logo"/>
+      </call>
+      <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.upload.technology_logo"/>
       </call>
       <call method="addEventListener">
         <argument type="collection">
@@ -5391,6 +5432,27 @@
     <service id="vich_uploader.listener.upload.developer_avatar" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener" public="false">
       <tag name="doctrine.event_subscriber" priority="0"/>
       <argument>developer_avatar</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.clean.technology_logo" class="Vich\UploaderBundle\EventListener\Doctrine\CleanListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="50"/>
+      <argument>technology_logo</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.remove.technology_logo" class="Vich\UploaderBundle\EventListener\Doctrine\RemoveListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="0"/>
+      <argument>technology_logo</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.upload.technology_logo" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="0"/>
+      <argument>technology_logo</argument>
       <argument type="service" id="vich_uploader.adapter.orm"/>
       <argument type="service" id="vich_uploader.metadata_reader"/>
       <argument type="service" id="vich_uploader.upload_handler"/>

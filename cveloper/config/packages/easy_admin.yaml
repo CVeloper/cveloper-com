@@ -48,7 +48,7 @@ easy_admin:
             list:
                 title: "Listado Desarrolladores"
                 fields:
-                  - { property: 'first_Name', label: 'Nombre' }                
+                  - { property: 'first_Name', label: 'Nombre' }
                   - { property: 'last_Name', label: 'Apellido' }
                   - { property: 'avatar', label: 'Avatar', type: 'image', base_path: '%app.path.developer_avatar%' }
                   - { property: 'email', label: 'Email' }
@@ -66,11 +66,19 @@ easy_admin:
             form:
                 fields:
                     - { property: 'name', label: 'Nombre Tecnología' }
-                    - { property: 'logo', label: 'Logo', type: 'file' }
+                    # - { property: 'logo', label: 'Logo', type: 'file' }
+                    - { property: 'imageFile', label: 'Logo', type: 'vich_image' }
+
             new:
                 title: 'Añadir Tecnología'
             edit:
                 title: 'Editar Tecnología'
+            list:
+                title: 'Listado de Tecnologias'
+                fields:
+                  - { property: 'name', label: 'Nombre Tecnología' }
+                  - { property: 'logo', label: 'Logo', type: 'image', base_path: '%app.path.technology_logo%' }
+
 
 # EXPERIENCE ##################################################################
         Experience:
