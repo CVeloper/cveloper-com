@@ -40,18 +40,16 @@ class Technology
     private $devTeches;
 
     /**
-         * @Vich\UploadableField(mapping="technology_logo", fileNameProperty="logo")
-         * @var File
-         */
-        private $imageFile;
+     * @Vich\UploadableField(mapping="technology_logo", fileNameProperty="logo")
+     * @var File
+     */
+    private $imageFile;
 
-
-        /**
-         * @ORM\Column(type="datetime", nullable=true)
-         * @var \DateTime
-         */
-        private $updated;
-
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $updated;
 
     public function __construct()
     {

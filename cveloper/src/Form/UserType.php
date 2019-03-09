@@ -10,6 +10,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 // cveloper/vendor/symfony/form/Extension/Core/Type/ChoiceType.php
 
+// para incluir el checkbox de aceptar las condiciones y su validacion
+use Symfony\Component\Validator\Constraints\IsTrue;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+
 class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -26,7 +30,11 @@ class UserType extends AbstractType
             )
             ->add('password')
             ->add('id_github')
-            ->add('developer');
+            ->add('developer')
+            ->add('termsAccepted', CheckboxType::class, [
+                'mapped' => false,
+                'constraints' => new IsTrue(),
+            ]);
         ;
     }
 

@@ -12,7 +12,9 @@ https://symfony.com/doc/current/templating.html
 https://symfony.com/doc/current/cmf/tutorial/make-homepage.html
 
 https://symfony.com/doc/current/doctrine.html   // ORM Databases
-https://symfony.com/doc/current/doctrine.html#doctrine-fixtures   //datos de prueba
+https://symfony.com/doc/current/doctrine/associations.html   // table relations
+https://symfony.com/doc/current/doctrine.html#doctrine-fixtures   // datos de prueba
+https://symfony.com/doc/current/doctrine/registration_form.html   // formulario de registro
 
 https://symfony.com/doc/master/bundles/EasyAdminBundle/book/installation.html
 https://symfony.com/doc/master/bundles/EasyAdminBundle/book/your-first-backend.html
@@ -26,12 +28,16 @@ https://symfony.com/doc/master/bundles/EasyAdminBundle/book/complex-dynamic-back
 
 https://symfony.com/doc/master/bundles/EasyAdminBundle/integration/vichuploaderbundle.html   // Images/Files
 
+https://symfony.com/doc/master/bundles/DoctrineFixturesBundle/index.html   // documentacion Fixtures
+
 https://symfony.com/blog/new-and-improved-generators-for-makerbundle   // CRUD: Controllers/Forms/Templates
 
 https://symfony.com/doc/current/security.html   // User Authentication
 https://symfony.com/doc/current/security/form_login_setup.html   // Formulario de Login
-https://symfony.com/doc/4.0/security/password_encoding.html   // Codificar Passwords
 https://symfony.com/doc/current/security/remember_me.html    // Opción de Recuérdame
+
+https://symfony.com/doc/4.0/security/password_encoding.html   // Codificar Passwords
+https://symfony.com/doc/4.0/security/entity_provider.html
 
 https://github.com/hwi/HWIOAuthBundle   // Investigar para incluir el OAuth con GitHub
 
@@ -74,7 +80,6 @@ INSTALACIÓN DEL ESQUELETO DEL PROYECTO:
 
 sergio@sergio-VirtualBox:~/proyectossymfony$ composer create-project symfony/website-skeleton miproyecto
 
-
 SI HAY ERRORES ES PORQUE FALTAN MÓDULOS O EXTENSIONES:
 
 root@sergio-VirtualBox:~/proyectossymfony# sudo su -
@@ -101,7 +106,9 @@ Y VOLVER A CREAR EL ESQUELETO DEL PROYECTO:
 
 sergio@sergio-VirtualBox:~/proyectossymfony$ composer create-project symfony/website-skeleton miproyecto
 
+··········································································
 SYMFONY ##################################################################
+··········································································
 
 Some files may have been created or updated to configure your new packages.
 Please review, edit and commit them: these files are yours.
@@ -201,7 +208,9 @@ http://localhost:8000/prueba/symfony/primera
 
 //////////////////////////////////////////////////////////////////////////
 
+··········································································
 ORM (OBJECT-RELATIONAL MAPPING) ##########################################
+··········································································
 
 IMPORTAR LAS EXTENSIONES PARA USAR ORM EN SYMFONY
 
@@ -257,6 +266,7 @@ sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ php bin/console doctrine
 CREAMOS UN CONTROLADOR PARA LA ENTIDAD (TABLA) DE ESTE PROYECTO:
 
 sergio@sergio-VirtualBox:~/proyectossymfony/miproyecto$ php bin/console make:controller Tabla
+
     created: src/Controller/TablaController.php
     created: templates/tabla/index.html.twig
         Success!
@@ -270,7 +280,9 @@ EN config/routes/easy_admin.yaml
 
 VISITANDO http://localhost:8000/admin/
 
+··········································································
 SECURITY (USER CONTROLLER) ###############################################
+··········································································
 
 AÑADO ESTE PAQUETE DE SEGURIDAD PARA PODER CONFIGURAR EL USER:
 
@@ -286,49 +298,45 @@ CREO LA ENTITY USER CON LOS PARÁMETROS DE SYMFONY POR DEFECTO (SALVO EMAIL):
 
 sergio@sergio-VirtualBox:~/proyectos_symfony/cveloper$ php bin/console make:user
 
-The name of the security user class (e.g. User) [User]: User
+	The name of the security user class (e.g. User) [User]: User
+	Do you want to store user data in the database (via Doctrine)? (yes/no) [yes]: yes
+	Enter a property name that will be the unique "display" name for the user (e.g. email, username, uuid) [email]: username
+	Does this app need to hash/check user passwords? (yes/no) [yes]: yes
+	Use Argon2i as your password hasher (bcrypt will be used otherwise)? (yes/no) [yes]: yes
 
-Do you want to store user data in the database (via Doctrine)? (yes/no) [yes]: yes
-
-Enter a property name that will be the unique "display" name for the user (e.g. email, username, uuid) [email]: username
-
-Does this app need to hash/check user passwords? (yes/no) [yes]: yes
-
-Use Argon2i as your password hasher (bcrypt will be used otherwise)? (yes/no) [yes]: yes
-
-	created: src/Entity/User.php
-	created: src/Repository/UserRepository.php
-	updated: src/Entity/User.php
-	updated: config/packages/security.yaml
+		created: src/Entity/User.php
+		created: src/Repository/UserRepository.php
+		updated: src/Entity/User.php
+		updated: config/packages/security.yaml
 
 MODIFICO USER.PHP (TAMBIÉN HE PUESTO A PASSWORD: length=255 y nullable=true):
 
 sergio@sergio-VirtualBox:~/proyectos_symfony/cveloper$ php bin/console make:entity
 
-Class name of the entity to create or update (e.g. GentlePuppy): User
-Your entity already exists! So let's add some new fields!
-New property name (press <return> to stop adding fields): id_github
-Field type (enter ? to see all types) [string]: string
-Field length [255]: 255
-Can this field be null in the database (nullable) (yes/no) [no]: yes
-updated: src/Entity/User.php
+	Class name of the entity to create or update (e.g. GentlePuppy): User
+	Your entity already exists! So let's add some new fields!
+	New property name (press <return> to stop adding fields): id_github
+	Field type (enter ? to see all types) [string]: string
+	Field length [255]: 255
+	Can this field be null in the database (nullable) (yes/no) [no]: yes
+	updated: src/Entity/User.php
 
 MODIFICO DEVELOPER.PHP (TAMBIÉN HE ELIMINADO TODO LO DE USER: propiedad, getter y setter):
 
 sergio@sergio-VirtualBox:~/proyectos_symfony/cveloper$ php bin/console make:entity
 
-Class name of the entity to create or update (e.g. OrangeGnome): Developer
-Your entity already exists! So let's add some new fields!
-New property name (press <return> to stop adding fields): id_user
-Field type (enter ? to see all types) [string]: relation
-What class should this entity be related to?: User
-Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]: OneToOne
-Is the Developer.id_user property allowed to be null (nullable)? (yes/no) [yes]: no
-Do you want to add a new property to User so that you can access/update Developer objects from it - e.g. $user->getDeveloper()? (yes/no) [no]: yes
-A new property will also be added to the User class so that you can access the related Developer object from it.
-New field name inside User [developer]: developer
-updated: src/Entity/Developer.php
-updated: src/Entity/User.php
+	Class name of the entity to create or update (e.g. OrangeGnome): Developer
+	Your entity already exists! So let's add some new fields!
+	New property name (press <return> to stop adding fields): id_user
+	Field type (enter ? to see all types) [string]: relation
+	What class should this entity be related to?: User
+	Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]: OneToOne
+	Is the Developer.id_user property allowed to be null (nullable)? (yes/no) [yes]: no
+	Do you want to add a new property to User so that you can access/update Developer objects from it - e.g. $user->getDeveloper()? (yes/no) [no]: yes
+	A new property will also be added to the User class so that you can access the related Developer object from it.
+	New field name inside User [developer]: developer
+	updated: src/Entity/Developer.php
+	updated: src/Entity/User.php
 
 OJO!!! HE TENIDO QUE ELIMINAR LOS ARCHIVOS DE MIGRATIONS Y HACER UNA NUEVA:
 
@@ -349,3 +357,89 @@ created: src/Security/LoginFormAuthenticator.php
 updated: config/packages/security.yaml
 created: src/Controller/SecurityController.php
 created: templates/security/login.html.twig
+
+··········································································
+DATOS DE PRUEBA - FIXTURES ###############################################
+··········································································
+
+INSTALAR ESTE PAQUETE PARA PODER CARGAR DATOs DE PRUEBA EN LAS TABLAS:
+
+sergio@sergio-VirtualBox:/.../cveloper$ composer require doctrine/doctrine-fixtures-bundle --dev
+	- Installing doctrine/data-fixtures (v1.3.1)
+	- Installing doctrine/doctrine-fixtures-bundle (3.1.0)
+
+CREACIÓN DE LAS CLASES TIPO FIXTURE PARA CARGAR DATOS DE PRUEBA:
+
+sergio@sergio-VirtualBox:/.../cveloper$ php bin/console make:fixtures
+
+	The class name of the fixtures to create (e.g. AppFixtures): UserFixture
+
+INTRODUCCIÓN DE LOS DATOS DE PRUEBA EN LA CLASE FIXTURE CORRESPONDIENTE:
+
+Clase en src/DataFixtures/ProductFixture.php
+
+-------------------------------------------------
+namespace App\DataFixtures;
+
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Persistence\ObjectManager;
+
+use App\Entity\User;   // IMPORTANTE!!!
+
+class UserFixture extends Fixture
+{
+
+	public function load(ObjectManager $manager)
+    {
+        $sergio = new User();
+        $sergio->setUsername('sergio');
+        $sergio->setPassword('1234');
+
+        $manager->persist($sergio);
+
+        $paco = new User();
+        $paco->setUsername('paco');
+        $paco->setPassword('9876');
+
+        $manager->persist($paco);
+
+        $admin = new User();
+        $admin->setUsername('admin');
+        $admin->setPassword('5555');
+        $admin->setRoles('ROLE_ADMIN');
+
+        $manager->persist($admin);
+
+        $manager->flush();
+    }
+
+VACIADO DE LA BASE DE DATOS Y CARGA DE LOS DATOS DE PRUEBA:
+
+sergio@sergio-VirtualBox:/.../cveloper$ php bin/console doctrine:fixtures:load
+
+	Careful, database "cveloper" will be purged. Do you want to continue? (yes/no) [no]: yes
+
+··········································································
+FORMULARIO DE REGISTRO ###################################################
+··········································································
+
+PRIMERO HAY QUE ASEGURARSE DE QUE TENEMOS TODOS LOS PAQUETES NECESARIOS:
+
+sergio@sergio-VirtualBox:/.../cveloper$ composer require symfony/maker-bundle --dev
+
+TENEMOS QUE HABER CREADO LA CLASE USER COMO ENTIDAD ESPECIAL:
+
+sergio@sergio-VirtualBox:/.../cveloper$ php bin/console make:user
+
+CREAR EL FORMULARIO DE REGISTRO ACTUALIZANDO LA CLASE USER:
+
+sergio@sergio-VirtualBox:/.../cveloper$ php bin/console make:registration-form
+
+	Do you want to add a @UniqueEntity validation annotation on your User class to make sure duplicate accounts aren't created? (yes/no) [yes]: yes
+	Do you want to automatically authenticate the user after registration? (yes/no) [yes]: yes
+
+		updated: src/Entity/User.php
+		created: src/Form/RegistrationFormType.php
+		created: src/Controller/RegistrationController.php
+		created: templates/registration/register.html.twig
+
