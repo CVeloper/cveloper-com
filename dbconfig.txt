@@ -1,4 +1,8 @@
 
+···············································································
+CONFIGURACIÓN BASE DE DATOS ###################################################
+···············································································
+
 sergio@sergio-VirtualBox:~$     sudo su -
 
 root@sergio-VirtualBox:/#     mysql
@@ -18,3 +22,15 @@ root@sergio-VirtualBox:~#     mysqldump -u cveloper -pcveloper cveloper > /home/
 root@sergio-VirtualBox:~#     ^D
 
 sergio@sergio-VirtualBox:~$
+
+···············································································
+DATOS DE PRUEBA - FIXTURES ####################################################
+···············································································
+
+Están definidos en:
+
+cveloper/src/DataFixtures/XxxxxxFixtures.php
+
+Carga desde consola:
+
+sergio@sergio-VirtualBox:/.../cveloper$ php bin/console doctrine:fixtures:load
