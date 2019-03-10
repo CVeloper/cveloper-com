@@ -1,0 +1,23 @@
+:root {
+    /* change the background color of the <body> */
+    --body-bg: #222222;
+    /* remove all border radius to make corners straight */
+    --border-radius: 9px;
+}
+
+.main-header .navbar #header-logo img.logo {
+	max-width: 200px;
+}
+
+.main-header .navbar #navigation-toggler i.fa {
+    color: white;
+}
+
+body.easyadmin {
+    background-color: #222222;
+}
+
+.easyadmin > div.wrapper > aside > section > ul > li:not(.active) > a > i.fa,
+.easyadmin > div.wrapper > aside > section > ul > li:not(.active) > a > span {
+    color: white;
+}

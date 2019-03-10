@@ -51,9 +51,15 @@ class Technology
      */
     private $updated;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $active;
+
     public function __construct()
     {
         $this->devTeches = new ArrayCollection();
+        $this->active = true;
     }
 
     public function getId(): ?int
@@ -147,6 +153,18 @@ class Technology
    public function setUpdated(?\DateTimeInterface $updated): self
    {
        $this->updated = $updated;
+
+       return $this;
+   }
+
+   public function getActive(): ?bool
+   {
+       return $this->active;
+   }
+
+   public function setActive(bool $active): self
+   {
+       $this->active = $active;
 
        return $this;
    }

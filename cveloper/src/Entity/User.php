@@ -52,7 +52,6 @@ class User implements UserInterface
 
     /**
      * A visual identifier that represents this user.
-     *
      * @see UserInterface
      */
     public function getUsername(): string
@@ -70,24 +69,37 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+    /*
     public function getRoles(): string // he modificado el tipo de array a string
     {
-        // $roles = $this->roles; // he comentado esta linea
-        // guarantee every user at least has ROLE_USER
-        // $roles[] = 'ROLE_USER'; // he comentado esta linea
         if (count($this->roles) == 0 || $this->roles[0] != 'ROLE_USER') // compruebo
         $this->roles[] = 'ROLE_USER'; // meto el rol de usuario por defecto
-        // return array_unique($roles); // he comentado esta linea
         return $this->roles[0]; // retorno solo el primer rol que tenga
     }
+    */
 
-    public function setRoles(string $roles): self // he modificado $roles de array a string
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+        return $this;
+    }
+    /*
+    public function setRoles(string $roles = 'ROLE_USER'): self // he modificado $roles de array a string
     {
         // he modificado esta linea para que añada el rol al atributo roles
         $this->roles[0] = $roles;
         // lo meto en la primera posicion
         return $this;
     }
+    */
 
     /**
      * @see UserInterface

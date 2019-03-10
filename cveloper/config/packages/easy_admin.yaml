@@ -1,36 +1,78 @@
 # config/packages/easy_admin.yaml
 easy_admin:
-    site_name: 'CVeloper'
+    site_name: '<img class="logo" src="/images/CVeloper_logo_texto.png" />'
+    design:
+        brand_color: '#ff8f00'
+        assets:
+            favicon: '/images/CVeloper_logo.png'
+            css:
+                - 'styles/admin.css'
+        menu:
+            - { entity: 'User', icon: 'user', label: 'Usuarios' }
+            - { entity: 'Developer', icon: 'code', label: 'Desarrolladores' }
+            - { entity: 'Experience', icon: 'briefcase', label: 'Experiencia' }
+            - { entity: 'Training', icon: 'graduation-cap', label: 'Formación' }
+            - { entity: 'Additional', icon: 'info-circle', label: 'Info Adicional' }
+            - { entity: 'Technology', icon: 'gear', label: 'Tecnologías' }
+            - { entity: 'DevTech', icon: 'list-ol', label: 'Nivel DevTech' }
+    user:
+        display_name: true
+        display_avatar: false
+        name_property_path: 'username'
+    list:
+        actions:
+            - { name: 'show', icon: 'search-plus', label: 'Mostrar' }
+            - { name: 'edit', icon: 'pencil', label: 'Editar' }
+            - { name: 'delete', icon: 'times', label: 'Borrar' }
+    show:
+        actions:
+            - { name: 'edit', icon: 'pencil', label: 'Editar' }
+            - { name: 'delete', icon: 'times', label: 'Borrar' }
+    edit:
+        actions:
+            - { name: 'delete', icon: 'times', label: 'Borrar' }
     entities:
-
-# TODO personalizar los tipos en el formulario
 
 # USER ########################################################################
         User:
             class: App\Entity\User
+            label: 'Usuarios'
             form:
                 fields:
                     - { property: 'username', label: 'Nombre de Usuario' }
-                    - { property: 'roles', label: 'Roles de Usuario' }
-                    - { property: 'password', label: 'Contraseña', type: 'password' }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, expanded: true, choices: { 'Desarrollador': 'ROLE_USER', 'Administrador': 'ROLE_ADMIN' } } }
+#                    - { property: 'password', label: 'Contraseña', type: 'password' }
                     - { property: 'id_github', label: 'GitHub' }
                     - { property: 'Developer', label: 'Developer' }
 
             new:
-                title: 'Añadir Usuario'
+                title: 'Creación de %%entity_label%%'
             edit:
-                title: 'Editar Usuario'
+                title: 'Edición de %%entity_label%% (#%%entity_id%%)'
+            show:
+                title: 'Mostrando %%entity_label%% #%%entity_id%%'
+                fields:
+                    - { property: 'username', label: 'Nombre de Usuario' }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, expanded: true, choices: { 'Desarrollador': 'ROLE_USER', 'Administrador': 'ROLE_ADMIN' } } }
+                    - { property: 'id_github', label: 'GitHub' }
+                    - { property: 'Developer', label: 'Developer' }
             list:
-                title: 'Listado de Usuarios'
+                title: 'Listado de %%entity_label%%'
                 fields:
                     - { property: 'username', label: 'Nombre de Usuario' }
                     - { property: 'roles', label: 'Rol de Usuario' }
                     - { property: 'id_github', label: 'GitHub' }
                     - { property: 'Developer', label: 'Developer' }
+            search:
+                title: 'Resultados de la Búsqueda'
+                fields:
+                    - { property: 'username', label: 'Nombre de Usuario' }
+                    - { property: 'roles', label: 'Rol de Usuario' }
 
 # DEVELOPER ###################################################################
         Developer:
             class: App\Entity\Developer
+            label: 'Desarrolladores'
             form:
                 fields:
                     - { type: 'section', label: 'Datos Personales' }
@@ -49,12 +91,15 @@ easy_admin:
                     - { type: 'section', label: 'Usuario Asociado' }
                     - { property: 'id_user', label: 'ID Desarrollador' }
             new:
-                title: 'Añadir Desarrollador'
+                title: 'Creación de %%entity_label%%'
             edit:
-                title: 'Editar Desarrollador'
+                title: 'Edición de %%entity_label%% (#%%entity_id%%)'
+            show:
+                title: 'Mostrando %%entity_label%% #%%entity_id%%'
             list:
-                title: "Listado Desarrolladores"
+                title: "Listado de %%entity_label%%"
                 fields:
+                    - { property: 'id_user', label: 'ID Desarrollador' }
                     - { property: 'first_Name', label: 'Nombre' }
                     - { property: 'last_Name', label: 'Apellido' }
                     - { property: 'avatar', label: 'Avatar', type: 'image', base_path: '%app.path.developer_avatar%' }
@@ -66,30 +111,21 @@ easy_admin:
                     - { property: 'github', label: 'Github' }
                     - { property: 'linkedin', label: 'Linkedin' }
                     - { property: 'web', label: 'Web Personal' }
-                    - { property: 'id_user', label: 'ID Desarrollador' }
-# TECHNOLOGY ##################################################################
-        Technology:
-            class:  App\Entity\Technology
-            form:
+            search:
+                title: 'Resultados de la Búsqueda'
                 fields:
-                    - { property: 'name', label: 'Nombre Tecnología' }
-                    # - { property: 'logo', label: 'Logo', type: 'file' }
-                    - { property: 'imageFile', label: 'Logo', type: 'vich_image' }
-
-            new:
-                title: 'Añadir Tecnología'
-            edit:
-                title: 'Editar Tecnología'
-            list:
-                title: 'Listado de Tecnologias'
-                fields:
-                  - { property: 'name', label: 'Nombre Tecnología' }
-                  - { property: 'logo', label: 'Logo', type: 'image', base_path: '%app.path.technology_logo%' }
-
+                    - { property: 'first_Name', label: 'Nombre' }
+                    - { property: 'last_Name', label: 'Apellido' }
+                    - { property: 'email', label: 'Email' }
+                    - { property: 'city', label: 'Ciudad' }
+                    - { property: 'github', label: 'Github' }
+                    - { property: 'linkedin', label: 'Linkedin' }
+                    - { property: 'web', label: 'Web Personal' }
 
 # EXPERIENCE ##################################################################
         Experience:
             class: App\Entity\Experience
+            label: 'Experiencia'
             form:
                 fields:
                     - { property: 'id_developer', label: 'Id Desarrollador' }
@@ -99,11 +135,13 @@ easy_admin:
                     - { property: 'date_from', label: 'Desde', type: 'birthday' }
                     - { property: 'date_to', label: 'Hasta', type: 'birthday' }
             new:
-                title: 'Añadir Experiencia'
+                title: 'Creación de %%entity_label%%'
             edit:
-                title: 'Editar Experiencia'
+                title: 'Edición de %%entity_label%% (#%%entity_id%%)'
+            show:
+                title: 'Mostrando %%entity_label%% #%%entity_id%%'
             list:
-                title: 'Experiencia de Desarrollador'
+                title: 'Listado de %%entity_label%%'
                 fields:
                     - { property: 'id_developer', label: 'Id Desarrollador' }
                     - { property: 'position', label: 'Puesto' }
@@ -111,11 +149,17 @@ easy_admin:
                     - { property: 'city', label: 'Ciudad' }
                     - { property: 'date_from', label: 'Desde' }
                     - { property: 'date_to', label: 'Hasta' }
-
+            search:
+                title: 'Resultados de la Búsqueda'
+                fields:
+                    - { property: 'position', label: 'Puesto' }
+                    - { property: 'company', label: 'Compañía' }
+                    - { property: 'city', label: 'Ciudad' }
 
 # TRAINING ####################################################################
         Training:
             class: App\Entity\Training
+            label: 'Formación'
             form:
                 fields:
                     - { property: 'id_developer', label: 'Id Desarrollador' }
@@ -125,11 +169,13 @@ easy_admin:
                     - { property: 'date_from', label: 'Desde', type: 'birthday' }
                     - { property: 'date_to', label: 'Hasta', type: 'birthday' }
             new:
-                title: 'Añadir Formación'
+                title: 'Creación de %%entity_label%%'
             edit:
-                title: 'Editar Formación'
+                title: 'Edición de %%entity_label%% (#%%entity_id%%)'
+            show:
+                title: 'Mostrando %%entity_label%% #%%entity_id%%'
             list:
-                title: 'Listado Formación'
+                title: 'Listado de %%entity_label%%'
                 fields:
                     - { property: 'id_developer', label: 'Id Desarrollador' }
                     - { property: 'degree', label: 'Título' }
@@ -137,40 +183,91 @@ easy_admin:
                     - { property: 'city', label: 'Ciudad' }
                     - { property: 'date_from', label: 'Desde' }
                     - { property: 'date_to', label: 'Hasta' }
-
+            search:
+                title: 'Resultados de la Búsqueda'
+                fields:
+                    - { property: 'degree', label: 'Título' }
+                    - { property: 'institution', label: 'Centro Educativo' }
+                    - { property: 'city', label: 'Ciudad' }
 
 # ADDDITIONAL #################################################################
         Additional:
             class:  App\Entity\Additional
+            label: 'Info Adicional'
             form:
                 fields:
                     - { property: 'id_developer', label: 'Id Desarrollador' }
                     - { property: 'description', label: 'Descripción', type: 'textarea' }
             new:
-                title: 'Añadir Información Adicional'
+                title: 'Creación de %%entity_label%%'
             edit:
-                title: 'Editar Información Adicional'
+                title: 'Edición de %%entity_label%% (#%%entity_id%%)'
+            show:
+                title: 'Mostrando %%entity_label%% #%%entity_id%%'
             list:
-                title: 'Listado de Información Adicional'
+                title: 'Listado de %%entity_label%%'
                 fields:
-                  - { property: 'id_developer', label: 'Id Desarrollador' }
-                  - { property: 'description', label: 'Descripción' }
+                    - { property: 'id_developer', label: 'Id Desarrollador' }
+                    - { property: 'description', label: 'Descripción' }
+            search:
+                title: 'Resultados de la Búsqueda'
+                fields:
+                    - { property: 'id_developer', label: 'Id Desarrollador' }
+                    - { property: 'description', label: 'Descripción' }
+
+# TECHNOLOGY ##################################################################
+        Technology:
+            class:  App\Entity\Technology
+            label: 'Tecnologías'
+            form:
+                fields:
+                    - { property: 'active', label: 'Activa' }
+                    - { property: 'name', label: 'Nombre Tecnología' }
+                    - { property: 'imageFile', label: 'Logo', type: 'vich_image' }
+
+            new:
+                title: 'Creación de %%entity_label%%'
+            edit:
+                title: 'Edición de %%entity_label%% (#%%entity_id%%)'
+            show:
+                title: 'Mostrando %%entity_label%% #%%entity_id%%'
+            list:
+                title: 'Listado de %%entity_label%%'
+                fields:
+                    - { property: 'id', label: 'ID' }
+                    - { property: 'active', label: 'Activa' }
+                    - { property: 'name', label: 'Nombre Tecnología' }
+                    - { property: 'logo', label: 'Logo', type: 'image', base_path: '%app.path.technology_logo%' }
+            search:
+                title: 'Resultados de la Búsqueda'
+                fields:
+                    - { property: 'name', label: 'Nombre Tecnología' }
+                    - { property: 'logo', label: 'Logo', type: 'image', base_path: '%app.path.technology_logo%' }
 
 # DEV_TECH ####################################################################
         DevTech:
             class: App\Entity\DevTech
+            label: 'Nivel DevTech'
             form:
                 fields:
                     - { property: 'id_developer', label: 'Id Desarrollador' }
                     - { property: 'id_tech', label: 'Id Tecnología' }
                     - { property: 'level', label: 'Nivel' }
             new:
-                title: 'Añadir Nivel Tecnología'
+                title: 'Creación de %%entity_label%%'
             edit:
-                title: 'Editar Nivel Tecnología'
+                title: 'Edición de %%entity_label%% (#%%entity_id%%)'
+            show:
+                title: 'Mostrando %%entity_label%% #%%entity_id%%'
             list:
-                 title: 'Listado de Nivel Tecnología'
-                 fields:
-                   - { property: 'id_developer', label: 'Id Desarrollador' }
-                   - { property: 'id_tech', label: 'Id Tecnología' }
-                   - { property: 'level', label: 'Nivel' }
+                title: 'Listado de %%entity_label%%'
+                fields:
+                    - { property: 'id_developer', label: 'Id Desarrollador' }
+                    - { property: 'id_tech', label: 'Id Tecnología' }
+                    - { property: 'level', label: 'Nivel' }
+            search:
+                title: 'Resultados de la Búsqueda'
+                fields:
+                    - { property: 'id_developer', label: 'Id Desarrollador' }
+                    - { property: 'id_tech', label: 'Id Tecnología' }
+                    - { property: 'level', label: 'Nivel' }

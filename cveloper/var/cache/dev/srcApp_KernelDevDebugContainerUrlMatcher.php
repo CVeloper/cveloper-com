@@ -22,10 +22,7 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
             '/developer/additional' => [[['_route' => 'additional_index', '_controller' => 'App\\Controller\\AdditionalController::index'], null, ['GET' => 0], null, true, false, null]],
             '/developer/additional/new' => [[['_route' => 'additional_new', '_controller' => 'App\\Controller\\AdditionalController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-            '/developer/technology' => [
-                [['_route' => 'dev_tech_index', '_controller' => 'App\\Controller\\DevTechController::index'], null, ['GET' => 0], null, true, false, null],
-                [['_route' => 'technology_index', '_controller' => 'App\\Controller\\TechnologyController::index'], null, ['GET' => 0], null, true, false, null],
-            ],
+            '/developer/technology' => [[['_route' => 'dev_tech_index', '_controller' => 'App\\Controller\\DevTechController::index'], null, ['GET' => 0], null, true, false, null]],
             '/developer/technology/new' => [[['_route' => 'dev_tech_new', '_controller' => 'App\\Controller\\DevTechController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
             '/developer/personal' => [[['_route' => 'developer_index', '_controller' => 'App\\Controller\\DeveloperController::index'], null, ['GET' => 0], null, true, false, null]],
             '/developer/personal/new' => [[['_route' => 'developer_new', '_controller' => 'App\\Controller\\DeveloperController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
@@ -35,6 +32,8 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             '/type' => [[['_route' => 'home_type', '_controller' => 'App\\Controller\\HomeController::type'], null, null, null, false, false, null]],
             '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
             '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
+            '/technology' => [[['_route' => 'technology_index', '_controller' => 'App\\Controller\\TechnologyController::index'], null, ['GET' => 0], null, true, false, null]],
+            '/technology/new' => [[['_route' => 'technology_new', '_controller' => 'App\\Controller\\TechnologyController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
             '/developer/training' => [[['_route' => 'training_index', '_controller' => 'App\\Controller\\TrainingController::index'], null, ['GET' => 0], null, true, false, null]],
             '/developer/training/new' => [[['_route' => 'training_new', '_controller' => 'App\\Controller\\TrainingController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
             '/user' => [[['_route' => 'user_index', '_controller' => 'App\\Controller\\UserController::index'], null, ['GET' => 0], null, true, false, null]],
@@ -65,40 +64,37 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
                             .'|(*:226)'
                         .')'
                         .'|t(?'
-                            .'|echnology/(?'
-                                .'|([^/]++)(?'
-                                    .'|(*:263)'
-                                    .'|/edit(*:276)'
-                                    .'|(*:284)'
-                                .')'
-                                .'|new(*:296)'
-                                .'|([^/]++)(?'
-                                    .'|(*:315)'
-                                    .'|/edit(*:328)'
-                                    .'|(*:336)'
-                                .')'
+                            .'|echnology/([^/]++)(?'
+                                .'|(*:260)'
+                                .'|/edit(*:273)'
+                                .'|(*:281)'
                             .')'
                             .'|raining/([^/]++)(?'
-                                .'|(*:365)'
-                                .'|/edit(*:378)'
-                                .'|(*:386)'
+                                .'|(*:309)'
+                                .'|/edit(*:322)'
+                                .'|(*:330)'
                             .')'
                         .')'
                         .'|personal/([^/]++)(?'
-                            .'|(*:416)'
-                            .'|/edit(*:429)'
-                            .'|(*:437)'
+                            .'|(*:360)'
+                            .'|/edit(*:373)'
+                            .'|(*:381)'
                         .')'
                         .'|experience/([^/]++)(?'
-                            .'|(*:468)'
-                            .'|/edit(*:481)'
-                            .'|(*:489)'
+                            .'|(*:412)'
+                            .'|/edit(*:425)'
+                            .'|(*:433)'
                         .')'
                     .')'
+                    .'|/technology/([^/]++)(?'
+                        .'|(*:466)'
+                        .'|/edit(*:479)'
+                        .'|(*:487)'
+                    .')'
                     .'|/user/([^/]++)(?'
-                        .'|(*:516)'
-                        .'|/edit(*:529)'
-                        .'|(*:537)'
+                        .'|(*:513)'
+                        .'|/edit(*:526)'
+                        .'|(*:534)'
                     .')'
                 .')/?$}sDu',
         ];
@@ -113,25 +109,24 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             205 => [[['_route' => 'additional_show', '_controller' => 'App\\Controller\\AdditionalController::show'], ['id'], ['GET' => 0], null, false, true, null]],
             218 => [[['_route' => 'additional_edit', '_controller' => 'App\\Controller\\AdditionalController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
             226 => [[['_route' => 'additional_delete', '_controller' => 'App\\Controller\\AdditionalController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-            263 => [[['_route' => 'dev_tech_show', '_controller' => 'App\\Controller\\DevTechController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-            276 => [[['_route' => 'dev_tech_edit', '_controller' => 'App\\Controller\\DevTechController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-            284 => [[['_route' => 'dev_tech_delete', '_controller' => 'App\\Controller\\DevTechController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-            296 => [[['_route' => 'technology_new', '_controller' => 'App\\Controller\\TechnologyController::new'], [], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-            315 => [[['_route' => 'technology_show', '_controller' => 'App\\Controller\\TechnologyController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-            328 => [[['_route' => 'technology_edit', '_controller' => 'App\\Controller\\TechnologyController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-            336 => [[['_route' => 'technology_delete', '_controller' => 'App\\Controller\\TechnologyController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-            365 => [[['_route' => 'training_show', '_controller' => 'App\\Controller\\TrainingController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-            378 => [[['_route' => 'training_edit', '_controller' => 'App\\Controller\\TrainingController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-            386 => [[['_route' => 'training_delete', '_controller' => 'App\\Controller\\TrainingController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-            416 => [[['_route' => 'developer_show', '_controller' => 'App\\Controller\\DeveloperController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-            429 => [[['_route' => 'developer_edit', '_controller' => 'App\\Controller\\DeveloperController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-            437 => [[['_route' => 'developer_delete', '_controller' => 'App\\Controller\\DeveloperController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-            468 => [[['_route' => 'experience_show', '_controller' => 'App\\Controller\\ExperienceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-            481 => [[['_route' => 'experience_edit', '_controller' => 'App\\Controller\\ExperienceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-            489 => [[['_route' => 'experience_delete', '_controller' => 'App\\Controller\\ExperienceController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-            516 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-            529 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-            537 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+            260 => [[['_route' => 'dev_tech_show', '_controller' => 'App\\Controller\\DevTechController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+            273 => [[['_route' => 'dev_tech_edit', '_controller' => 'App\\Controller\\DevTechController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+            281 => [[['_route' => 'dev_tech_delete', '_controller' => 'App\\Controller\\DevTechController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+            309 => [[['_route' => 'training_show', '_controller' => 'App\\Controller\\TrainingController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+            322 => [[['_route' => 'training_edit', '_controller' => 'App\\Controller\\TrainingController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+            330 => [[['_route' => 'training_delete', '_controller' => 'App\\Controller\\TrainingController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+            360 => [[['_route' => 'developer_show', '_controller' => 'App\\Controller\\DeveloperController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+            373 => [[['_route' => 'developer_edit', '_controller' => 'App\\Controller\\DeveloperController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+            381 => [[['_route' => 'developer_delete', '_controller' => 'App\\Controller\\DeveloperController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+            412 => [[['_route' => 'experience_show', '_controller' => 'App\\Controller\\ExperienceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+            425 => [[['_route' => 'experience_edit', '_controller' => 'App\\Controller\\ExperienceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+            433 => [[['_route' => 'experience_delete', '_controller' => 'App\\Controller\\ExperienceController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+            466 => [[['_route' => 'technology_show', '_controller' => 'App\\Controller\\TechnologyController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+            479 => [[['_route' => 'technology_edit', '_controller' => 'App\\Controller\\TechnologyController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+            487 => [[['_route' => 'technology_delete', '_controller' => 'App\\Controller\\TechnologyController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+            513 => [[['_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+            526 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+            534 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
         ];
     }
 }

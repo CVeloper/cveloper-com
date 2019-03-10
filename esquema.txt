@@ -1,72 +1,129 @@
 
 ##########################################################################
+RUTAS CREADAS EN SYMFONY #################################################
+##########################################################################
+
+NOMBRE_RUTA         localhost:8000/RUTA                 PERMISOS
+
+home                /                                   EVERYBODY
+home_type           /type                               EVERYBODY
+app_register        /register                           EVERYBODY
+app_login           /login                              EVERYBODY
+
+developer_index     /developer/personal/                ROLE_DEVELOPER + ID_DEVELOPER
+developer_new       /developer/personal/new             ROLE_DEVELOPER + ID_DEVELOPER
+developer_show      /developer/personal/{id}            ROLE_DEVELOPER + ID_DEVELOPER
+developer_edit      /developer/personal/{id}/edit       ROLE_DEVELOPER + ID_DEVELOPER
+developer_delete    /developer/personal/{id}            ROLE_DEVELOPER + ID_DEVELOPER
+
+experience_index    /developer/experience/              ROLE_DEVELOPER + ID_DEVELOPER
+experience_new      /developer/experience/new           ROLE_DEVELOPER + ID_DEVELOPER
+experience_show     /developer/experience/{id}          ROLE_DEVELOPER + ID_DEVELOPER
+experience_edit     /developer/experience/{id}/edit     ROLE_DEVELOPER + ID_DEVELOPER
+experience_delete   /developer/experience/{id}          ROLE_DEVELOPER + ID_DEVELOPER
+
+training_index      /developer/training/                ROLE_DEVELOPER + ID_DEVELOPER
+training_new        /developer/training/new             ROLE_DEVELOPER + ID_DEVELOPER
+training_show       /developer/training/{id}            ROLE_DEVELOPER + ID_DEVELOPER
+training_edit       /developer/training/{id}/edit       ROLE_DEVELOPER + ID_DEVELOPER
+training_delete     /developer/training/{id}            ROLE_DEVELOPER + ID_DEVELOPER
+
+additional_index    /developer/additional/              ROLE_DEVELOPER + ID_DEVELOPER
+additional_new      /developer/additional/new           ROLE_DEVELOPER + ID_DEVELOPER
+additional_show     /developer/additional/{id}          ROLE_DEVELOPER + ID_DEVELOPER
+additional_edit     /developer/additional/{id}/edit     ROLE_DEVELOPER + ID_DEVELOPER
+additional_delete   /developer/additional/{id}          ROLE_DEVELOPER + ID_DEVELOPER
+
+dev_tech_index      /developer/technology/              ROLE_DEVELOPER + ID_DEVELOPER
+dev_tech_new        /developer/technology/new           ROLE_DEVELOPER + ID_DEVELOPER
+dev_tech_show       /developer/technology/{id}          ROLE_DEVELOPER + ID_DEVELOPER
+dev_tech_edit       /developer/technology/{id}/edit     ROLE_DEVELOPER + ID_DEVELOPER
+dev_tech_delete     /developer/technology/{id}          ROLE_DEVELOPER + ID_DEVELOPER
+
+technology_index    /technology/                        ROLE_ADMIN or NOBODY
+technology_new      /technology/new                     ROLE_ADMIN or NOBODY
+technology_show     /technology/{id}                    ROLE_ADMIN or NOBODY
+technology_edit     /technology/{id}/edit               ROLE_ADMIN or NOBODY
+technology_delete   /technology/{id}                    ROLE_ADMIN or NOBODY
+
+user_index          /user/                              ROLE_ADMIN or NOBODY
+user_new            /user/new                           ROLE_ADMIN or NOBODY
+user_show           /user/{id}                          ROLE_ADMIN or NOBODY
+user_edit           /user/{id}/edit                     ROLE_ADMIN or NOBODY
+user_delete         /user/{id}                          ROLE_ADMIN or NOBODY or ROLE_DEVELOPER + ID_DEVELOPER
+
+easyadmin           /admin/                             ROLE_ADMIN
+
+
+
+##########################################################################
 BASE DE DATOS - ENTIDADES ################################################
 ##########################################################################
 
 user #####################################################################
-	id 			-> integer autoincrement not null primary key (automático en symfony)
-	type 		-> string not null (de momento todos developer salvo los admin)
-	user 		-> string not null (alias para login normal y alias para OAuth con Github)
-	pass 		-> string (solo para login normal, puede estar vacío, null para los OAuth)
-	auth 		-> string (solo para OAuth con Github, puede estar vacío, null para los login)
+    id          -> integer autoincrement not null primary key (automático en symfony)
+    type        -> string not null (de momento todos developer salvo los admin)
+    user        -> string not null (alias para login normal y alias para OAuth con Github)
+    pass        -> string (solo para login normal, puede estar vacío, null para los OAuth)
+    auth        -> string (solo para OAuth con Github, puede estar vacío, null para los login)
 
 developer ################################################################
-	id 			-> integer autoincrement not null primary key (automático en symfony)
-	first_name	-> string not null 
-	last_name	-> string not null 
-	address		-> string not null 
-	postal_code	-> integer not null 
-	city		-> string not null 
-	email 		-> string not null 
-	phone		-> integer not null 
-	github 		-> string null YES (autorrellenable para registros OAuth ???)
-	linkedin	-> string null YES 
-	web			-> string null YES 
+    id          -> integer autoincrement not null primary key (automático en symfony)
+    first_name  -> string not null 
+    last_name   -> string not null 
+    address     -> string not null 
+    postal_code -> integer not null 
+    city        -> string not null 
+    email       -> string not null 
+    phone       -> integer not null 
+    github      -> string null YES (autorrellenable para registros OAuth ???)
+    linkedin    -> string null YES 
+    web         -> string null YES 
 
-	avatar 		-> string / file / image ??? null YES (autorrellenable para registros OAuth ???)
+    avatar      -> string / file / image ??? null YES (autorrellenable para registros OAuth ???)
 
-	id_user		-> integer not null foreign key (relation -> symfony lo llama 'id_user_id')
+    id_user     -> integer not null foreign key (relation -> symfony lo llama 'id_user_id')
 
 experience ###############################################################
-	id 			-> integer autoincrement not null primary key (automático en symfony)
-	position	-> string not null
-	company		-> string not null
-	city		-> string not null
-	date_from	-> date not null
-	date_to		-> date null YES
+    id          -> integer autoincrement not null primary key (automático en symfony)
+    position    -> string not null
+    company     -> string not null
+    city        -> string not null
+    date_from   -> date not null
+    date_to     -> date null YES
 
-	id_dev 		-> integer not null foreign key (relation)
+    id_dev      -> integer not null foreign key (relation)
 
 training #################################################################
-	id 			-> integer autoincrement not null primary key (automático en symfony)
-	degree		-> string not null
-	institution	-> string not null
-	city		-> string not null
-	date_from	-> date not null
-	date_to		-> date null YES
+    id          -> integer autoincrement not null primary key (automático en symfony)
+    degree      -> string not null
+    institution -> string not null
+    city        -> string not null
+    date_from   -> date not null
+    date_to     -> date null YES
 
-	id_dev 		-> integer not null foreign key (relation)
+    id_dev      -> integer not null foreign key (relation)
 
 additional ###############################################################
-	id 			-> integer autoincrement not null primary key (automático en symfony)
-	description	-> string not null
+    id          -> integer autoincrement not null primary key (automático en symfony)
+    description -> string not null
 
-	id_dev 		-> integer not null foreign key (relation)
+    id_dev      -> integer not null foreign key (relation)
 
 technology ###############################################################
-	id 			-> integer autoincrement not null primary key (automático en symfony)
-	name		-> string not null
+    id          -> integer autoincrement not null primary key (automático en symfony)
+    name        -> string not null
 
-	logo 		-> string / file / image ??? null YES
+    logo        -> string / file / image ??? null YES
 
 dev_tech #################################################################
-	id 			-> integer autoincrement not null primary key (automático en symfony)
-	id_dev 		-> integer not null foreign key (relation)
-	id_tech		-> integer not null foreign key (relation)
-	level 		-> integer not null
+    id          -> integer autoincrement not null primary key (automático en symfony)
+    id_dev      -> integer not null foreign key (relation)
+    id_tech     -> integer not null foreign key (relation)
+    level       -> integer not null
 
 token ####################################################################
-	// TODO: PARA LA ENTREGA FINAL (tipos: confirmar, recordar y cambiar)
+    // TODO: PARA LA ENTREGA FINAL (tipos: confirmar, recordar y cambiar)
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -74,71 +131,71 @@ cveloper.com/ --> index general
 
 
 
-	/developer/ --> comprobar session --> SI: /cv/, NO: login
-			/cv/ --> SESSION: general view all data (info + applications)
-				/id/ --> public single cv
-			/personal/ --> SESSION: print list + form
-				/insert/
-				/update/
-				/delete/
-			/experience/ --> SESSION:
-				/insert/
-				/update/id/
-				/delete/id/
-			/training/ --> SESSION:
-				/insert/
-				/update/id/
-				/delete/id/
-			/additional/ --> SESSION:
-				/insert/
-				/update/id/
-				/delete/id/
-			/technology/ --> SESSION:
-				/insert/
-				/update/id/
-				/delete/id/
+    /developer/ --> comprobar session --> SI: /cv/, NO: login
+            /cv/ --> SESSION: general view all data (info + applications)
+                /id/ --> public single cv
+            /personal/ --> SESSION: print list + form
+                /insert/
+                /update/
+                /delete/
+            /experience/ --> SESSION:
+                /insert/
+                /update/id/
+                /delete/id/
+            /training/ --> SESSION:
+                /insert/
+                /update/id/
+                /delete/id/
+            /additional/ --> SESSION:
+                /insert/
+                /update/id/
+                /delete/id/
+            /technology/ --> SESSION:
+                /insert/
+                /update/id/
+                /delete/id/
 
-		(((((((((list/ offer or company / id or ?search))))))))) JORGE
+        (((((((((list/ offer or company / id or ?search))))))))) JORGE
 
-		/offer/ --> general list
-			(/id/) == /company/offer/id (button for application --> )
-		/company/ --> general list
-			(/id) == /company/single/id
-
-
-
-	/company/ --> comprobar session --> SI: index de su ID, NO: login
-		/single/ --> SESSION: general view all data
-			/id/ --> public single cv
-			/info/ --> SESSION: print list + form
-				/insert/ --> first time
-				/update/ --> modify
-				/delete/
-		/offer/  --> resume my offer list default
-			/id/ --> SESSION ? NO: public single offer, YES: view form
-				/update/
-				/delete/
-			/new/ --> empty form
-				/insert/
-		(/developer/id/) == /developer/cv/id
-		/search/ --> search list + new search button
-			/id/ --> show results
-				/update/
-				/delete/
-			/new/ --> empty form
-				/insert/
+        /offer/ --> general list
+            (/id/) == /company/offer/id (button for application --> )
+        /company/ --> general list
+            (/id) == /company/single/id
 
 
 
-	BASECONTROLLER ???
-		/application/ --> redirect
-				/developer/id/ --> list of developer
-				/job_offer/id/ --> list of job offers
+    /company/ --> comprobar session --> SI: index de su ID, NO: login
+        /single/ --> SESSION: general view all data
+            /id/ --> public single cv
+            /info/ --> SESSION: print list + form
+                /insert/ --> first time
+                /update/ --> modify
+                /delete/
+        /offer/  --> resume my offer list default
+            /id/ --> SESSION ? NO: public single offer, YES: view form
+                /update/
+                /delete/
+            /new/ --> empty form
+                /insert/
+        (/developer/id/) == /developer/cv/id
+        /search/ --> search list + new search button
+            /id/ --> show results
+                /update/
+                /delete/
+            /new/ --> empty form
+                /insert/
 
 
 
-	/type/ --> TODO USER TYPE
+    BASECONTROLLER ???
+        /application/ --> redirect
+                /developer/id/ --> list of developer
+                /job_offer/id/ --> list of job offers
 
-	/signup/ --> TODO SIGN UP
 
-	/login/ --> TODO LOGIN
+
+    /type/ --> TODO USER TYPE
+
+    /signup/ --> TODO SIGN UP
+
+    /login/ --> TODO LOGIN

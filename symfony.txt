@@ -11,6 +11,7 @@ https://symfony.com/doc/current/templating.html
 
 https://symfony.com/doc/current/cmf/tutorial/make-homepage.html
 
+
 https://symfony.com/doc/current/doctrine.html   // ORM Databases
 https://symfony.com/doc/current/doctrine/associations.html   // table relations
 https://symfony.com/doc/current/doctrine.html#doctrine-fixtures   // datos de prueba
@@ -35,9 +36,10 @@ https://symfony.com/blog/new-and-improved-generators-for-makerbundle   // CRUD: 
 https://symfony.com/doc/current/security.html   // User Authentication
 https://symfony.com/doc/current/security/form_login_setup.html   // Formulario de Login
 https://symfony.com/doc/current/security/remember_me.html    // Opción de Recuérdame
+https://symfony.com/doc/current/security/user_provider.html
 
-https://symfony.com/doc/4.0/security/password_encoding.html   // Codificar Passwords
-https://symfony.com/doc/4.0/security/entity_provider.html
+https://symfony.com/doc/4.0/security/entity_provider.html   // v4.0
+https://symfony.com/doc/4.0/security/password_encoding.html   // Codificar Passwords v4.0
 
 https://github.com/hwi/HWIOAuthBundle   // Investigar para incluir el OAuth con GitHub
 
