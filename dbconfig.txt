@@ -24,13 +24,39 @@ root@sergio-VirtualBox:~#     ^D
 sergio@sergio-VirtualBox:~$
 
 ···············································································
+SINCRONIZACIÓN BASE DE DATOS ##################################################
+···············································································
+
+PARA VOLVER A GENERAR LA BASE DE DATOS:
+
+sergio@sergio-VirtualBox:/.../cveloper$ php bin/console doctrine:database:create
+
+SI HAY ENTIDADES NO MIGRADAS ANTES:
+
+sergio@sergio-VirtualBox:/.../cveloper$ php bin/console make:migration
+
+sergio@sergio-VirtualBox:/.../cveloper$ php bin/console doctrine:migrations:migrate
+
+SI SE HA MODIFICADO ALGUNA ENTIDAD YA MIGRADA:
+
+sergio@sergio-VirtualBox:/.../cveloper$ php bin/console doctrine:migrations:diff
+
+sergio@sergio-VirtualBox:/.../cveloper$ php bin/console doctrine:migrations:migrate
+
+···············································································
 DATOS DE PRUEBA - FIXTURES ####################################################
 ···············································································
 
-Están definidos en:
+ESTÁN DEFINIDOS EN:
 
 cveloper/src/DataFixtures/XxxxxxFixtures.php
 
-Carga desde consola:
+CARGA DESDE CONSOLA:
 
 sergio@sergio-VirtualBox:/.../cveloper$ php bin/console doctrine:fixtures:load
+
+···············································································
+RUTAS DISPONIBLES - ROUTER ####################################################
+···············································································
+
+sergio@sergio-VirtualBox:/.../cveloper$ php bin/console debug:router
