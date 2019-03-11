@@ -92,6 +92,12 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         // mandar al usuario loggeado donde corresponda: admin o developer o ...
         $roles = $token->getUser()->getRoles();
 
+        // guardo en la sesion el id de desarrollador que se le ha asignado
+        $request->getSession()->set(
+            'myDeveloperId',
+            $token->getUser()->getDeveloper()->getId()
+        );
+
         $redireccion = (in_array(User::ROLE_TYPES['Administrador'] , $roles)) ? 'easyadmin' : 'developer_index' ;
 
         return new RedirectResponse($this->urlGenerator->generate($redireccion));

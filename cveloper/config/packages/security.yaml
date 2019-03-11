@@ -20,6 +20,10 @@ security:
             guard:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
+            logout:
+                path:   app_logout
+                # where to redirect after logout
+                target: home
 
         # TODO OAUTH CON GITHUB FALLIDO
         # secured_area:
@@ -48,6 +52,9 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/developer, roles: ROLE_DEVELOPER }
+        - { path: ^/developer/personal/new, roles: ROLE_ADMIN }
+        - { path: ^/technology, roles: ROLE_ADMIN }
+        - { path: ^/user, roles: ROLE_ADMIN }
 
         # TODO OAUTH CON GITHUB FALLIDO
         # - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

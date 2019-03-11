@@ -11,7 +11,7 @@ app_register        /register                           EVERYBODY
 app_login           /login                              EVERYBODY
 
 developer_index     /developer/personal/                ROLE_DEVELOPER + ID_DEVELOPER
-developer_new       /developer/personal/new             ROLE_DEVELOPER + ID_DEVELOPER
+developer_new       /developer/personal/new             ROLE_ADMIN
 developer_show      /developer/personal/{id}            ROLE_DEVELOPER + ID_DEVELOPER
 developer_edit      /developer/personal/{id}/edit       ROLE_DEVELOPER + ID_DEVELOPER
 developer_delete    /developer/personal/{id}            ROLE_DEVELOPER + ID_DEVELOPER
@@ -40,17 +40,17 @@ dev_tech_show       /developer/technology/{id}          ROLE_DEVELOPER + ID_DEVE
 dev_tech_edit       /developer/technology/{id}/edit     ROLE_DEVELOPER + ID_DEVELOPER
 dev_tech_delete     /developer/technology/{id}          ROLE_DEVELOPER + ID_DEVELOPER
 
-technology_index    /technology/                        ROLE_ADMIN or NOBODY
-technology_new      /technology/new                     ROLE_ADMIN or NOBODY
-technology_show     /technology/{id}                    ROLE_ADMIN or NOBODY
-technology_edit     /technology/{id}/edit               ROLE_ADMIN or NOBODY
-technology_delete   /technology/{id}                    ROLE_ADMIN or NOBODY
+technology_index    /technology/                        ROLE_ADMIN
+technology_new      /technology/new                     ROLE_ADMIN
+technology_show     /technology/{id}                    ROLE_ADMIN
+technology_edit     /technology/{id}/edit               ROLE_ADMIN
+technology_delete   /technology/{id}                    ROLE_ADMIN
 
-user_index          /user/                              ROLE_ADMIN or NOBODY
-user_new            /user/new                           ROLE_ADMIN or NOBODY
-user_show           /user/{id}                          ROLE_ADMIN or NOBODY
-user_edit           /user/{id}/edit                     ROLE_ADMIN or NOBODY
-user_delete         /user/{id}                          ROLE_ADMIN or NOBODY or ROLE_DEVELOPER + ID_DEVELOPER
+user_index          /user/                              ROLE_ADMIN
+user_new            /user/new                           ROLE_ADMIN
+user_show           /user/{id}                          ROLE_ADMIN
+user_edit           /user/{id}/edit                     ROLE_ADMIN
+user_delete         /user/{id}                          ROLE_ADMIN
 
 easyadmin           /admin/                             ROLE_ADMIN
 

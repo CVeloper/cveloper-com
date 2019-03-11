@@ -6,7 +6,11 @@
             </div>
             <div class="col-6">
                 <a href="{{ path('home_type') }}"><button class="header-button">Registro</button></a>
-                <a href="{{ path('app_login') }}"><button  class="header-button">Login</button></a>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a href="{{ path('app_logout') }}"><button  class="header-button">Logout</button></a>
+                {% else %}
+                    <a href="{{ path('app_login') }}"><button  class="header-button">Login</button></a>
+                {% endif %}
             </div>
         </div>
 

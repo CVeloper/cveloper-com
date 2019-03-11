@@ -56,6 +56,7 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         'home_type' => [[], ['_controller' => 'App\\Controller\\HomeController::type'], [], [['text', '/type']], [], []],
         'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], []],
         'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
+        'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
         'technology_index' => [[], ['_controller' => 'App\\Controller\\TechnologyController::index'], [], [['text', '/technology/']], [], []],
         'technology_new' => [[], ['_controller' => 'App\\Controller\\TechnologyController::new'], [], [['text', '/technology/new']], [], []],
         'technology_show' => [['id'], ['_controller' => 'App\\Controller\\TechnologyController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/technology']], [], []],

@@ -65,6 +65,7 @@
 
                     {% set _user_name = easyadmin_read_property(app.user, easyadmin_config('user.name_property_path'))|default('user.unnamed'|trans(domain = 'EasyAdminBundle')) %}
                     {% set _logout_path = easyadmin_logout_path() %}
+
                     {% set _user_has_logout = _logout_path is not empty %}
                     {% set _user_is_impersonated = is_granted('ROLE_PREVIOUS_ADMIN') %}
                     {% set _user_menu_content %}

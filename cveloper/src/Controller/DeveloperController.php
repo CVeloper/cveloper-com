@@ -20,8 +20,18 @@ class DeveloperController extends AbstractController
      */
     public function index(DeveloperRepository $developerRepository): Response
     {
-        return $this->render('developer/index.html.twig', [
-            'developers' => $developerRepository->findAll(),
+        // modifico esto porque quiero que sólo muestre sus propios datos
+        // return $this->render('developer/index.html.twig', [
+        //     'developers' => $developerRepository->findAll(),
+        // ]);
+
+        // recojo el id_developer de la session del usuario-desarrollador
+        $id = $this->get('session')->get('myDeveloperId');
+
+        // pinto el template correspondiente al home de developer
+        return $this->render('developer/home.html.twig', [
+            // creo un nuevo método con la consulta restringida a su id
+            'developer' => $developerRepository->findMe($id)
         ]);
     }
 

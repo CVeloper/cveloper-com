@@ -1,8 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600");
+
 :root {
     /* change the background color of the <body> */
     --body-bg: #222222;
     /* remove all border radius to make corners straight */
     --border-radius: 9px;
+    /* cambio de fuente base para todo el texto */
+    --font-family-base: "Raleway", Arial, Helvetica, sans-serif;
 }
 
 .main-header .navbar #header-logo img.logo {
