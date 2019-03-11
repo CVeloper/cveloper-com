@@ -12,6 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 
+// incluyo la entidad Developer para ligarla al User
+use App\Entity\Developer;
+
 class RegistrationController extends AbstractController
 {
     /**
@@ -32,11 +35,23 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            // cambio esto a más abajo porque el Developer va con el User
+            // $entityManager = $this->getDoctrine()->getManager();
+            // $entityManager->persist($user);
+            // $entityManager->flush();
+
+            // do anything else you need here, like send an email
+
+            // le doy al usuario que se registra el rol de DEVELOPER
+            $user->setRoles(array(User::ROLE_TYPES['Desarrollador']));
+            // aprovecho para añadirle un desarrollador asociado
+            $user->setDeveloper(new Developer());
+            /////////////////////////////////////////////////////
+
+            // esto estaba más arriba pero lo pongo aquí para guardarlo todo
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-
-            // do anything else you need here, like send an email
 
             return $guardHandler->authenticateUserAndHandleSuccess(
                 $user,

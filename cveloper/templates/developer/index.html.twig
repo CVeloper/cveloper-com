@@ -3,6 +3,14 @@
 {% block title %}Developer index{% endblock %}
 
 {% block body %}
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    {{ dump(app.user) }}
+    <p>Bienvenido {{ app.user.username }} !!!</p>
+    <p>Tu id de usuario es: {{ app.user.id }}</p>
+    <p>Tu id de desarrollador es: {{ app.user.developer.id }}</p>
+{% endif %}
+
     <h1>Developer index</h1>
 
     <table class="table">

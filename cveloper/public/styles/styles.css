@@ -62,7 +62,7 @@ div.ranking p {
 }
 
 div.ranking p.puntos {
-	background-color: orange;
+	background-color: #ff8f00;
 	border-radius: 1.1em 0 0 1.1em;
 	padding-right: 12px;
 	font-weight: 700;
@@ -167,8 +167,8 @@ body > header > div.container > div.row > div:nth-child(2) > p {
 
 body > header a button.header-button,
 body > header nav > a button.nav-button {
-	color: orange !important;
-	border-color: orange !important;
+	color: #ff8f00 !important;
+	border-color: #ff8f00 !important;
 	background-color: rgba(255,255,255,0.1);
 }
 
@@ -206,7 +206,7 @@ img.cv {
 }
 
 div.cv {
-	background-color: orange;
+	background-color: #ff8f00;
     padding-top: 12px;
     padding-right: 24px;
 }
@@ -238,4 +238,20 @@ button.signup {
 
 div.izquierda {
 	text-align: right;
+}
+
+input[type="checkbox"] {
+	-ms-transform: scale(2); /* IE */
+	-moz-transform: scale(2); /* FF */
+	-webkit-transform: scale(2); /* Safari and Chrome */
+	-o-transform: scale(2); /* Opera */
+	padding: 10px;
+	position: absolute;
+	top: 50px;
+	left: 45px;
+}
+
+label.checkbox_span {
+	padding-left: 50px;
+	padding-top: 45px;
 }

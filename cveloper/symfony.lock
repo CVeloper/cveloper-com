@@ -2,6 +2,9 @@
     "behat/transliterator": {
         "version": "v1.2.0"
     },
+    "clue/stream-filter": {
+        "version": "v1.4.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -130,6 +133,15 @@
     "fig/link-util": {
         "version": "1.0.0"
     },
+    "guzzlehttp/guzzle": {
+        "version": "6.3.3"
+    },
+    "guzzlehttp/promises": {
+        "version": "v1.3.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.5.2"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -148,6 +160,48 @@
     "pagerfanta/pagerfanta": {
         "version": "v2.0.1"
     },
+    "php-http/cache-plugin": {
+        "version": "1.6.0"
+    },
+    "php-http/client-common": {
+        "version": "2.0.0"
+    },
+    "php-http/discovery": {
+        "version": "1.6.1"
+    },
+    "php-http/guzzle6-adapter": {
+        "version": "v2.0.1"
+    },
+    "php-http/httplug": {
+        "version": "v2.0.0"
+    },
+    "php-http/httplug-bundle": {
+        "version": "1.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.6",
+            "ref": "4655962c64e2de96c418caf576c57215711c7877"
+        },
+        "files": [
+            "config/packages/httplug.yaml"
+        ]
+    },
+    "php-http/logger-plugin": {
+        "version": "1.1.0"
+    },
+    "php-http/message": {
+        "version": "1.7.2"
+    },
+    "php-http/message-factory": {
+        "version": "v1.0.2"
+    },
+    "php-http/promise": {
+        "version": "v1.0.0"
+    },
+    "php-http/stopwatch-plugin": {
+        "version": "1.2.0"
+    },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
     },
@@ -163,6 +217,12 @@
     "psr/container": {
         "version": "1.0.0"
     },
+    "psr/http-client": {
+        "version": "1.0.0"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/link": {
         "version": "1.0.0"
     },
@@ -171,6 +231,9 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
+    },
+    "ralouphie/getallheaders": {
+        "version": "2.0.5"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",

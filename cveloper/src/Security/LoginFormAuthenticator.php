@@ -68,7 +68,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Username could not be found.');
+            throw new CustomUserMessageAuthenticationException('Usuario no encontrado.');
         }
 
         return $user;
@@ -88,8 +88,13 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
         // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
         // redirect to some "app_homepage" route - of wherever you want
-        // TODO TODO TODO mandar al usuario loggeado donde corresponda: admin o developer
-        return new RedirectResponse($this->urlGenerator->generate('developer_index'));
+
+        // mandar al usuario loggeado donde corresponda: admin o developer o ...
+        $roles = $token->getUser()->getRoles();
+
+        $redireccion = (in_array(User::ROLE_TYPES['Administrador'] , $roles)) ? 'easyadmin' : 'developer_index' ;
+
+        return new RedirectResponse($this->urlGenerator->generate($redireccion));
     }
 
     protected function getLoginUrl()

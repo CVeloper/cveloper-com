@@ -2,9 +2,21 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-
 #app_lucky_number:
 #    path: /lucky/number
 #    controller: App\Controller\LuckyController::number
 
-    
+# TODO OAUTH CON GITHUB FALLIDO
+# hwi_oauth_redirect:
+#     resource: "@HWIOAuthBundle/Resources/config/routing/redirect_41.xml"
+#     prefix:   /connect
+# hwi_oauth_connect:
+#     resource: "@HWIOAuthBundle/Resources/config/routing/connect_41.xml"
+#     prefix:   /connect
+# hwi_oauth_login:
+#     resource: "@HWIOAuthBundle/Resources/config/routing/login_41.xml"
+#     prefix:   /login
+
+# TODO OAUTH CON GITHUB FALLIDO
+# github_login:
+#     path: /login/check-github

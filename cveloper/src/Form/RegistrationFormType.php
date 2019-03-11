@@ -10,6 +10,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
 
+// para incluir el checkbox de aceptar las condiciones y su validacion
+use Symfony\Component\Validator\Constraints\IsTrue;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -22,15 +26,19 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Por favor intruduce un password',
                     ]),
                     new Length([
                         'min' => 4,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'El passwor debe tener {{ limit }} caracteres',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
                 ],
+            ])
+            ->add('termsAccepted', CheckboxType::class, [
+                'mapped' => false,
+                'constraints' => new IsTrue(),
             ])
         ;
     }

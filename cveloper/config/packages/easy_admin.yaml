@@ -1,6 +1,6 @@
 # config/packages/easy_admin.yaml
 easy_admin:
-    site_name: '<img class="logo" src="/images/CVeloper_logo_texto.png" />'
+    site_name: '<a href="/"><img class="logo" src="/images/CVeloper_logo_texto.png" alt="Logo CVeloper"></a>'
     design:
         brand_color: '#ff8f00'
         assets:
@@ -40,7 +40,7 @@ easy_admin:
             form:
                 fields:
                     - { property: 'username', label: 'Nombre de Usuario' }
-                    - { property: 'roles', type: 'choice', type_options: { multiple: true, expanded: true, choices: { 'Desarrollador': 'ROLE_USER', 'Administrador': 'ROLE_ADMIN' } } }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, expanded: true, choices: { 'Desarrollador': 'ROLE_DEVELOPER', 'Administrador': 'ROLE_ADMIN' } } }
 #                    - { property: 'password', label: 'Contraseña', type: 'password' }
                     - { property: 'id_github', label: 'GitHub' }
                     - { property: 'Developer', label: 'Developer' }

@@ -1,14 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Registro{% endblock %}
+
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
+
 
 {% block body %}
-    <h1>Register</h1>
+
+<div class="container">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+		<h2>Registro como Desarrollador</h2>
+	</div>
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.plainPassword) }}
-
-        <button class="btn">Register</button>
+    <div class="row">
+		<div class="col-12">
+        {{ form_row(registrationForm.username, {
+            'label': 'Username'
+        }) }}
+    </div>
+    <div class="col-12">
+        {{ form_row(registrationForm.plainPassword, {
+            'label': 'Password'
+        }) }}
+    </div>
+    <div class="col-9">
+        {{ form_row(registrationForm.termsAccepted, {
+            'label': 'Acepto los Términos y Condiciones',
+            'label_attr': {'class': 'checkbox_span'}
+        }) }}
+    </div>
+    <input type="hidden" name="formulario" value="REGISTER">
+    <div class="col-3 izquierda">
+        <button class="btn">Aceptar</button>
+    </div>
     {{ form_end(registrationForm) }}
 {% endblock %}

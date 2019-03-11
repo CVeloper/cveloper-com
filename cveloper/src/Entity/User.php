@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
+ * @UniqueEntity(fields={"username"}, message="Este username ya existe")
  */
 class User implements UserInterface
 {
@@ -28,6 +28,12 @@ class User implements UserInterface
      * @ORM\Column(type="json")
      */
     private $roles = [];
+
+    // aquí defino los distintos roles de la aplicación
+    const ROLE_TYPES = array(   'Usuario' => 'ROLE_USER',
+                                'Desarrollador' => 'ROLE_DEVELOPER',
+                                'Administrador' => 'ROLE_ADMIN'
+                            );
 
     /**
      * @var string The hashed password
@@ -73,7 +79,8 @@ class User implements UserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        // $roles[] = 'ROLE_USER';
+        $roles[] = User::ROLE_TYPES['Usuario'];
 
         return array_unique($roles);
     }

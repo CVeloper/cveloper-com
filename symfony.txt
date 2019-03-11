@@ -9,13 +9,19 @@ https://symfony.com/doc/current/controller.html
 https://symfony.com/doc/current/routing.html
 https://symfony.com/doc/current/templating.html
 
-https://symfony.com/doc/current/cmf/tutorial/make-homepage.html
+https://symfony.com/doc/current/best_practices/configuration.html   // uso de constantes (ROLES)
+https://symfony.com/doc/current/best_practices/security.html   // 
 
+https://symfony.com/doc/current/cmf/tutorial/make-homepage.html
 
 https://symfony.com/doc/current/doctrine.html   // ORM Databases
 https://symfony.com/doc/current/doctrine/associations.html   // table relations
 https://symfony.com/doc/current/doctrine.html#doctrine-fixtures   // datos de prueba
 https://symfony.com/doc/current/doctrine/registration_form.html   // formulario de registro
+
+https://symfony.com/blog/new-and-improved-generators-for-makerbundle   // CRUD: Controllers/Forms/Templates
+
+https://symfony.com/doc/current/form/form_customization.html
 
 https://symfony.com/doc/master/bundles/EasyAdminBundle/book/installation.html
 https://symfony.com/doc/master/bundles/EasyAdminBundle/book/your-first-backend.html
@@ -31,17 +37,19 @@ https://symfony.com/doc/master/bundles/EasyAdminBundle/integration/vichuploaderb
 
 https://symfony.com/doc/master/bundles/DoctrineFixturesBundle/index.html   // documentacion Fixtures
 
-https://symfony.com/blog/new-and-improved-generators-for-makerbundle   // CRUD: Controllers/Forms/Templates
-
 https://symfony.com/doc/current/security.html   // User Authentication
 https://symfony.com/doc/current/security/form_login_setup.html   // Formulario de Login
 https://symfony.com/doc/current/security/remember_me.html    // Opción de Recuérdame
 https://symfony.com/doc/current/security/user_provider.html
 
-https://symfony.com/doc/4.0/security/entity_provider.html   // v4.0
-https://symfony.com/doc/4.0/security/password_encoding.html   // Codificar Passwords v4.0
+https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/security.html   // @isGranted() y @security()
 
-https://github.com/hwi/HWIOAuthBundle   // Investigar para incluir el OAuth con GitHub
+https://github.com/hwi/HWIOAuthBundle   // para incluir el OAuth con GitHub
+https://github.com/hwi/HWIOAuthBundle/blob/master/Resources/doc/index.md
+https://github.com/hwi/HWIOAuthBundle/blob/master/Resources/doc/1-setting_up_the_bundle.md
+https://github.com/hwi/HWIOAuthBundle/blob/master/Resources/doc/2-configuring_resource_owners.md
+https://github.com/hwi/HWIOAuthBundle/blob/master/Resources/doc/3-configuring_the_security_layer.md
+https://github.com/hwi/HWIOAuthBundle/blob/master/Resources/doc/4-integrating_fosub.md
 
 https://symfony.com/doc/current/deployment.html
 
@@ -445,3 +453,78 @@ sergio@sergio-VirtualBox:/.../cveloper$ php bin/console make:registration-form
 		created: src/Controller/RegistrationController.php
 		created: templates/registration/register.html.twig
 
+··········································································
+OAUTH CON GITHUB EN SYMFONY ##############################################
+··········································································
+
+PRIMERO HAY QUE INSTALAR LOS PAQUETES NECESARIOS:
+
+sergio@sergio-VirtualBox:/.../cveloper$ composer require php-http/guzzle6-adapter
+	- Installing guzzlehttp/promises (v1.3.1)
+	- Installing ralouphie/getallheaders (2.0.5)
+	- Installing psr/http-message (1.0.1)
+	- Installing guzzlehttp/psr7 (1.5.2)
+	- Installing guzzlehttp/guzzle (6.3.3)
+	- Installing psr/http-client (1.0.0)
+	- Installing php-http/promise (v1.0.0)
+	- Installing php-http/httplug (v2.0.0)
+	- Installing php-http/guzzle6-adapter (v2.0.1)
+
+sergio@sergio-VirtualBox:/.../cveloper$ composer require php-http/httplug-bundle
+	- Installing php-http/message-factory (v1.0.2)
+	- Installing clue/stream-filter (v1.4.0)
+	- Installing php-http/message (1.7.2)
+	- Installing php-http/client-common (2.0.0)
+	- Installing php-http/stopwatch-plugin (1.2.0)
+	- Installing php-http/logger-plugin (1.1.0)
+	- Installing php-http/discovery (1.6.1)
+	- Installing php-http/cache-plugin (1.6.0)
+	- Installing php-http/httplug-bundle (1.14.0)
+
+sergio@sergio-VirtualBox:/.../cveloper$ composer require hwi/oauth-bundle
+
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+
+Your requirements could not be resolved to an installable set of packages.
+	Problem 1
+		- php-http/client-common v1.6.0 requires symfony/options-resolver ^2.6 || ^3.0 -> no matching package found.
+		- php-http/client-common v1.4.2 requires symfony/options-resolver ^2.6 || ^3.0 -> no matching package found.
+		- php-http/client-common v1.4.1 requires symfony/options-resolver ^2.6 || ^3.0 -> no matching package found.
+		- php-http/client-common v1.4.0 requires symfony/options-resolver ^2.6 || ^3.0 -> no matching package found.
+		- php-http/client-common 1.5.0 requires symfony/options-resolver ^2.6 || ^3.0 -> no matching package found.
+		- php-http/client-common 1.3.0 requires symfony/options-resolver ^2.6 || ^3.0 -> no matching package found.
+		- Installation request for hwi/oauth-bundle ^0.6.3 -> satisfiable by hwi/oauth-bundle[0.6.3].
+		- Conclusion: remove php-http/client-common 2.0.0
+		- Conclusion: don't install php-http/client-common 2.0.0
+		- hwi/oauth-bundle 0.6.3 requires php-http/client-common ^1.3 -> satisfiable by php-http/client-common[..., 1.9.1].
+		- Can only install one of: php-http/client-common[1.9.0, 2.0.0].
+		- Can only install one of: php-http/client-common[1.9.1, 2.0.0].
+		- Can only install one of: php-http/client-common[1.7.0, 2.0.0].
+		- Can only install one of: php-http/client-common[1.8.0, 2.0.0].
+		- Can only install one of: php-http/client-common[1.8.1, 2.0.0].
+		- Can only install one of: php-http/client-common[1.8.2, 2.0.0].
+		- Installation request for php-http/client-common (locked at 2.0.0) -> satisfiable by php-http/client-common[2.0.0].
+	Potential causes:
+		- The package is not available in a stable-enough version according to your minimum-stability setting
+Installation failed, reverting ./composer.json to its original content.
+
+ISSUE EN GITHUB, LO ESTÁN SOLUCIONANDO LITERALMENTE A DIA DE HOY
+
+Packages versions conflict during composer installation #1457
+https://github.com/hwi/HWIOAuthBundle/issues/1457
+
+composer installation not working #1476
+https://github.com/hwi/HWIOAuthBundle/issues/1476
+
+VOY A REVERTIR MANUALEMENTE TODO LO QUE HE HECHO Y MARCAR CON UN TODO PARA VOLVER EN EL FUTURO

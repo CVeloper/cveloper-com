@@ -308,7 +308,7 @@
     </parameter>
     <parameter key="env(VAR_DUMPER_SERVER)">127.0.0.1:9912</parameter>
     <parameter key="easyadmin.config" type="collection">
-      <parameter key="site_name">&lt;img class="logo" src="/images/CVeloper_logo_texto.png" /&gt;</parameter>
+      <parameter key="site_name">&lt;a href="/"&gt;&lt;img class="logo" src="/images/CVeloper_logo_texto.png" alt="Logo CVeloper"&gt;&lt;/a&gt;</parameter>
       <parameter key="design" type="collection">
         <parameter key="brand_color">#ff8f00</parameter>
         <parameter key="assets" type="collection">
@@ -431,7 +431,7 @@
                   <parameter key="multiple">true</parameter>
                   <parameter key="expanded">true</parameter>
                   <parameter key="choices" type="collection">
-                    <parameter key="Desarrollador">ROLE_USER</parameter>
+                    <parameter key="Desarrollador">ROLE_DEVELOPER</parameter>
                     <parameter key="Administrador">ROLE_ADMIN</parameter>
                   </parameter>
                 </parameter>
@@ -4202,7 +4202,22 @@
       <argument type="service" id="security.authentication.retry_entry_point"/>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
     </service>
-    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap" public="false"/>
+    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap" public="false">
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.5dJADCx"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.m4N_RHX"/>
+        <argument type="collection">
+          <argument>ROLE_DEVELOPER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+    </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
       <tag name="monolog.logger" channel="security"/>
       <argument type="service" id="security.token_storage"/>
@@ -4621,6 +4636,12 @@
         <argument key="security.firewall.map.context.dev" type="service" id="security.firewall.map.context.dev"/>
         <argument key="security.firewall.map.context.main" type="service" id="security.firewall.map.context.main"/>
       </argument>
+    </service>
+    <service id=".security.request_matcher.5dJADCx" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/admin</argument>
+    </service>
+    <service id=".security.request_matcher.m4N_RHX" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/developer</argument>
     </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand" public="false">
       <tag name="console.command" command="security:encode-password"/>

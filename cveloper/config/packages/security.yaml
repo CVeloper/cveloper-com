@@ -21,6 +21,20 @@ security:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
 
+        # TODO OAUTH CON GITHUB FALLIDO
+        # secured_area:
+        #     anonymous: ~
+        #     oauth:
+        #         resource_owners:
+        #             my_github:          "/login/check-github"
+        #         login_path:        /login
+        #         use_forward:       false
+        #         failure_path:      /login
+
+                # TODO OAUTH CON GITHUB FALLIDO
+                # oauth_user_provider:
+                #     service: hwi_oauth.user.provider.entity
+
             # activate different ways to authenticate
 
             # http_basic: true
@@ -32,5 +46,11 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/developer, roles: ROLE_DEVELOPER }
+
+        # TODO OAUTH CON GITHUB FALLIDO
+        # - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

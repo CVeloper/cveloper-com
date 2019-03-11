@@ -306,7 +306,7 @@ final class MakeRegistrationForm extends AbstractMaker
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'El passwor debe tener  {{ limit }} caracteres',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
