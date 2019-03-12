@@ -6,17 +6,18 @@ use App\Entity\Experience;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 class ExperienceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('position')
-            ->add('company')
-            ->add('city')
-            ->add('date_from')
-            ->add('date_to')
+            ->add('position', TextType::class, ['label' => 'Posicion'])
+            ->add('company', TextType::class, ['label' => 'Compañía'])
+            ->add('city', TextType::class, ['label' => 'Ciudad'])
+            ->add('date_from', DateTimeType::class, ['label' => 'Desde'])
+            ->add('date_to', DateTimeType::class, ['label' => 'Hasta'])
             //->add('id_developer')
         ;
     }

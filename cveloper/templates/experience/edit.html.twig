@@ -12,18 +12,7 @@
 
 {% block body %}
     <h1>Editar Experiencia</h1>
-    <div class="row">
-         <div class="col-12">
               {{ include('experience/_form.html.twig', {'button_label': 'Actualizar Datos'}) }}
-         </div>
-         <div class="col-6 izquierda">
                 <a href="{{ path('experience_index') }}">Volver al Listado</a>
-         </div>
-    </div>
-    <div class="row">
-        <div class="col-6 izquierda">
         {{ include('experience/_delete_form.html.twig', {'button_label': 'Borrar'}) }}
-
-    </div>
-    </div>
 {% endblock %}
