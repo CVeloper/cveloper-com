@@ -1,20 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Experience index{% endblock %}
+{% block title %}Listado Experiencias{% endblock %}
+
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 
 {% block body %}
-    <h1>Experience index</h1>
+    <h1>Listado de Experiencias</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Position</th>
-                <th>Company</th>
-                <th>City</th>
-                <th>Date_from</th>
-                <th>Date_to</th>
-                <th>actions</th>
+                <th>Puesto</th>
+                <th>Compañía</th>
+                <th>Ciudad</th>
+                <th>Desde</th>
+                <th>Hasta</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -27,17 +35,17 @@
                 <td>{{ experience.dateFrom ? experience.dateFrom|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ experience.dateTo ? experience.dateTo|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('experience_show', {'id': experience.id}) }}">show</a>
-                    <a href="{{ path('experience_edit', {'id': experience.id}) }}">edit</a>
+                    <a href="{{ path('experience_show', {'id': experience.id}) }}">Mostrar</a>
+                    <a href="{{ path('experience_edit', {'id': experience.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">No se han encontrado Datos</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('experience_new') }}">Create new</a>
+    <a href="{{ path('experience_new') }}">Añadir Experiencia</a>
 {% endblock %}

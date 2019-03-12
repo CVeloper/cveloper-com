@@ -1,13 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit DevTech{% endblock %}
+{% block title %}Editar Nivel Tecnología{% endblock %}
 
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 {% block body %}
-    <h1>Edit DevTech</h1>
+    <h1>Editar Nivel Tecnología</h1>
 
-    {{ include('dev_tech/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('dev_tech/_form.html.twig', {'button_label': 'Guardar'}) }}
 
-    <a href="{{ path('dev_tech_index') }}">back to list</a>
+    <a href="{{ path('dev_tech_index') }}">Volver al Listado</a>
 
     {{ include('dev_tech/_delete_form.html.twig') }}
 {% endblock %}

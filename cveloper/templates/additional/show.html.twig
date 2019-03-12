@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Additional{% endblock %}
+{% block title %}Dato Adicional{% endblock %}
+
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 
 {% block body %}
-    <h1>Additional</h1>
+    <h1>Dato Adicional</h1>
 
     <table class="table">
         <tbody>
@@ -12,15 +20,15 @@
                 <td>{{ additional.id }}</td>
             </tr>
             <tr>
-                <th>Description</th>
+                <th>Descripción</th>
                 <td>{{ additional.description }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('additional_index') }}">back to list</a>
+    <a href="{{ path('additional_index') }}">Volver al Listado</a>
 
-    <a href="{{ path('additional_edit', {'id': additional.id}) }}">edit</a>
+    <a href="{{ path('additional_edit', {'id': additional.id}) }}">Editar</a>
 
     {{ include('additional/_delete_form.html.twig') }}
 {% endblock %}

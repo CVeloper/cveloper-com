@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Experience{% endblock %}
+{% block title %}Listado Experiencias{% endblock %}
 
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 {% block body %}
-    <h1>Create new Experience</h1>
+    <h1>Añadir Nueva Experiencia</h1>
 
     {{ include('experience/_form.html.twig') }}
 
-    <a href="{{ path('experience_index') }}">back to list</a>
+    <a href="{{ path('experience_index') }}">Volver al Listado</a>
 {% endblock %}

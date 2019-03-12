@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New DevTech{% endblock %}
+{% block title %}Añadir Nivel Tecnología{% endblock %}
 
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 {% block body %}
-    <h1>Create new DevTech</h1>
+    <h1>Añadir Nivel Tecnología</h1>
 
     {{ include('dev_tech/_form.html.twig') }}
 
-    <a href="{{ path('dev_tech_index') }}">back to list</a>
+    <a href="{{ path('dev_tech_index') }}">Volver al Listado</a>
 {% endblock %}

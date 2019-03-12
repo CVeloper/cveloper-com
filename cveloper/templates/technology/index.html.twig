@@ -1,17 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Technology index{% endblock %}
+{% block title %}Listado Tecnologías{% endblock %}
 
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 {% block body %}
-    <h1>Technology index</h1>
+    <h1>Listado Tecnologías</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nombre</th>
                 <th>Logo</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +28,17 @@
                 <td>{{ technology.name }}</td>
                 <td>{{ technology.logo }}</td>
                 <td>
-                    <a href="{{ path('technology_show', {'id': technology.id}) }}">show</a>
-                    <a href="{{ path('technology_edit', {'id': technology.id}) }}">edit</a>
+                    <a href="{{ path('technology_show', {'id': technology.id}) }}">Mostrar</a>
+                    <a href="{{ path('technology_edit', {'id': technology.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">No se encontraron Datos</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('technology_new') }}">Create new</a>
+    <a href="{{ path('technology_new') }}">Añadir Nuevos Datos</a>
 {% endblock %}

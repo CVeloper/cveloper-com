@@ -1,9 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Training{% endblock %}
+{% block title %}Formación{% endblock %}
 
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 {% block body %}
-    <h1>Training</h1>
+    <h1>Formación</h1>
 
     <table class="table">
         <tbody>
@@ -12,31 +19,31 @@
                 <td>{{ training.id }}</td>
             </tr>
             <tr>
-                <th>Degree</th>
+                <th>Grado</th>
                 <td>{{ training.degree }}</td>
             </tr>
             <tr>
-                <th>Institution</th>
+                <th>Centro</th>
                 <td>{{ training.institution }}</td>
             </tr>
             <tr>
-                <th>City</th>
+                <th>Ciudad</th>
                 <td>{{ training.city }}</td>
             </tr>
             <tr>
-                <th>Date_from</th>
+                <th>Desde</th>
                 <td>{{ training.dateFrom ? training.dateFrom|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Date_to</th>
+                <th>Hasta</th>
                 <td>{{ training.dateTo ? training.dateTo|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('training_index') }}">back to list</a>
+    <a href="{{ path('training_index') }}">Volver al Listado</a>
 
-    <a href="{{ path('training_edit', {'id': training.id}) }}">edit</a>
+    <a href="{{ path('training_edit', {'id': training.id}) }}">Editar</a>
 
     {{ include('training/_delete_form.html.twig') }}
 {% endblock %}

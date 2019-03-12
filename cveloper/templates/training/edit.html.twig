@@ -1,13 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Training{% endblock %}
+{% block title %}Editar Formación{% endblock %}
 
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 {% block body %}
-    <h1>Edit Training</h1>
+    <h1>Editar Formación</h1>
 
-    {{ include('training/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('training/_form.html.twig', {'button_label': 'Actualizar Datos'}) }}
 
-    <a href="{{ path('training_index') }}">back to list</a>
+    <a href="{{ path('training_index') }}">Volver al Listado</a>
 
     {{ include('training/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,9 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}DevTech{% endblock %}
+{% block title %}Nivel Tecnología{% endblock %}
 
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 {% block body %}
-    <h1>DevTech</h1>
+    <h1>Nivel Tecnología</h1>
 
     <table class="table">
         <tbody>
@@ -12,23 +19,23 @@
                 <td>{{ dev_tech.id }}</td>
             </tr>
             <tr>
-                <th>Level</th>
+                <th>Nivel</th>
                 <td>{{ dev_tech.level }}</td>
             </tr>
             <tr>
-                <th>ID Technology</th>
+                <th>ID Tecnología</th>
                 <td>{{ dev_tech.idTech }}</td>
             </tr>
             <tr>
-                <th>ID Developer</th>
+                <th>ID Desarrollador</th>
                 <td>{{ dev_tech.idDeveloper }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('dev_tech_index') }}">back to list</a>
+    <a href="{{ path('dev_tech_index') }}">Volver al Listado</a>
 
-    <a href="{{ path('dev_tech_edit', {'id': dev_tech.id}) }}">edit</a>
+    <a href="{{ path('dev_tech_edit', {'id': dev_tech.id}) }}">Editar</a>
 
     {{ include('dev_tech/_delete_form.html.twig') }}
 {% endblock %}

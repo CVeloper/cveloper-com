@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Technology{% endblock %}
+{% block title %}Añadir Tecnología{% endblock %}
 
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 {% block body %}
-    <h1>Create new Technology</h1>
+    <h1>Añadir Tecnología</h1>
 
     {{ include('technology/_form.html.twig') }}
 
-    <a href="{{ path('technology_index') }}">back to list</a>
+    <a href="{{ path('technology_index') }}">Volver al Listado</a>
 {% endblock %}

@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Technology{% endblock %}
+{% block title %}Editar Tecnología{% endblock %}
+
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}}Edit Technology{% endblock %}
 
 {% block body %}
     <h1>Edit Technology</h1>
 
-    {{ include('technology/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('technology/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
-    <a href="{{ path('technology_index') }}">back to list</a>
+    <a href="{{ path('technology_index') }}">Volver al Listado</a>
 
     {{ include('technology/_delete_form.html.twig') }}
 {% endblock %}

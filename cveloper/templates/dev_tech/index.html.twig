@@ -1,18 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}DevTech index{% endblock %}
+{% block title %}Listado Nivel Tecnologías{% endblock %}
 
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 {% block body %}
-    <h1>DevTech index</h1>
+    <h1>Listado Nivel de Tecnologías</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Level</th>
-                <th>ID Technology</th>
-                <th>ID Developer</th>
-                <th>actions</th>
+                <th>Nivel</th>
+                <th>ID Tecnologías</th>
+                <th>ID Desarrollador</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -23,17 +30,17 @@
                 <td>{{ dev_tech.idTech }}</td>
                 <td>{{ dev_tech.idDeveloper }}</td>
                 <td>
-                    <a href="{{ path('dev_tech_show', {'id': dev_tech.id}) }}">show</a>
-                    <a href="{{ path('dev_tech_edit', {'id': dev_tech.id}) }}">edit</a>
+                    <a href="{{ path('dev_tech_show', {'id': dev_tech.id}) }}">Mostrar</a>
+                    <a href="{{ path('dev_tech_edit', {'id': dev_tech.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">No se encontraron Datos</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('dev_tech_new') }}">Create new</a>
+    <a href="{{ path('dev_tech_new') }}">Añadir Nuevo Nivel</a>
 {% endblock %}

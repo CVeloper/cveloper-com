@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Training index{% endblock %}
+{% block title %}Listado Formación{% endblock %}
 
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 {% block body %}
-    <h1>Training index</h1>
+    <h1>Listado Formación</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Degree</th>
-                <th>Institution</th>
-                <th>City</th>
-                <th>Date_from</th>
-                <th>Date_to</th>
-                <th>actions</th>
+                <th>Grado</th>
+                <th>Centro</th>
+                <th>Ciudad</th>
+                <th>Desde</th>
+                <th>Hasta</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -27,17 +34,17 @@
                 <td>{{ training.dateFrom ? training.dateFrom|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ training.dateTo ? training.dateTo|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('training_show', {'id': training.id}) }}">show</a>
-                    <a href="{{ path('training_edit', {'id': training.id}) }}">edit</a>
+                    <a href="{{ path('training_show', {'id': training.id}) }}">Mostrar</a>
+                    <a href="{{ path('training_edit', {'id': training.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">No se encontraron Datos</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('training_new') }}">Create new</a>
+    <a href="{{ path('training_new') }}">Añadir Nueva Formación</a>
 {% endblock %}

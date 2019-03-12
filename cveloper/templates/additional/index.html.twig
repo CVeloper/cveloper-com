@@ -1,16 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Additional index{% endblock %}
+{% block title %}Listado de Datos Adcionales{% endblock %}
 
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
 {% block body %}
-    <h1>Additional index</h1>
+    <h1>Listado de Datos Adicionales</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Description</th>
-                <th>actions</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -19,17 +26,17 @@
                 <td>{{ additional.id }}</td>
                 <td>{{ additional.description }}</td>
                 <td>
-                    <a href="{{ path('additional_show', {'id': additional.id}) }}">show</a>
-                    <a href="{{ path('additional_edit', {'id': additional.id}) }}">edit</a>
+                    <a href="{{ path('additional_show', {'id': additional.id}) }}">Mostrar</a>
+                    <a href="{{ path('additional_edit', {'id': additional.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">No se encontraron datos</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('additional_new') }}">Create new</a>
+    <a href="{{ path('additional_new') }}">Añadir Nuevo Dato Adicional</a>
 {% endblock %}
