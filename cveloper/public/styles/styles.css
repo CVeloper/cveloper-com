@@ -223,6 +223,10 @@ a {
 	text-decoration: none;
 }
 
+a:hover {
+	font-weight: 700;
+}
+
 button,
 button.cv {
 	margin-top: 30px;

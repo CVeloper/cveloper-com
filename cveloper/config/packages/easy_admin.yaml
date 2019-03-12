@@ -31,6 +31,8 @@ easy_admin:
     edit:
         actions:
             - { name: 'delete', icon: 'times', label: 'Borrar' }
+    formats:
+        datetime: 'd/m/Y'
     entities:
 
 # USER ########################################################################
@@ -103,14 +105,14 @@ easy_admin:
                     - { property: 'first_Name', label: 'Nombre' }
                     - { property: 'last_Name', label: 'Apellido' }
                     - { property: 'avatar', label: 'Avatar', type: 'image', base_path: '%app.path.developer_avatar%' }
-                    - { property: 'email', label: 'Email' }
+                    # - { property: 'email', label: 'Email' }
                     - { property: 'address', label: 'Dirección' }
                     - { property: 'postal_code', label: 'Código Postal' }
                     - { property: 'city', label: 'Ciudad' }
                     - { property: 'phone', label: 'Telefono' }
-                    - { property: 'github', label: 'Github' }
-                    - { property: 'linkedin', label: 'Linkedin' }
-                    - { property: 'web', label: 'Web Personal' }
+                    # - { property: 'github', label: 'Github' }
+                    # - { property: 'linkedin', label: 'Linkedin' }
+                    # - { property: 'web', label: 'Web Personal' }
             search:
                 title: 'Resultados de la Búsqueda'
                 fields:

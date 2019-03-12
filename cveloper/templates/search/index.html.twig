@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search{% endblock %}
+
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'home/header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+{% if app.request.get('CONTROL') != 'TRUE' %}
+<div class="container">
+<div class="row">
+    <div class="col-9 izquierda">
+        <h2>Búsqueda de Desarrolladores</h2>
+    </div>
+</div>
+<form action="#" method="get">
+    {% for i in 0..4 %}
+    <div class="row">
+        <div class="col-4 derecha">
+        <label>{{ i + 1 }}a opción</label>
+        </div>
+        <div class="col-4">
+        <select name="{{ i + 1 }}">
+            {% for tech in technologies %}
+                <option value="{{ tech.id }}">{{ tech.name }}</option>
+            {% endfor %}
+        </select>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row">
+        <div class="col-8 derecha">
+            <button type="submit">Buscar</button>
+        </div>
+    </div>
+    <input type="hidden" name="CONTROL" value="TRUE">
+</form>
+</div>
+{% else %}
+
+    <div class="col-8 izquierda">
+        <h2>Ranking de Desarrolladores</h2>
+    </div>
+
+    {% set busqueda = {
+        9 : app.request.get('1'),
+        8 : app.request.get('2'),
+        7 : app.request.get('3'),
+        6 : app.request.get('4'),
+        5 : app.request.get('5')
+    } %}
+
+    {% for developer in developers %}
+    {% set cuenta = 0 %}
+        {% if 'ROLE_DEVELOPER' in developer.idUser.roles %}
+            {% for tech in develTeches %}
+                {% for clave, valor in busqueda %}
+                    {% if valor == tech.idTech.id and tech.idDeveloper.id == developer.id %}
+                        {% set cuenta = cuenta + (tech.level * clave) %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+
+            {% set ancho = (cuenta * 2.5) + 60 %}
+
+<div class="row ranking">
+	<div class="col-sm-12 col-md-8 derecha">
+		<p class="puntos" style="width:{{ ancho }}px;">{{ cuenta }} puntos</p>
+	</div>
+	<div class="col-sm-12 col-md-4">
+		<p><a href="/developer/personal/cv/{{ developer.id }}"> {{ developer.firstName }} {{ developer.lastName }} </a></p>
+	</div>
+</div>
+
+        {% endif %}
+    {% endfor %}
+<div class="row derecha">
+    <div class="col-8">
+        <p><a href="/search/"> REALIZAR OTRA BÚSQUEDA </a></p>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

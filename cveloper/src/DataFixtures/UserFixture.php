@@ -19,6 +19,8 @@ class UserFixture extends Fixture
     public const USER_SERGIO = 'user_sergio';
     public const USER_PACO = 'user_paco';
     public const USER_RUBEN = 'user_ruben';
+    public const USER_VELGA = 'user_velga';
+    public const USER_AITOR = 'user_aitor';
 
     private $passwordEncoder;
 
@@ -49,10 +51,22 @@ class UserFixture extends Fixture
         $ruben->setPassword($this->passwordEncoder->encodePassword($ruben, '3333'));
         $ruben->setRoles(array('ROLE_USER'));
 
+        $velga = new User();
+        $velga->setUsername('velga');
+        $velga->setPassword($this->passwordEncoder->encodePassword($velga, '4444'));
+        $velga->setRoles(array('ROLE_DEVELOPER'));
+
+        $aitor = new User();
+        $aitor->setUsername('aitor');
+        $aitor->setPassword($this->passwordEncoder->encodePassword($aitor, '5555'));
+        $aitor->setRoles(array('ROLE_DEVELOPER'));
+
         $manager->persist($admin);
         $manager->persist($sergio);
         $manager->persist($paco);
         $manager->persist($ruben);
+        $manager->persist($velga);
+        $manager->persist($aitor);
         $manager->flush();
 
         // other fixtures can get this object using the UserFixture::ADMIN_USER_REFERENCE constant
@@ -61,5 +75,7 @@ class UserFixture extends Fixture
         $this->addReference(self::USER_SERGIO, $sergio);
         $this->addReference(self::USER_PACO, $paco);
         $this->addReference(self::USER_RUBEN, $ruben);
+        $this->addReference(self::USER_VELGA, $velga);
+        $this->addReference(self::USER_AITOR, $aitor);
     }
 }

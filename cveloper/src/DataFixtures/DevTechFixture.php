@@ -30,10 +30,30 @@ class DevTechFixture extends Fixture implements DependentFixtureInterface
             $manager->persist($devTech);
         }
 
-        $techsPaco= $this->obtenerArrayTechs();
-        foreach ($techsSergio as $tech) {
+        $techsPaco = $this->obtenerArrayTechs();
+        foreach ($techsPaco as $tech) {
             $devTech = new DevTech();
             $devTech->setIdDeveloper($this->getReference(DeveloperFixture::DEV_PACO));
+            $devTech->setIdTech($this->getReference($tech));
+            $devTech->setLevel(mt_rand(1, 9));
+
+            $manager->persist($devTech);
+        }
+
+        $techsVelga = $this->obtenerArrayTechs();
+        foreach ($techsVelga as $tech) {
+            $devTech = new DevTech();
+            $devTech->setIdDeveloper($this->getReference(DeveloperFixture::DEV_VELGA));
+            $devTech->setIdTech($this->getReference($tech));
+            $devTech->setLevel(mt_rand(1, 9));
+
+            $manager->persist($devTech);
+        }
+
+        $techsAitor = $this->obtenerArrayTechs();
+        foreach ($techsAitor as $tech) {
+            $devTech = new DevTech();
+            $devTech->setIdDeveloper($this->getReference(DeveloperFixture::DEV_AITOR));
             $devTech->setIdTech($this->getReference($tech));
             $devTech->setLevel(mt_rand(1, 9));
 
