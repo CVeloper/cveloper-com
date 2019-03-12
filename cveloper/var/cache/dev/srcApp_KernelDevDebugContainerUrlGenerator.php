@@ -54,6 +54,8 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         'experience_delete' => [['id'], ['_controller' => 'App\\Controller\\ExperienceController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/developer/experience']], [], []],
         'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
         'home_type' => [[], ['_controller' => 'App\\Controller\\HomeController::type'], [], [['text', '/type']], [], []],
+        'issue' => [[], ['_controller' => 'App\\Controller\\IssueController::index'], [], [['text', '/issue']], [], []],
+        'issue_result' => [[], ['_controller' => 'App\\Controller\\IssueController::issueResult'], [], [['text', '/issue/result']], [], []],
         'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], []],
         'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
         'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],

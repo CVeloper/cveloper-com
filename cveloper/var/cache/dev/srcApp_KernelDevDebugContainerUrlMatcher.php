@@ -30,6 +30,8 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             '/developer/experience/new' => [[['_route' => 'experience_new', '_controller' => 'App\\Controller\\ExperienceController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
             '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
             '/type' => [[['_route' => 'home_type', '_controller' => 'App\\Controller\\HomeController::type'], null, null, null, false, false, null]],
+            '/issue' => [[['_route' => 'issue', '_controller' => 'App\\Controller\\IssueController::index'], null, null, null, false, false, null]],
+            '/issue/result' => [[['_route' => 'issue_result', '_controller' => 'App\\Controller\\IssueController::issueResult'], null, null, null, false, false, null]],
             '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
             '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
             '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, ['GET' => 0], null, false, false, null]],

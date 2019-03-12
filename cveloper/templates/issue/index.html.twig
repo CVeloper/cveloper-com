@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creación de Issue{% endblock %}
+
+{% block body %}
+<form action="{{ path('issue_result') }}" method="GET">
+<!-- <label for="title">Titulo: </label><input type="text" name="title" id="title" /> -->
+<label for="cuerpo">Cuerpo del issue: </label><input type="text" name="cuerpo" id="cuerpo" /><br>
+<input type="submit" value="Enviar" />
+</form>
+{% endblock %}
