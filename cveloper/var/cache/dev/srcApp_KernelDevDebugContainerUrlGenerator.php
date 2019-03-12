@@ -45,6 +45,7 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         'developer_index' => [[], ['_controller' => 'App\\Controller\\DeveloperController::index'], [], [['text', '/developer/personal/']], [], []],
         'developer_new' => [[], ['_controller' => 'App\\Controller\\DeveloperController::new'], [], [['text', '/developer/personal/new']], [], []],
         'developer_show' => [['id'], ['_controller' => 'App\\Controller\\DeveloperController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/developer/personal']], [], []],
+        'developer_cv' => [['id'], ['_controller' => 'App\\Controller\\DeveloperController::cv'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/developer/personal/cv']], [], []],
         'developer_edit' => [['id'], ['_controller' => 'App\\Controller\\DeveloperController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/developer/personal']], [], []],
         'developer_delete' => [['id'], ['_controller' => 'App\\Controller\\DeveloperController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/developer/personal']], [], []],
         'experience_index' => [[], ['_controller' => 'App\\Controller\\ExperienceController::index'], [], [['text', '/developer/experience/']], [], []],

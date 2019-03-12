@@ -3421,3 +3421,4 @@ c3fcab,127.0.0.1,GET,http://localhost:8000/login,1552351303,,200
 7dcbf9,127.0.0.1,GET,http://localhost:8000/images/bg.jpg,1552351304,,404
 c7de1a,127.0.0.1,GET,http://localhost:8000/login,1552351314,efb8c3,200
 efb8c3,127.0.0.1,POST,http://localhost:8000/login,1552351314,,500
+e45265,127.0.0.1,GET,http://localhost:8000/issue,1552370429,,200
