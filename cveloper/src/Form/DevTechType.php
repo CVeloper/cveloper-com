@@ -14,7 +14,7 @@ class DevTechType extends AbstractType
         $builder
             ->add('level')
             ->add('id_tech')
-            ->add('id_developer')
+            //->add('id_developer')
         ;
     }
 

@@ -1,3 +1,7 @@
+body {
+	margin-bottom: 50px;
+}
+
 .icons {
 	text-align: center;
 	font-size: 2rem;
@@ -254,4 +258,14 @@ input[type="checkbox"] {
 label.checkbox_span {
 	padding-left: 50px;
 	padding-top: 45px;
+}
+
+img.dev_tech_logo,
+img.dev_avatar {
+	width: 50px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+img.dev_tech_logo {
+	width: 30px;
 }

@@ -2,10 +2,18 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <a href="{{ path('home') }}"><img class="logo" src="images/CVeloper_logo_texto.png" alt="Logo CVeloper" /></a>
+                <a href="{{ path('home') }}"><img class="logo" src="/images/CVeloper_logo_texto.png" alt="Logo CVeloper" /></a>
             </div>
             <div class="col-6">
-                <a href="{{ path('home_type') }}"><button class="header-button">Registro</button></a>
+                {% if app.user.roles is defined %}
+                    {% if 'ROLE_ADMIN' in app.user.roles %}
+                        <a href="{{ path('easyadmin') }}"><button class="header-button">Admin</button></a>
+                    {% elseif 'ROLE_DEVELOPER' in app.user.roles %}
+                        <a href="{{ path('developer_index') }}"><button class="header-button">Perfil</button></a>
+                    {% endif %}
+                {% else %}
+                    <a href="{{ path('home_type') }}"><button class="header-button">Registro</button></a>
+                {% endif %}
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <a href="{{ path('app_logout') }}"><button  class="header-button">Logout</button></a>
                 {% else %}

@@ -13,7 +13,7 @@ class AdditionalType extends AbstractType
     {
         $builder
             ->add('description')
-            ->add('id_developer')
+            //->add('id_developer')
         ;
     }
 

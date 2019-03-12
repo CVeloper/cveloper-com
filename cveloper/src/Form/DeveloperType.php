@@ -22,8 +22,9 @@ class DeveloperType extends AbstractType
             ->add('linkedin')
             ->add('web')
             ->add('email')
-            ->add('id_user')
-            ->add('devTeches')
+            //->add('avatar')
+            //->add('id_user')
+            //->add('devTeches')
         ;
     }
 

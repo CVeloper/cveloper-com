@@ -1,0 +1,140 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CV{% endblock %}
+
+{% block stylesheets %}
+    {% include 'home/styles.html' %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row"><br><br></div>
+    <div class="row">
+        <div class="col-4 cv">
+            <h2><br><b>{{ developer.firstName }}<br>{{ developer.lastName }}</b></h2>
+        </div>
+        <div class="col-8">
+            <hr>
+            {% for experience in developer.experiences %}
+            <div class="row">
+                <div class="col-2">
+                    <p>{{ experience.city }}</p>
+                </div>
+                <div class="col-10">
+                    <p>{{ experience.position }} en {{ experience.company }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 cv">
+            <img class="cv" src="/uploads/images/developer/avatar/{{ developer.avatar }}" />
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-2">
+                    <p>PHP<br>
+                    <br>Javascript<br>
+                    <br>HTML<br>
+                    <br>Java SE</p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                    <br><br>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                    <br><br>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                    <br><br>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <p>CSS<br>
+                    <br>Joomla<br>
+                    <br>Windows<br>
+                    <br>Linux</p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                    <br><br>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                    <br><br>
+                        <i class="fas fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                    <br><br>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-circle"></i>
+                        <i class="far fa-circle"></i>
+                    </p>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 cv"><br>
+            <p><i class="fas fa-link"></i> {{ developer.web }}</p>
+            <p><i class="fas fa-at"></i> {{ developer.email }}</p>
+            <p><i class="fas fa-mobile-alt"></i> {{ developer.phone }}</p>
+            <p><i class="fas fa-map-marker-alt"></i> {{ developer.city }}</p>
+        </div>
+        <div class="col-8">
+            {% for training in developer.trainings %}
+            <div class="row">
+                <div class="col-2">
+                    <p>{{ training.city }}</p>
+                </div>
+                <div class="col-10">
+                    <p>{{ training.degree }} en {{ training.institution }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 cv">
+        </div>
+        <div class="col-8">
+            {% for additional in developer.additionals %}
+                <p>{{ additional.description }}</p>
+            {% endfor %}
+            <hr>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

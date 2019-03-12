@@ -31,7 +31,8 @@ class DeveloperController extends AbstractController
         // pinto el template correspondiente al home de developer
         return $this->render('developer/home.html.twig', [
             // creo un nuevo método con la consulta restringida a su id
-            'developer' => $developerRepository->findMe($id)
+            'developer' => $developerRepository->findMe($id),
+            'page_title' => 'Página Personal',
         ]);
     }
 
@@ -64,6 +65,16 @@ class DeveloperController extends AbstractController
     public function show(Developer $developer): Response
     {
         return $this->render('developer/show.html.twig', [
+            'developer' => $developer,
+        ]);
+    }
+
+    /**
+     * @Route("/cv/{id}", name="developer_cv", methods={"GET"})
+     */
+    public function cv(Developer $developer): Response
+    {
+        return $this->render('developer/cv.html.twig', [
             'developer' => $developer,
         ]);
     }

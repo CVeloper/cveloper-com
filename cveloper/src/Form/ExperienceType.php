@@ -17,7 +17,7 @@ class ExperienceType extends AbstractType
             ->add('city')
             ->add('date_from')
             ->add('date_to')
-            ->add('id_developer')
+            //->add('id_developer')
         ;
     }
 
