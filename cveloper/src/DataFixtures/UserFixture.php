@@ -15,6 +15,7 @@ class UserFixture extends Fixture
 {
     // declaro estas constantes para pasar los usuarios a DeveloperFixture
     // public const ADMIN_USER_REFERENCE = 'admin-user';
+    public const USER_ADMIN = 'user_admin';
     public const USER_SERGIO = 'user_sergio';
     public const USER_PACO = 'user_paco';
     public const USER_RUBEN = 'user_ruben';
@@ -56,6 +57,7 @@ class UserFixture extends Fixture
 
         // other fixtures can get this object using the UserFixture::ADMIN_USER_REFERENCE constant
         // $this->addReference(self::ADMIN_USER_REFERENCE, $userAdmin);
+        $this->addReference(self::USER_ADMIN, $admin);
         $this->addReference(self::USER_SERGIO, $sergio);
         $this->addReference(self::USER_PACO, $paco);
         $this->addReference(self::USER_RUBEN, $ruben);

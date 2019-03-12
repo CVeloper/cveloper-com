@@ -24,6 +24,10 @@ class DeveloperFixture extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager)
     {
+        $admin = new Developer();
+        $admin->setIdUser($this->getReference(UserFixture::USER_ADMIN));
+        $admin->setFirstName('Administrador');
+
         $sergio = new Developer();
         $sergio->setIdUser($this->getReference(UserFixture::USER_SERGIO));
         $sergio->setFirstName('Sergio');
@@ -36,6 +40,8 @@ class DeveloperFixture extends Fixture implements DependentFixtureInterface
         $sergio->setLinkedin('https://www.linkedin.com/in/sergiovelmay/');
         $sergio->setWeb('https://sergiovelmay.com/');
         $sergio->setEmail('sergiovelmay@gmail.com');
+        $sergio->setAvatar('avatar_6.jpg');
+        $sergio->setUpdated(new \DateTime());
 
         $paco = new Developer();
         $paco->setIdUser($this->getReference(UserFixture::USER_PACO));
@@ -43,6 +49,8 @@ class DeveloperFixture extends Fixture implements DependentFixtureInterface
         $paco->setLastName('Ruiz');
         $paco->setCity('Madrid');
         $paco->setGithub('https://github.com/sergiovelmay/');
+        $paco->setAvatar('avatar_4.jpg');
+        $paco->setUpdated(new \DateTime());
 
         $ruben = new Developer();
         $ruben->setIdUser($this->getReference(UserFixture::USER_RUBEN));
@@ -50,6 +58,7 @@ class DeveloperFixture extends Fixture implements DependentFixtureInterface
         $ruben->setLastName('Sánchez');
         $ruben->setCity('Madrid');
 
+        $manager->persist($admin);
         $manager->persist($sergio);
         $manager->persist($paco);
         $manager->persist($ruben);
