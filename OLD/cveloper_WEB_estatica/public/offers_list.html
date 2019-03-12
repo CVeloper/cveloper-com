@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Ofertas</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+    <!-- Link Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Link Industrious -->
+    <link rel="stylesheet" href="css/industrious.css">
+    <!-- Link Fontawesome -->
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <!-- Link CVeloper -->
+    <link rel="stylesheet" href="css/styles.css"> 
+    
+</head>
+<body>
+
+    <header>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-6">
+                    <img class="logo" src="images/CVeloper_logo_texto.png" alt="Logo CVeloper" />
+                </div>
+                <div class="col-6">
+                    <a href="index.html"><button class="header-button">Cerrar Sesión</button></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <nav>
+                        <a href="users_list.html"><button class="nav-button">Listado Usuarios</button></a>
+                        <a href="tech_list.html"><button class="nav-button">Listado de Tecnologías</button></a>
+                        <a href="offers_list.html"><button class="nav-button">Listado de Ofertas</button></a>
+                    </nav>
+                </div>
+            </div>
+            
+        </div>
+    </header>
+    
+    <main>
+    <div class="container">
+
+            <button >Ofertas de Empleo</button>
+            <button>Ofertas de Formación</button>
+
+        <div class="oculto">
+    		<table>
+                <caption>Ofertas de Empleo</caption>
+        		<thead>
+        			<tr>
+	        			<th  class="centrado">ID</th>
+	        			<th class="centrado">Puesto</th>
+	        			<th class="centrado">Jornada</th>
+                        <th class="centrado">Tipo de Contrato</th>
+                        <th class="centrado">Salario</th>
+                        <th class="centrado">ID Empresa</th>
+                        <th class="centrado">Administración</th>
+	        		</tr>
+        		</thead>    
+				<tbody>
+					<tr>
+						<td class="centrado">1</td>
+						<td class="centrado">Programador Java/J2EE</td>
+                        <td class="centrado">Completa</td>
+                        <td class="centrado">Indefinido</td>
+                        <td class="centrado">15000€/Año</td>
+                        <td class="centrado">20</td>
+						<td class="centrado"><i class="fas fa-times-circle icons"></i></td>
+                    </tr>
+
+                    <tr>
+                        <td class="centrado">2</td>
+                        <td class="centrado">Analista Programador</td>
+                        <td class="centrado">Completa</td>
+                        <td class="centrado">Temporal</td>
+                        <td class="centrado">10000€/Año</td>
+                        <td class="centrado">12</td>
+                        <td class="centrado"><i class="fas fa-times-circle icons"></i></td>
+                    </tr>
+
+                    <tr>
+                        <td class="centrado">3</td>
+                        <td class="centrado">Programador Javascript</td>
+                        <td class="centrado">Media</td>
+                        <td class="centrado">Temporal</td>
+                        <td class="centrado">10000€/Año</td>
+                        <td class="centrado">12</td>
+                        <td class="centrado"><i class="fas fa-times-circle icons"></i></td>
+                    </tr>
+				</tbody>
+			</table>
+
+            <button>Ocultar</button>
+        </div>
+
+        <div class="oculto">
+            <table>
+                <caption>Ofertas de Formación</caption>
+                <thead>
+                    <tr>
+                        <th  class="centrado">ID</th>
+                        <th class="centrado">Horario/Turno</th>
+                        <th class="centrado">Nombre Curso</th>
+                        <th class="centrado">ID Centro</th>
+                        <th class="centrado">Administración</th>
+
+                    </tr>
+                </thead>    
+                <tbody>
+                    <tr>
+                        <td class="centrado">1</td>
+                        <td class="centrado">Vespertino</td>
+                        <td class="centrado"> Introducción profesional a PHP </td>
+                        <td class="centrado">6</td>
+                        <td class="centrado"><i class="fas fa-times-circle icons"></i></td>
+                    </tr>
+
+                     <tr>
+                        <td class="centrado">2</td>
+                        <td class="centrado">Diurno</td>
+                        <td class="centrado"> Fundamentos de Javascript </td>
+                        <td class="centrado">2</td>
+                        <td class="centrado"><i class="fas fa-times-circle icons"></i></td>
+                    </tr>
+
+                     <tr>
+                        <td class="centrado">3</td>
+                        <td class="centrado">Vespertino</td>
+                        <td class="centrado">Desarrollo web con Symfony</td>
+                        <td class="centrado">5</td>
+                        <td class="centrado"><i class="fas fa-times-circle icons"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+             <button>Ocultar</button>
+
+            </div>      	
+	</div>
+
+    </main>
+    <!-- ARCHIVO A PARTE? -->
+    <script>
+        document.querySelector("main > div.container > button:nth-of-type(1)").addEventListener("click", showJobOffer);
+
+        function showJobOffer() {
+            document.querySelector("div.oculto:nth-of-type(1)").style.display = "block";
+            document.querySelector("div.oculto:nth-of-type(1) > button").addEventListener("click", hideJobOffer);
+        }
+
+        document.querySelector("main > div.container > button:nth-of-type(2)").addEventListener("click", showTrainingOffer);
+
+        function showTrainingOffer() {
+            document.querySelector("div.oculto:nth-of-type(2)").style.display = "block";
+            document.querySelector("div.oculto:nth-of-type(2) > button").addEventListener("click", hideTrainingOffer);
+        }
+
+        function hideJobOffer() {
+            document.querySelector("div.oculto:nth-of-type(1)").style.display = "none";
+        }
+
+
+         function hideTrainingOffer() {
+            document.querySelector("div.oculto:nth-of-type(2)").style.display = "none";
+        }
+    </script>
+</body>
+</html>

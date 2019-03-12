@@ -1,0 +1,241 @@
+.icons {
+	text-align: center;
+	font-size: 2rem;
+}
+.centrado {
+	text-align: center;
+}
+
+caption {
+	caption-side: top;
+	font-size: 1.5rem;
+}
+
+.oculto {
+	display: none;
+}
+
+article {
+	padding: 12px 18px;
+	margin-bottom: 24px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+	cursor: pointer;
+}
+
+article p {
+	margin: 0;
+}
+
+article span {
+	font-size: 0.9em;
+	display: inline-block;
+}
+
+article > p,
+article span:first-of-type,
+article > div > p:not(:first-of-type) {
+	margin-top: 15px;
+}
+
+article img {
+	width: 100%;
+}
+
+article > div {
+	text-align: center;
+	padding-top: 18px;
+}
+
+article > div > p {
+	font-size: 0.9em;
+}
+
+.derecha {
+	text-align: right;
+}
+
+div.ranking p {
+	font-size: 1.1em;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+div.ranking p.puntos {
+	background-color: orange;
+	border-radius: 1.1em 0 0 1.1em;
+	padding-right: 12px;
+	font-weight: 700;
+}
+
+div.ranking:nth-child(2) p.puntos {
+	display: inline-block;
+	width: 86.5%;
+}
+
+div.ranking:nth-child(3) p.puntos {
+	display: inline-block;
+	width: 78.5%;
+}
+
+div.ranking:nth-child(4) p.puntos {
+	display: inline-block;
+	width: 70.0%;
+}
+
+div.ranking:nth-child(5) p.puntos {
+	display: inline-block;
+	width: 65.0%;
+}
+
+div.ranking:nth-child(6) p.puntos {
+	display: inline-block;
+	width: 62.0%;
+}
+
+div.ranking:nth-child(7) p.puntos {
+	display: inline-block;
+	width: 47.5%;
+}
+
+div.centrar p,
+div.centrar h1,
+div.centrar h2 {
+	text-align: center;
+}
+
+div.centrar h1 > a:not(:last-child) {
+	margin-right: 3%;
+}
+
+img.map {
+	width: 85%;
+}
+
+/* ################################################################## HEADER */
+
+body > header {
+	background-color: #222;
+	margin-bottom: 30px;
+	padding-right: 20px;
+	min-height: 105px;
+}
+
+body > header img.logo {
+	margin-top: 7px;
+	width: 200px;
+	float: left;
+}
+
+body > header button.header-button {
+	margin-top: 10px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+}
+
+body > header nav {
+	margin: 0 auto;
+	width: auto;
+	margin-bottom: 10px;
+}
+
+body > header > div.container > div.row:first-child {
+	padding-top: 15px;
+	margin-bottom: 15px;
+}
+
+body > header > div.container > div.row > div:first-child {
+	text-align: left;
+}
+
+body > header > div.container > div.row > div:last-child {
+	text-align: right;
+}
+
+/*
+body > header > div.container > div.row > div:nth-child(2) {
+	text-align: center;
+}
+
+body > header > div.container > div.row > div:nth-child(2) > p {
+	color: white;
+	font-size: 18px;
+	font-weight: 700;
+	padding-top: 25px;
+}
+*/
+
+body > header a button.header-button,
+body > header nav > a button.nav-button {
+	color: orange !important;
+	border-color: orange !important;
+	background-color: rgba(255,255,255,0.1);
+}
+
+body > header a button.header-button:hover,
+body > header nav > a button.nav-button:hover {
+	background-color: rgba(255,255,255,0.95);
+}
+
+body > header nav {
+	text-align: center;
+}
+
+body > header nav > button.nav-button {
+	display: inline-block;
+}
+
+body > header nav > a:not(:last-child) {
+	margin-right: 15px;
+}
+
+body > header nav > a > button {
+	margin-top: 0;
+	margin-bottom: 15px;
+
+}
+
+/* ################################################################## HEADER */
+
+body {
+	padding-top: 0px;
+}
+
+img.cv {
+ 	width: 100%;
+}
+
+div.cv {
+	background-color: orange;
+    padding-top: 12px;
+    padding-right: 24px;
+}
+
+input, textarea, select {
+	margin-bottom: 25px;
+}
+
+a {
+	text-decoration: none;
+}
+
+button,
+button.cv {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+button:hover,
+button.cv:hover {
+	background-color: #222;
+}
+
+button.alias,
+button.signup {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+div.izquierda {
+	text-align: right;
+}

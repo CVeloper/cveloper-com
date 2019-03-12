@@ -12,7 +12,8 @@ app_login           /login                              EVERYBODY
 
 developer_index     /developer/personal/                ROLE_DEVELOPER + ID_DEVELOPER
 developer_new       /developer/personal/new             ROLE_ADMIN
-developer_show      /developer/personal/{id}            ROLE_DEVELOPER + ID_DEVELOPER
+developer_show      /developer/personal/{id}            -----------------------------
+developer_cv        /developer/personal/cv/{id}         EVERYBODY
 developer_edit      /developer/personal/{id}/edit       ROLE_DEVELOPER + ID_DEVELOPER
 developer_delete    /developer/personal/{id}            ROLE_DEVELOPER + ID_DEVELOPER
 

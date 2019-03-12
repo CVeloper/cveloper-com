@@ -1,0 +1,616 @@
+################################################################################
+################################################################################
+GIT COMMANDS
+################################################################################
+################################################################################
+
+
+
+################################################################################
+CARPETA PADRE DEL PROYECTO
+
+Sergio@T5500 MINGW64 ~
+
+    $ cd '/f/SERVIDOR/UT10. Proyecto'
+
+
+
+################################################################################
+CREAR REPOSITORIO VACÍO
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto
+
+    $ git init
+
+        Initialized empty Git repository in F:/SERVIDOR/UT10. Proyecto/.git/
+
+
+
+################################################################################
+CLONAR REPOSITORIO
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto (master)
+
+    $ git clone https://github.com/CVeloper/cveloper-com.git
+
+        Cloning into 'cveloper-com'...
+        remote: Enumerating objects: 8, done.
+        remote: Counting objects: 100% (8/8), done.
+        remote: Compressing objects: 100% (7/7), done.
+        remote: Total 8 (delta 0), reused 0 (delta 0), pack-reused 0
+        Unpacking objects: 100% (8/8), done.
+
+
+
+################################################################################
+LINK AL REPOSITORIO REMOTO
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git remote set-url origin https://github.com/CVeloper/cveloper-com.git
+
+
+
+################################################################################
+VER LOS LINKS AL REPOSITORIO REMOTO
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git remote -v
+
+        origin  https://github.com/CVeloper/cveloper-com.git (fetch)
+        origin  https://github.com/CVeloper/cveloper-com.git (push)
+
+
+
+################################################################################
+CONFIGURAR EMAIL DE USUARIO
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git config --global user.email "sergiovelmay@gmail.com"
+
+
+
+################################################################################
+VER EMAIL DE USUARIO
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git config --global user.email
+
+        sergiovelmay@gmail.com
+
+
+
+
+################################################################################
+CONFIGURAR NOMBRE DE USUARIO
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git config --global user.name "SergioVelmay"
+
+
+
+################################################################################
+VER NOMBRE DE USUARIO
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+$ git config --global user.name
+SergioVelmay
+
+
+
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+    $ git status
+        On branch master
+        Your branch is up to date with 'origin/master'.
+
+        Changes not staged for commit:
+            (use "git add <file>..." to update what will be committed)
+            (use "git checkout -- <file>..." to discard changes in working directory)
+
+                        modified:   index.php
+
+        no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+################################################################################
+AÑADIR LOS CAMBIOS
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git add -A
+
+
+
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git status
+
+        On branch master
+        Your branch is up to date with 'origin/master'.
+
+        Changes to be committed:
+            (use "git reset HEAD <file>..." to unstage)
+
+                        modified:   index.php
+
+
+
+################################################################################
+GRABAR LOS CAMBIOS AÑADIDOS
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git commit -m 'Ordenado el archivo index.'
+
+        [master a56b7b0] Ordenado el archivo index.
+         1 file changed, 5 insertions(+), 3 deletions(-)
+
+
+
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git status
+
+        On branch master
+        Your branch is ahead of 'origin/master' by 2 commits.
+            (use "git push" to publish your local commits)
+
+        nothing to commit, working tree clean
+
+
+
+################################################################################
+ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git push origin master
+
+        Enumerating objects: 8, done.
+        Counting objects: 100% (8/8), done.
+        Delta compression using up to 24 threads
+        Compressing objects: 100% (6/6), done.
+        Writing objects: 100% (6/6), 712 bytes | 356.00 KiB/s, done.
+        Total 6 (delta 2), reused 0 (delta 0)
+        remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+        To https://github.com/CVeloper/cveloper-com.git
+             984fc61..8bafe51  master -> master
+
+
+
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git status
+
+        On branch master
+        Your branch is up to date with 'origin/master'.
+
+        Untracked files:
+          (use "git add <file>..." to include in what will be committed)
+
+                git_commands.txt
+
+        nothing added to commit but untracked files present (use "git add" to track)
+
+
+
+################################################################################
+AÑADIR LOS CAMBIOS
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git add -A
+
+
+
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git status
+
+        On branch master
+        Your branch is up to date with 'origin/master'.
+
+        Changes to be committed:
+          (use "git reset HEAD <file>..." to unstage)
+
+                new file:   git_commands.txt
+
+
+
+################################################################################
+GRABAR LOS CAMBIOS AÑADIDOS
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git commit -m 'Añadido archivo de comandos GIT.'
+
+        [master 11529ad] Añadido archivo de comandos GIT.
+         1 file changed, 239 insertions(+)
+         create mode 100644 git_commands.txt
+
+
+
+################################################################################
+ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO
+
+Sergio@T5500 MINGW64 /f/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+    $ git push origin master
+
+        Enumerating objects: 7, done.
+        Counting objects: 100% (7/7), done.
+        Delta compression using up to 24 threads
+        Compressing objects: 100% (6/6), done.
+        Writing objects: 100% (6/6), 2.08 KiB | 1.04 MiB/s, done.
+        Total 6 (delta 2), reused 0 (delta 0)
+        remote: Resolving deltas: 100% (2/2), done.
+        To https://github.com/CVeloper/cveloper-com.git
+           8bafe51..daf0994  master -> master
+
+
+
+################################################################################
+ACTUALIZAR EL REPOSITORIO LOCAL AL ESTADO ACTUAL DEL REPOSITORIO REMOTO
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (master)
+
+    $ git pull
+
+        Already up to date.
+
+
+
+################################################################################
+################################################################################
+GIT FTP
+################################################################################
+################################################################################
+
+
+
+################################################################################
+CARPETA PADRE DEL PROYECTO ?????
+
+Sergio@T5500 MINGW64 ~
+
+	$ cd '/d/SERVIDOR/UT10. Proyecto'
+
+
+
+################################################################################
+CLONAR REPOSITORIO GIT-FTP ?????
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto (master)
+
+	$ git clone https://github.com/git-ftp/git-ftp.git
+
+		Cloning into 'git-ftp'...
+		remote: Enumerating objects: 3343, done.
+		Resolving deltas:  66% (1285/1938)   0 (delta 0), pack-reused 3343
+		Resolving deltas:  86% (1672/1938)   2.57 MiB | 1.14 MiB/s, done.
+		Resolving deltas: 100% (1938/1938), done.
+
+
+
+################################################################################
+INSTALAR COMANDOS GIT-FTP
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ curl https://raw.githubusercontent.com/git-ftp/git-ftp/master/git-ftp > /bin/git-ftp
+
+		  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+		                                 Dload  Upload   Total   Spent    Left  Speed
+		100 46953  100 46953    0     0   117k      0 --:--:-- --:--:-- --:--:--  117k
+
+
+
+################################################################################
+PERMISOS CARPETA GIT-FTP
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ chmod 755 /bin/git-ftp
+
+
+
+################################################################################
+CONFIGURAR SERVIDOR FTP
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git config git-ftp.url "ftp.loquesea.com"
+
+
+
+################################################################################
+VER SERVIDOR FTP
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git config git-ftp.url
+
+		ftp.loquesea.com
+
+
+
+################################################################################
+CONFIGURAR USUARIO FTP
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git config git-ftp.user "elquesea@loquesea.com"
+
+
+
+################################################################################
+VER USUARIO FTP
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git config git-ftp.user
+
+		elquesea@loquesea.com
+
+
+
+################################################################################
+CONFIGURAR PASSWORD FTP
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git config git-ftp.password "notelovoyadecir"
+
+
+
+################################################################################
+ VER PASSWORD FTP
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git config git-ftp.password
+
+		notelovoyadecir
+
+
+
+################################################################################
+ENVIAR TODOS LOS ARCHIVOS VIA FTP
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git ftp init
+
+		5 files to sync:
+		[1 of 5] Buffered for upload 'git_commands.txt'.
+		[2 of 5] Buffered for upload 'images/background.jpg'.
+		[3 of 5] Buffered for upload 'images/favicon.jpg'.
+		[4 of 5] Buffered for upload 'index.php'.
+		[5 of 5] Buffered for upload 'styles/styles.css'.
+		Uploading ...
+		Last deployment changed from  to cfac38d2b83bb1a039942bac2bf3982b8261aa65.
+
+
+
+################################################################################
+ERROR AL SUBIR VIA FTP CUANDO LOS CAMBIOS NO SE HAN ACTUALIZADO ????????????????
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git ftp catchup
+
+		fatal: Dirty repository: Having uncommitted changes. Exiting...
+
+
+
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git status
+
+		On branch master
+		Your branch is up to date with 'origin/master'.
+
+		Changes not staged for commit:
+		  (use "git add <file>..." to update what will be committed)
+		  (use "git checkout -- <file>..." to discard changes in working directory)
+
+		        modified:   git_commands.txt
+		        modified:   styles/styles.css
+
+		no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+################################################################################
+AÑADIR LOS CAMBIOS
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git add -A
+
+
+
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git status
+
+		On branch master
+		Your branch is up to date with 'origin/master'.
+
+		Changes to be committed:
+		  (use "git reset HEAD <file>..." to unstage)
+
+		        modified:   git_commands.txt
+		        modified:   styles/styles.css
+
+
+
+################################################################################
+GRABAR LOS CAMBIOS AÑADIDOS
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git commit -m 'Incorporados comandos GIT para FTP.'
+
+		[master 646ed63] Incorporados comandos GIT para FTP.
+		 2 files changed, 130 insertions(+), 6 deletions(-)
+
+
+
+################################################################################
+VER CAMBIOS EN REPOSITORIO LOCAL
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git status
+
+		On branch master
+		Your branch is ahead of 'origin/master' by 1 commit.
+		  (use "git push" to publish your local commits)
+
+		nothing to commit, working tree clean
+
+
+
+################################################################################
+ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL REPOSITORIO REMOTO
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git push origin master
+
+		Enumerating objects: 9, done.
+		Counting objects: 100% (9/9), done.
+		Delta compression using up to 24 threads.
+		Compressing objects: 100% (4/4), done.
+		Writing objects: 100% (5/5), 1.31 KiB | 78.00 KiB/s, done.
+		Total 5 (delta 3), reused 0 (delta 0)
+		remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+		To https://github.com/CVeloper/cveloper-com.git
+		   cfac38d..646ed63  master -> master
+
+
+
+################################################################################
+ACTUALIZAR LOS CAMBIOS GUARDADOS EN EL SERVIDOR FTP
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git ftp push
+
+		1 file to sync:
+		[1 of 1] Buffered for upload 'git_commands.txt'.
+		Uploading ...
+		Last deployment changed from 0b6dfd2a6b847779a6b6f4ed2b591481297100ac to c9e670b32c16da26d4cd37b40e382ead51f022f3.
+
+
+
+################################################################################
+RECUPERAR / EMPAREJAR LOS FICHEROS DEL SERVIDOR FTP ????????????????????????????
+
+Sergio@T5500 MINGW64 /d/SERVIDOR/UT10. Proyecto/cveloper-com (master)
+
+	$ git ftp catchup
+
+		Last deployment changed from  to c9e670b32c16da26d4cd37b40e382ead51f022f3.
+
+
+
+################################################################################
+CREAR UNA NUEVA RAMA EN EL PROYECTO
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (master)
+
+    $ git branch test_database
+
+
+
+################################################################################
+CAMBIAR A OTRA RAMA EN EL PROYECTO
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (master)
+
+    $ git checkout test_database
+
+        Switched to branch 'test_database'
+
+
+
+################################################################################
+CREAR Y CAMBIAR A NUEVA RAMA EN EL PROYECTO (ABREVIADO)
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (test_database)
+
+    $ git checkout -b test_database
+
+        Switched to branch 'test_database'
+
+
+
+################################################################################
+AÑADIR LOS CAMBIOS DE LA RAMA MASTER A LA RAMA NUEVA
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (test_database)
+
+    $ git merge master
+
+        Already up to date.
+
+
+
+################################################################################
+CAMBIAR A LA RAMA MASTER DEL PROYECTO
+
+    Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (test_database)
+
+        $ git checkout master
+
+            Switched to branch 'master'
+
+
+
+################################################################################
+INTEGRAR LOS CAMBIOS DE LA RAMA NUEVA EN LA RAMA MASTER
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (master)
+
+    $ git merge test_database
+
+        Merge made by the 'recursive' strategy.
+        test.sql |    1 +
+        1 file changed, 1 insertion(+)
+
+
+
+################################################################################
+BORRAR LA NUEVA RAMA DEL PROYECTO
+
+Sergio@T5500 MINGW64 /d/DWES_SERVIDOR/UT10 PROYECTO_DWES/cveloper-com (master)
+
+    $ git branch -d test_database

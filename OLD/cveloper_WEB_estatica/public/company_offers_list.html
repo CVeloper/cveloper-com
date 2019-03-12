@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de ofertas propias de formación</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+    <!-- Link Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Link Industrious -->
+    <link rel="stylesheet" href="css/industrious.css">
+    <!-- Link Fontawesome -->
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <!-- Link CVeloper -->
+    <link rel="stylesheet" href="css/styles.css"> 
+
+</head>
+<body>
+
+    <header>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-6">
+                    <img class="logo" src="images/CVeloper_logo_texto.png" alt="Logo CVeloper" />
+                </div>
+                <div class="col-6">
+                    <a href="index.html"><button class="header-button">Cerrar Sesión</button></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <nav>
+                        <a href="company_offers_list.html"><button class="nav-button">Mis ofertas</button></a>
+                        <a href="job_offer.html"><button class="nav-button">Nueva Oferta</button></a>
+                        <a href="company_info.html"><button class="nav-button">Mis Datos</button></a>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    
+<main>
+    <div class="container">
+
+            <button>Mis Ofertas de Empleo</button>
+            
+
+        <div class="oculto">
+    		<table>
+                <caption>Mis ofertas de Empleo</caption>
+        		<thead>
+        			<tr>
+	        			<th class="centrado">Puesto</th>
+	        			<th class="centrado">Jornada</th>
+	        			<th class="centrado">Tipo de Contrato</th>
+                        <th class="centrado">Salario</th>
+                        <th class="centrado">Inscritos</th>
+                        <th class="centrado">Administración</th>
+	        		</tr>
+        		</thead>    
+				<tbody>
+					<tr>
+						<td class="centrado">Programador Java/J2EE</td>
+						<td class="centrado">Completa</td>
+                        <td class="centrado">Indefinido</td>
+                        <td class="centrado">15000/Año</td>
+                        <td class="centrado"><button>Candidatos</button></td>
+						<td class="centrado"><i class="fas fa-times-circle icons"></i></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td>
+                            <div class="oculto">
+                                <table>
+                                    <caption>Candidatos apuntados a la oferta</caption>
+                                <thead>
+                                    <tr>
+                                        <th class="centrado">Alias</th>
+                                        <th class="centrado">Nombre</th>
+                                        <th class="centrado">Apellidos</th>
+                                        <th class="centrado">Github</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="centrado">BubblySnowFlake</td>
+                                        <td class="centrado">Cristina</td>
+                                        <td class="centrado">Lopez Aguilar</td>
+                                        <td class="centrado"><a href="https://github.com/CVeloper"><i class="fab fa-github icons"></i></a></td>
+
+                                    </tr>
+
+                                     <tr>
+                                        <td class="centrado">rsanchez</td>
+                                        <td class="centrado">Rubén</td>
+                                        <td class="centrado">Sánchez Martinez</td>
+                                        <td class="centrado"><a href="https://github.com/CVeloper"><i class="fab fa-github icons"></i></a></td>
+
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                            <button>Cerrar candidatos de esta oferta</button>
+                        </div>
+                    </td>
+                    </tr>
+
+                    <tr>
+                        <td class="centrado">Analista Programador</td>
+                        <td class="centrado">Completa</td>
+                        <td class="centrado">Temporal</td>
+                        <td class="centrado">10000/Año</td>
+                        <td class="centrado"><button>Candidatos</button></td>
+                        <td class="centrado"><i class="fas fa-times-circle icons"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button>Ocultar</button>
+</div>
+</div>
+</main>
+    <!-- ARCHIVO A PARTE? -->
+    <script>
+    /* Funciones para Mostrar las Tablas */
+
+        /*Mostrar Listado Mis Ofertasa*/
+         document.querySelector("main > div.container > button:nth-of-type(1)").addEventListener("click", showMyOffers);
+
+        function showMyOffers() {
+            document.querySelector("div.oculto:nth-of-type(1)").style.display = "block";
+            document.querySelector("div.container > div.oculto:nth-of-type(1) > button").addEventListener("click", hideMyOffers);
+        }
+
+         function hideMyOffers() {
+            document.querySelector("div.oculto:nth-of-type(1)").style.display = "none";
+        }
+
+         document.querySelector("div.oculto:nth-of-type(1) > table> tbody > tr:first-child > td:nth-of-type(5) > button").addEventListener("click", showCandidates);
+
+
+        function showCandidates() {
+            document.querySelector("div.oculto:nth-of-type(1) > table> tbody > tr:nth-of-type(2) > td > div").style.display = "block";
+            document.querySelector("div.oculto:nth-of-type(1) > table> tbody > tr:nth-of-type(2) > td > div > button").addEventListener("click", hideCandidatos);
+        }
+
+    /*Funciones para ocultar las tablas*/
+
+        function hideCandidatos() {
+            document.querySelector("div.oculto:nth-of-type(1) > table> tbody > tr:nth-of-type(2) > td > div").style.display = "none";
+        }
+
+
+
+       
+    </script>
+</body>
+</html>
