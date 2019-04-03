@@ -44,6 +44,8 @@ https://symfony.com/doc/current/security/user_provider.html
 
 https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/security.html   // @isGranted() y @security()
 
+
+			****** POSIBLE SOLUCIÓN DEL FALLO DE OAUTH: composer require hwi/oauth-bundle php-http/guzzle6-adapter:1.1.1 php-http/httplug-bundle *****
 https://github.com/hwi/HWIOAuthBundle   // para incluir el OAuth con GitHub
 https://github.com/hwi/HWIOAuthBundle/blob/master/Resources/doc/index.md
 https://github.com/hwi/HWIOAuthBundle/blob/master/Resources/doc/1-setting_up_the_bundle.md

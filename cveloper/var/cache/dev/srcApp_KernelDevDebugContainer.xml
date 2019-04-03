@@ -414,6 +414,12 @@
           </parameter>
         </parameter>
       </parameter>
+      <parameter key="formats" type="collection">
+        <parameter key="datetime">d/m/Y</parameter>
+        <parameter key="date">Y-m-d</parameter>
+        <parameter key="time">H:i:s</parameter>
+        <parameter key="dateinterval">%y Year(s) %m Month(s) %d Day(s)</parameter>
+      </parameter>
       <parameter key="entities" type="collection">
         <parameter key="User" type="collection">
           <parameter key="class">App\Entity\User</parameter>
@@ -619,10 +625,6 @@
                 <parameter key="base_path">/uploads/images/developer/avatar</parameter>
               </parameter>
               <parameter type="collection">
-                <parameter key="property">email</parameter>
-                <parameter key="label">Email</parameter>
-              </parameter>
-              <parameter type="collection">
                 <parameter key="property">address</parameter>
                 <parameter key="label">Dirección</parameter>
               </parameter>
@@ -637,18 +639,6 @@
               <parameter type="collection">
                 <parameter key="property">phone</parameter>
                 <parameter key="label">Telefono</parameter>
-              </parameter>
-              <parameter type="collection">
-                <parameter key="property">github</parameter>
-                <parameter key="label">Github</parameter>
-              </parameter>
-              <parameter type="collection">
-                <parameter key="property">linkedin</parameter>
-                <parameter key="label">Linkedin</parameter>
-              </parameter>
-              <parameter type="collection">
-                <parameter key="property">web</parameter>
-                <parameter key="label">Web Personal</parameter>
               </parameter>
             </parameter>
           </parameter>
@@ -1054,12 +1044,6 @@
           <parameter key="name">DevTech</parameter>
         </parameter>
       </parameter>
-      <parameter key="formats" type="collection">
-        <parameter key="date">Y-m-d</parameter>
-        <parameter key="time">H:i:s</parameter>
-        <parameter key="datetime">F j, Y H:i</parameter>
-        <parameter key="dateinterval">%y Year(s) %m Month(s) %d Day(s)</parameter>
-      </parameter>
       <parameter key="disabled_actions" type="collection"/>
       <parameter key="translation_domain">messages</parameter>
       <parameter key="search" type="collection"/>
@@ -1254,6 +1238,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\RegistrationController"/>
+      </call>
+    </service>
+    <service id="App\Controller\SearchController" class="App\Controller\SearchController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\SearchController"/>
       </call>
     </service>
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
@@ -6043,6 +6034,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SearchController" class="App\Controller\SearchController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SearchController" class="App\Controller\SearchController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SearchController" class="App\Controller\SearchController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6319,6 +6313,14 @@
         <argument key="passwordEncoder" type="service" id="security.user_password_encoder.generic"/>
       </argument>
     </service>
+    <service id=".service_locator.5fDH0jL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="devTechRepository" type="service" id="App\Repository\DevTechRepository"/>
+        <argument key="developerRepository" type="service" id="App\Repository\DeveloperRepository"/>
+        <argument key="technologyRepository" type="service" id="App\Repository\TechnologyRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.EbLunuf" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6361,7 +6363,7 @@
         <argument key="user" type="service" id=".errored..service_locator.wypGnUQ.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.6xqHXkA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.ulg.FXi" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdditionalController::delete" type="service" id=".service_locator.X2Z8eIS"/>
@@ -6382,6 +6384,7 @@
         <argument key="App\Controller\ExperienceController::index" type="service" id=".service_locator.4eW7lcb"/>
         <argument key="App\Controller\ExperienceController::show" type="service" id=".service_locator.zBOqTb5"/>
         <argument key="App\Controller\RegistrationController::register" type="service" id=".service_locator.wyrb61."/>
+        <argument key="App\Controller\SearchController::index" type="service" id=".service_locator.5fDH0jL"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.EbLunuf"/>
         <argument key="App\Controller\TechnologyController::delete" type="service" id=".service_locator.5rm8RZ7"/>
         <argument key="App\Controller\TechnologyController::edit" type="service" id=".service_locator.5rm8RZ7"/>
@@ -6413,6 +6416,7 @@
         <argument key="App\Controller\ExperienceController:index" type="service" id=".service_locator.4eW7lcb"/>
         <argument key="App\Controller\ExperienceController:show" type="service" id=".service_locator.zBOqTb5"/>
         <argument key="App\Controller\RegistrationController:register" type="service" id=".service_locator.wyrb61."/>
+        <argument key="App\Controller\SearchController:index" type="service" id=".service_locator.5fDH0jL"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.EbLunuf"/>
         <argument key="App\Controller\TechnologyController:delete" type="service" id=".service_locator.5rm8RZ7"/>
         <argument key="App\Controller\TechnologyController:edit" type="service" id=".service_locator.5rm8RZ7"/>
@@ -6741,6 +6745,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.KTVqfp6" method="withContext"/>
     </service>
+    <service id=".service_locator.KTVqfp6.App\Controller\SearchController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\SearchController"/>
+      <argument>App\Controller\SearchController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.KTVqfp6" method="withContext"/>
+    </service>
     <service id=".service_locator.KTVqfp6.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
@@ -6886,7 +6896,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.6xqHXkA"/>
+      <argument type="service" id=".service_locator.ulg.FXi"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -7269,7 +7279,7 @@
     <service id="Vich\UploaderBundle\Form\Type\VichImageType" alias="vich_uploader.form.type.image" public="false"/>
     <service id="Vich\UploaderBundle\Templating\Helper\UploaderHelper" alias="vich_uploader.templating.helper.uploader_helper" public="false"/>
     <service id="Vich\UploaderBundle\Twig\Extension\UploaderExtension" alias="vich_uploader.twig.extension.uploader" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.6xqHXkA"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.ulg.FXi"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="validator" alias="debug.validator" public="true"/>
